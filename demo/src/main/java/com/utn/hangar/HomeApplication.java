@@ -13,7 +13,7 @@ public class HomeApplication extends Application {
     public void start(Stage stage) throws IOException, InterruptedException {
         FXMLLoader fxmlLoader = new FXMLLoader(HomeApplication.class.getResource("home-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("Sistema Hangar 2.0");
+        stage.setTitle("Sistema Hangar 2.0 - Home");
         stage.setScene(scene);
         stage.setResizable(false);
         stage.show();
