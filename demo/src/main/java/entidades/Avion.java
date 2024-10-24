@@ -2,7 +2,7 @@ package entidades;
 
 import java.util.Objects;
 
-public class Avion {
+public class Avion implements Comparable<Avion> {
 
     private static int contadorID = 0;
 
@@ -18,7 +18,7 @@ public class Avion {
     private int combustibleActual;
     private int alta;
 
-    public Avion(String nombre, int numeracion, String modelo, String aerolinea, int capacidadPasajeros, int combustibleMaximo) {
+    public Avion(String nombre, int numeracion, String modelo, String aerolinea, int capacidadPasajeros) {
         this.id = ++contadorID;
         this.piloto = null;
         this.nombre = nombre;
@@ -27,8 +27,8 @@ public class Avion {
         this.aerolinea = aerolinea;
         this.capacidadPasajeros = capacidadPasajeros;
         this.vuelosRealizados = 0;
-        this.combustibleMaximo = combustibleMaximo;
-        this.combustibleActual = 0;
+        this.combustibleMaximo = 100;
+        this.combustibleActual = 100;
         this.alta = 1;
     }
 
@@ -120,6 +120,18 @@ public class Avion {
         this.alta = alta;
     }
 
+
+    /**
+     * @see "Llena por completo el combustible del avion"
+     * @return Devuelve un mensaje indicando que el combustible se lleno
+     */
+    public String cargarCombustible () {
+        setCombustibleActual(100);
+        return "Combustible lleno.";
+    }
+
+
+
     @Override
     public String toString() {
         return "Avion{" +
@@ -151,4 +163,8 @@ public class Avion {
     }
 
 
+    @Override
+    public int compareTo(Avion o) {
+        return this.nombre.compareTo(o.getNombre());
+    }
 }
