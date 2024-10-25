@@ -1,19 +1,17 @@
 package com.utn.hangar;
 
+import controlJSON.LeerJSON;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import archivoJSON.LeerJSON;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.FileWriter;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.InputMismatchException;
 
 public class RegisterController {

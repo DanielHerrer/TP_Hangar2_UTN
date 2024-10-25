@@ -1,6 +1,6 @@
 package com.utn.hangar;
 
-import archivoJSON.LeerJSON;
+import controlJSON.LeerJSON;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
