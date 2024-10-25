@@ -1,4 +1,4 @@
-package claseControllerJSON_Lgn;
+package archivoJSON;
 
 import org.json.JSONArray;
 import org.json.JSONObject;

@@ -6,7 +6,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import claseControllerJSON_Lgn.LeerJSON;
+import archivoJSON.LeerJSON;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
