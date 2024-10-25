@@ -1,4 +1,4 @@
-package archivoJSON;
+package controlJSON;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -11,7 +11,7 @@ public class LeerJSON {
         String content = "";
         try {
             // Cargar el archivo desde resources/archivosJSON/usuarios.json
-            InputStream inputStream = getClass().getResourceAsStream("/archivosJSON/usuarios.json");
+            InputStream inputStream = getClass().getResourceAsStream("/archiJSON/usuarios.json");
             if (inputStream == null) {
                 throw new NullPointerException("No se pudo encontrar el archivo usuarios.json en la ruta especificada.");
             }

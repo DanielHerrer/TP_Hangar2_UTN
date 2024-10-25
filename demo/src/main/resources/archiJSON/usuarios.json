@@ -3,12 +3,12 @@
     {
       "user": "admin",
       "pass": "admin123",
-      "rol": "ADMINISTRADOR"
+      "rol": "2"
     },
     {
       "user": "user1",
       "pass": "pass123",
-      "rol": "OPERADOR"
+      "rol": "1"
     }
   ]
 }
