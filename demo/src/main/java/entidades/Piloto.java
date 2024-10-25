@@ -2,6 +2,7 @@ package entidades;
 
 import enums.Genero;
 import enums.Rango;
+import org.json.JSONObject;
 
 import java.util.Objects;
 
@@ -16,6 +17,17 @@ public class Piloto extends Persona {
         this.numeroLicencia = numeroLicencia;
         this.horasVuelo = 0;
         this.rango = Rango.ALUMNO_PILOTO;
+    }
+
+    /**
+     *
+     * @see "Constructor con todos los parametros para crear el JSON"
+     */
+    public Piloto(int id, String dni, String nombreApellido, Genero genero, int anioNacimiento, int alta, String numeroLicencia, int horasVuelo, Rango rango) {
+        super(id, dni, nombreApellido, genero, anioNacimiento, alta);
+        this.numeroLicencia = numeroLicencia;
+        this.horasVuelo = horasVuelo;
+        this.rango = rango;
     }
 
     public String getNumeroLicencia() {
@@ -86,6 +98,35 @@ public class Piloto extends Persona {
         {
             setRango(Rango.ALUMNO_PILOTO);
         }
+    }
+
+    public JSONObject pilotoToJSONObject() {
+        JSONObject json = new JSONObject();
+        json.put("id", super.getId());
+        json.put("dni", super.getDni());
+        json.put("nombreApellido", super.getNombreApellido());
+        json.put("genero", super.getGenero());
+        json.put("anioNacimiento", super.getAnioNacimiento());
+        json.put("alta", super.getAlta());
+        json.put("numeroLicencia", this.numeroLicencia);
+        json.put("horasVuelo", this.horasVuelo);
+        json.put("rango", this.rango);
+        return json;
+    }
+
+    public static Piloto JSONObjectToPiloto(JSONObject json) {
+        int id = json.getInt("id");
+        String dni = json.getString("dni");
+        String nombreApellido = json.getString("nombreApellido");
+        String generoStr = json.getString("genero");
+        Genero genero = Genero.valueOf(generoStr.toUpperCase());
+        int anioNacimiento = json.getInt("anioNacimiento");
+        int alta = json.getInt("alta");
+        String numeroLicencia = json.getString("numeroLicencia");
+        int horasVuelo = json.getInt("horasVuelo");
+        String rangoStr = json.getString("rango");
+        Rango rango = Rango.valueOf(rangoStr.toUpperCase());
+        return new Piloto(id, dni, nombreApellido, genero, anioNacimiento, alta, numeroLicencia, horasVuelo, rango);
     }
 
     @Override

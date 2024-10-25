@@ -1,6 +1,7 @@
 package entidades;
 
 import enums.Genero;
+import org.json.JSONObject;
 
 import java.util.Objects;
 
@@ -21,6 +22,19 @@ public abstract class Persona {
         this.genero = genero;
         this.anioNacimiento = anioNacimiento;
         this.alta = 1;
+    }
+
+    /**
+     *
+     * @see "Constructor con todos los parametros para crear el JSON"
+     */
+    public Persona(int id, String dni, String nombreApellido, Genero genero, int anioNacimiento, int alta) {
+        this.id = id;
+        this.dni = dni;
+        this.nombreApellido = nombreApellido;
+        this.genero = genero;
+        this.anioNacimiento = anioNacimiento;
+        this.alta = alta;
     }
 
     public int getId() {
@@ -70,6 +84,7 @@ public abstract class Persona {
     public void setAlta(int alta) {
         this.alta = alta;
     }
+
 
     @Override
     public String toString() {
