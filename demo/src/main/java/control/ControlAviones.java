@@ -112,24 +112,28 @@ public class ControlAviones {
      */
     public int modificarAltaAvion (int id) {
         Avion avion = null;
+        boolean encontrado = false;
 
         for (Avion avi : listaAviones) {
             if (id == avi.getId()) {
                 if (avi.getAlta() == 1) {
                     avi.setAlta(0);
                     avion = avi;
+                    encontrado = true;
                 }
                 else {
                     avi.setAlta(1);
                     avion = avi;
+                    encontrado = true;
                 }
             }
-            else {
-                return -1;
-                //retorno -1 si el id es incorrecto
-            }
         }
-        return avion.getAlta();
+        if (encontrado) {
+            return avion.getAlta();
+        }
+        else {
+            return -1; //RETORNO -1 SI NO ENCONTRO AL AVION
+        }
     }
 
     /**

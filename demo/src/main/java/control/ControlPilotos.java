@@ -1,6 +1,7 @@
 package control;
 
 import entidades.Piloto;
+import entidades.Usuario;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.json.JSONTokener;
@@ -21,6 +22,19 @@ public class ControlPilotos {
 
     public void agregar (Piloto p) {
         listaPilotos.add(p);
+    }
+
+    /**
+     * @see "Verifica si un piloto esta o no el sistema, se basa en su numero de licencia"
+     * @param nombreArchivo referencia al JSON de Pilotos
+     * @param p es el Piloto que se quiere crear
+     * @return devuelve un boolean de acuerdo a si esta o no
+     */
+    public boolean verificarUsuario (String nombreArchivo, Piloto p) {
+        cargarPilotoDesdeArchivo(nombreArchivo);
+
+        return listaPilotos.contains(p);
+
     }
 
     public JSONArray crearJSONArray () {
