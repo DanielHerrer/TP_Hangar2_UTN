@@ -12,6 +12,12 @@ public class Piloto extends Persona {
     private int horasVuelo;
     private Rango rango;
 
+    public Piloto () {
+        this.numeroLicencia = null;
+        this.horasVuelo = 0;
+        this.rango = null;
+    }
+
     public Piloto(String dni, String nombreApellido, Genero genero, int anioNacimiento, String numeroLicencia) {
         super(dni, nombreApellido, genero, anioNacimiento);
         this.numeroLicencia = numeroLicencia;

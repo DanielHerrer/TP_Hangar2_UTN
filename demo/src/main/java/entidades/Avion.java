@@ -1,5 +1,9 @@
 package entidades;
 
+import enums.Genero;
+import enums.Rango;
+import org.json.JSONObject;
+
 import java.util.Objects;
 
 public class Avion implements Comparable<Avion> {
@@ -30,6 +34,20 @@ public class Avion implements Comparable<Avion> {
         this.combustibleMaximo = 100;
         this.combustibleActual = 100;
         this.alta = 1;
+    }
+
+    public Avion(int id, Piloto piloto, String nombre, int numeracion, String modelo, String aerolinea, int capacidadPasajeros, int vuelosRealizados, int combustibleMaximo, int combustibleActual, int alta) {
+        this.id = id;
+        this.piloto = piloto;
+        this.nombre = nombre;
+        this.numeracion = numeracion;
+        this.modelo = modelo;
+        this.aerolinea = aerolinea;
+        this.capacidadPasajeros = capacidadPasajeros;
+        this.vuelosRealizados = vuelosRealizados;
+        this.combustibleMaximo = combustibleMaximo;
+        this.combustibleActual = combustibleActual;
+        this.alta = alta;
     }
 
     public int getId() {
@@ -130,6 +148,40 @@ public class Avion implements Comparable<Avion> {
         return "Combustible lleno.";
     }
 
+    public JSONObject avionToJSONObject() {
+        JSONObject json = new JSONObject();
+        json.put("id", this.id);
+        if (this.piloto != null) {
+            json.put("piloto", this.piloto.pilotoToJSONObject());
+        } else {
+            json.put("piloto", JSONObject.NULL); //SI NO TIENE UN PILOTO CARGADO USO JSONObject.NULL
+        }
+        json.put("nombre", this.nombre);
+        json.put("numeracion", this.numeracion);
+        json.put("modelo", this.modelo);
+        json.put("aerolinea", this.aerolinea);
+        json.put("capacidadPasajeros", this.capacidadPasajeros);
+        json.put("vuelosRealizados", this.vuelosRealizados);
+        json.put("combustibleMaximo", this.combustibleMaximo);
+        json.put("combustibleActual", this.combustibleActual);
+        json.put("alta", this.alta);
+        return json;
+    }
+
+    public static Avion JSONObjectToAvion(JSONObject json) {
+        int id = json.getInt("id");
+        Piloto piloto = Piloto.JSONObjectToPiloto(json.getJSONObject("piloto"));
+        String nombre = json.getString("nombre");
+        int numeracion = json.getInt("numeracion");
+        String modelo = json.getString("modelo");
+        String aerolinea = json.getString("aerolinea");
+        int capacidadPasajeros = json.getInt("capacidadPasajeros");
+        int vuelosRealizados = json.getInt("vuelosRealizados");
+        int combustibleMaximo = json.getInt("combustibleMaximo");
+        int combustibleActual = json.getInt("combustibleActual");
+        int alta = json.getInt("alta");
+        return new Avion(id, piloto, nombre, numeracion, modelo, aerolinea, capacidadPasajeros, vuelosRealizados, combustibleMaximo, combustibleActual, alta);
+    }
 
 
     @Override

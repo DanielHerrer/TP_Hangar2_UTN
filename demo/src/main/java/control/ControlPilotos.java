@@ -65,7 +65,7 @@ public class ControlPilotos {
             JSONArray tasksArray = new JSONArray(leerArchivo(archivo));
 
             pilotoJSONArrayToList(tasksArray);
-            System.out.println("Tareas cargadas desde el archivo: " + archivo);
+            System.out.println("Pilotos cargados desde el archivo: " + archivo);
         } catch (Exception e) {
             e.printStackTrace();
         }

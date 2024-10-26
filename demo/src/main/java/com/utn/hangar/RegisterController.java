@@ -1,5 +1,8 @@
 package com.utn.hangar;
 
+import control.ControlUsuarios;
+import entidades.Usuario;
+import enums.Genero;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -43,9 +46,32 @@ public class RegisterController {
                 throw new Exception("Error al cargar archivo de usuarios");
             }
 
+            //DECLARO VARIABLES PARA INSTANCIAR UN USUARIO
+            String dni = inputUser.getText();
+            String completeName = inputUser.getText();
+            char genero = inputUser.getCharacters().charAt(0);
+            Genero gen;
+            //DE ACUERDO AL GENERO QUE INTRODUZCA EL USUARIO SE ELIGE EL ENUM CORRESPONDIENTE
+            if (genero == 'M' || genero == 'm') {
+                 gen = Genero.MASCULINO;
+            }
+            else {
+                 gen = Genero.FEMENINO;
+            }
+            String anioNacimientoSTR = inputUser.getText();
+            int anioNacimiento = Integer.parseInt(anioNacimientoSTR);
             String user = inputUser.getText();
             String pass = inputPass.getText();
             String passConfirm = inputPassConfirm.getText();
+
+            //CON LOS DATOS PEDIDOS ANTERIORMENTE SE INSTANCIA UN USUARIO
+            Usuario usuario1 = new Usuario(dni,completeName, gen, anioNacimiento, user, pass);
+            //SE CREA UN OBJETO DE LA CLASE GESTORA
+            ControlUsuarios conUsuarios = new ControlUsuarios();
+            //SE AGREGA EL USUARIO AL ARREGLO DE LA CLASE GESTORA
+            conUsuarios.agregar(usuario1);
+            //Y SE GUARDA EL CONTENIDO DEL ARREGLO EN EL JSON
+            conUsuarios.guardarUsuarioToFile("Usuarios-JSON");
 
             //VALIDACIONES
             if (inputUser.getText().isBlank()) {

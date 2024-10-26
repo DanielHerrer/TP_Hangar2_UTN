@@ -3,12 +3,12 @@ package entidades;
 import enums.Genero;
 import org.json.JSONObject;
 
+import java.io.FileWriter;
 import java.util.Objects;
 
 public abstract class Persona {
-    private static final String RUTA_ARCHIVO_CONTADOR = "contadorID.txt";
-    public static int contadorID = cargarContador();
 
+    public static int contadorID = 0;
 
     private int id;
     private String dni;
@@ -16,6 +16,15 @@ public abstract class Persona {
     private Genero genero;
     private int anioNacimiento;
     private int alta;
+
+    public Persona () {
+        this.id = 0;
+        this.dni = null;
+        this.nombreApellido = null;
+        this.genero = null;
+        this.anioNacimiento = 0;
+        this.alta = 0;
+    }
 
     public Persona(String dni, String nombreApellido, Genero genero, int anioNacimiento) {
         this.id = ++contadorID;
@@ -87,23 +96,6 @@ public abstract class Persona {
         this.alta = alta;
     }
 
-    // Método para cargar el contador desde el archivo
-    private static int cargarContador() {
-        try (BufferedReader reader = new BufferedReader(new FileReader(RUTA_ARCHIVO_CONTADOR))) {
-            return Integer.parseInt(reader.readLine());
-        } catch (IOException | NumberFormatException e) {
-            return 0; // Si el archivo no existe o hay un error, el contador comienza en 0
-        }
-    }
-
-    // Método para guardar el contador en el archivo
-    private static void guardarContador(int contador) {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(RUTA_ARCHIVO_CONTADOR))) {
-            writer.write(String.valueOf(contador));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 
     @Override
     public String toString() {
@@ -122,13 +114,11 @@ public abstract class Persona {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Persona persona = (Persona) o;
-        return id == persona.id && Objects.equals(dni, persona.dni);
+        return Objects.equals(dni, persona.dni);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, dni);
+        return Objects.hashCode(dni);
     }
-
-
 }
