@@ -15,7 +15,7 @@ public class Usuario extends Persona{
     private LocalDateTime registro;
     private int rol;
 
-    public Usuario(String dni, String nombreApellido, Genero genero, int anioNacimiento, String nombreUsuario, String contrasenia, LocalDateTime registro) {
+    public Usuario(String dni, String nombreApellido, Genero genero, int anioNacimiento, String nombreUsuario, String contrasenia) {
         super(dni, nombreApellido, genero, anioNacimiento);
         this.nombreUsuario = nombreUsuario;
         this.contrasenia = contrasenia;

@@ -1,24 +1,36 @@
 package com.utn.hangar;
 
-import controlJSON.LeerJSON;
+import entidades.Usuario;
+import enums.Genero;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import org.json.JSONArray;
-import org.json.JSONObject;
-import java.io.File;
-import java.io.FileWriter;
+
 import java.io.IOException;
-import java.net.URL;
 import java.util.InputMismatchException;
+import control.ControlUsuarios;
+import org.json.JSONObject;
 
 public class RegisterController {
 
     @FXML
     private Button btnRegister;
+
+    @FXML
+    private ComboBox<Genero> SelecGen;
+
+    @FXML
+    private TextField inputAñoNas;
+
+    @FXML
+    private TextField inputDNI;
+
+    @FXML
+    private TextField inputNomApe;
 
     @FXML
     private Button btnVolver;
@@ -33,15 +45,19 @@ public class RegisterController {
     private TextField inputUser;
 
     @FXML
+    public void initialize() {
+        SelecGen.getItems().setAll(Genero.values());
+    }
+
+    @FXML
     void onClickBtnRegister(ActionEvent event) {
         try {
-            LeerJSON leerJSON = new LeerJSON();
-            JSONArray usuarios = leerJSON.cargarUsuarios(); // Cargar el JSONArray de usuarios
+            String archivoUsuarios = "usuarios.json";
 
-            if (usuarios == null) {
-                throw new Exception("Error al cargar archivo de usuarios");
-            }
-
+            String completeName = inputNomApe.getText();
+            String dni = inputDNI.getText();
+            int anioNasc = Integer.parseInt(inputAñoNas.getText());
+            Genero gen = SelecGen.getSelectionModel().getSelectedItem();
             String user = inputUser.getText();
             String pass = inputPass.getText();
             String passConfirm = inputPassConfirm.getText();
@@ -59,7 +75,49 @@ public class RegisterController {
             if (pass.isBlank() || pass.length() < 6) {
                 throw new InputMismatchException("La contraseña debe poseer al menos 6 caracteres.");
             }
+            if (inputNomApe.getText().isBlank()) {
+                throw new InputMismatchException("Ingrese un nombre de apellido.");
+            }
+            if (inputDNI.getText().isBlank()) {
+                throw new InputMismatchException("Ingrese un DNI");
+            }
+            if (inputAñoNas.getText().isBlank()) {
+                throw new InputMismatchException("Ingrese un año de nascimento.");
+            }
+            //SE TRAEN TODOS LOS USUARIOS DEL JSON Y SE GUARDAN EN LA LISTA DE LA CLASE GESTORA
+            ControlUsuarios conUsuarios = new ControlUsuarios();
+            conUsuarios.cargarUsuarioDesdeArchivo(archivoUsuarios);
 
+            // COMPROBAR QUE NO HAYA UN USER REPETIDO
+            if (conUsuarios.usuarioYaExiste(user)) {
+                throw new InputMismatchException("El nombre de usuario ya existe");
+            }
+            /*
+            //PARA QUE FUNCIONE LA VALIDACION, FALTA ARREGLAR EL METODO dniYaExiste EN LA CLASE ControlUsuario!
+            if (conUsuarios.dniYaExiste(dni)) {
+                throw new InputMismatchException("El DNI ya está registrado.");
+            }*/
+
+
+            //CON LOS DATOS PEDIDOS ANTERIORMENTE SE INSTANCIA UN USUARIO
+            Usuario usuario1 = new Usuario(dni,completeName, gen, anioNasc, user, pass);
+            //SE CREA UN OBJETO DE LA CLASE GESTORA
+            //ControlUsuarios conUsuarios = new ControlUsuarios();
+            //SE TRAEN TODOS LOS USUARIOS DEL JSON Y SE GUARDAN EN LA LISTA DE LA CLASE GESTORA
+            //(preguntar que onda, xq no me convence)
+            conUsuarios.cargarUsuarioDesdeArchivo(archivoUsuarios);
+            //SE AGREGA EL USUARIO AL ARREGLO DE LA CLASE GESTORA
+            conUsuarios.agregar(usuario1);
+            //Y SE GUARDA EL CONTENIDO DEL ARREGLO EN EL JSON
+            conUsuarios.guardarUsuarioToFile(archivoUsuarios);
+
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Registro exitoso");
+            alert.setHeaderText(null);
+            alert.setContentText("Usuario registrado exitosamente.");
+            alert.showAndWait();
+
+            /*
             // COMPROBAR QUE NO HAYA UN USER REPETIDO
             for (int i = 0; i < usuarios.length(); i++) {
                 JSONObject usuario = usuarios.getJSONObject(i);
@@ -69,39 +127,17 @@ public class RegisterController {
                     throw new InputMismatchException("El nombre de usuario ya existe");
                 }
             }
-
-            // Crear el nuevo usuario y añadirlo al JSONArray
-            JSONObject nuevoUser = new JSONObject();
-            nuevoUser.put("user", user);
-            nuevoUser.put("pass", pass);
-            nuevoUser.put("rol", 0); // Rol de invitado
-            usuarios.put(nuevoUser); // Agregar el nuevo usuario
-
-            // Crear un nuevo JSONObject que contendrá el JSONArray de usuarios
-            JSONObject data = new JSONObject();
-            data.put("usuarios", usuarios);
-
-            // Guardar el JSON completo en el archivo
-            URL resourceUrl = getClass().getResource("/archiJSON/usuarios.json");
-            if (resourceUrl != null) {
-                try (FileWriter file = new FileWriter(new File(resourceUrl.toURI()))) {
-                    file.write(data.toString(4)); // Guardar el JSON con el nuevo usuario
-                }
-            } else {
-                System.out.println("El archivo usuarios.json no se encontró.");
-            }
-
-            // Mostrar mensaje de confirmación al usuario
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Registro Exitoso");
-            alert.setHeaderText(null);
-            alert.setContentText("Registro exitoso. Nuevo usuario creado!");
-            alert.showAndWait();
+            */
 
         } catch (Exception e) {
             Ventanas.exceptionError(e);
             e.printStackTrace();
         }
+    }
+
+    @FXML
+    public String returnGenero(){
+        return SelecGen.getSelectionModel().getSelectedItem().toString();
     }
 
     @FXML
@@ -115,4 +151,6 @@ public class RegisterController {
             e.printStackTrace();
         }
     }
+
+
 }

@@ -51,8 +51,8 @@ public class ControlPilotos {
         JSONArray pilotoArray = crearJSONArray();
 
         try (FileWriter file = new FileWriter(archivo)) {
-            file.write(pilotoArray.toString(2));
-            System.out.println("Tareas guardadas en el archivo: " + archivo);
+            file.write(pilotoArray.toString(4));
+            System.out.println("Pilotos guardadas en el archivo: " + archivo);
 
         } catch (IOException e) {
             e.printStackTrace();

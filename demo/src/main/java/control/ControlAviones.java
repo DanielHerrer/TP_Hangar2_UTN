@@ -1,14 +1,25 @@
 package control;
 
 import entidades.Avion;
+import org.json.JSONArray;
+import org.json.JSONObject;
+import org.json.JSONTokener;
 
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
+
 
 public class ControlAviones {
 
     ArrayList<Avion> listaAviones;
 
+    public ControlAviones() {
+        listaAviones = new ArrayList<>();
+    }
 
     /**
      * @return Muestra a todos los aviones que estan dados de alta
@@ -159,5 +170,59 @@ public class ControlAviones {
 
     //QUEDAN POR HACER LAS FUNCIONES DE MODIFICACION
 
+    //METODOS PARA TRABAJAR CON JSON
+    public JSONArray crearJSONArray () {
+        JSONArray jsonArray = new JSONArray();
+
+        for (Avion avi : listaAviones) {
+            jsonArray.put(avi.avionToJSONObject());
+        }
+        return jsonArray;
+    }
+
+
+    public void guardarAvionToFile(String archivo) {
+        JSONArray pilotoArray = crearJSONArray();
+
+        try (FileWriter file = new FileWriter(archivo)) {
+            file.write(pilotoArray.toString(4));
+            System.out.println("Aviones guardados en el archivo: " + archivo);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void cargarAvionDesdeArchivo (String archivo) {
+        try {
+
+            JSONArray avionesArray = new JSONArray(leerArchivo(archivo));
+
+            avionJSONArrayToList(avionesArray);
+            System.out.println("Aviones cargados desde el archivo: " + archivo);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static JSONTokener leerArchivo(String nombreArchivo){
+        JSONTokener tokener = null;
+        try{
+            tokener= new JSONTokener(new FileReader(nombreArchivo));
+        }catch(FileNotFoundException e){
+            e.printStackTrace();
+        }
+        return tokener;
+    }
+
+    public void avionJSONArrayToList(JSONArray jsonArray) {
+        listaAviones.clear();
+
+        for (int i = 0; i < jsonArray.length(); i++) {
+            JSONObject avionJSON = jsonArray.getJSONObject(i);
+            Avion avion = Avion.JSONObjectToAvion(avionJSON);
+            listaAviones.add(avion);
+        }
+    }
 
 }
