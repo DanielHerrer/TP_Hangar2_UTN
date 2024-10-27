@@ -8,11 +8,18 @@ public class PruebaMain {
 
     public static void main (String[] args) {
 
+        String archivoPilotos = "pilotos.json";
+        String archivoAviones = "aviones.json";
+
         ControlPilotos controlPilotos = new ControlPilotos();
 
         Piloto pil1 = new Piloto("4342", "Franco Colapinto", Genero.MASCULINO, 1980, "43");
 
-        boolean estado = controlPilotos.verificarUsuario("archi pilotos", pil1);
+        controlPilotos.listaPilotos.add(pil1);
+
+        controlPilotos.guardarPilotoToFile(archivoPilotos);
+
+        boolean estado = controlPilotos.verificarUsuario(archivoPilotos, pil1);
 
         if (estado) {
             System.out.println("El piloto ya esta en el estado");
@@ -29,7 +36,7 @@ public class PruebaMain {
         ca.listaAviones.add(avi);
         ca.listaAviones.add(avi2);
 
-        ca.guardarAvionToFile("archi aviones");
+        ca.guardarAvionToFile(archivoAviones);
 
         avi = ca.listaAviones.get(0);
 
@@ -37,8 +44,8 @@ public class PruebaMain {
 
         ca.listaAviones.add(avi);
 
-        ca.guardarAvionToFile("archi aviones");
+        ca.guardarAvionToFile(archivoAviones);
 
-        
+
     }
 }
