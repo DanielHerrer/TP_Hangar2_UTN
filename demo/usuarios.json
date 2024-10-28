@@ -1,0 +1,14 @@
+[
+    {
+        "nombreApellido": "Diego Groppo",
+        "alta": 1,
+        "genero": "MASCULINO",
+        "anioNacimiento": 2001,
+        "contrasenia": "123123",
+        "id": 1,
+        "nombreUsuario": "diego1",
+        "dni": "13124124",
+        "rol": 0,
+        "registro": "2024-10-26T23:37:12.823773900"
+    }
+]

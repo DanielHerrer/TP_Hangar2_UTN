@@ -2,18 +2,18 @@ package control;
 
 import entidades.Avion;
 import entidades.Piloto;
+import entidades.Avion;
 import enums.Genero;
 
 public class PruebaMain {
 
     public static void main (String[] args) {
-
+/*
         String archivoPilotos = "pilotos.json";
         String archivoAviones = "aviones.json";
 
         ControlPilotos controlPilotos = new ControlPilotos();
 
-        Piloto pil1 = new Piloto("4342", "Franco Colapinto", Genero.MASCULINO, 1980, "43");
 
         controlPilotos.listaPilotos.add(pil1);
 
@@ -22,7 +22,7 @@ public class PruebaMain {
         boolean estado = controlPilotos.verificarUsuario(archivoPilotos, pil1);
 
         if (estado) {
-            System.out.println("El piloto ya esta en el estado");
+            System.out.println("El piloto ya esta en el archivo");
         }
         else  {
             System.out.println("El piloto no lo esta");
@@ -45,7 +45,7 @@ public class PruebaMain {
         ca.listaAviones.add(avi);
 
         ca.guardarAvionToFile(archivoAviones);
-
+  */
 
     }
 }

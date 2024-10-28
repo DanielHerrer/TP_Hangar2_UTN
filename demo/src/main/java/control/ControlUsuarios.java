@@ -1,6 +1,5 @@
 package control;
 
-import entidades.Piloto;
 import entidades.Usuario;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -25,7 +24,7 @@ public class ControlUsuarios {
     }
 
     public boolean verificarUsuario (String nombreArchivo, Usuario u) {
-        cargarUsuariooDesdeArchivo(nombreArchivo);
+        cargarUsuarioDesdeArchivo(nombreArchivo);
 
         return listaUsuarios.contains(u);
 
@@ -45,15 +44,14 @@ public class ControlUsuarios {
         JSONArray usuarioArray = crearJSONArray();
 
         try (FileWriter file = new FileWriter(archivo)) {
-            file.write(usuarioArray.toString(2));
+            file.write(usuarioArray.toString(4));
             System.out.println("Usuarios guardados en el archivo: " + archivo);
-
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    public void cargarUsuariooDesdeArchivo (String archivo) {
+    public void cargarUsuarioDesdeArchivo(String archivo) {
         try {
 
             JSONArray usuarioArray = new JSONArray(leerArchivo(archivo));
@@ -84,5 +82,23 @@ public class ControlUsuarios {
             listaUsuarios.add(usuario);
         }
     }
+    public boolean usuarioYaExiste(String username) {
+        for (Usuario usuario : listaUsuarios) {
+            if (usuario.getNombreUsuario().equals(username)) {
+                return true;
+            }
+        }
+        return false;
+    }
+    //getDNI viene de persona, lo tengo que traer pero tengo pereza ahora, si se arregla, el metodo para
+    //no dejar cargar el mismo DNI ya ira funcionar!
+    /*public boolean dniYaExiste(String dni) {
+        for (Usuario usuario : listaUsuarios) {
+            if (usuario.getDNI().equals(dni)) {
+                return true;
+            }
+        }
+        return false;
+    }*/
 
 }

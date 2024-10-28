@@ -1,0 +1,24 @@
+{
+  "usuarios": [
+    {
+      "user": "admin",
+      "pass": "admin123",
+      "rol": "2"
+    },
+    {
+      "user": "operador",
+      "pass": "oper123",
+      "rol": "1"
+    },
+    {
+      "user": "invitado",
+      "pass": "invi123",
+      "rol": "0"
+    },
+    {
+      "user": "test",
+      "pass": "test123",
+      "rol": "2"
+    }
+  ]
+}

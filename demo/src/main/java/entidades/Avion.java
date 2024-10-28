@@ -1,7 +1,6 @@
 package entidades;
 
-import enums.Genero;
-import enums.Rango;
+
 import org.json.JSONObject;
 
 import java.util.Objects;

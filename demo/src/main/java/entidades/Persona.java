@@ -3,7 +3,6 @@ package entidades;
 import enums.Genero;
 import org.json.JSONObject;
 
-import java.io.FileWriter;
 import java.util.Objects;
 
 public abstract class Persona {

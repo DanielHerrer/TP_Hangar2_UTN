@@ -1,7 +1,6 @@
 package control;
 
 import entidades.Avion;
-import entidades.Piloto;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.json.JSONTokener;
@@ -13,14 +12,19 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 
+
 public class ControlAviones {
 
     ArrayList<Avion> listaAviones;
-
+/*
     public ControlAviones() {
+<<<<<<< HEAD
         this.listaAviones = new ArrayList<>();
+=======
+        listaAviones = new ArrayList<>();
+>>>>>>> 833d67042e166ed595338c3a58ad19836fd0c43b
     }
-
+*/
     /**
      * @return Muestra a todos los aviones que estan dados de alta
      */
@@ -185,7 +189,11 @@ public class ControlAviones {
         JSONArray pilotoArray = crearJSONArray();
 
         try (FileWriter file = new FileWriter(archivo)) {
+<<<<<<< HEAD
             file.write(pilotoArray.toString(2));
+=======
+            file.write(pilotoArray.toString(4));
+>>>>>>> 833d67042e166ed595338c3a58ad19836fd0c43b
             System.out.println("Aviones guardados en el archivo: " + archivo);
 
         } catch (IOException e) {
