@@ -63,6 +63,7 @@ public class Usuario extends Persona{
         this.rol = rol;
     }
 
+
     public JSONObject usuarioToJSONObject() {
         JSONObject json = new JSONObject();
         json.put("id", super.getId());

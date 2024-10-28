@@ -92,13 +92,31 @@ public class ControlUsuarios {
     }
     //getDNI viene de persona, lo tengo que traer pero tengo pereza ahora, si se arregla, el metodo para
     //no dejar cargar el mismo DNI ya ira funcionar!
-    /*public boolean dniYaExiste(String dni) {
+    public boolean dniYaExiste(String dni) {
         for (Usuario usuario : listaUsuarios) {
-            if (usuario.getDNI().equals(dni)) {
+            if (usuario.getDni().equals(dni)) {
                 return true;
             }
         }
         return false;
-    }*/
+    }
+
+    /**
+     * @see "Busca si el usuario esta en la lista, en base al username y la contrasenia"
+     * @param nombreUsuario
+     * @param password
+     * @return Si encontro al usuario en la lista lo devuelve
+     */
+    public Usuario verificarUsuarioLogin (String nombreUsuario, String password) {
+        Usuario u = null;
+
+        for (Usuario usu : listaUsuarios) {
+            if (usu.getNombreUsuario().equals(nombreUsuario) && usu.getContrasenia().equals(password)) {
+                u = usu;
+            }
+        }
+        return u;
+    }
+
 
 }

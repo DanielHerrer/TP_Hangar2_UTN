@@ -189,11 +189,7 @@ public class ControlAviones {
         JSONArray pilotoArray = crearJSONArray();
 
         try (FileWriter file = new FileWriter(archivo)) {
-<<<<<<< HEAD
-            file.write(pilotoArray.toString(2));
-=======
             file.write(pilotoArray.toString(4));
->>>>>>> 833d67042e166ed595338c3a58ad19836fd0c43b
             System.out.println("Aviones guardados en el archivo: " + archivo);
 
         } catch (IOException e) {

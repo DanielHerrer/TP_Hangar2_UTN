@@ -54,47 +54,15 @@ public class RegisterController {
     void onClickBtnRegister(ActionEvent event) {
         try {
             String archivoUsuarios = "usuarios.json";
-/*
-<<<<<<< HEAD
-            //DECLARO VARIABLES PARA INSTANCIAR UN USUARIO
-            String dni = inputUser.getText();
-            String completeName = inputUser.getText();
-            char genero = inputUser.getCharacters().charAt(0);
-            Genero gen;
-            //DE ACUERDO AL GENERO QUE INTRODUZCA EL USUARIO SE ELIGE EL ENUM CORRESPONDIENTE
-            if (genero == 'M' || genero == 'm') {
-                 gen = Genero.MASCULINO;
-            }
-            else {
-                 gen = Genero.FEMENINO;
-            }
-            String anioNacimientoSTR = inputUser.getText();
-            int anioNacimiento = Integer.parseInt(anioNacimientoSTR);
-=======
             String completeName = inputNomApe.getText();
             String dni = inputDNI.getText();
             int anioNasc = Integer.parseInt(inputAñoNas.getText());
             Genero gen = SelecGen.getSelectionModel().getSelectedItem();
->>>>>>> 833d67042e166ed595338c3a58ad19836fd0c43b
             String user = inputUser.getText();
             String pass = inputPass.getText();
             String passConfirm = inputPassConfirm.getText();
 
-<<<<<<< HEAD
-            //CON LOS DATOS PEDIDOS ANTERIORMENTE SE INSTANCIA UN USUARIO
-            Usuario usuario1 = new Usuario(dni,completeName, gen, anioNacimiento, user, pass);
-            //SE CREA UN OBJETO DE LA CLASE GESTORA
-            ControlUsuarios conUsuarios = new ControlUsuarios();
-            //SE AGREGA EL USUARIO AL ARREGLO DE LA CLASE GESTORA
-            conUsuarios.agregar(usuario1);
-            //Y SE GUARDA EL CONTENIDO DEL ARREGLO EN EL JSON
-            conUsuarios.guardarUsuarioToFile("Usuarios-JSON");
-
-            //VALIDACIONES
-=======
             // VALIDACIONES
->>>>>>> 833d67042e166ed595338c3a58ad19836fd0c43b
-
 
             if (inputUser.getText().isBlank()) {
                 throw new InputMismatchException("Ingrese un nombre de usuario.");
@@ -125,13 +93,12 @@ public class RegisterController {
             if (conUsuarios.usuarioYaExiste(user)) {
                 throw new InputMismatchException("El nombre de usuario ya existe");
             }
-            /*
+
             //PARA QUE FUNCIONE LA VALIDACION, FALTA ARREGLAR EL METODO dniYaExiste EN LA CLASE ControlUsuario!
             if (conUsuarios.dniYaExiste(dni)) {
                 throw new InputMismatchException("El DNI ya está registrado.");
-            }*/
+            }
 
-/*
             //CON LOS DATOS PEDIDOS ANTERIORMENTE SE INSTANCIA UN USUARIO
             Usuario usuario1 = new Usuario(dni,completeName, gen, anioNasc, user, pass);
             //SE CREA UN OBJETO DE LA CLASE GESTORA
@@ -143,24 +110,15 @@ public class RegisterController {
             conUsuarios.agregar(usuario1);
             //Y SE GUARDA EL CONTENIDO DEL ARREGLO EN EL JSON
             conUsuarios.guardarUsuarioToFile(archivoUsuarios);
-*/
+
+            Stage stage = (Stage) btnRegister.getScene().getWindow();
+            Ventanas.cambioEscena("Sistema Hangar 2.0",stage,"/com/utn/hangar/login-view.fxml");
+
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Registro exitoso");
             alert.setHeaderText(null);
             alert.setContentText("Usuario registrado exitosamente.");
             alert.showAndWait();
-
-            /*
-            // COMPROBAR QUE NO HAYA UN USER REPETIDO
-            for (int i = 0; i < usuarios.length(); i++) {
-                JSONObject usuario = usuarios.getJSONObject(i);
-                String nameUser = usuario.getString("user");
-
-                if (nameUser.equals(user)) {
-                    throw new InputMismatchException("El nombre de usuario ya existe");
-                }
-            }
-            */
 
         } catch (Exception e) {
             Ventanas.exceptionError(e);
