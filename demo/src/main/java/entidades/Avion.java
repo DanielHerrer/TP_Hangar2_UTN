@@ -2,7 +2,7 @@ package entidades;
 
 
 import org.json.JSONObject;
-
+// que lindo avion
 import java.util.Objects;
 
 public class Avion implements Comparable<Avion> {
