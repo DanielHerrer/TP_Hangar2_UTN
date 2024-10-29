@@ -22,5 +22,17 @@
         "dni": "46896",
         "rol": 0,
         "registro": "2024-10-28T19:52:27.610972"
+    },
+    {
+        "nombreApellido": "Senior Admin",
+        "alta": 1,
+        "genero": "OTROS",
+        "anioNacimiento": 1997,
+        "contrasenia": "admin123",
+        "id": 0,
+        "nombreUsuario": "admin",
+        "dni": "222222",
+        "rol": 2,
+        "registro": "2024-10-29T14:00:21.979238600"
     }
 ]

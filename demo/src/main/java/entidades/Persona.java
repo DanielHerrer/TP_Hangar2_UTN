@@ -7,44 +7,27 @@ import java.util.Objects;
 
 public abstract class Persona {
 
-    public static int contadorID = 0; // NO PERSISTE LUEGO DE REINICIAR EL PROGRAMA
-
-    private int id;
     private String dni;
     private String nombreApellido;
     private Genero genero;
     private int anioNacimiento;
 
     public Persona () {
-        this.id = 0;
         this.dni = null;
         this.nombreApellido = null;
         this.genero = null;
         this.anioNacimiento = 0;
     }
 
-    public Persona(String dni, String nombreApellido, Genero genero, int anioNacimiento) {
-        this.id = ++contadorID;
-        this.dni = dni;
-        this.nombreApellido = nombreApellido;
-        this.genero = genero;
-        this.anioNacimiento = anioNacimiento;
-    }
-
     /**
      *
      * @see "Constructor con todos los parametros para crear el JSON"
      */
-    public Persona(int id, String dni, String nombreApellido, Genero genero, int anioNacimiento) {
-        this.id = id;
+    public Persona(String dni, String nombreApellido, Genero genero, int anioNacimiento) {
         this.dni = dni;
         this.nombreApellido = nombreApellido;
         this.genero = genero;
         this.anioNacimiento = anioNacimiento;
-    }
-
-    public int getId() {
-        return id;
     }
 
     public String getDni() {
@@ -82,8 +65,7 @@ public abstract class Persona {
     @Override
     public String toString() {
         return "Persona{" +
-                "id=" + id  + '\'' +
-                ", dni='" + dni + '\'' +
+                " dni='" + dni + '\'' +
                 ", nombreApellido='" + nombreApellido + '\'' +
                 ", genero=" + genero + '\'' +
                 ", anioNacimiento=" + anioNacimiento  + '\'' +

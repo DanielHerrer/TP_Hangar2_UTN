@@ -4,10 +4,9 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
 <AnchorPane prefHeight="399.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.utn.hangar.AdminController">
    <children>
-      <Button layoutX="166.0" layoutY="66.0" mnemonicParsing="false" text="Listar Usuarios" />
+      <Button fx:id="btnListUsuarios" layoutX="166.0" layoutY="66.0" mnemonicParsing="false" onAction="#onBtnListUsuariosButtonClick" text="Listar Usuarios" />
       <Button layoutX="158.0" layoutY="100.0" mnemonicParsing="false" text="Ver ultimos Login" />
       <Button layoutX="135.0" layoutY="134.0" mnemonicParsing="false" text="Dar permisos a un Usuario" />
       <Button layoutX="150.0" layoutY="175.0" mnemonicParsing="false" text="Modificar un Usuario" />

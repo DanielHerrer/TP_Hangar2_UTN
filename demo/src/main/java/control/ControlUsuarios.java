@@ -24,7 +24,7 @@ public class ControlUsuarios {
     }
 
     public boolean verificarUsuario (String nombreArchivo, Usuario u) {
-        cargarUsuarioDesdeArchivo(nombreArchivo);
+        cargarUsuariosDesdeArchivo(nombreArchivo);
 
         return listaUsuarios.contains(u);
 
@@ -51,7 +51,7 @@ public class ControlUsuarios {
         }
     }
 
-    public void cargarUsuarioDesdeArchivo(String archivo) {
+    public void cargarUsuariosDesdeArchivo(String archivo) {
         try {
 
             JSONArray usuarioArray = new JSONArray(leerArchivo(archivo));
@@ -125,6 +125,11 @@ public class ControlUsuarios {
         return u;
     }
 
+    public ArrayList<Usuario> getListaUsuarios() {
+        return listaUsuarios;
+    }
 
-
+    public void setListaUsuarios(ArrayList<Usuario> listaUsuarios) {
+        this.listaUsuarios = listaUsuarios;
+    }
 }

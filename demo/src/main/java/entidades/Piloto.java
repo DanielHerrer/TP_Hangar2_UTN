@@ -9,6 +9,7 @@ import java.util.Objects;
 public class Piloto extends Persona {
 
     // HACER UN ID ACUMULATIVO
+    private int id;
     private String numeroLicencia;
     private int horasVuelo;
     private Rango rango;
@@ -38,7 +39,8 @@ public class Piloto extends Persona {
     }
 
     public Piloto(int id, String dni, String nombreApellido, Genero genero, int anioNacimiento, String numeroLicencia, int horasVuelo, Rango rango) {
-        super(id, dni, nombreApellido, genero, anioNacimiento);
+        super(dni, nombreApellido, genero, anioNacimiento);
+        this.id = id;
         this.numeroLicencia = numeroLicencia;
         this.horasVuelo = horasVuelo;
         this.rango = rango;
@@ -49,11 +51,16 @@ public class Piloto extends Persona {
      * @see "Constructor con todos los parametros para crear el JSON"
      */
     public Piloto(int id, String dni, String nombreApellido, Genero genero, int anioNacimiento, String numeroLicencia, int horasVuelo, Rango rango, int alta) {
-        super(id, dni, nombreApellido, genero, anioNacimiento);
+        super(dni, nombreApellido, genero, anioNacimiento);
+        this.id = id;
         this.numeroLicencia = numeroLicencia;
         this.horasVuelo = horasVuelo;
         this.rango = rango;
         this.alta = alta;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public String getNumeroLicencia() {
@@ -128,7 +135,7 @@ public class Piloto extends Persona {
         {
             setRango(Rango.PILOTO_INSTRUMENTAL);
         }
-        else if (this.horasVuelo < 30)
+        else
         {
             setRango(Rango.ALUMNO_PILOTO);
         }
@@ -136,7 +143,7 @@ public class Piloto extends Persona {
 
     public JSONObject pilotoToJSONObject() {
         JSONObject json = new JSONObject();
-        json.put("id", super.getId());
+        json.put("id", getId());
         json.put("dni", super.getDni());
         json.put("nombreApellido", super.getNombreApellido());
         json.put("genero", super.getGenero());

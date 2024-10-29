@@ -15,7 +15,6 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.InputMismatchException;
 import control.ControlUsuarios;
-import org.json.JSONObject;
 
 public class RegisterController {
 
@@ -88,7 +87,7 @@ public class RegisterController {
             }
             //SE TRAEN TODOS LOS USUARIOS DEL JSON Y SE GUARDAN EN LA LISTA DE LA CLASE GESTORA
             ControlUsuarios conUsuarios = new ControlUsuarios();
-            conUsuarios.cargarUsuarioDesdeArchivo(Archivos.archivoUsuarios);
+            conUsuarios.cargarUsuariosDesdeArchivo(Archivos.archivoUsuarios);
 
             // COMPROBAR QUE NO HAYA UN USER REPETIDO
             if (conUsuarios.usuarioYaExiste(user)) {

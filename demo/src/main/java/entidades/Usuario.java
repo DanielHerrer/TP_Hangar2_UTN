@@ -11,6 +11,7 @@ import java.util.Objects;
 public class Usuario extends Persona{
 
     // HACER UN ID ACUMULATIVO
+    private int id;
     private String nombreUsuario;
     private String contrasenia;
     private LocalDateTime registro;
@@ -19,20 +20,36 @@ public class Usuario extends Persona{
 
     public Usuario(String dni, String nombreApellido, Genero genero, int anioNacimiento, String nombreUsuario, String contrasenia) {
         super(dni, nombreApellido, genero, anioNacimiento);
+        // this.id = generarId();
         this.nombreUsuario = nombreUsuario;
         this.contrasenia = contrasenia;
         this.registro = LocalDateTime.now();
         this.rol = 0;
-        this.alta = 0;
+        this.alta = 1;
     }
 
-    public Usuario(int id, String dni, String nombreApellido, Genero genero, int anioNacimiento, String nombreUsuario, String contrasenia, LocalDateTime registro, int rol, int alta) {
-        super(id, dni, nombreApellido, genero, anioNacimiento);
+    public Usuario(String dni, String nombreApellido, Genero genero, int anioNacimiento, String nombreUsuario, String contrasenia, LocalDateTime registro, int rol, int alta) {
+        super(dni, nombreApellido, genero, anioNacimiento);
+        //this.id = generarId();
         this.nombreUsuario = nombreUsuario;
         this.contrasenia = contrasenia;
         this.registro = registro;
         this.rol = rol;
         this.alta = alta;
+    }
+
+    public Usuario(int id, String dni, String nombreApellido, Genero genero, int anioNacimiento, String nombreUsuario, String contrasenia, LocalDateTime registro, int rol, int alta) {
+        super(dni, nombreApellido, genero, anioNacimiento);
+        this.id = id;
+        this.nombreUsuario = nombreUsuario;
+        this.contrasenia = contrasenia;
+        this.registro = registro;
+        this.rol = rol;
+        this.alta = alta;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public String getNombreUsuario() {
@@ -77,7 +94,7 @@ public class Usuario extends Persona{
 
     public JSONObject usuarioToJSONObject() {
         JSONObject json = new JSONObject();
-        json.put("id", super.getId());
+        json.put("id", getId());
         json.put("dni", super.getDni());
         json.put("nombreApellido", super.getNombreApellido());
         json.put("genero", super.getGenero());

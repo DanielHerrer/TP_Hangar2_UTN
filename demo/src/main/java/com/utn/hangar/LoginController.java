@@ -12,7 +12,6 @@ import control.ControlUsuarios;
 
 import java.io.IOException;
 import java.util.InputMismatchException;
-import java.util.Objects;
 
 public class LoginController {
 
@@ -45,7 +44,7 @@ public class LoginController {
 
             //LLAMA A CLASE GESTORA Y TRAE A LOS USUARIOS DEL JSON
             ControlUsuarios conUsuario = new ControlUsuarios();
-            conUsuario.cargarUsuarioDesdeArchivo(Archivos.archivoUsuarios);
+            conUsuario.cargarUsuariosDesdeArchivo(Archivos.archivoUsuarios);
             //VERIFICA SI EL USUARIO INGRESADO ESTA EN EL JSON
             Usuario usuarioLogeado = null;
             usuarioLogeado = conUsuario.verificarUsuarioLogin(user, pass);
