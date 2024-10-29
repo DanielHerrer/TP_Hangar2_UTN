@@ -1,0 +1,26 @@
+[
+    {
+        "nombreApellido": "Diego Groppo",
+        "alta": 1,
+        "genero": "MASCULINO",
+        "anioNacimiento": 2000,
+        "contrasenia": "qwer123",
+        "id": 1,
+        "nombreUsuario": "diegod",
+        "dni": "123412",
+        "rol": 0,
+        "registro": "2024-10-28T19:52:00.870405600"
+    },
+    {
+        "nombreApellido": "Castro Lautaro",
+        "alta": 1,
+        "genero": "MASCULINO",
+        "anioNacimiento": 2005,
+        "contrasenia": "river123",
+        "id": 2,
+        "nombreUsuario": "Castrinho",
+        "dni": "46896",
+        "rol": 0,
+        "registro": "2024-10-28T19:52:27.610972"
+    }
+]

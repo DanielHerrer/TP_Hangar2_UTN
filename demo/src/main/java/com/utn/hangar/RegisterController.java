@@ -1,6 +1,7 @@
 package com.utn.hangar;
 
 
+import constantes.Archivos;
 import entidades.Usuario;
 import enums.Genero;
 import javafx.event.ActionEvent;
@@ -87,7 +88,7 @@ public class RegisterController {
             }
             //SE TRAEN TODOS LOS USUARIOS DEL JSON Y SE GUARDAN EN LA LISTA DE LA CLASE GESTORA
             ControlUsuarios conUsuarios = new ControlUsuarios();
-            conUsuarios.cargarUsuarioDesdeArchivo(archivoUsuarios);
+            conUsuarios.cargarUsuarioDesdeArchivo(Archivos.archivoUsuarios);
 
             // COMPROBAR QUE NO HAYA UN USER REPETIDO
             if (conUsuarios.usuarioYaExiste(user)) {
@@ -101,15 +102,10 @@ public class RegisterController {
 
             //CON LOS DATOS PEDIDOS ANTERIORMENTE SE INSTANCIA UN USUARIO
             Usuario usuario1 = new Usuario(dni,completeName, gen, anioNasc, user, pass);
-            //SE CREA UN OBJETO DE LA CLASE GESTORA
-            //ControlUsuarios conUsuarios = new ControlUsuarios();
-            //SE TRAEN TODOS LOS USUARIOS DEL JSON Y SE GUARDAN EN LA LISTA DE LA CLASE GESTORA
-            //(preguntar que onda, xq no me convence)
-            conUsuarios.cargarUsuarioDesdeArchivo(archivoUsuarios);
             //SE AGREGA EL USUARIO AL ARREGLO DE LA CLASE GESTORA
             conUsuarios.agregar(usuario1);
             //Y SE GUARDA EL CONTENIDO DEL ARREGLO EN EL JSON
-            conUsuarios.guardarUsuarioToFile(archivoUsuarios);
+            conUsuarios.guardarUsuarioToFile(Archivos.archivoUsuarios);
 
             Stage stage = (Stage) btnRegister.getScene().getWindow();
             Ventanas.cambioEscena("Sistema Hangar 2.0",stage,"/com/utn/hangar/login-view.fxml");

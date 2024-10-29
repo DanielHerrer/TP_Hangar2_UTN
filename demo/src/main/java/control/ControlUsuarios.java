@@ -82,6 +82,12 @@ public class ControlUsuarios {
             listaUsuarios.add(usuario);
         }
     }
+
+    /**
+     * @see "Verifica mediante un boolean si el usuario ya existe"
+     * @param username
+     * @return
+     */
     public boolean usuarioYaExiste(String username) {
         for (Usuario usuario : listaUsuarios) {
             if (usuario.getNombreUsuario().equals(username)) {
@@ -90,6 +96,7 @@ public class ControlUsuarios {
         }
         return false;
     }
+
     //getDNI viene de persona, lo tengo que traer pero tengo pereza ahora, si se arregla, el metodo para
     //no dejar cargar el mismo DNI ya ira funcionar!
     public boolean dniYaExiste(String dni) {
@@ -117,6 +124,7 @@ public class ControlUsuarios {
         }
         return u;
     }
+
 
 
 }

@@ -16,15 +16,12 @@ import java.util.Collections;
 public class ControlAviones {
 
     ArrayList<Avion> listaAviones;
-/*
+
     public ControlAviones() {
-<<<<<<< HEAD
         this.listaAviones = new ArrayList<>();
-=======
-        listaAviones = new ArrayList<>();
->>>>>>> 833d67042e166ed595338c3a58ad19836fd0c43b
+
     }
-*/
+
     /**
      * @return Muestra a todos los aviones que estan dados de alta
      */

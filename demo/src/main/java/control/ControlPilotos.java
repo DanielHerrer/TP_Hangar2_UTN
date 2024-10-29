@@ -1,5 +1,6 @@
 package control;
 
+import entidades.Avion;
 import entidades.Piloto;
 import entidades.Usuario;
 import org.json.JSONArray;
@@ -22,6 +23,32 @@ public class ControlPilotos {
 
     public void agregar (Piloto p) {
         listaPilotos.add(p);
+    }
+
+    public int modificarAltaPiloto (int id) {
+        Piloto piloto = null;
+        boolean encontrado = false;
+
+        for (Piloto pil : listaPilotos) {
+            if (id == pil.getId()) {
+                if (pil.getAlta() == 1) {
+                    pil.setAlta(0);
+                    piloto = pil;
+                    encontrado = true;
+                }
+                else {
+                    pil.setAlta(1);
+                    piloto = pil;
+                    encontrado = true;
+                }
+            }
+        }
+        if (encontrado) {
+            return piloto.getAlta();
+        }
+        else {
+            return -1; //RETORNO -1 SI NO ENCONTRO AL AVION
+        }
     }
 
     /**

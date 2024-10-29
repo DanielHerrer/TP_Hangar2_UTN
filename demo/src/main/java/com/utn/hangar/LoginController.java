@@ -1,5 +1,6 @@
 package com.utn.hangar;
 
+import constantes.Archivos;
 import entidades.Usuario;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -42,14 +43,23 @@ public class LoginController {
                 throw new InputMismatchException("Ingrese su clave.");
             }
 
+            //LLAMA A CLASE GESTORA Y TRAE A LOS USUARIOS DEL JSON
             ControlUsuarios conUsuario = new ControlUsuarios();
-            conUsuario.cargarUsuarioDesdeArchivo("usuarios.json");
-
-            Usuario usuarioLogeado = conUsuario.verificarUsuarioLogin(user, pass);
+            conUsuario.cargarUsuarioDesdeArchivo(Archivos.archivoUsuarios);
+            //VERIFICA SI EL USUARIO INGRESADO ESTA EN EL JSON
+            Usuario usuarioLogeado = null;
+            usuarioLogeado = conUsuario.verificarUsuarioLogin(user, pass);
 
             boolean loginExitoso = false;
-            if (Objects.equals(usuarioLogeado.getNombreUsuario(), inputUser.getText())) {
+
+            if (usuarioLogeado == null) {
+                loginExitoso = false;
+            }
+            else {
                 loginExitoso = true;
+            }
+
+            if (loginExitoso) {
                 Stage stage = (Stage) btnLogin.getScene().getWindow();
                 if (usuarioLogeado.getRol() == 2) {
                     Ventanas.cambioEscena("Sistema Hangar 2.0 (Administrador)", stage, "/com/utn/hangar/admin-view.fxml");
@@ -59,8 +69,7 @@ public class LoginController {
                     Ventanas.cambioEscena("Sistema Hangar 2.0 (Invitado)", stage, "/com/utn/hangar/invitado-view.fxml");
                 }
             }
-
-            if (!loginExitoso) {
+            else {
                 throw new InputMismatchException("Credenciales incorrectas.");
             }
 
