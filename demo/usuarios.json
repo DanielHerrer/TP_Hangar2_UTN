@@ -1,0 +1,74 @@
+[
+    {
+        "nombreApellido": "Diego Groppo",
+        "alta": 1,
+        "genero": "MASCULINO",
+        "anioNacimiento": 2001,
+        "contrasenia": "123123",
+        "id": 1,
+        "nombreUsuario": "diego1",
+        "dni": "13124124",
+        "rol": 2,
+        "registro": "2024-10-26T23:37:12.823773900"
+    },
+    {
+        "nombreApellido": "diego",
+        "alta": 1,
+        "genero": "MASCULINO",
+        "anioNacimiento": 123123,
+        "contrasenia": "123123",
+        "id": 1,
+        "nombreUsuario": "leo1",
+        "dni": "212412",
+        "rol": 0,
+        "registro": "2024-10-28T13:50:39.647645600"
+    },
+    {
+        "nombreApellido": "Enzo Leo",
+        "alta": 1,
+        "genero": "MASCULINO",
+        "anioNacimiento": 1880,
+        "contrasenia": "123123",
+        "id": 1,
+        "nombreUsuario": "leo11",
+        "dni": "2124121414",
+        "rol": 0,
+        "registro": "2024-10-28T13:59:54.188710300"
+    },
+    {
+        "nombreApellido": "Diego",
+        "alta": 1,
+        "genero": "MASCULINO",
+        "anioNacimiento": 2001,
+        "contrasenia": "123123",
+        "id": 1,
+        "nombreUsuario": "diegotest",
+        "dni": "1241512",
+        "rol": 0,
+        "registro": "2024-10-28T15:01:09.287382700"
+    },
+    {
+        "nombreApellido": "Daniel",
+        "alta": 1,
+        "genero": "MASCULINO",
+        "anioNacimiento": 20020202,
+        "contrasenia": "123123",
+        "id": 1,
+        "nombreUsuario": "daniel1",
+        "dni": "1215151",
+        "rol": 0,
+        "registro": "2024-10-28T15:02:50.721973900"
+    },
+    {
+        "nombreApellido": "xcsafasfa",
+        "alta": 1,
+        "genero": "MASCULINO",
+        "anioNacimiento": 1241241,
+        "contrasenia": "123123",
+        "id": 1,
+        "nombreUsuario": "asdfasfas",
+        "dni": "2131241241",
+        "rol": 0,
+        "registro": "2024-10-28T20:02:24.865921400"
+    }
+]

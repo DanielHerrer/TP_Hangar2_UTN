@@ -10,10 +10,12 @@ import java.util.Objects;
 
 public class Usuario extends Persona{
 
+    // HACER UN ID ACUMULATIVO
     private String nombreUsuario;
     private String contrasenia;
     private LocalDateTime registro;
     private int rol;
+    private int alta;
 
     public Usuario(String dni, String nombreApellido, Genero genero, int anioNacimiento, String nombreUsuario, String contrasenia) {
         super(dni, nombreApellido, genero, anioNacimiento);
@@ -21,14 +23,16 @@ public class Usuario extends Persona{
         this.contrasenia = contrasenia;
         this.registro = LocalDateTime.now();
         this.rol = 0;
+        this.alta = 0;
     }
 
-    public Usuario(int id, String dni, String nombreApellido, Genero genero, int anioNacimiento, int alta, String nombreUsuario, String contrasenia, LocalDateTime registro, int rol) {
-        super(id, dni, nombreApellido, genero, anioNacimiento, alta);
+    public Usuario(int id, String dni, String nombreApellido, Genero genero, int anioNacimiento, String nombreUsuario, String contrasenia, LocalDateTime registro, int rol, int alta) {
+        super(id, dni, nombreApellido, genero, anioNacimiento);
         this.nombreUsuario = nombreUsuario;
         this.contrasenia = contrasenia;
         this.registro = registro;
         this.rol = rol;
+        this.alta = alta;
     }
 
     public String getNombreUsuario() {
@@ -63,6 +67,13 @@ public class Usuario extends Persona{
         this.rol = rol;
     }
 
+    public int getAlta() {
+        return alta;
+    }
+
+    public void setAlta(int alta) {
+        this.alta = alta;
+    }
 
     public JSONObject usuarioToJSONObject() {
         JSONObject json = new JSONObject();
@@ -71,7 +82,7 @@ public class Usuario extends Persona{
         json.put("nombreApellido", super.getNombreApellido());
         json.put("genero", super.getGenero());
         json.put("anioNacimiento", super.getAnioNacimiento());
-        json.put("alta", super.getAlta());
+        json.put("alta", getAlta());
         json.put("nombreUsuario", this.nombreUsuario);
         json.put("contrasenia", this.contrasenia);
         json.put("registro", this.registro);
@@ -92,7 +103,7 @@ public class Usuario extends Persona{
         String registroStr = json.getString("registro"); // Asegúrate de que el JSON contiene este campo en formato ISO-8601
         LocalDateTime registro = LocalDateTime.parse(registroStr, DateTimeFormatter.ISO_DATE_TIME);
         int rol = json.getInt("rol");
-        return new Usuario(id, dni, nombreApellido, genero, anioNacimiento, alta, nombreUsuario, contrasenia, registro, rol);
+        return new Usuario(id, dni, nombreApellido, genero, anioNacimiento, nombreUsuario, contrasenia, registro, rol, alta);
     }
 
     @Override
