@@ -7,14 +7,13 @@ import java.util.Objects;
 
 public abstract class Persona {
 
-    public static int contadorID = 0;
+    public static int contadorID = 0; // NO PERSISTE LUEGO DE REINICIAR EL PROGRAMA
 
     private int id;
     private String dni;
     private String nombreApellido;
     private Genero genero;
     private int anioNacimiento;
-    private int alta;
 
     public Persona () {
         this.id = 0;
@@ -22,7 +21,6 @@ public abstract class Persona {
         this.nombreApellido = null;
         this.genero = null;
         this.anioNacimiento = 0;
-        this.alta = 0;
     }
 
     public Persona(String dni, String nombreApellido, Genero genero, int anioNacimiento) {
@@ -31,30 +29,24 @@ public abstract class Persona {
         this.nombreApellido = nombreApellido;
         this.genero = genero;
         this.anioNacimiento = anioNacimiento;
-        this.alta = 1;
     }
 
     /**
      *
      * @see "Constructor con todos los parametros para crear el JSON"
      */
-    public Persona(int id, String dni, String nombreApellido, Genero genero, int anioNacimiento, int alta) {
+    public Persona(int id, String dni, String nombreApellido, Genero genero, int anioNacimiento) {
         this.id = id;
         this.dni = dni;
         this.nombreApellido = nombreApellido;
         this.genero = genero;
         this.anioNacimiento = anioNacimiento;
-        this.alta = alta;
     }
 
     public int getId() {
         return id;
     }
-/*
-    public void setId(int id) {
-        this.id = id;
-    }
-*/
+
     public String getDni() {
         return dni;
     }
@@ -87,24 +79,14 @@ public abstract class Persona {
         this.anioNacimiento = anioNacimiento;
     }
 
-    public int getAlta() {
-        return alta;
-    }
-
-    public void setAlta(int alta) {
-        this.alta = alta;
-    }
-
-
     @Override
     public String toString() {
         return "Persona{" +
-                "id=" + id +
+                "id=" + id  + '\'' +
                 ", dni='" + dni + '\'' +
                 ", nombreApellido='" + nombreApellido + '\'' +
-                ", genero=" + genero +
-                ", anioNacimiento=" + anioNacimiento +
-                ", alta=" + alta +
+                ", genero=" + genero + '\'' +
+                ", anioNacimiento=" + anioNacimiento  + '\'' +
                 '}';
     }
 

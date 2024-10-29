@@ -58,5 +58,17 @@
         "dni": "1215151",
         "rol": 0,
         "registro": "2024-10-28T15:02:50.721973900"
+    },
+    {
+        "nombreApellido": "xcsafasfa",
+        "alta": 1,
+        "genero": "MASCULINO",
+        "anioNacimiento": 1241241,
+        "contrasenia": "123123",
+        "id": 1,
+        "nombreUsuario": "asdfasfas",
+        "dni": "2131241241",
+        "rol": 0,
+        "registro": "2024-10-28T20:02:24.865921400"
     }
 ]

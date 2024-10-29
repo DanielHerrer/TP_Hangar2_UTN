@@ -8,14 +8,17 @@ import java.util.Objects;
 
 public class Piloto extends Persona {
 
+    // HACER UN ID ACUMULATIVO
     private String numeroLicencia;
     private int horasVuelo;
     private Rango rango;
+    private int alta;
 
     public Piloto () {
         this.numeroLicencia = null;
         this.horasVuelo = 0;
         this.rango = null;
+        this.alta = 0;
     }
 
     public Piloto(String dni, String nombreApellido, Genero genero, int anioNacimiento, String numeroLicencia) {
@@ -23,17 +26,34 @@ public class Piloto extends Persona {
         this.numeroLicencia = numeroLicencia;
         this.horasVuelo = 0;
         this.rango = Rango.ALUMNO_PILOTO;
+        this.alta = 1;
+    }
+
+    public Piloto(String dni, String nombreApellido, Genero genero, int anioNacimiento, int horasVuelo, String numeroLicencia) {
+        super(dni, nombreApellido, genero, anioNacimiento);
+        this.numeroLicencia = numeroLicencia;
+        this.horasVuelo = horasVuelo;
+        actualizarRango();
+        this.alta = 1;
+    }
+
+    public Piloto(int id, String dni, String nombreApellido, Genero genero, int anioNacimiento, String numeroLicencia, int horasVuelo, Rango rango) {
+        super(id, dni, nombreApellido, genero, anioNacimiento);
+        this.numeroLicencia = numeroLicencia;
+        this.horasVuelo = horasVuelo;
+        this.rango = rango;
     }
 
     /**
      *
      * @see "Constructor con todos los parametros para crear el JSON"
      */
-    public Piloto(int id, String dni, String nombreApellido, Genero genero, int anioNacimiento, int alta, String numeroLicencia, int horasVuelo, Rango rango) {
-        super(id, dni, nombreApellido, genero, anioNacimiento, alta);
+    public Piloto(int id, String dni, String nombreApellido, Genero genero, int anioNacimiento, String numeroLicencia, int horasVuelo, Rango rango, int alta) {
+        super(id, dni, nombreApellido, genero, anioNacimiento);
         this.numeroLicencia = numeroLicencia;
         this.horasVuelo = horasVuelo;
         this.rango = rango;
+        this.alta = alta;
     }
 
     public String getNumeroLicencia() {
@@ -58,6 +78,14 @@ public class Piloto extends Persona {
 
     public void setRango(Rango rango) {
         this.rango = rango;
+    }
+
+    public int getAlta() {
+        return alta;
+    }
+
+    public void setAlta(int alta) {
+        this.alta = alta;
     }
 
     /**
@@ -113,7 +141,7 @@ public class Piloto extends Persona {
         json.put("nombreApellido", super.getNombreApellido());
         json.put("genero", super.getGenero());
         json.put("anioNacimiento", super.getAnioNacimiento());
-        json.put("alta", super.getAlta());
+        json.put("alta", getAlta());
         json.put("numeroLicencia", this.numeroLicencia);
         json.put("horasVuelo", this.horasVuelo);
         json.put("rango", this.rango);
@@ -132,7 +160,7 @@ public class Piloto extends Persona {
         int horasVuelo = json.getInt("horasVuelo");
         String rangoStr = json.getString("rango");
         Rango rango = Rango.valueOf(rangoStr.toUpperCase());
-        return new Piloto(id, dni, nombreApellido, genero, anioNacimiento, alta, numeroLicencia, horasVuelo, rango);
+        return new Piloto(id, dni, nombreApellido, genero, anioNacimiento, numeroLicencia, horasVuelo, rango, alta);
     }
 
     @Override
