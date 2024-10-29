@@ -54,7 +54,7 @@ public class RegisterController {
     @FXML
     void onClickBtnRegister(ActionEvent event) {
         try {
-            String archivoUsuarios = "usuarios.json";
+            String archivoUsuarios = Archivos.archivoUsuarios;
             String completeName = inputNomApe.getText();
             String dni = inputDNI.getText();
             int anioNasc = Integer.parseInt(inputAñoNas.getText());
@@ -78,13 +78,13 @@ public class RegisterController {
                 throw new InputMismatchException("La contraseña debe poseer al menos 6 caracteres.");
             }
             if (inputNomApe.getText().isBlank()) {
-                throw new InputMismatchException("Ingrese un nombre de apellido.");
+                throw new InputMismatchException("Ingrese un nombre y apellido.");
             }
             if (inputDNI.getText().isBlank()) {
                 throw new InputMismatchException("Ingrese un DNI");
             }
             if (inputAñoNas.getText().isBlank()) {
-                throw new InputMismatchException("Ingrese un año de nascimento.");
+                throw new InputMismatchException("Ingrese un año de nacimiento.");
             }
             //SE TRAEN TODOS LOS USUARIOS DEL JSON Y SE GUARDAN EN LA LISTA DE LA CLASE GESTORA
             ControlUsuarios conUsuarios = new ControlUsuarios();
@@ -95,7 +95,7 @@ public class RegisterController {
                 throw new InputMismatchException("El nombre de usuario ya existe");
             }
 
-            //PARA QUE FUNCIONE LA VALIDACION, FALTA ARREGLAR EL METODO dniYaExiste EN LA CLASE ControlUsuario!
+            //TAMBIEN SE COMPRUEBA QUE NO SE REPITA EL DNI
             if (conUsuarios.dniYaExiste(dni)) {
                 throw new InputMismatchException("El DNI ya está registrado.");
             }
@@ -104,7 +104,7 @@ public class RegisterController {
             Usuario usuario1 = new Usuario(dni,completeName, gen, anioNasc, user, pass);
             //SE AGREGA EL USUARIO AL ARREGLO DE LA CLASE GESTORA
             conUsuarios.agregar(usuario1);
-            //Y SE GUARDA EL CONTENIDO DEL ARREGLO EN EL JSON
+            //Y FINALMENTE SE GUARDA EL CONTENIDO DEL ARREGLO, CON EL USUARIO CREADO, EN EL JSON
             conUsuarios.guardarUsuarioToFile(Archivos.archivoUsuarios);
 
             Stage stage = (Stage) btnRegister.getScene().getWindow();

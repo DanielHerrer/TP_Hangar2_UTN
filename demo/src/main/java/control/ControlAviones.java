@@ -147,6 +147,16 @@ public class ControlAviones {
             return -1; //RETORNO -1 SI NO ENCONTRO AL AVION
         }
     }
+    public Avion buscarAvionPorID (int id) {
+        Avion avion = null;
+
+        for (Avion a : listaAviones) {
+            if (a.getId() == id) {
+                avion = a;
+            }
+        }
+        return avion;
+    }
 
     /**
      * @see "Si el combustible de un avion es menor a 80 lo carga hasta el maximo"
@@ -171,7 +181,7 @@ public class ControlAviones {
 
     //QUEDAN POR HACER LAS FUNCIONES DE MODIFICACION
 
-    //METODOS PARA TRABAJAR CON JSON
+    //================METODOS PARA TRABAJAR CON JSON========================
     public JSONArray crearJSONArray () {
         JSONArray jsonArray = new JSONArray();
 

@@ -52,6 +52,8 @@ public class LoginController {
 
             boolean loginExitoso = false;
 
+            // SI EL USUARIO ES NULL, ES PORQUE NO SE ENCONTRO
+            //Y EL BOOLEAN PASA A SER FALSE
             if (usuarioLogeado == null) {
                 loginExitoso = false;
             }
@@ -59,6 +61,7 @@ public class LoginController {
                 loginExitoso = true;
             }
 
+            //SI SE ENCONTRO AL USUARIO, SE PASA AL MENU CORRESPONDIENTE
             if (loginExitoso) {
                 Stage stage = (Stage) btnLogin.getScene().getWindow();
                 if (usuarioLogeado.getRol() == 2) {
@@ -68,7 +71,7 @@ public class LoginController {
                 } else if (usuarioLogeado.getRol() == 0) {
                     Ventanas.cambioEscena("Sistema Hangar 2.0 (Invitado)", stage, "/com/utn/hangar/invitado-view.fxml");
                 }
-            }
+            } // SI NO SE ENCONTRO, SE ARROJA LA SIGUIENTE EXCEPCION
             else {
                 throw new InputMismatchException("Credenciales incorrectas.");
             }

@@ -1,5 +1,6 @@
 package control;
 
+import constantes.Archivos;
 import entidades.Avion;
 import entidades.Piloto;
 import entidades.Usuario;
@@ -51,19 +52,30 @@ public class ControlPilotos {
         }
     }
 
+    public Piloto buscarPilotoPorID (int id) {
+        Piloto piloto = null;
+
+        for (Piloto p : listaPilotos) {
+            if (p.getId() == id) {
+                piloto = p;
+            }
+        }
+        return piloto;
+    }
+
     /**
      * @see "Verifica si un piloto esta o no el sistema, se basa en su numero de licencia"
-     * @param nombreArchivo referencia al JSON de Pilotos
      * @param p es el Piloto que se quiere crear
      * @return devuelve un boolean de acuerdo a si esta o no
      */
-    public boolean verificarUsuario (String nombreArchivo, Piloto p) {
-        cargarPilotoDesdeArchivo(nombreArchivo);
+    public boolean verificarPiloto (Piloto p) {
+        cargarPilotoDesdeArchivo(Archivos.archivoPilotos);
 
         return listaPilotos.contains(p);
 
     }
 
+    //======================METODOS PARA TRABAJAR CON JSON============================
     public JSONArray crearJSONArray () {
         JSONArray jsonArray = new JSONArray();
 
