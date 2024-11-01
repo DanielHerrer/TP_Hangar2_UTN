@@ -45,24 +45,27 @@ public class LoginController {
 
             //LLAMA A CLASE GESTORA Y TRAE A LOS USUARIOS DEL JSON
             ControlUsuarios conUsuario = new ControlUsuarios();
-            conUsuario.cargarUsuarioDesdeArchivo(Archivos.archivoUsuarios);
+            conUsuario.cargarUsuarioDesdeArchivo();
             //VERIFICA SI EL USUARIO INGRESADO ESTA EN EL JSON
             Usuario usuarioLogeado = null;
             usuarioLogeado = conUsuario.verificarUsuarioLogin(user, pass);
 
+            /*
             boolean loginExitoso = false;
 
             // SI EL USUARIO ES NULL, ES PORQUE NO SE ENCONTRO
             //Y EL BOOLEAN PASA A SER FALSE
+
             if (usuarioLogeado == null) {
                 loginExitoso = false;
             }
             else {
                 loginExitoso = true;
             }
+*/
 
             //SI SE ENCONTRO AL USUARIO, SE PASA AL MENU CORRESPONDIENTE
-            if (loginExitoso) {
+            if (usuarioLogeado != null) {
                 Stage stage = (Stage) btnLogin.getScene().getWindow();
                 if (usuarioLogeado.getRol() == 2) {
                     Ventanas.cambioEscena("Sistema Hangar 2.0 (Administrador)", stage, "/com/utn/hangar/admin-view.fxml");

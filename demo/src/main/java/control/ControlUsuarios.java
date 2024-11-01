@@ -1,5 +1,6 @@
 package control;
 
+import constantes.Archivos;
 import entidades.Usuario;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -23,8 +24,8 @@ public class ControlUsuarios {
         listaUsuarios.add(u);
     }
 
-    public boolean verificarUsuario (String nombreArchivo, Usuario u) {
-        cargarUsuarioDesdeArchivo(nombreArchivo);
+    public boolean verificarUsuario (Usuario u) {
+        cargarUsuarioDesdeArchivo();
 
         return listaUsuarios.contains(u);
 
@@ -40,33 +41,33 @@ public class ControlUsuarios {
     }
 
 
-    public void guardarUsuarioToFile(String archivo) {
+    public void guardarUsuarioToFile() {
         JSONArray usuarioArray = crearJSONArray();
 
-        try (FileWriter file = new FileWriter(archivo)) {
+        try (FileWriter file = new FileWriter(Archivos.archivoUsuarios)) {
             file.write(usuarioArray.toString(4));
-            System.out.println("Usuarios guardados en el archivo: " + archivo);
+            System.out.println("Usuarios guardados en el archivo: " + Archivos.archivoUsuarios);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    public void cargarUsuarioDesdeArchivo(String archivo) {
+    public void cargarUsuarioDesdeArchivo() {
         try {
 
-            JSONArray usuarioArray = new JSONArray(leerArchivo(archivo));
+            JSONArray usuarioArray = new JSONArray(Archivos.leerArchivo(Archivos.archivoUsuarios));
 
             usuarioJSONArrayToList(usuarioArray);
-            System.out.println("Usuarios cargados desde el archivo: " + archivo);
+            System.out.println("Usuarios cargados desde el archivo: " + Archivos.archivoUsuarios);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public static JSONTokener leerArchivo(String nombreArchivo){
+    public static JSONTokener leerArchivo(){
         JSONTokener tokener = null;
         try{
-            tokener= new JSONTokener(new FileReader(nombreArchivo));
+            tokener= new JSONTokener(new FileReader(Archivos.archivoUsuarios));
         }catch(FileNotFoundException e){
             e.printStackTrace();
         }
@@ -120,6 +121,7 @@ public class ControlUsuarios {
         for (Usuario usu : listaUsuarios) {
             if (usu.getNombreUsuario().equals(nombreUsuario) && usu.getContrasenia().equals(password)) {
                 u = usu;
+                return u;
             }
         }
         return u;

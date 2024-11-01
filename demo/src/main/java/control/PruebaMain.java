@@ -16,7 +16,7 @@ public class PruebaMain {
 
         controlPilotos.agregar(pil1);
 
-        controlPilotos.guardarPilotoToFile(Archivos.archivoPilotos);
+        controlPilotos.guardarPilotoToFile();
 
 
     }

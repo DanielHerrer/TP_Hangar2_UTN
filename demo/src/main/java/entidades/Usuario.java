@@ -1,5 +1,6 @@
 package entidades;
 
+import constantes.Archivos;
 import enums.Genero;
 import enums.Rango;
 import org.json.JSONObject;
@@ -10,25 +11,39 @@ import java.util.Objects;
 
 public class Usuario extends Persona{
 
+    private int id;
     private String nombreUsuario;
     private String contrasenia;
     private LocalDateTime registro;
     private int rol;
+    private int alta;
+
 
     public Usuario(String dni, String nombreApellido, Genero genero, int anioNacimiento, String nombreUsuario, String contrasenia) {
         super(dni, nombreApellido, genero, anioNacimiento);
+        this.id = Archivos.obtenerUltimoIdUsuario();
         this.nombreUsuario = nombreUsuario;
         this.contrasenia = contrasenia;
         this.registro = LocalDateTime.now();
         this.rol = 0;
+        this.alta = 1;
     }
 
-    public Usuario(int id, String dni, String nombreApellido, Genero genero, int anioNacimiento, int alta, String nombreUsuario, String contrasenia, LocalDateTime registro, int rol) {
-        super(id, dni, nombreApellido, genero, anioNacimiento, alta);
+    /**
+     * @see "Constructor con todos los param para el JSON"
+     */
+    public Usuario(String dni, String nombreApellido, Genero genero, int anioNacimiento, int id, String nombreUsuario, String contrasenia, LocalDateTime registro, int rol, int alta) {
+        super(dni, nombreApellido, genero, anioNacimiento);
+        this.id = id;
         this.nombreUsuario = nombreUsuario;
         this.contrasenia = contrasenia;
         this.registro = registro;
         this.rol = rol;
+        this.alta = alta;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public String getNombreUsuario() {
@@ -63,45 +78,58 @@ public class Usuario extends Persona{
         this.rol = rol;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getAlta() {
+        return alta;
+    }
+
+    public void setAlta(int alta) {
+        this.alta = alta;
+    }
 
     public JSONObject usuarioToJSONObject() {
         JSONObject json = new JSONObject();
-        json.put("id", super.getId());
         json.put("dni", super.getDni());
         json.put("nombreApellido", super.getNombreApellido());
         json.put("genero", super.getGenero());
         json.put("anioNacimiento", super.getAnioNacimiento());
-        json.put("alta", super.getAlta());
+        json.put("id", this.id);
         json.put("nombreUsuario", this.nombreUsuario);
         json.put("contrasenia", this.contrasenia);
         json.put("registro", this.registro);
         json.put("rol", this.rol);
+        json.put("alta", this.alta);
         return json;
     }
 
     public static Usuario JSONObjectToUsuario(JSONObject json) {
-        int id = json.getInt("id");
         String dni = json.getString("dni");
         String nombreApellido = json.getString("nombreApellido");
         String generoStr = json.getString("genero");
         Genero genero = Genero.valueOf(generoStr.toUpperCase());
         int anioNacimiento = json.getInt("anioNacimiento");
-        int alta = json.getInt("alta");
+        int id = json.getInt("id");
         String nombreUsuario = json.getString("nombreUsuario");
         String contrasenia = json.getString("contrasenia");
-        String registroStr = json.getString("registro"); // Asegúrate de que el JSON contiene este campo en formato ISO-8601
+        String registroStr = json.getString("registro");
         LocalDateTime registro = LocalDateTime.parse(registroStr, DateTimeFormatter.ISO_DATE_TIME);
         int rol = json.getInt("rol");
-        return new Usuario(id, dni, nombreApellido, genero, anioNacimiento, alta, nombreUsuario, contrasenia, registro, rol);
+        int alta = json.getInt("alta");
+        return new Usuario(dni, nombreApellido, genero, anioNacimiento, id, nombreUsuario, contrasenia, registro, rol, alta);
     }
 
     @Override
     public String toString() {
         return "Usuario{" +
-                "nombreUsuario='" + nombreUsuario + '\'' +
+                "id=" + id +
+                ", nombreUsuario='" + nombreUsuario + '\'' +
                 ", contrasenia='" + contrasenia + '\'' +
                 ", registro=" + registro +
                 ", rol=" + rol +
+                ", alta=" + alta +
                 "} " + super.toString();
     }
 

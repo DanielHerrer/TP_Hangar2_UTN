@@ -13,6 +13,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
 import java.util.InputMismatchException;
 import control.ControlUsuarios;
 import org.json.JSONObject;
@@ -54,7 +55,6 @@ public class RegisterController {
     @FXML
     void onClickBtnRegister(ActionEvent event) {
         try {
-            String archivoUsuarios = Archivos.archivoUsuarios;
             String completeName = inputNomApe.getText();
             String dni = inputDNI.getText();
             int anioNasc = Integer.parseInt(inputAñoNas.getText());
@@ -63,22 +63,16 @@ public class RegisterController {
             String pass = inputPass.getText();
             String passConfirm = inputPassConfirm.getText();
 
-            // VALIDACIONES
+            //SE TRAEN TODOS LOS USUARIOS DEL JSON Y SE GUARDAN EN LA LISTA DE LA CLASE GESTORA
+            ControlUsuarios conUsuarios = new ControlUsuarios();
+            conUsuarios.cargarUsuarioDesdeArchivo();
 
-            if (inputUser.getText().isBlank()) {
-                throw new InputMismatchException("Ingrese un nombre de usuario.");
-            }
-            if (!pass.equals(passConfirm)) {
-                throw new InputMismatchException("Las contraseñas ingresadas no coinciden.");
-            }
-            if (user.isBlank() || user.length() < 3) {
-                throw new InputMismatchException("El usuario debe poseer al menos 3 caracteres.");
-            }
-            if (pass.isBlank() || pass.length() < 6) {
-                throw new InputMismatchException("La contraseña debe poseer al menos 6 caracteres.");
-            }
+            // VALIDACIONES
             if (inputNomApe.getText().isBlank()) {
                 throw new InputMismatchException("Ingrese un nombre y apellido.");
+            }
+            if (inputUser.getText().isBlank()) {
+                throw new InputMismatchException("Ingrese un nombre de usuario.");
             }
             if (inputDNI.getText().isBlank()) {
                 throw new InputMismatchException("Ingrese un DNI");
@@ -86,26 +80,39 @@ public class RegisterController {
             if (inputAñoNas.getText().isBlank()) {
                 throw new InputMismatchException("Ingrese un año de nacimiento.");
             }
-            //SE TRAEN TODOS LOS USUARIOS DEL JSON Y SE GUARDAN EN LA LISTA DE LA CLASE GESTORA
-            ControlUsuarios conUsuarios = new ControlUsuarios();
-            conUsuarios.cargarUsuarioDesdeArchivo(Archivos.archivoUsuarios);
+            if (gen == null){
+                throw new InputMismatchException("Ingrese un genero");
+            }
+            if (user.isBlank() || user.length() < 3) {
+                throw new InputMismatchException("El usuario debe poseer al menos 3 caracteres.");
+            }
+            if (pass.isBlank() || pass.length() < 6) {
+                throw new InputMismatchException("La contraseña debe poseer al menos 6 caracteres.");
+            }
+            if (!pass.equals(passConfirm)) {
+                throw new InputMismatchException("Las contraseñas ingresadas no coinciden.");
+            }
 
-            // COMPROBAR QUE NO HAYA UN USER REPETIDO
+            //SE VALIDA QUE EL NOMBRE DE USUARIO NO ESTE REPETIDA
             if (conUsuarios.usuarioYaExiste(user)) {
                 throw new InputMismatchException("El nombre de usuario ya existe");
             }
-
             //TAMBIEN SE COMPRUEBA QUE NO SE REPITA EL DNI
             if (conUsuarios.dniYaExiste(dni)) {
                 throw new InputMismatchException("El DNI ya está registrado.");
             }
+            //SE VALIDA EL AÑO DE NACIMIENTO DEL USUARIO
+            if(anioNasc > (LocalDateTime.now().getYear() - 18) || anioNasc < 1899){
+                throw new InputMismatchException("El año ingresado no es valido");
+            }
+
 
             //CON LOS DATOS PEDIDOS ANTERIORMENTE SE INSTANCIA UN USUARIO
             Usuario usuario1 = new Usuario(dni,completeName, gen, anioNasc, user, pass);
             //SE AGREGA EL USUARIO AL ARREGLO DE LA CLASE GESTORA
             conUsuarios.agregar(usuario1);
-            //Y FINALMENTE SE GUARDA EL CONTENIDO DEL ARREGLO, CON EL USUARIO CREADO, EN EL JSON
-            conUsuarios.guardarUsuarioToFile(Archivos.archivoUsuarios);
+            //Y SE GUARDA EL CONTENIDO DEL ARREGLO EN EL JSON
+            conUsuarios.guardarUsuarioToFile();
 
             Stage stage = (Stage) btnRegister.getScene().getWindow();
             Ventanas.cambioEscena("Sistema Hangar 2.0",stage,"/com/utn/hangar/login-view.fxml");

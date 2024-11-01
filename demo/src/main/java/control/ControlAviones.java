@@ -1,5 +1,6 @@
 package control;
 
+import constantes.Archivos;
 import entidades.Avion;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -15,7 +16,7 @@ import java.util.Collections;
 
 public class ControlAviones {
 
-    ArrayList<Avion> listaAviones;
+    public ArrayList<Avion> listaAviones;
 
     public ControlAviones() {
         this.listaAviones = new ArrayList<>();
@@ -192,38 +193,27 @@ public class ControlAviones {
     }
 
 
-    public void guardarAvionToFile(String archivo) {
+    public void guardarAvionToFile() {
         JSONArray pilotoArray = crearJSONArray();
 
-        try (FileWriter file = new FileWriter(archivo)) {
+        try (FileWriter file = new FileWriter(Archivos.archivoAvion)) {
             file.write(pilotoArray.toString(4));
-            System.out.println("Aviones guardados en el archivo: " + archivo);
+            System.out.println("Aviones guardados en el archivo: " + Archivos.archivoAvion);
 
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    public void cargarAvionDesdeArchivo (String archivo) {
+    public void cargarAvionDesdeArchivo () {
         try {
-
-            JSONArray avionesArray = new JSONArray(leerArchivo(archivo));
+            JSONArray avionesArray = new JSONArray(Archivos.leerArchivo(Archivos.archivoAvion));
 
             avionJSONArrayToList(avionesArray);
-            System.out.println("Aviones cargados desde el archivo: " + archivo);
+            System.out.println("Aviones cargados desde el archivo: " + Archivos.archivoAvion);
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
-
-    public static JSONTokener leerArchivo(String nombreArchivo){
-        JSONTokener tokener = null;
-        try{
-            tokener= new JSONTokener(new FileReader(nombreArchivo));
-        }catch(FileNotFoundException e){
-            e.printStackTrace();
-        }
-        return tokener;
     }
 
     public void avionJSONArrayToList(JSONArray jsonArray) {
