@@ -33,18 +33,6 @@ public class Piloto extends Persona {
     }
 
     /**
-     * @see "Constructor por si se especifican las horas de vuelo"
-     */
-    public Piloto(String dni, String nombreApellido, Genero genero, int anioNacimiento, int horasVuelo, String numeroLicencia) {
-        super(dni, nombreApellido, genero, anioNacimiento);
-        this.id = Archivos.obtenerUltimoIdPiloto(); //llamo a la funcion
-        this.numeroLicencia = numeroLicencia;
-        this.horasVuelo = horasVuelo;
-        actualizarRango();
-        this.alta = 1;
-    }
-
-    /**
      * @see "Constructor con todos los parametros para el JSON"
      */
     public Piloto(String dni, String nombreApellido, Genero genero, int anioNacimiento, int id, String numeroLicencia, int horasVuelo, Rango rango, int alta) {

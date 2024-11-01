@@ -18,7 +18,6 @@ public class Usuario extends Persona{
     private int rol;
     private int alta;
 
-
     public Usuario(String dni, String nombreApellido, Genero genero, int anioNacimiento, String nombreUsuario, String contrasenia) {
         super(dni, nombreApellido, genero, anioNacimiento);
         this.id = Archivos.obtenerUltimoIdUsuario();
@@ -76,10 +75,6 @@ public class Usuario extends Persona{
 
     public void setRol(int rol) {
         this.rol = rol;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public int getAlta() {
