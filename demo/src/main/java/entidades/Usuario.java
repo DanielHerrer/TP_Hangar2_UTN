@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 
-public class Usuario extends Persona{
+public class Usuario extends Persona {
 
     private int id;
     private String nombreUsuario;

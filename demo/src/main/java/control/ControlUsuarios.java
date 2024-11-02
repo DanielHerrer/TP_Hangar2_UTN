@@ -1,8 +1,13 @@
 package control;
 
 import constantes.Archivos;
+import entidades.Piloto;
 import entidades.Usuario;
 import enums.Genero;
+import excepciones.FormatoIncorrectoException;
+import excepciones.ObjetoInexistenteException;
+import excepciones.ObjetoRepetidoException;
+import interfaces.iABML;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.json.JSONTokener;
@@ -15,7 +20,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
-public class ControlUsuarios {
+public class ControlUsuarios implements iABML<Usuario> {
 
     public ArrayList<Usuario> listaUsuarios;
 
@@ -27,9 +32,56 @@ public class ControlUsuarios {
         return listaUsuarios;
     }
 
-    public void agregar (Usuario u) {
-        listaUsuarios.add(u);
+    // ===================== METODOS DE LA INTERFAZ =====================================
+
+    @Override
+    public boolean agregar(Usuario u) throws FormatoIncorrectoException, ObjetoRepetidoException {
+        if (listaUsuarios.contains(u)) {
+            throw new ObjetoRepetidoException("El usuario ya esta cargado en el sistema");
+        }
+        if (u.getId() != 0  && u.getNombreUsuario() != null && u.getContrasenia() != null ) {
+            listaUsuarios.add(u);
+            return true;
+        }
+        else {
+            throw new FormatoIncorrectoException("El formato introducido no es correcto");
+        }
     }
+
+    /**
+     * @see "Da a un usuario de baja"
+     * @param u
+     * @return
+     * @throws FormatoIncorrectoException
+     * @throws ObjetoInexistenteException
+     */
+    @Override
+    public boolean eliminar(Usuario u) throws FormatoIncorrectoException, ObjetoInexistenteException {
+        if (u.getId() != 0  && u.getNombreUsuario() != null && u.getContrasenia() != null) {
+            if (listaUsuarios.contains(u)) {
+                u.setAlta(0);
+                return true;
+            }
+            else {
+                throw new ObjetoInexistenteException("El usuario no se encuentra en el sistema");
+            }
+        }
+        else {
+            throw new FormatoIncorrectoException("El usuario introducido no posee el formato correcto");
+        }
+    }
+
+    @Override
+    public boolean modificar(Usuario u) {
+        return false;
+    }
+
+    @Override
+    public boolean listar(Usuario u) {
+        return false;
+    }
+
+    // ==============================================================================================
 
     public boolean verificarUsuario (Usuario u) {
         cargarUsuarioDesdeArchivo();
@@ -184,6 +236,16 @@ public class ControlUsuarios {
             }
         }
         return u;
+    }
+
+    public void modificarAltaUsuario (Usuario u) {
+
+        if (u.getAlta() == 0) {
+            u.setAlta(1);
+        }
+        else {
+            u.setAlta(0);
+        }
     }
 
 

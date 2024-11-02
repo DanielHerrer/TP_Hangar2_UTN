@@ -6,6 +6,10 @@ import entidades.Piloto;
 import entidades.Usuario;
 import enums.Genero;
 import enums.Rango;
+import excepciones.FormatoIncorrectoException;
+import excepciones.ObjetoInexistenteException;
+import excepciones.ObjetoRepetidoException;
+import interfaces.iABML;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.json.JSONTokener;
@@ -16,7 +20,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class ControlPilotos {
+public class ControlPilotos implements iABML<Piloto> {
 
     public ArrayList<Piloto> listaPilotos;
 
@@ -24,9 +28,49 @@ public class ControlPilotos {
         listaPilotos = new ArrayList<>();
     }
 
-    public void agregar (Piloto p) {
-        listaPilotos.add(p);
+    // ======================= METODOS INTERFAZ =====================================
+
+    @Override
+    public boolean agregar(Piloto p) throws FormatoIncorrectoException, ObjetoRepetidoException {
+        if (listaPilotos.contains(p)) {
+            throw new ObjetoRepetidoException("El piloto ya esta cargado en el sistema");
+        }
+        if (p.getId() != 0  && p.getNumeroLicencia() != null && p.getRango() != null) {
+            listaPilotos.add(p);
+            return true;
+        }
+        else {
+            throw new FormatoIncorrectoException("El formato introducido no es correcto");
+        }
     }
+
+    @Override
+    public boolean eliminar(Piloto p) throws FormatoIncorrectoException, ObjetoInexistenteException {
+        if (p.getId() != 0  && p.getNumeroLicencia() != null && p.getRango() != null) {
+            if (listaPilotos.contains(p)) {
+                p.setAlta(0);
+                return true;
+            }
+            else {
+                throw new ObjetoInexistenteException("El usuario no se encuentra en el sistema");
+            }
+        }
+        else {
+            throw new FormatoIncorrectoException("El usuario introducido no posee el formato correcto");
+        }
+    }
+
+    @Override
+    public boolean modificar(Piloto p) {
+        return false;
+    }
+
+    @Override
+    public boolean listar(Piloto p) {
+        return false;
+    }
+
+    // ================================================================================
 
     public int modificarAltaPiloto (int id) {
         Piloto piloto = null;

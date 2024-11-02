@@ -5,19 +5,30 @@ import entidades.Avion;
 import entidades.Piloto;
 import entidades.Avion;
 import enums.Genero;
+import excepciones.FormatoIncorrectoException;
+import excepciones.ObjetoRepetidoException;
 
 public class PruebaMain {
 
     public static void main (String[] args) {
 
-        // COSAS QUE HICE: REACOMODE LA LOGICA DE LOS METODOS JSON
-        // IMPLEMENTE EL TEMITA DE LOS REGISTROS
+        // COSAS QUE HICE: AGREGE INTERFAZ iABML
+        //AGREGE 4 EXCEPCIONES
+        //IMPLEMENTE INTERFAZ EN CONTROLUSUARIOS
+        //LOGICA PARA COMPROBACION DE ALTA/BAJA
 
         Piloto pil1 = new Piloto("2233", "Franco Colapinto", Genero.MASCULINO, 2000, "43");
 
         ControlPilotos controlPilotos = new ControlPilotos();
 
-        controlPilotos.agregar(pil1);
+        try {
+            controlPilotos.agregar(pil1);
+        }
+        catch (ObjetoRepetidoException e) {
+            e.printStackTrace();
+        } catch (FormatoIncorrectoException e) {
+            throw new RuntimeException(e);
+        }
 
         controlPilotos.guardarPilotoToFile();
 
@@ -25,7 +36,11 @@ public class PruebaMain {
 
         Piloto pil2 = new Piloto("78554", "Valtteri Bottas", Genero.MASCULINO, 1992, "77");
 
-        controlPilotos.agregar(pil2);
+        try {
+            controlPilotos.agregar(pil1);
+        } catch (ObjetoRepetidoException | FormatoIncorrectoException e) {
+            System.out.println(e.getMessage());
+        }
 
         controlPilotos.guardarPilotoToFile();
 
@@ -42,6 +57,19 @@ public class PruebaMain {
         cA.listaAviones.get(0).setPiloto(pil2);
 
         cA.guardarAvionToFile();
+
+        ControlUsuarios controlUsuarios = new ControlUsuarios();
+
+        controlUsuarios.cargarUsuarioDesdeArchivo();
+
+        try {
+            controlUsuarios.eliminar(controlUsuarios.listaUsuarios.get(3));
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        controlUsuarios.guardarUsuarioToFile();
 
     }
 }

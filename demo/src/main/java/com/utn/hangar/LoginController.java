@@ -2,6 +2,8 @@ package com.utn.hangar;
 
 import constantes.Archivos;
 import entidades.Usuario;
+import excepciones.FormatoIncorrectoException;
+import excepciones.UsuarioDeBajaException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -50,22 +52,13 @@ public class LoginController {
             Usuario usuarioLogeado = null;
             usuarioLogeado = conUsuario.verificarUsuarioLogin(user, pass);
 
-            /*
-            boolean loginExitoso = false;
-
-            // SI EL USUARIO ES NULL, ES PORQUE NO SE ENCONTRO
-            //Y EL BOOLEAN PASA A SER FALSE
-
             if (usuarioLogeado == null) {
-                loginExitoso = false;
+                throw new FormatoIncorrectoException("Credenciales incorrectas");
             }
-            else {
-                loginExitoso = true;
-            }
-*/
+
 
             //SI SE ENCONTRO AL USUARIO, SE PASA AL MENU CORRESPONDIENTE
-            if (usuarioLogeado != null) {
+            if (usuarioLogeado.getAlta() == 1) {
                 Stage stage = (Stage) btnLogin.getScene().getWindow();
                 if (usuarioLogeado.getRol() == 2) {
                     Ventanas.cambioEscena("Sistema Hangar 2.0 (Administrador)", stage, "/com/utn/hangar/admin-view.fxml");
@@ -76,7 +69,7 @@ public class LoginController {
                 }
             } // SI NO SE ENCONTRO, SE ARROJA LA SIGUIENTE EXCEPCION
             else {
-                throw new InputMismatchException("Credenciales incorrectas.");
+                throw new UsuarioDeBajaException("Su usuario ha sido dado de baja");
             }
 
         } catch (IOException e) {

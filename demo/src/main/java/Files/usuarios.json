@@ -37,7 +37,7 @@
     },
     {
         "nombreApellido": "lando norris",
-        "alta": 1,
+        "alta": 0,
         "genero": "MASCULINO",
         "anioNacimiento": 2002,
         "contrasenia": "mcclaren",
@@ -49,7 +49,7 @@
     },
     {
         "nombreApellido": "yamil yamal",
-        "alta": 1,
+        "alta": 0,
         "genero": "MASCULINO",
         "anioNacimiento": 2005,
         "contrasenia": "barcafc",
@@ -61,7 +61,7 @@
     },
     {
         "nombreApellido": "djokovic",
-        "alta": 1,
+        "alta": 0,
         "genero": "MASCULINO",
         "anioNacimiento": 1990,
         "contrasenia": "serbia",

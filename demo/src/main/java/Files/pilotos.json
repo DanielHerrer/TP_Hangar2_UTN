@@ -1,24 +1,11 @@
-[
-    {
-        "nombreApellido": "Franco Colapinto",
-        "rango": "ALUMNO_PILOTO",
-        "alta": 1,
-        "genero": "MASCULINO",
-        "horasVuelo": 0,
-        "anioNacimiento": 2000,
-        "id": 6,
-        "dni": "2233",
-        "numeroLicencia": "43"
-    },
-    {
-        "nombreApellido": "Valtteri Bottas",
-        "rango": "ALUMNO_PILOTO",
-        "alta": 1,
-        "genero": "MASCULINO",
-        "horasVuelo": 0,
-        "anioNacimiento": 1992,
-        "id": 7,
-        "dni": "78554",
-        "numeroLicencia": "77"
-    }
-]
+[{
+    "nombreApellido": "Franco Colapinto",
+    "rango": "ALUMNO_PILOTO",
+    "alta": 1,
+    "genero": "MASCULINO",
+    "horasVuelo": 0,
+    "anioNacimiento": 2000,
+    "id": 15,
+    "dni": "2233",
+    "numeroLicencia": "43"
+}]
