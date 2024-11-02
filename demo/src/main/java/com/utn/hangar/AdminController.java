@@ -8,28 +8,30 @@ import javafx.stage.Stage;
 public class AdminController {
 
     @FXML
-    private Button btnListUsuarios;
+    private Button btnListaUsuarios;
 
     @FXML
     private Button btnLogout;
 
+    // BOTON PARA LISTAR USUARIOS
     @FXML
-    void onBtnLogoutButtonClick(ActionEvent event) {
+    void onActionBtnListaUsuarios(ActionEvent event) {
         try {
-            Stage stage = (Stage) btnLogout.getScene().getWindow();
-            Ventanas.cambioEscena("Sistema Hangar 2.0",stage, "/com/utn/hangar/login-view.fxml");
-
+            Stage stage = (Stage) btnListaUsuarios.getScene().getWindow();
+            Ventanas.cambioEscena("Sistema Hangar 2.0",stage, "/com/utn/hangar/lista-usuarios-view.fxml");
         } catch (Exception e) {
             Ventanas.exceptionError(e);
             e.printStackTrace();
         }
     }
 
+    // BOTON CERRAR SESIÓN
     @FXML
-    void onBtnListUsuariosButtonClick(ActionEvent event) {
+    void onBtnLogoutButtonClick(ActionEvent event) {
         try {
-            Stage stage = (Stage) btnListUsuarios.getScene().getWindow();
-            Ventanas.cambioEscena("Sistema Hangar 2.0",stage, "/com/utn/hangar/list-usuario-view.fxml");
+            Stage stage = (Stage) btnLogout.getScene().getWindow();
+            Ventanas.cambioEscena("Sistema Hangar 2.0", stage, "/com/utn/hangar/login-view.fxml");
+
         } catch (Exception e) {
             Ventanas.exceptionError(e);
             e.printStackTrace();

@@ -38,7 +38,7 @@ public class ListUsuariosController {
     public void initialize() {
         //LLAMA A CLASE GESTORA Y TRAE A LOS USUARIOS DEL JSON
         ControlUsuarios conUsuario = new ControlUsuarios();
-        conUsuario.cargarUsuariosDesdeArchivo(Archivos.archivoUsuarios);
+        conUsuario.cargarUsuariosDesdeArchivo();
 
         // Convierte el ArrayList a ObservableList
         ObservableList<Usuario> listaObservableUsuarios = FXCollections.observableArrayList(conUsuario.getListaUsuarios());

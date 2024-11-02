@@ -1,5 +1,6 @@
 package control;
 
+import constantes.Archivos;
 import entidades.Avion;
 import entidades.Piloto;
 import entidades.Usuario;
@@ -51,19 +52,30 @@ public class ControlPilotos {
         }
     }
 
+    public Piloto buscarPilotoPorID (int id) {
+        Piloto piloto = null;
+
+        for (Piloto p : listaPilotos) {
+            if (p.getId() == id) {
+                piloto = p;
+            }
+        }
+        return piloto;
+    }
+
     /**
      * @see "Verifica si un piloto esta o no el sistema, se basa en su numero de licencia"
-     * @param nombreArchivo referencia al JSON de Pilotos
      * @param p es el Piloto que se quiere crear
      * @return devuelve un boolean de acuerdo a si esta o no
      */
-    public boolean verificarUsuario (String nombreArchivo, Piloto p) {
-        cargarPilotoDesdeArchivo(nombreArchivo);
+    public boolean verificarPiloto (Piloto p) {
+        cargarPilotoDesdeArchivo();
 
         return listaPilotos.contains(p);
 
     }
 
+    //======================METODOS PARA TRABAJAR CON JSON============================
     public JSONArray crearJSONArray () {
         JSONArray jsonArray = new JSONArray();
 
@@ -74,34 +86,34 @@ public class ControlPilotos {
     }
 
 
-    public void guardarPilotoToFile(String archivo) {
+    public void guardarPilotoToFile() {
         JSONArray pilotoArray = crearJSONArray();
 
-        try (FileWriter file = new FileWriter(archivo)) {
+        try (FileWriter file = new FileWriter(Archivos.archivoPilotos)) {
             file.write(pilotoArray.toString(4));
-            System.out.println("Pilotos guardadas en el archivo: " + archivo);
+            System.out.println("Pilotos guardadas en el archivo: " + Archivos.archivoPilotos);
 
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    public void cargarPilotoDesdeArchivo (String archivo) {
+    public void cargarPilotoDesdeArchivo () {
         try {
 
-            JSONArray tasksArray = new JSONArray(leerArchivo(archivo));
+            JSONArray tasksArray = new JSONArray(Archivos.leerArchivo(Archivos.archivoPilotos));
 
             pilotoJSONArrayToList(tasksArray);
-            System.out.println("Pilotos cargados desde el archivo: " + archivo);
+            System.out.println("Pilotos cargados desde el archivo: " + Archivos.archivoPilotos);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public static JSONTokener leerArchivo(String nombreArchivo){
+    public static JSONTokener leerArchivo(){
         JSONTokener tokener = null;
         try{
-            tokener= new JSONTokener(new FileReader(nombreArchivo));
+            tokener= new JSONTokener(new FileReader(Archivos.archivoPilotos));
         }catch(FileNotFoundException e){
             e.printStackTrace();
         }

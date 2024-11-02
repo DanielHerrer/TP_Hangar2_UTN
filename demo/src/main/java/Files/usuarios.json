@@ -20,19 +20,19 @@
         "id": 2,
         "nombreUsuario": "Castrinho",
         "dni": "46896",
-        "rol": 0,
+        "rol": 2,
         "registro": "2024-10-28T19:52:27.610972"
     },
     {
-        "nombreApellido": "Senior Admin",
+        "nombreApellido": "Castro",
         "alta": 1,
-        "genero": "OTROS",
-        "anioNacimiento": 1997,
-        "contrasenia": "admin123",
-        "id": 0,
-        "nombreUsuario": "admin",
-        "dni": "222222",
-        "rol": 2,
-        "registro": "2024-10-29T14:00:21.979238600"
+        "genero": "MASCULINO",
+        "anioNacimiento": 2005,
+        "contrasenia": "313131",
+        "id": 3,
+        "nombreUsuario": "elpibe",
+        "dni": "65468",
+        "rol": 0,
+        "registro": "2024-11-01T00:04:17.393540400"
     }
 ]

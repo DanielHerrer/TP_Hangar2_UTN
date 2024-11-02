@@ -20,7 +20,6 @@ public abstract class Persona {
     }
 
     /**
-     *
      * @see "Constructor con todos los parametros para crear el JSON"
      */
     public Persona(String dni, String nombreApellido, Genero genero, int anioNacimiento) {
@@ -62,13 +61,14 @@ public abstract class Persona {
         this.anioNacimiento = anioNacimiento;
     }
 
+
     @Override
     public String toString() {
         return "Persona{" +
-                " dni='" + dni + '\'' +
+                "dni='" + dni + '\'' +
                 ", nombreApellido='" + nombreApellido + '\'' +
-                ", genero=" + genero + '\'' +
-                ", anioNacimiento=" + anioNacimiento  + '\'' +
+                ", genero=" + genero +
+                ", anioNacimiento=" + anioNacimiento +
                 '}';
     }
 

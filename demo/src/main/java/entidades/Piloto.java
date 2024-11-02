@@ -1,5 +1,6 @@
 package entidades;
 
+import constantes.Archivos;
 import enums.Genero;
 import enums.Rango;
 import org.json.JSONObject;
@@ -8,7 +9,6 @@ import java.util.Objects;
 
 public class Piloto extends Persona {
 
-    // HACER UN ID ACUMULATIVO
     private int id;
     private String numeroLicencia;
     private int horasVuelo;
@@ -16,6 +16,7 @@ public class Piloto extends Persona {
     private int alta;
 
     public Piloto () {
+        this.id = 0; //llamo a la funcion
         this.numeroLicencia = null;
         this.horasVuelo = 0;
         this.rango = null;
@@ -24,33 +25,17 @@ public class Piloto extends Persona {
 
     public Piloto(String dni, String nombreApellido, Genero genero, int anioNacimiento, String numeroLicencia) {
         super(dni, nombreApellido, genero, anioNacimiento);
+        this.id = Archivos.obtenerUltimoIdPiloto();
         this.numeroLicencia = numeroLicencia;
         this.horasVuelo = 0;
         this.rango = Rango.ALUMNO_PILOTO;
         this.alta = 1;
     }
 
-    public Piloto(String dni, String nombreApellido, Genero genero, int anioNacimiento, int horasVuelo, String numeroLicencia) {
-        super(dni, nombreApellido, genero, anioNacimiento);
-        this.numeroLicencia = numeroLicencia;
-        this.horasVuelo = horasVuelo;
-        actualizarRango();
-        this.alta = 1;
-    }
-
-    public Piloto(int id, String dni, String nombreApellido, Genero genero, int anioNacimiento, String numeroLicencia, int horasVuelo, Rango rango) {
-        super(dni, nombreApellido, genero, anioNacimiento);
-        this.id = id;
-        this.numeroLicencia = numeroLicencia;
-        this.horasVuelo = horasVuelo;
-        this.rango = rango;
-    }
-
     /**
-     *
-     * @see "Constructor con todos los parametros para crear el JSON"
+     * @see "Constructor con todos los parametros para el JSON"
      */
-    public Piloto(int id, String dni, String nombreApellido, Genero genero, int anioNacimiento, String numeroLicencia, int horasVuelo, Rango rango, int alta) {
+    public Piloto(String dni, String nombreApellido, Genero genero, int anioNacimiento, int id, String numeroLicencia, int horasVuelo, Rango rango, int alta) {
         super(dni, nombreApellido, genero, anioNacimiento);
         this.id = id;
         this.numeroLicencia = numeroLicencia;
@@ -143,39 +128,41 @@ public class Piloto extends Persona {
 
     public JSONObject pilotoToJSONObject() {
         JSONObject json = new JSONObject();
-        json.put("id", getId());
         json.put("dni", super.getDni());
         json.put("nombreApellido", super.getNombreApellido());
         json.put("genero", super.getGenero());
         json.put("anioNacimiento", super.getAnioNacimiento());
-        json.put("alta", getAlta());
+        json.put("id", this.id);
         json.put("numeroLicencia", this.numeroLicencia);
         json.put("horasVuelo", this.horasVuelo);
         json.put("rango", this.rango);
+        json.put("alta", this.alta);
         return json;
     }
 
     public static Piloto JSONObjectToPiloto(JSONObject json) {
-        int id = json.getInt("id");
         String dni = json.getString("dni");
         String nombreApellido = json.getString("nombreApellido");
         String generoStr = json.getString("genero");
         Genero genero = Genero.valueOf(generoStr.toUpperCase());
         int anioNacimiento = json.getInt("anioNacimiento");
-        int alta = json.getInt("alta");
+        int id = json.getInt("id");
         String numeroLicencia = json.getString("numeroLicencia");
         int horasVuelo = json.getInt("horasVuelo");
         String rangoStr = json.getString("rango");
         Rango rango = Rango.valueOf(rangoStr.toUpperCase());
-        return new Piloto(id, dni, nombreApellido, genero, anioNacimiento, numeroLicencia, horasVuelo, rango, alta);
+        int alta = json.getInt("alta");
+        return new Piloto(dni, nombreApellido, genero, anioNacimiento, id, numeroLicencia, horasVuelo, rango, alta);
     }
 
     @Override
     public String toString() {
         return "Piloto{" +
-                "numeroLicencia='" + numeroLicencia + '\'' +
+                "id=" + id +
+                ", numeroLicencia='" + numeroLicencia + '\'' +
                 ", horasVuelo=" + horasVuelo +
-                ", rango='" + rango + '\'' +
+                ", rango=" + rango +
+                ", alta=" + alta +
                 "} " + super.toString();
     }
 

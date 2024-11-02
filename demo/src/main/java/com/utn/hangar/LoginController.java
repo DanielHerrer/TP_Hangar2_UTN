@@ -1,6 +1,5 @@
 package com.utn.hangar;
 
-import constantes.Archivos;
 import entidades.Usuario;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -44,12 +43,16 @@ public class LoginController {
 
             //LLAMA A CLASE GESTORA Y TRAE A LOS USUARIOS DEL JSON
             ControlUsuarios conUsuario = new ControlUsuarios();
-            conUsuario.cargarUsuariosDesdeArchivo(Archivos.archivoUsuarios);
+            conUsuario.cargarUsuariosDesdeArchivo();
             //VERIFICA SI EL USUARIO INGRESADO ESTA EN EL JSON
             Usuario usuarioLogeado = null;
             usuarioLogeado = conUsuario.verificarUsuarioLogin(user, pass);
 
+            /*
             boolean loginExitoso = false;
+
+            // SI EL USUARIO ES NULL, ES PORQUE NO SE ENCONTRO
+            //Y EL BOOLEAN PASA A SER FALSE
 
             if (usuarioLogeado == null) {
                 loginExitoso = false;
@@ -57,8 +60,10 @@ public class LoginController {
             else {
                 loginExitoso = true;
             }
+*/
 
-            if (loginExitoso) {
+            //SI SE ENCONTRO AL USUARIO, SE PASA AL MENU CORRESPONDIENTE
+            if (usuarioLogeado != null) {
                 Stage stage = (Stage) btnLogin.getScene().getWindow();
                 if (usuarioLogeado.getRol() == 2) {
                     Ventanas.cambioEscena("Sistema Hangar 2.0 (Administrador)", stage, "/com/utn/hangar/admin-view.fxml");
@@ -67,7 +72,7 @@ public class LoginController {
                 } else if (usuarioLogeado.getRol() == 0) {
                     Ventanas.cambioEscena("Sistema Hangar 2.0 (Invitado)", stage, "/com/utn/hangar/invitado-view.fxml");
                 }
-            }
+            } // SI NO SE ENCONTRO, SE ARROJA LA SIGUIENTE EXCEPCION
             else {
                 throw new InputMismatchException("Credenciales incorrectas.");
             }
