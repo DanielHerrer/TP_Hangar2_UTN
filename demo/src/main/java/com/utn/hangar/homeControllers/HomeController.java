@@ -1,5 +1,6 @@
-package com.utn.hangar;
+package com.utn.hangar.homeControllers;
 
+import com.utn.hangar.Ventanas;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -19,7 +20,7 @@ public class HomeController {
     void onClickBtnLogin(ActionEvent event) {
         try {
             Stage stage = (Stage) btnLogin.getScene().getWindow();
-            Ventanas.cambioEscena("Sistema Hangar 2.0",stage,"/com/utn/hangar/login-view.fxml");
+            Ventanas.cambioEscena("Sistema Hangar 2.0",stage, "/com/utn/hangar/homeViews/login-view.fxml");
 
         } catch(IOException e) {
             Ventanas.exceptionError(e);
@@ -32,7 +33,7 @@ public class HomeController {
     void onClickBtnRegister(ActionEvent event) {
         try {
             Stage stage = (Stage) btnRegister.getScene().getWindow();
-            Ventanas.cambioEscena("Sistema Hangar 2.0",stage,"/com/utn/hangar/register-view.fxml");
+            Ventanas.cambioEscena("Sistema Hangar 2.0",stage, "/com/utn/hangar/homeViews/register-view.fxml");
 
         } catch(IOException e) {
             Ventanas.exceptionError(e);

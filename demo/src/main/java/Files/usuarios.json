@@ -34,5 +34,17 @@
         "dni": "65468",
         "rol": 0,
         "registro": "2024-11-01T00:04:17.393540400"
+    },
+    {
+        "nombreApellido": "Daniel Herrera",
+        "alta": 1,
+        "genero": "MASCULINO",
+        "anioNacimiento": 1998,
+        "contrasenia": "123456",
+        "id": 4,
+        "nombreUsuario": "daniel",
+        "dni": "22222",
+        "rol": 2,
+        "registro": "2024-11-01T22:02:47.929222400"
     }
 ]

@@ -22,7 +22,7 @@ public class Ventanas {
 
     public static void exceptionError(Exception e) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle("Error - Sistema Hangar 2.0");
+        alert.setTitle("Sistema Hangar 2.0 (Error)");
         alert.setHeaderText(null);
         alert.setContentText(e.getMessage());
         alert.showAndWait();

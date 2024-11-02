@@ -114,11 +114,9 @@ public class ControlUsuarios {
      */
     public Usuario verificarUsuarioLogin (String nombreUsuario, String password) {
         Usuario u = null;
-
         for (Usuario usu : listaUsuarios) {
             if (usu.getNombreUsuario().equals(nombreUsuario) && usu.getContrasenia().equals(password)) {
                 u = usu;
-                return u;
             }
         }
         return u;
@@ -130,5 +128,15 @@ public class ControlUsuarios {
 
     public void setListaUsuarios(ArrayList<Usuario> listaUsuarios) {
         this.listaUsuarios = listaUsuarios;
+    }
+
+    public Usuario getUsuarioById(int id) {
+        Usuario user = null;
+        for (Usuario u : listaUsuarios) {
+            if (u.getId() == id) {
+                user = u;
+            }
+        }
+        return user;
     }
 }

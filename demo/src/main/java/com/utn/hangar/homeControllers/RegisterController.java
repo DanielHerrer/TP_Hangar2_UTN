@@ -1,6 +1,7 @@
-package com.utn.hangar;
+package com.utn.hangar.homeControllers;
 
 
+import com.utn.hangar.Ventanas;
 import entidades.Usuario;
 import enums.Genero;
 import javafx.event.ActionEvent;
@@ -25,7 +26,7 @@ public class RegisterController {
     private ComboBox<Genero> SelecGen;
 
     @FXML
-    private TextField inputAñoNas;
+    private TextField inputAnioNac;
 
     @FXML
     private TextField inputDNI;
@@ -55,7 +56,7 @@ public class RegisterController {
         try {
             String completeName = inputNomApe.getText();
             String dni = inputDNI.getText();
-            int anioNasc = Integer.parseInt(inputAñoNas.getText());
+            int anioNasc = Integer.parseInt(inputAnioNac.getText());
             Genero gen = SelecGen.getSelectionModel().getSelectedItem();
             String user = inputUser.getText();
             String pass = inputPass.getText();
@@ -75,7 +76,7 @@ public class RegisterController {
             if (inputDNI.getText().isBlank()) {
                 throw new InputMismatchException("Ingrese un DNI");
             }
-            if (inputAñoNas.getText().isBlank()) {
+            if (inputAnioNac.getText().isBlank()) {
                 throw new InputMismatchException("Ingrese un año de nacimiento.");
             }
             if (gen == null){
@@ -100,10 +101,11 @@ public class RegisterController {
                 throw new InputMismatchException("El DNI ya está registrado.");
             }
             //SE VALIDA EL AÑO DE NACIMIENTO DEL USUARIO
-            if(anioNasc > (LocalDateTime.now().getYear() - 18) || anioNasc < 1899){
+            if(anioNasc < 1899){
                 throw new InputMismatchException("El año ingresado no es valido");
+            } else if(anioNasc > (LocalDateTime.now().getYear() - 18)) {
+                throw new InputMismatchException("El usuario debe poseer al menos 18 años.");
             }
-
 
             //CON LOS DATOS PEDIDOS ANTERIORMENTE SE INSTANCIA UN USUARIO
             Usuario usuario1 = new Usuario(dni,completeName, gen, anioNasc, user, pass);
@@ -113,7 +115,7 @@ public class RegisterController {
             conUsuarios.guardarUsuarioToFile();
 
             Stage stage = (Stage) btnRegister.getScene().getWindow();
-            Ventanas.cambioEscena("Sistema Hangar 2.0",stage,"/com/utn/hangar/login-view.fxml");
+            Ventanas.cambioEscena("Sistema Hangar 2.0",stage, "/com/utn/hangar/homeViews/login-view.fxml");
 
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Registro exitoso");
