@@ -1,0 +1,23 @@
+[{
+    "combustibleMaximo": 100,
+    "aerolinea": "Latam",
+    "alta": 1,
+    "vuelosRealizados": 0,
+    "id": 1,
+    "numeracion": 89,
+    "combustibleActual": 100,
+    "nombre": "Albano",
+    "modelo": "x-e89",
+    "capacidadPasajeros": 500,
+    "piloto": {
+        "nombreApellido": "Valtteri Bottas",
+        "rango": "ALUMNO_PILOTO",
+        "alta": 1,
+        "genero": "MASCULINO",
+        "horasVuelo": 0,
+        "anioNacimiento": 1992,
+        "id": 7,
+        "dni": "78554",
+        "numeroLicencia": "77"
+    }
+}]

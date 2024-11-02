@@ -17,7 +17,7 @@ public class AdminController {
     void onBtnListaUsuariosClick(ActionEvent event) {
         try {
             Stage stage = (Stage) btnListaUsuario.getScene().getWindow();
-            Ventanas.cambioEscena("Lista de usuarios",stage, "/com/utn/hangar/listaUsuarios-view.fxml");
+            Ventanas.cambioEscena("Lista de usuarios",stage, "/com/utn/hangar/list-usuario-view.fxml");
 
         } catch (Exception e) {
             Ventanas.exceptionError(e);

@@ -85,6 +85,7 @@ public class Usuario extends Persona{
         this.alta = alta;
     }
 
+    /*
     public JSONObject usuarioToJSONObject() {
         JSONObject json = new JSONObject();
         json.put("dni", super.getDni());
@@ -115,6 +116,7 @@ public class Usuario extends Persona{
         int alta = json.getInt("alta");
         return new Usuario(dni, nombreApellido, genero, anioNacimiento, id, nombreUsuario, contrasenia, registro, rol, alta);
     }
+*/
 
     @Override
     public String toString() {

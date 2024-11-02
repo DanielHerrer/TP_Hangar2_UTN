@@ -126,6 +126,7 @@ public class Piloto extends Persona {
         }
     }
 
+    /*
     public JSONObject pilotoToJSONObject() {
         JSONObject json = new JSONObject();
         json.put("dni", super.getDni());
@@ -154,7 +155,7 @@ public class Piloto extends Persona {
         int alta = json.getInt("alta");
         return new Piloto(dni, nombreApellido, genero, anioNacimiento, id, numeroLicencia, horasVuelo, rango, alta);
     }
-
+*/
     @Override
     public String toString() {
         return "Piloto{" +

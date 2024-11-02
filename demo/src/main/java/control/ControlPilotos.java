@@ -4,6 +4,8 @@ import constantes.Archivos;
 import entidades.Avion;
 import entidades.Piloto;
 import entidades.Usuario;
+import enums.Genero;
+import enums.Rango;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.json.JSONTokener;
@@ -80,15 +82,17 @@ public class ControlPilotos {
         JSONArray jsonArray = new JSONArray();
 
         for (Piloto pil : listaPilotos) {
-            jsonArray.put(pil.pilotoToJSONObject());
+            jsonArray.put(pilotoToJSONObject(pil));
         }
         return jsonArray;
     }
 
-
     public void guardarPilotoToFile() {
         JSONArray pilotoArray = crearJSONArray();
 
+        Archivos.grabar(Archivos.archivoPilotos, pilotoArray);
+
+        /*
         try (FileWriter file = new FileWriter(Archivos.archivoPilotos)) {
             file.write(pilotoArray.toString(4));
             System.out.println("Pilotos guardadas en el archivo: " + Archivos.archivoPilotos);
@@ -96,6 +100,7 @@ public class ControlPilotos {
         } catch (IOException e) {
             e.printStackTrace();
         }
+         */
     }
 
     public void cargarPilotoDesdeArchivo () {
@@ -110,23 +115,42 @@ public class ControlPilotos {
         }
     }
 
-    public static JSONTokener leerArchivo(){
-        JSONTokener tokener = null;
-        try{
-            tokener= new JSONTokener(new FileReader(Archivos.archivoPilotos));
-        }catch(FileNotFoundException e){
-            e.printStackTrace();
-        }
-        return tokener;
-    }
-
     public void pilotoJSONArrayToList(JSONArray jsonArray) {
         listaPilotos.clear();
 
         for (int i = 0; i < jsonArray.length(); i++) {
             JSONObject pilotoJSON = jsonArray.getJSONObject(i);
-            Piloto task = Piloto.JSONObjectToPiloto(pilotoJSON);
+            Piloto task = JSONObjectToPiloto(pilotoJSON);
             listaPilotos.add(task);
         }
+    }
+
+    public static JSONObject pilotoToJSONObject(Piloto p) {
+        JSONObject json = new JSONObject();
+        json.put("dni", p.getDni());
+        json.put("nombreApellido", p.getNombreApellido());
+        json.put("genero", p.getGenero());
+        json.put("anioNacimiento", p.getAnioNacimiento());
+        json.put("id", p.getId());
+        json.put("numeroLicencia", p.getNumeroLicencia());
+        json.put("horasVuelo", p.getHorasVuelo());
+        json.put("rango", p.getRango());
+        json.put("alta", p.getAlta());
+        return json;
+    }
+
+    public static Piloto JSONObjectToPiloto(JSONObject json) {
+        String dni = json.getString("dni");
+        String nombreApellido = json.getString("nombreApellido");
+        String generoStr = json.getString("genero");
+        Genero genero = Genero.valueOf(generoStr.toUpperCase());
+        int anioNacimiento = json.getInt("anioNacimiento");
+        int id = json.getInt("id");
+        String numeroLicencia = json.getString("numeroLicencia");
+        int horasVuelo = json.getInt("horasVuelo");
+        String rangoStr = json.getString("rango");
+        Rango rango = Rango.valueOf(rangoStr.toUpperCase());
+        int alta = json.getInt("alta");
+        return new Piloto(dni, nombreApellido, genero, anioNacimiento, id, numeroLicencia, horasVuelo, rango, alta);
     }
 }

@@ -2,6 +2,7 @@ package control;
 
 import constantes.Archivos;
 import entidades.Avion;
+import entidades.Piloto;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.json.JSONTokener;
@@ -187,7 +188,7 @@ public class ControlAviones {
         JSONArray jsonArray = new JSONArray();
 
         for (Avion avi : listaAviones) {
-            jsonArray.put(avi.avionToJSONObject());
+            jsonArray.put(avionToJSONObject(avi));
         }
         return jsonArray;
     }
@@ -196,6 +197,9 @@ public class ControlAviones {
     public void guardarAvionToFile() {
         JSONArray pilotoArray = crearJSONArray();
 
+        Archivos.grabar(Archivos.archivoAvion, pilotoArray);
+
+        /*
         try (FileWriter file = new FileWriter(Archivos.archivoAvion)) {
             file.write(pilotoArray.toString(4));
             System.out.println("Aviones guardados en el archivo: " + Archivos.archivoAvion);
@@ -203,6 +207,8 @@ public class ControlAviones {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+         */
     }
 
     public void cargarAvionDesdeArchivo () {
@@ -221,9 +227,47 @@ public class ControlAviones {
 
         for (int i = 0; i < jsonArray.length(); i++) {
             JSONObject avionJSON = jsonArray.getJSONObject(i);
-            Avion avion = Avion.JSONObjectToAvion(avionJSON);
+            Avion avion = JSONObjectToAvion(avionJSON);
             listaAviones.add(avion);
         }
+    }
+
+    public static JSONObject avionToJSONObject(Avion a) {
+        JSONObject json = new JSONObject();
+        json.put("id", a.getId());
+        if (a.getPiloto() != null) {
+            json.put("piloto", ControlPilotos.pilotoToJSONObject(a.getPiloto()));
+        } else {
+            json.put("piloto", JSONObject.NULL); //SI NO TIENE UN PILOTO CARGADO USO JSONObject.NULL
+        }
+        json.put("nombre", a.getNombre());
+        json.put("numeracion", a.getNumeracion());
+        json.put("modelo", a.getModelo());
+        json.put("aerolinea", a.getAerolinea());
+        json.put("capacidadPasajeros", a.getCapacidadPasajeros());
+        json.put("vuelosRealizados", a.getVuelosRealizados());
+        json.put("combustibleMaximo", a.getCombustibleMaximo());
+        json.put("combustibleActual", a.getCombustibleActual());
+        json.put("alta", a.getAlta());
+        return json;
+    }
+
+    public static Avion JSONObjectToAvion(JSONObject json) {
+        int id = json.getInt("id");
+        Piloto piloto = null;
+        if (!json.isNull("piloto")) {
+            piloto = ControlPilotos.JSONObjectToPiloto(json.getJSONObject("piloto"));
+        }
+        String nombre = json.getString("nombre");
+        int numeracion = json.getInt("numeracion");
+        String modelo = json.getString("modelo");
+        String aerolinea = json.getString("aerolinea");
+        int capacidadPasajeros = json.getInt("capacidadPasajeros");
+        int vuelosRealizados = json.getInt("vuelosRealizados");
+        int combustibleMaximo = json.getInt("combustibleMaximo");
+        int combustibleActual = json.getInt("combustibleActual");
+        int alta = json.getInt("alta");
+        return new Avion(id, piloto, nombre, numeracion, modelo, aerolinea, capacidadPasajeros, vuelosRealizados, combustibleMaximo, combustibleActual, alta);
     }
 
 }

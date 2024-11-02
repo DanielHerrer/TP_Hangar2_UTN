@@ -2,6 +2,7 @@ package com.utn.hangar;
 
 
 import constantes.Archivos;
+import control.ControlRegistros;
 import entidades.Usuario;
 import enums.Genero;
 import javafx.event.ActionEvent;
@@ -93,7 +94,7 @@ public class RegisterController {
                 throw new InputMismatchException("Las contraseñas ingresadas no coinciden.");
             }
 
-            //SE VALIDA QUE EL NOMBRE DE USUARIO NO ESTE REPETIDA
+            //SE VALIDA QUE EL NOMBRE DE USUARIO NO ESTE REPETIDO
             if (conUsuarios.usuarioYaExiste(user)) {
                 throw new InputMismatchException("El nombre de usuario ya existe");
             }
@@ -113,6 +114,13 @@ public class RegisterController {
             conUsuarios.agregar(usuario1);
             //Y SE GUARDA EL CONTENIDO DEL ARREGLO EN EL JSON
             conUsuarios.guardarUsuarioToFile();
+
+            //TAMBIEN SE GUARDA LA INFORMACION DEL REGISTRO EN EL JSON DE REGISTROS
+            ControlRegistros controlRegistros = new ControlRegistros();
+            controlRegistros.cargarRegistrosDesdeArchivo();
+            controlRegistros.guardarRegistro(usuario1);
+            controlRegistros.guardarRegistrosEnArchivo();
+
 
             Stage stage = (Stage) btnRegister.getScene().getWindow();
             Ventanas.cambioEscena("Sistema Hangar 2.0",stage,"/com/utn/hangar/login-view.fxml");

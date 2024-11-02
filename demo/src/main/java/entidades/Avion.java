@@ -147,6 +147,7 @@ public class Avion implements Comparable<Avion> {
         return "Combustible lleno.";
     }
 
+    /*
     public JSONObject avionToJSONObject() {
         JSONObject json = new JSONObject();
         json.put("id", this.id);
@@ -181,7 +182,7 @@ public class Avion implements Comparable<Avion> {
         int alta = json.getInt("alta");
         return new Avion(id, piloto, nombre, numeracion, modelo, aerolinea, capacidadPasajeros, vuelosRealizados, combustibleMaximo, combustibleActual, alta);
     }
-
+    */
 
     @Override
     public String toString() {

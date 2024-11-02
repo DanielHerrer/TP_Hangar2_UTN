@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane fx:controller="com.utn.hangar.ListUsuariosController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="656.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <TableView fx:id="tablaUsuarios" layoutX="103.0" layoutY="100.0" prefHeight="200.0" prefWidth="415.0">
+            <columns>
+                <TableColumn fx:id="idUsuario" prefWidth="75.0" text="ID" />
+                <TableColumn fx:id="userUsuario" prefWidth="75.0" text="Usuario" />
+                <TableColumn fx:id="apellidoUsuario" prefWidth="147.0" text="Nombre Apellido" />
+                <TableColumn fx:id="rolUsuario" prefWidth="43.5" text="Rol" />
+                <TableColumn fx:id="altaUsuario" prefWidth="75.0" text="Estado" />
+            </columns>
+        </TableView>
+        <Label layoutX="248.0" layoutY="57.0" text="LISTADO DE USUARIOS" />
+    </children>
+</AnchorPane>
