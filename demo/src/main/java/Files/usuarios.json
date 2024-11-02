@@ -36,39 +36,15 @@
         "registro": "2024-11-01T00:04:17.393540400"
     },
     {
-        "nombreApellido": "lando norris",
-        "alta": 0,
+        "nombreApellido": "Daniel Herrera",
+        "alta": 1,
         "genero": "MASCULINO",
-        "anioNacimiento": 2002,
-        "contrasenia": "mcclaren",
+        "anioNacimiento": 1998,
+        "contrasenia": "123456",
         "id": 4,
-        "nombreUsuario": "l4ndo",
-        "dni": "68486",
-        "rol": 0,
-        "registro": "2024-11-01T21:28:34.888748700"
-    },
-    {
-        "nombreApellido": "yamil yamal",
-        "alta": 0,
-        "genero": "MASCULINO",
-        "anioNacimiento": 2005,
-        "contrasenia": "barcafc",
-        "id": 5,
-        "nombreUsuario": "yamal",
-        "dni": "5646",
-        "rol": 0,
-        "registro": "2024-11-01T21:29:07.232364100"
-    },
-    {
-        "nombreApellido": "djokovic",
-        "alta": 0,
-        "genero": "MASCULINO",
-        "anioNacimiento": 1990,
-        "contrasenia": "serbia",
-        "id": 6,
-        "nombreUsuario": "nole",
-        "dni": "684684",
-        "rol": 0,
-        "registro": "2024-11-01T21:30:07.765422200"
+        "nombreUsuario": "daniel",
+        "dni": "22222",
+        "rol": 2,
+        "registro": "2024-11-01T22:02:47.929222400"
     }
 ]

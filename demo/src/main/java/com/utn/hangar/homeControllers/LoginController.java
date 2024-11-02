@@ -1,5 +1,6 @@
-package com.utn.hangar;
+package com.utn.hangar.homeControllers;
 
+import com.utn.hangar.Ventanas;
 import constantes.Archivos;
 import entidades.Usuario;
 import excepciones.FormatoIncorrectoException;
@@ -7,6 +8,7 @@ import excepciones.UsuarioDeBajaException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Hyperlink;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -14,7 +16,6 @@ import control.ControlUsuarios;
 
 import java.io.IOException;
 import java.util.InputMismatchException;
-import java.util.Objects;
 
 public class LoginController {
 
@@ -29,6 +30,9 @@ public class LoginController {
 
     @FXML
     private TextField inputUser;
+
+    @FXML
+    private Hyperlink linkRegister;
 
     @FXML
     void onClickBtnLogin(ActionEvent event) {
@@ -60,12 +64,15 @@ public class LoginController {
             //SI SE ENCONTRO AL USUARIO, SE PASA AL MENU CORRESPONDIENTE
             if (usuarioLogeado.getAlta() == 1) {
                 Stage stage = (Stage) btnLogin.getScene().getWindow();
+                // SETEAR USUARIO LOGUEADO
+                Archivos.setUserLogueado(usuarioLogeado);
+                // ENVIAR A LA VENTANA CORRESPONDIENTE SEGUN EL USUARIO
                 if (usuarioLogeado.getRol() == 2) {
-                    Ventanas.cambioEscena("Sistema Hangar 2.0 (Administrador)", stage, "/com/utn/hangar/admin-view.fxml");
+                    Ventanas.cambioEscena("Sistema Hangar 2.0 (Administrador)", stage, "/com/utn/hangar/adminViews/admin-view.fxml");
                 } else if (usuarioLogeado.getRol() == 1) {
-                    Ventanas.cambioEscena("Sistema Hangar 2.0 (Operador)", stage, "/com/utn/hangar/operador-view.fxml");
+                    Ventanas.cambioEscena("Sistema Hangar 2.0 (Operador)", stage, "/com/utn/hangar/operadorViews/operador-view.fxml");
                 } else if (usuarioLogeado.getRol() == 0) {
-                    Ventanas.cambioEscena("Sistema Hangar 2.0 (Invitado)", stage, "/com/utn/hangar/invitado-view.fxml");
+                    Ventanas.cambioEscena("Sistema Hangar 2.0 (Invitado)", stage, "/com/utn/hangar/invitadoViews/invitado-view.fxml");
                 }
             } // SI NO SE ENCONTRO, SE ARROJA LA SIGUIENTE EXCEPCION
             else {
@@ -81,10 +88,22 @@ public class LoginController {
     }
 
     @FXML
+    void onClickLinkRegister(ActionEvent event) {
+        try {
+            Stage stage = (Stage) linkRegister.getScene().getWindow();
+            Ventanas.cambioEscena("Sistema Hangar 2.0",stage, "/com/utn/hangar/homeViews/register-view.fxml");
+
+        } catch(IOException e) {
+            Ventanas.exceptionError(e);
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
     void onClickBtnVolver(ActionEvent event) {
         try {
             Stage stage = (Stage) btnVolver.getScene().getWindow();
-            Ventanas.cambioEscena("Sistema Hangar 2.0",stage,"/com/utn/hangar/home-view.fxml");
+            Ventanas.cambioEscena("Sistema Hangar 2.0",stage, "/com/utn/hangar/home-view.fxml");
 
         } catch(IOException e) {
             Ventanas.exceptionError(e);

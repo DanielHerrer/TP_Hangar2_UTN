@@ -18,6 +18,9 @@ import java.io.IOException;
 
 public class Archivos {
 
+    public static Usuario userLogueado = null;
+    public static Integer idAux = null;
+
     public static final String archivoPilotos = "src/main/java/Files/pilotos.json";
     public static final String archivoUsuarios = "src/main/java/Files/usuarios.json";
     public static final String archivoAvion = "src/main/java/Files/aviones.json";
@@ -27,6 +30,22 @@ public class Archivos {
     public static ControlUsuarios controlUsuarios = new ControlUsuarios();
     public static ControlPilotos controlPilotos = new ControlPilotos();
     public static ControlAviones controlAviones = new ControlAviones();
+
+    public static Usuario getUserLogueado() {
+        return userLogueado;
+    }
+
+    public static void setUserLogueado(Usuario userLogueado) {
+        Archivos.userLogueado = userLogueado;
+    }
+
+    public static Integer getIdAux() {
+        return idAux;
+    }
+
+    public static void setIdAux(Integer idAux) {
+        Archivos.idAux = idAux;
+    }
 
     public static int obtenerUltimoIdUsuario () {
         controlUsuarios.cargarUsuarioDesdeArchivo();

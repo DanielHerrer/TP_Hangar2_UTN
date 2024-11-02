@@ -120,7 +120,7 @@ public class Piloto extends Persona {
         {
             setRango(Rango.PILOTO_INSTRUMENTAL);
         }
-        else if (this.horasVuelo < 30)
+        else
         {
             setRango(Rango.ALUMNO_PILOTO);
         }

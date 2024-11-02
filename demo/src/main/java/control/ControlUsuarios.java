@@ -85,9 +85,7 @@ public class ControlUsuarios implements iABML<Usuario> {
 
     public boolean verificarUsuario (Usuario u) {
         cargarUsuarioDesdeArchivo();
-
         return listaUsuarios.contains(u);
-
     }
 
     // ========================================== METODOS JSON ===================================================
@@ -228,16 +226,28 @@ public class ControlUsuarios implements iABML<Usuario> {
      */
     public Usuario verificarUsuarioLogin (String nombreUsuario, String password) {
         Usuario u = null;
-
         for (Usuario usu : listaUsuarios) {
             if (usu.getNombreUsuario().equals(nombreUsuario) && usu.getContrasenia().equals(password)) {
                 u = usu;
-                return u;
             }
         }
         return u;
     }
 
+
+    public void setListaUsuarios(ArrayList<Usuario> listaUsuarios) {
+        this.listaUsuarios = listaUsuarios;
+    }
+
+    public Usuario getUsuarioById(int id) {
+        Usuario user = null;
+        for (Usuario u : listaUsuarios) {
+            if (u.getId() == id) {
+                user = u;
+            }
+        }
+        return user;
+    }
     public void modificarAltaUsuario (Usuario u) {
 
         if (u.getAlta() == 0) {

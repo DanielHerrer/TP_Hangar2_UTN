@@ -4,7 +4,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="349.0" prefWidth="385.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.utn.hangar.OperadorController">
+<AnchorPane prefHeight="349.0" prefWidth="385.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.utn.hangar.operadorControllers.OperadorController">
     <children>
         <Label layoutX="145.0" layoutY="55.0" text="MENU OPERADOR" />
         <Button layoutX="113.0" layoutY="87.0" mnemonicParsing="false" text="Menu Hangar de Despegue" />

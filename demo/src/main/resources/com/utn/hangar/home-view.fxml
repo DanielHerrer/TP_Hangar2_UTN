@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="260.0" prefWidth="435.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.utn.hangar.HomeController">
+<AnchorPane prefHeight="260.0" prefWidth="435.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.utn.hangar.homeControllers.HomeController">
    <children>
       <StackPane prefHeight="171.0" prefWidth="445.0">
          <children>

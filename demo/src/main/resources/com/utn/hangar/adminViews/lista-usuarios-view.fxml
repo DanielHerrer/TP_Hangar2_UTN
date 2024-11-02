@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="656.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.utn.hangar.adminControllers.ListaUsuariosController">
+   <children>
+      <TableView fx:id="tablaUsuarios" layoutX="59.0" layoutY="85.0" prefHeight="265.0" prefWidth="540.0">
+        <columns>
+          <TableColumn fx:id="idUsuario" prefWidth="49.0" text="ID" />
+          <TableColumn fx:id="userUsuario" prefWidth="106.0" text="Usuario" />
+            <TableColumn fx:id="apellidoUsuario" prefWidth="148.0" text="Nombre Apellido" />
+            <TableColumn fx:id="rolUsuario" prefWidth="93.0" text="Rol" />
+            <TableColumn fx:id="altaUsuario" prefWidth="59.0" text="Estado" />
+            <TableColumn fx:id="modifyUsuario" prefWidth="83.0" />
+        </columns>
+      </TableView>
+      <Label layoutX="220.0" layoutY="39.0" text="LISTADO DE USUARIOS">
+         <font>
+            <Font size="21.0" />
+         </font></Label>
+       <Button fx:id="btnVolver" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#onClickBtnVolver" text="Volver" />
+   </children>
+</AnchorPane>

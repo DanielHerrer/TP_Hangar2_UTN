@@ -29,7 +29,6 @@ public abstract class Persona {
         this.anioNacimiento = anioNacimiento;
     }
 
-
     public String getDni() {
         return dni;
     }
