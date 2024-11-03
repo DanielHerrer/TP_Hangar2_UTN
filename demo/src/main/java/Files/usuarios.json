@@ -1,7 +1,7 @@
 [
     {
         "nombreApellido": "Diego Groppo",
-        "alta": 1,
+        "alta": 0,
         "genero": "MASCULINO",
         "anioNacimiento": 2000,
         "contrasenia": "qwer123",
@@ -24,14 +24,14 @@
         "registro": "2024-10-28T19:52:27.610972"
     },
     {
-        "nombreApellido": "Castro",
-        "alta": 1,
+        "nombreApellido": "Castro Gabriel",
+        "alta": 0,
         "genero": "MASCULINO",
         "anioNacimiento": 2005,
-        "contrasenia": "313131",
+        "contrasenia": "albania",
         "id": 3,
-        "nombreUsuario": "elpibe",
-        "dni": "65468",
+        "nombreUsuario": "Castro14",
+        "dni": "456122",
         "rol": 0,
         "registro": "2024-11-01T00:04:17.393540400"
     },

@@ -93,6 +93,9 @@ public class ListaUsuariosController {
                             int nuevoEstado = usuario.getAlta() == 1 ? 0 : 1;
                             usuario.setAlta(nuevoEstado);
 
+                            //GUARDO LA MODIFICACION DEL ALTA EN EL ARCHIVO
+                            conUsuario.guardarUsuarioToFile();
+
                             // Actualiza el botón en la interfaz
                             actualizarBotonEstado(btnEstado, nuevoEstado);
                         });

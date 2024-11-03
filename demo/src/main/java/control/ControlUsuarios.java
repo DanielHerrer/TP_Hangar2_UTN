@@ -22,14 +22,28 @@ import java.util.ArrayList;
 
 public class ControlUsuarios implements iABML<Usuario> {
 
+    public static Usuario usuarioLogueado = null;
+
     public ArrayList<Usuario> listaUsuarios;
 
     public ControlUsuarios () {
         this.listaUsuarios = new ArrayList<>();
     }
 
+    public static Usuario getUsuarioLogueado() {
+        return usuarioLogueado;
+    }
+
+    public static void setUsuarioLogueado(Usuario usuarioLogueado) {
+        ControlUsuarios.usuarioLogueado = usuarioLogueado;
+    }
+
     public ArrayList<Usuario> getListaUsuarios() {
         return listaUsuarios;
+    }
+
+    public void setListaUsuarios(ArrayList<Usuario> listaUsuarios) {
+        this.listaUsuarios = listaUsuarios;
     }
 
     // ===================== METODOS DE LA INTERFAZ =====================================
@@ -207,6 +221,20 @@ public class ControlUsuarios implements iABML<Usuario> {
         return false;
     }
 
+    public boolean compronbarUsernameModificacion (String username, Usuario u) {
+        if (u.getNombreUsuario().equals(username)) {
+            return true; // SI EL NOMBRE SIGUE SIENDO EL MISMO RETORNO TRUE
+        }
+        else {
+            for (Usuario user : listaUsuarios) {
+                if (user.getNombreUsuario().equals(username)) {
+                    return false; // SI EL USERNAME NUEVO COINCIDE CON ALGUN OTRO RETORNO FALSE
+                }
+            }
+            return true; // SI NO LO ENCONTRO ENTONCES ESTA DISPONIBLE Y RETORNO TRUE
+        }
+    }
+
     //getDNI viene de persona, lo tengo que traer pero tengo pereza ahora, si se arregla, el metodo para
     //no dejar cargar el mismo DNI ya ira funcionar!
     public boolean dniYaExiste(String dni) {
@@ -216,6 +244,20 @@ public class ControlUsuarios implements iABML<Usuario> {
             }
         }
         return false;
+    }
+
+    public boolean comprobarDniModificacion (String dni, Usuario u) {
+        if (u.getDni().equals(dni)) {
+            return true; // SI EL dni SIGUE SIENDO EL MISMO RETORNO TRUE
+        }
+        else {
+            for (Usuario user : listaUsuarios) {
+                if (user.getDni().equals(dni)) {
+                    return false; // SI EL DNI NUEVO COINCIDE CON ALGUN OTRO RETORNO FALSE
+                }
+            }
+            return true; // SI NO LO ENCONTRO ENTONCES ESTA DISPONIBLE Y RETORNO TRUE
+        }
     }
 
     /**
@@ -235,19 +277,26 @@ public class ControlUsuarios implements iABML<Usuario> {
     }
 
 
-    public void setListaUsuarios(ArrayList<Usuario> listaUsuarios) {
-        this.listaUsuarios = listaUsuarios;
-    }
-
     public Usuario getUsuarioById(int id) {
         Usuario user = null;
         for (Usuario u : listaUsuarios) {
             if (u.getId() == id) {
                 user = u;
+                return user;
             }
         }
         return user;
     }
+
+    public Usuario obtenerUsuarioLogueado (Usuario u) {
+        for (Usuario user : listaUsuarios) {
+            if (u.equals(user)) {
+                return u;
+            }
+        }
+        return null;
+    }
+
     public void modificarAltaUsuario (Usuario u) {
 
         if (u.getAlta() == 0) {
