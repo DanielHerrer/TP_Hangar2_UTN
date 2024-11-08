@@ -10,15 +10,11 @@ public class PruebaMain {
 
     public static void main (String[] args) {
 
-        // COSAS QUE HICE: AGREGE INTERFAZ iABML
-        //AGREGE 4 EXCEPCIONES
-        //IMPLEMENTE INTERFAZ EN CONTROLUSUARIOS
-        //LOGICA PARA COMPROBACION DE ALTA/BAJA
-        //PERSISTENCIA DE LA ALTA Y LA BAJA EN EL MENU DE LISTAR USUARIOS
-        //PERSISTENCIA Y VALIDACIONES EN LA MODIFICACION DE UN USARIOS EN EL MENU DE LISTAR USUARIOS
+        // COSAS QUE HICE:
         //
 
         Piloto pil1 = new Piloto("2233", "Franco Colapinto", Genero.MASCULINO, 2000, "43");
+        Piloto pil2 = new Piloto("78554", "Valtteri Bottas", Genero.MASCULINO, 1992, "77");
 
         GestorPilotos gestorPilotos = new GestorPilotos();
 
@@ -31,14 +27,8 @@ public class PruebaMain {
             throw new RuntimeException(e);
         }
 
-        gestorPilotos.guardarPilotoToFile();
-
-        gestorPilotos.cargarPilotoDesdeArchivo();
-
-        Piloto pil2 = new Piloto("78554", "Valtteri Bottas", Genero.MASCULINO, 1992, "77");
-
         try {
-            gestorPilotos.agregar(pil1);
+            gestorPilotos.agregar(pil2);
         } catch (ObjetoRepetidoException | FormatoIncorrectoException e) {
             System.out.println(e.getMessage());
         }
@@ -47,30 +37,58 @@ public class PruebaMain {
 
         Avion avi1 = new Avion("Albano", 89, "x-e89", "Latam", 500);
 
-        GestorAviones cA = new GestorAviones();
+        GestorAviones gestorAviones = new GestorAviones();
 
-        cA.listaAviones.add(avi1);
+        gestorAviones.listaAviones.add(avi1);
 
-        cA.guardarAvionToFile();
+        gestorAviones.guardarAvionToFile();
 
-        cA.cargarAvionDesdeArchivo();
+        // SIMULACION DEL MENU DE HANGAR ASIGNAR VUELO
+        GestorHangar gestorHangar = new GestorHangar();
 
-        cA.listaAviones.get(0).setPiloto(pil2);
+        // CARGO TODAS LAS LISTAS
+        gestorHangar.cargarHangarDesdeArchivo();
+        gestorPilotos.cargarPilotoDesdeArchivo();
+        gestorAviones.cargarAvionDesdeArchivo();
 
-        cA.guardarAvionToFile();
+        //ELIJO UN AVION, ELIJO UN PILOTO
+        Avion avionSeleccionado = gestorAviones.buscarAvionPorID(avi1.getId());
+        Piloto pilotoSeleccionado = gestorPilotos.buscarPilotoPorID(pil2.getId());
 
-        GestorUsuarios gestorUsuarios = new GestorUsuarios();
+        // ACA TENDRIAN QUE IR VERIFIACIONES (DISPONIBLE == TRUE, PILOTO == NULL, COMBUSTIBLE > 80)
 
-        gestorUsuarios.cargarUsuarioDesdeArchivo();
+        // SI PASAN LAS VALIDACIONES, AGREGO EL PILOTO AL AVION
+        avionSeleccionado.setPiloto(pilotoSeleccionado);
+        pilotoSeleccionado.setDisponible(false); //SETEO SU ESTADO A FALSE
 
-        try {
-            gestorUsuarios.eliminar(gestorUsuarios.listaUsuarios.get(3));
-        }
-        catch (Exception e) {
-            e.printStackTrace();
-        }
+        // Y LO GUARDO EN EL HANGAR
+        gestorHangar.agregar(avionSeleccionado);
+        gestorHangar.guardarHangarToFile();
+        gestorAviones.guardarAvionToFile();
 
-        gestorUsuarios.guardarUsuarioToFile();
+        // TAMBIEN ACTUALIZO EL ARCHIVO DE PILOTOS
+        gestorPilotos.guardarPilotoToFile();
+
+        // SIMULACION MENU HANGAR CANCELAR VUELO
+        // se repiten los mismo pasos de cargar las listas
+
+        // ELIJO EL VUELO QUE QUIERO CANCELAR
+        Avion avionCancelado = gestorHangar.getAvionByID(avi1.getId());
+
+        // BORRO EL AVION DEL HANGAR
+        gestorHangar.eliminarAvionFromHangar(avionCancelado);
+
+        // EL ATRIBUTO PILOTO DEL AVION PASA A NULL
+        gestorAviones.eliminarPilotoDeAvion(avionCancelado);
+
+        // SETEO EL ESTADO DEL PILOTO
+        gestorPilotos.actualizarEstadoPiloto(avionCancelado.getPiloto());
+
+        // LOS CAMBIOS SE GUARDAN DENTRO DEL METODO
+
 
     }
+
+
+
 }

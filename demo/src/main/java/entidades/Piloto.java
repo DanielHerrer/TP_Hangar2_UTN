@@ -12,6 +12,7 @@ public class Piloto extends Persona {
     private String numeroLicencia;
     private int horasVuelo;
     private Rango rango;
+    private boolean disponible;
     private int alta;
 
     public Piloto () {
@@ -28,18 +29,20 @@ public class Piloto extends Persona {
         this.numeroLicencia = numeroLicencia;
         this.horasVuelo = 0;
         this.rango = Rango.ALUMNO_PILOTO;
+        this.disponible = true;
         this.alta = 1;
     }
 
     /**
      * @see "Constructor con todos los parametros para el JSON"
      */
-    public Piloto(String dni, String nombreApellido, Genero genero, int anioNacimiento, int id, String numeroLicencia, int horasVuelo, Rango rango, int alta) {
+    public Piloto(String dni, String nombreApellido, Genero genero, int anioNacimiento, int id, String numeroLicencia, int horasVuelo, Rango rango, boolean disponible, int alta) {
         super(dni, nombreApellido, genero, anioNacimiento);
         this.id = id;
         this.numeroLicencia = numeroLicencia;
         this.horasVuelo = horasVuelo;
         this.rango = rango;
+        this.disponible = disponible;
         this.alta = alta;
     }
 
@@ -69,6 +72,14 @@ public class Piloto extends Persona {
 
     public void setRango(Rango rango) {
         this.rango = rango;
+    }
+
+    public boolean isDisponible() {
+        return disponible;
+    }
+
+    public void setDisponible(boolean disponible) {
+        this.disponible = disponible;
     }
 
     public int getAlta() {

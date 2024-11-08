@@ -65,32 +65,6 @@ public class GestorPilotos implements iABML<Piloto> {
 
     // ================================================================================
 
-    public int modificarAltaPiloto (int id) {
-        Piloto piloto = null;
-        boolean encontrado = false;
-
-        for (Piloto pil : listaPilotos) {
-            if (id == pil.getId()) {
-                if (pil.getAlta() == 1) {
-                    pil.setAlta(0);
-                    piloto = pil;
-                    encontrado = true;
-                }
-                else {
-                    pil.setAlta(1);
-                    piloto = pil;
-                    encontrado = true;
-                }
-            }
-        }
-        if (encontrado) {
-            return piloto.getAlta();
-        }
-        else {
-            return -1; //RETORNO -1 SI NO ENCONTRO AL AVION
-        }
-    }
-
     public Piloto buscarPilotoPorID (int id) {
         Piloto piloto = null;
 
@@ -100,6 +74,18 @@ public class GestorPilotos implements iABML<Piloto> {
             }
         }
         return piloto;
+    }
+
+    // SETEO EL ESTADO DEL PILOTO A TRUE Y GUARDO LOS CAMBIOS
+    public boolean actualizarEstadoPiloto (Piloto pilotoHangar) {
+        for (Piloto p : listaPilotos) {
+            if (p.equals(pilotoHangar)) {
+                p.setDisponible(true);
+                guardarPilotoToFile();
+                return true;
+            }
+        }
+        return false;
     }
 
     /**
@@ -113,6 +99,7 @@ public class GestorPilotos implements iABML<Piloto> {
         return listaPilotos.contains(p);
 
     }
+
 
     //======================METODOS PARA TRABAJAR CON JSON============================
     public JSONArray crearJSONArray () {
@@ -172,6 +159,7 @@ public class GestorPilotos implements iABML<Piloto> {
         json.put("numeroLicencia", p.getNumeroLicencia());
         json.put("horasVuelo", p.getHorasVuelo());
         json.put("rango", p.getRango());
+        json.put("disponible", p.isDisponible());
         json.put("alta", p.getAlta());
         return json;
     }
@@ -187,7 +175,8 @@ public class GestorPilotos implements iABML<Piloto> {
         int horasVuelo = json.getInt("horasVuelo");
         String rangoStr = json.getString("rango");
         Rango rango = Rango.valueOf(rangoStr.toUpperCase());
+        boolean disponible = json.getBoolean("disponible");
         int alta = json.getInt("alta");
-        return new Piloto(dni, nombreApellido, genero, anioNacimiento, id, numeroLicencia, horasVuelo, rango, alta);
+        return new Piloto(dni, nombreApellido, genero, anioNacimiento, id, numeroLicencia, horasVuelo, rango, disponible, alta);
     }
 }

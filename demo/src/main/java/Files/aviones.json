@@ -9,15 +9,5 @@
     "nombre": "Albano",
     "modelo": "x-e89",
     "capacidadPasajeros": 500,
-    "piloto": {
-        "nombreApellido": "Valtteri Bottas",
-        "rango": "ALUMNO_PILOTO",
-        "alta": 1,
-        "genero": "MASCULINO",
-        "horasVuelo": 0,
-        "anioNacimiento": 1992,
-        "id": 16,
-        "dni": "78554",
-        "numeroLicencia": "77"
-    }
+    "piloto": null
 }]

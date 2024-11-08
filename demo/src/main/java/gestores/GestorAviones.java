@@ -8,6 +8,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashSet;
 
 
 public class GestorAviones {
@@ -16,38 +17,31 @@ public class GestorAviones {
 
     public GestorAviones() {
         this.listaAviones = new ArrayList<>();
-
     }
 
-    /**
-     * @return Muestra a todos los aviones que estan dados de alta
-     */
-    public String mostrarAvionesDadosAlta () {
 
-        StringBuilder sb = new StringBuilder("");
-
+    // SETEO A NULL EL PILOTO QUE ESTABA ASIGNADO EN EL AVION
+    // Y GUARDO LOS CAMBIOS
+    public boolean eliminarPilotoDeAvion (Avion avionH) {
         for (Avion avi : listaAviones) {
-            if (avi.getAlta() == 1) {
-                sb.append(avi.toString()).append("\n");
+            if (avi.equals(avionH)) {
+                avi.setPiloto(null);
+                guardarAvionToFile();
+                return true;
             }
         }
-        return sb.toString();
+        return false;
     }
 
-    /**
-     *
-     * @return Muestra a los aviones que estan dados de baja
-     */
-    public String mostrarAvionesDadosBaja () {
+    public Avion buscarAvionPorID (int id) {
+        Avion avion = null;
 
-        StringBuilder sb = new StringBuilder("");
-
-        for (Avion avi : listaAviones) {
-            if (avi.getAlta() == 0) {
-                sb.append(avi.toString()).append("\n");
+        for (Avion a : listaAviones) {
+            if (a.getId() == id) {
+                avion = a;
             }
         }
-        return sb.toString();
+        return avion;
     }
 
     /**
@@ -100,60 +94,6 @@ public class GestorAviones {
         return sb.toString();
     }
 
-    /**
-     * @see "Usa un arreglo auxiliar para no modificar le original"
-     * @return retorna un arreglo auxiliar ordenado alfabeticamente
-     */
-    public String mostrarAvionesAlfabetico () {
-        ArrayList<Avion> auxiliar = new ArrayList<>(listaAviones);
-        Collections.sort(auxiliar);
-        StringBuilder sb = new StringBuilder("");
-        for (Avion avi : auxiliar) {
-            sb.append(avi.toString()).append("\n");
-        }
-        return sb.toString();
-    }
-
-
-    /**
-     * @see "Modifica la baja/alta de el avion elegido"
-     * @param id recibe el id del avion que desea modificar (el paramatro deberia venir desde la vista)
-     */
-    public int modificarAltaAvion (int id) {
-        Avion avion = null;
-        boolean encontrado = false;
-
-        for (Avion avi : listaAviones) {
-            if (id == avi.getId()) {
-                if (avi.getAlta() == 1) {
-                    avi.setAlta(0);
-                    avion = avi;
-                    encontrado = true;
-                }
-                else {
-                    avi.setAlta(1);
-                    avion = avi;
-                    encontrado = true;
-                }
-            }
-        }
-        if (encontrado) {
-            return avion.getAlta();
-        }
-        else {
-            return -1; //RETORNO -1 SI NO ENCONTRO AL AVION
-        }
-    }
-    public Avion buscarAvionPorID (int id) {
-        Avion avion = null;
-
-        for (Avion a : listaAviones) {
-            if (a.getId() == id) {
-                avion = a;
-            }
-        }
-        return avion;
-    }
 
     /**
      * @see "Si el combustible de un avion es menor a 80 lo carga hasta el maximo"
@@ -193,17 +133,6 @@ public class GestorAviones {
         JSONArray pilotoArray = crearJSONArray();
 
         Data.grabar(Data.archivoAvion, pilotoArray);
-
-        /*
-        try (FileWriter file = new FileWriter(Archivos.archivoAvion)) {
-            file.write(pilotoArray.toString(4));
-            System.out.println("Aviones guardados en el archivo: " + Archivos.archivoAvion);
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-         */
     }
 
     public void cargarAvionDesdeArchivo () {
@@ -226,6 +155,8 @@ public class GestorAviones {
             listaAviones.add(avion);
         }
     }
+
+    // ========== METODOS JSON PARA EL HANGAR ==========================
 
     public static JSONObject avionToJSONObject(Avion a) {
         JSONObject json = new JSONObject();
