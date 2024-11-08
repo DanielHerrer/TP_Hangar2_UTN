@@ -47,6 +47,8 @@ public class Archivos {
         Archivos.idAux = idAux;
     }
 
+    // ============= METODOS PARA OBTENER EL ULTIMO ID DE UN REGISTRO ======================
+
     public static int obtenerUltimoIdUsuario () {
         controlUsuarios.cargarUsuarioDesdeArchivo();
 

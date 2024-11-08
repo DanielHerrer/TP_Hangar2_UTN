@@ -291,7 +291,7 @@ public class ControlUsuarios implements iABML<Usuario> {
     public Usuario obtenerUsuarioLogueado (Usuario u) {
         for (Usuario user : listaUsuarios) {
             if (u.equals(user)) {
-                return u;
+                return user;
             }
         }
         return null;

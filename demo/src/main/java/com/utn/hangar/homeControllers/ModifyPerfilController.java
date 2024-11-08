@@ -41,14 +41,14 @@ public class ModifyPerfilController {
     public void initialize() {
         SelecGen.getItems().setAll(Genero.values());
         // TRAE EL USUARIO LOGEADO ACTUALMENTE
+        ControlUsuarios controlUsuarios = new ControlUsuarios();
+        controlUsuarios.cargarUsuarioDesdeArchivo();
         Usuario userLog = Archivos.getUserLogueado();
         // SETEA LA INFORMACION
         inputNomApe.setText(userLog.getNombreApellido());
         inputAnioNac.setText(Integer.toString(userLog.getAnioNacimiento()));
         inputDNI.setText(userLog.getDni());
         SelecGen.setValue(userLog.getGenero());
-
-
     }
 
     // BOTON GUARDAR PERFIL
@@ -77,8 +77,6 @@ public class ModifyPerfilController {
             conUser.cargarUsuarioDesdeArchivo();
             Usuario userLog = conUser.obtenerUsuarioLogueado(Archivos.getUserLogueado());
 
-            System.out.println(userLog.toString());
-
             //SE COMPRUEBA QUE NO SE REPITA EL DNI
             if (!conUser.comprobarDniModificacion(dni, userLog)) {
                 throw new InputMismatchException("El DNI ya está registrado.");
@@ -90,10 +88,7 @@ public class ModifyPerfilController {
             userLog.setGenero(genero);
             userLog.setAnioNacimiento(anioNacimiento);
 
-            System.out.println(conUser.listaUsuarios);
-
             // Guarda los cambios en el archivo JSON
-            // (NO SE GUARDAN LOS CAMBIOS)
             conUser.guardarUsuarioToFile();
 
             Alert alert = new Alert(Alert.AlertType.INFORMATION);

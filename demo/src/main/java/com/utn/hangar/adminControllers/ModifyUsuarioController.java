@@ -109,8 +109,6 @@ public class ModifyUsuarioController {
             user.setNombreUsuario(username);
             user.setContrasenia(password);
 
-            System.out.println(conUser.listaUsuarios);
-
             // Guarda los cambios en el archivo JSON
             conUser.guardarUsuarioToFile();
 
