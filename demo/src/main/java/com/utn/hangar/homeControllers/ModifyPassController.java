@@ -1,8 +1,7 @@
 package com.utn.hangar.homeControllers;
 import com.utn.hangar.Ventanas;
-import constantes.Archivos;
+import constantes.Data;
 import entidades.Usuario;
-import enums.Genero;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -32,7 +31,7 @@ public class ModifyPassController {
     @FXML
     public void initialize() {
         // TRAE EL USUARIO LOGEADO ACTUALMENTE
-        Usuario userLog = Archivos.getUserLogueado();
+        Usuario userLog = Data.getUserLogueado();
         // SETEA LA INFORMACION
         inputUser.setText(userLog.getNombreUsuario());
         inputPass.setText(userLog.getContrasenia());

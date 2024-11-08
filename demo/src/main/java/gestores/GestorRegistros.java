@@ -1,26 +1,22 @@
-package control;
+package gestores;
 
-import constantes.Archivos;
+import constantes.Data;
 import entidades.Usuario;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.json.JSONTokener;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
-import java.util.Locale;
 import java.util.Map;
 
-public class ControlRegistros {
+public class GestorRegistros {
 
     public HashMap<String, LocalDateTime> listaRegistros;
 
 
-    public ControlRegistros() {
+    public GestorRegistros() {
         this.listaRegistros = new HashMap<>();
     }
 
@@ -44,15 +40,15 @@ public class ControlRegistros {
     public void guardarRegistrosEnArchivo () {
         JSONArray registroArray = crearJSONArrayRegistros();
 
-        Archivos.grabar(Archivos.archivoRegistros, registroArray);
+        Data.grabar(Data.archivoRegistros, registroArray);
     }
 
     public boolean cargarRegistrosDesdeArchivo () {
         try {
-            if (Archivos.leerArchivo(Archivos.archivoRegistros) == null) {
+            if (Data.leerArchivo(Data.archivoRegistros) == null) {
                 return false; // SI NO LEYO EL ARCHIVO DEVUELVE FALSE
             }
-            JSONArray registrosArray = new JSONArray(Archivos.leerArchivo(Archivos.archivoRegistros));
+            JSONArray registrosArray = new JSONArray(Data.leerArchivo(Data.archivoRegistros));
 
             cargarListaDesdeJSONArray(registrosArray);
 

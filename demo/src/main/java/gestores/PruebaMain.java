@@ -1,9 +1,7 @@
-package control;
+package gestores;
 
-import constantes.Archivos;
 import entidades.Avion;
 import entidades.Piloto;
-import entidades.Avion;
 import enums.Genero;
 import excepciones.FormatoIncorrectoException;
 import excepciones.ObjetoRepetidoException;
@@ -22,10 +20,10 @@ public class PruebaMain {
 
         Piloto pil1 = new Piloto("2233", "Franco Colapinto", Genero.MASCULINO, 2000, "43");
 
-        ControlPilotos controlPilotos = new ControlPilotos();
+        GestorPilotos gestorPilotos = new GestorPilotos();
 
         try {
-            controlPilotos.agregar(pil1);
+            gestorPilotos.agregar(pil1);
         }
         catch (ObjetoRepetidoException e) {
             e.printStackTrace();
@@ -33,23 +31,23 @@ public class PruebaMain {
             throw new RuntimeException(e);
         }
 
-        controlPilotos.guardarPilotoToFile();
+        gestorPilotos.guardarPilotoToFile();
 
-        controlPilotos.cargarPilotoDesdeArchivo();
+        gestorPilotos.cargarPilotoDesdeArchivo();
 
         Piloto pil2 = new Piloto("78554", "Valtteri Bottas", Genero.MASCULINO, 1992, "77");
 
         try {
-            controlPilotos.agregar(pil1);
+            gestorPilotos.agregar(pil1);
         } catch (ObjetoRepetidoException | FormatoIncorrectoException e) {
             System.out.println(e.getMessage());
         }
 
-        controlPilotos.guardarPilotoToFile();
+        gestorPilotos.guardarPilotoToFile();
 
         Avion avi1 = new Avion("Albano", 89, "x-e89", "Latam", 500);
 
-        ControlAviones cA = new ControlAviones();
+        GestorAviones cA = new GestorAviones();
 
         cA.listaAviones.add(avi1);
 
@@ -61,18 +59,18 @@ public class PruebaMain {
 
         cA.guardarAvionToFile();
 
-        ControlUsuarios controlUsuarios = new ControlUsuarios();
+        GestorUsuarios gestorUsuarios = new GestorUsuarios();
 
-        controlUsuarios.cargarUsuarioDesdeArchivo();
+        gestorUsuarios.cargarUsuarioDesdeArchivo();
 
         try {
-            controlUsuarios.eliminar(controlUsuarios.listaUsuarios.get(3));
+            gestorUsuarios.eliminar(gestorUsuarios.listaUsuarios.get(3));
         }
         catch (Exception e) {
             e.printStackTrace();
         }
 
-        controlUsuarios.guardarUsuarioToFile();
+        gestorUsuarios.guardarUsuarioToFile();
 
     }
 }

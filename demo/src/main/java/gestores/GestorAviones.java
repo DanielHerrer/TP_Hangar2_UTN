@@ -1,25 +1,20 @@
-package control;
+package gestores;
 
-import constantes.Archivos;
+import constantes.Data;
 import entidades.Avion;
 import entidades.Piloto;
 import org.json.JSONArray;
 import org.json.JSONObject;
-import org.json.JSONTokener;
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 
 
-public class ControlAviones {
+public class GestorAviones {
 
     public ArrayList<Avion> listaAviones;
 
-    public ControlAviones() {
+    public GestorAviones() {
         this.listaAviones = new ArrayList<>();
 
     }
@@ -197,7 +192,7 @@ public class ControlAviones {
     public void guardarAvionToFile() {
         JSONArray pilotoArray = crearJSONArray();
 
-        Archivos.grabar(Archivos.archivoAvion, pilotoArray);
+        Data.grabar(Data.archivoAvion, pilotoArray);
 
         /*
         try (FileWriter file = new FileWriter(Archivos.archivoAvion)) {
@@ -213,10 +208,10 @@ public class ControlAviones {
 
     public void cargarAvionDesdeArchivo () {
         try {
-            JSONArray avionesArray = new JSONArray(Archivos.leerArchivo(Archivos.archivoAvion));
+            JSONArray avionesArray = new JSONArray(Data.leerArchivo(Data.archivoAvion));
 
             avionJSONArrayToList(avionesArray);
-            System.out.println("Aviones cargados desde el archivo: " + Archivos.archivoAvion);
+            System.out.println("Aviones cargados desde el archivo: " + Data.archivoAvion);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -236,7 +231,7 @@ public class ControlAviones {
         JSONObject json = new JSONObject();
         json.put("id", a.getId());
         if (a.getPiloto() != null) {
-            json.put("piloto", ControlPilotos.pilotoToJSONObject(a.getPiloto()));
+            json.put("piloto", GestorPilotos.pilotoToJSONObject(a.getPiloto()));
         } else {
             json.put("piloto", JSONObject.NULL); //SI NO TIENE UN PILOTO CARGADO USO JSONObject.NULL
         }
@@ -256,7 +251,7 @@ public class ControlAviones {
         int id = json.getInt("id");
         Piloto piloto = null;
         if (!json.isNull("piloto")) {
-            piloto = ControlPilotos.JSONObjectToPiloto(json.getJSONObject("piloto"));
+            piloto = GestorPilotos.JSONObjectToPiloto(json.getJSONObject("piloto"));
         }
         String nombre = json.getString("nombre");
         int numeracion = json.getInt("numeracion");

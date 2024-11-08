@@ -1,9 +1,7 @@
-package control;
+package gestores;
 
-import constantes.Archivos;
-import entidades.Avion;
+import constantes.Data;
 import entidades.Piloto;
-import entidades.Usuario;
 import enums.Genero;
 import enums.Rango;
 import excepciones.FormatoIncorrectoException;
@@ -12,19 +10,14 @@ import excepciones.ObjetoRepetidoException;
 import interfaces.iABML;
 import org.json.JSONArray;
 import org.json.JSONObject;
-import org.json.JSONTokener;
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.ArrayList;
 
-public class ControlPilotos implements iABML<Piloto> {
+public class GestorPilotos implements iABML<Piloto> {
 
     public ArrayList<Piloto> listaPilotos;
 
-    public ControlPilotos() {
+    public GestorPilotos() {
         listaPilotos = new ArrayList<>();
     }
 
@@ -134,7 +127,7 @@ public class ControlPilotos implements iABML<Piloto> {
     public void guardarPilotoToFile() {
         JSONArray pilotoArray = crearJSONArray();
 
-        Archivos.grabar(Archivos.archivoPilotos, pilotoArray);
+        Data.grabar(Data.archivoPilotos, pilotoArray);
 
         /*
         try (FileWriter file = new FileWriter(Archivos.archivoPilotos)) {
@@ -150,10 +143,10 @@ public class ControlPilotos implements iABML<Piloto> {
     public void cargarPilotoDesdeArchivo () {
         try {
 
-            JSONArray tasksArray = new JSONArray(Archivos.leerArchivo(Archivos.archivoPilotos));
+            JSONArray tasksArray = new JSONArray(Data.leerArchivo(Data.archivoPilotos));
 
             pilotoJSONArrayToList(tasksArray);
-            System.out.println("Pilotos cargados desde el archivo: " + Archivos.archivoPilotos);
+            System.out.println("Pilotos cargados desde el archivo: " + Data.archivoPilotos);
         } catch (Exception e) {
             e.printStackTrace();
         }

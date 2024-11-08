@@ -1,8 +1,8 @@
 package com.utn.hangar.adminControllers;
 
 import com.utn.hangar.Ventanas;
-import constantes.Archivos;
-import control.ControlUsuarios;
+import constantes.Data;
+import gestores.GestorUsuarios;
 import entidades.Usuario;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -46,21 +46,24 @@ public class ListaUsuariosController {
     @FXML
     private TableColumn<Usuario, Void> modifyUsuario;
 
+    // METODO QUE CARGA LA INFORMACION QUE SE VA A MOSTRAR EN LA VENTANA
     @FXML
     public void initialize() {
         //LLAMA A CLASE GESTORA Y TRAE A LOS USUARIOS DEL JSON
-        ControlUsuarios conUsuario = new ControlUsuarios();
-        conUsuario.cargarUsuarioDesdeArchivo();
+        GestorUsuarios gestorUsuarios = new GestorUsuarios();
+        gestorUsuarios.cargarUsuarioDesdeArchivo();
 
         // Convierte el ArrayList a ObservableList
-        ObservableList<Usuario> listaObservableUsuarios = FXCollections.observableArrayList(conUsuario.getListaUsuarios());
+        ObservableList<Usuario> listaObservableUsuarios = FXCollections.observableArrayList(gestorUsuarios.getListaUsuarios());
 
         // Enlaza cada columna usando expresiones lambda
         idUsuario.setCellValueFactory(cellData -> new SimpleObjectProperty<>(cellData.getValue().getId()));
         apellidoUsuario.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNombreApellido()));
         userUsuario.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNombreUsuario()));
 
+        // Esta linea te muestra el rol como 0 , 1 , 2
         //rolUsuario.setCellValueFactory(cellData -> new SimpleObjectProperty<>(cellData.getValue().getRol()));
+
         // Configura la columna rolUsuario para mostrar el texto correspondiente
         rolUsuario.setCellValueFactory(cellData -> {
             int rol = cellData.getValue().getRol();
@@ -74,7 +77,9 @@ public class ListaUsuariosController {
             return new SimpleStringProperty(rolTexto);
         });
 
+        // Esta linea te muestra el alta como 0 , 1
         //altaUsuario.setCellValueFactory(cellData -> new SimpleObjectProperty<>(cellData.getValue().getAlta()));
+
         // Agrega el botón de "Estado" en cada fila de la columna estadoUsuario
         altaUsuario.setCellFactory(new Callback<TableColumn<Usuario, Void>, TableCell<Usuario, Void>>() {
             @Override
@@ -92,10 +97,8 @@ public class ListaUsuariosController {
                             // Alterna el estado entre 0 y 1
                             int nuevoEstado = usuario.getAlta() == 1 ? 0 : 1;
                             usuario.setAlta(nuevoEstado);
-
                             //GUARDO LA MODIFICACION DEL ALTA EN EL ARCHIVO
-                            conUsuario.guardarUsuarioToFile();
-
+                            gestorUsuarios.guardarUsuarioToFile();
                             // Actualiza el botón en la interfaz
                             actualizarBotonEstado(btnEstado, nuevoEstado);
                         });
@@ -143,7 +146,7 @@ public class ListaUsuariosController {
                             try {
                                 // OBTENER EL ID DEL USUARIO DE LA FILA
                                 Usuario usuario = getTableView().getItems().get(getIndex());
-                                Archivos.setIdAux(usuario.getId()); // SETEA EL ID AUX
+                                Data.setIdAux(usuario.getId()); // SETEA EL ID AUX
                                 // ABRIR VENTANA DE MODIFICACION
                                 Stage stage = (Stage) btnVolver.getScene().getWindow();
                                 Ventanas.cambioEscena("Sistema Hangar 2.0",stage,"/com/utn/hangar/adminViews/modificar-usuario-view.fxml");
@@ -166,7 +169,6 @@ public class ListaUsuariosController {
                 };
             }
         });
-
 
         // Establece la lista observable como el elemento de la tabla
         tablaUsuarios.setItems(listaObservableUsuarios);

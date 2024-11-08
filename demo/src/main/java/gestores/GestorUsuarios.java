@@ -1,7 +1,6 @@
-package control;
+package gestores;
 
-import constantes.Archivos;
-import entidades.Piloto;
+import constantes.Data;
 import entidades.Usuario;
 import enums.Genero;
 import excepciones.FormatoIncorrectoException;
@@ -10,23 +9,18 @@ import excepciones.ObjetoRepetidoException;
 import interfaces.iABML;
 import org.json.JSONArray;
 import org.json.JSONObject;
-import org.json.JSONTokener;
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
-public class ControlUsuarios implements iABML<Usuario> {
+public class GestorUsuarios implements iABML<Usuario> {
 
     public static Usuario usuarioLogueado = null;
 
     public ArrayList<Usuario> listaUsuarios;
 
-    public ControlUsuarios () {
+    public GestorUsuarios() {
         this.listaUsuarios = new ArrayList<>();
     }
 
@@ -35,7 +29,7 @@ public class ControlUsuarios implements iABML<Usuario> {
     }
 
     public static void setUsuarioLogueado(Usuario usuarioLogueado) {
-        ControlUsuarios.usuarioLogueado = usuarioLogueado;
+        GestorUsuarios.usuarioLogueado = usuarioLogueado;
     }
 
     public ArrayList<Usuario> getListaUsuarios() {
@@ -124,7 +118,7 @@ public class ControlUsuarios implements iABML<Usuario> {
     public void guardarUsuarioToFile() {
         JSONArray usuarioArray = crearJSONArray();
 
-        Archivos.grabar(Archivos.archivoUsuarios, usuarioArray);
+        Data.grabar(Data.archivoUsuarios, usuarioArray);
         /*
         try (FileWriter file = new FileWriter(Archivos.archivoUsuarios)) {
             file.write(usuarioArray.toString(4));
@@ -141,10 +135,10 @@ public class ControlUsuarios implements iABML<Usuario> {
      */
     public void cargarUsuarioDesdeArchivo() {
         try {
-            JSONArray usuarioArray = new JSONArray(Archivos.leerArchivo(Archivos.archivoUsuarios));
+            JSONArray usuarioArray = new JSONArray(Data.leerArchivo(Data.archivoUsuarios));
 
             usuarioJSONArrayToList(usuarioArray);
-            System.out.println("Usuarios cargados desde el archivo: " + Archivos.archivoUsuarios);
+            System.out.println("Usuarios cargados desde el archivo: " + Data.archivoUsuarios);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -221,7 +215,7 @@ public class ControlUsuarios implements iABML<Usuario> {
         return false;
     }
 
-    public boolean compronbarUsernameModificacion (String username, Usuario u) {
+    public boolean comprobarUsernameModificacion(String username, Usuario u) {
         if (u.getNombreUsuario().equals(username)) {
             return true; // SI EL NOMBRE SIGUE SIENDO EL MISMO RETORNO TRUE
         }

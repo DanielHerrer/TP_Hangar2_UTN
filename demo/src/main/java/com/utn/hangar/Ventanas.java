@@ -12,7 +12,7 @@ public class Ventanas {
     private Stage stage;
 
     public static void cambioEscena(String titulo, Stage stage, String fxml) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HomeApplication.class.getResource(fxml));
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource(fxml));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle(titulo);
         stage.setScene(scene);

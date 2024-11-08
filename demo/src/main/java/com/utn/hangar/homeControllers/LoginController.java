@@ -1,7 +1,7 @@
 package com.utn.hangar.homeControllers;
 
 import com.utn.hangar.Ventanas;
-import constantes.Archivos;
+import constantes.Data;
 import entidades.Usuario;
 import excepciones.FormatoIncorrectoException;
 import excepciones.UsuarioDeBajaException;
@@ -12,7 +12,7 @@ import javafx.scene.control.Hyperlink;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import control.ControlUsuarios;
+import gestores.GestorUsuarios;
 
 import java.io.IOException;
 import java.util.InputMismatchException;
@@ -50,7 +50,7 @@ public class LoginController {
             }
 
             //LLAMA A CLASE GESTORA Y TRAE A LOS USUARIOS DEL JSON
-            ControlUsuarios conUsuario = new ControlUsuarios();
+            GestorUsuarios conUsuario = new GestorUsuarios();
             conUsuario.cargarUsuarioDesdeArchivo();
             //VERIFICA SI EL USUARIO INGRESADO ESTA EN EL JSON
             Usuario usuarioLogeado = null;
@@ -65,7 +65,7 @@ public class LoginController {
             if (usuarioLogeado.getAlta() == 1) {
                 Stage stage = (Stage) btnLogin.getScene().getWindow();
                 // SETEAR USUARIO LOGUEADO
-                Archivos.setUserLogueado(usuarioLogeado);
+                Data.setUserLogueado(usuarioLogeado);
                 // ENVIAR A LA VENTANA CORRESPONDIENTE SEGUN EL USUARIO
                 if (usuarioLogeado.getRol() == 2) {
                     Ventanas.cambioEscena("Sistema Hangar 2.0 (Administrador)", stage, "/com/utn/hangar/adminViews/admin-view.fxml");

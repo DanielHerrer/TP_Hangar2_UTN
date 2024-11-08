@@ -6,29 +6,24 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="260.0" prefWidth="435.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.utn.hangar.homeControllers.HomeController">
    <children>
-      <StackPane prefHeight="171.0" prefWidth="445.0">
-         <children>
-            <ImageView fitHeight="265.0" fitWidth="500.0" preserveRatio="true">
-               <image>
-                  <Image url="@../../../images/image1.png" />
-               </image>
-            </ImageView>
-         </children>
+      <ImageView fitHeight="265.0" fitWidth="500.0" preserveRatio="true">
+         <image>
+            <Image url="@../../../images/image1.png" />
+         </image>
          <effect>
-            <BoxBlur />
+            <BoxBlur iterations="2" />
          </effect>
-      </StackPane>
-      <Label alignment="BOTTOM_CENTER" contentDisplay="CENTER" layoutX="13.0" layoutY="18.0" prefHeight="94.0" prefWidth="445.0" text="SISTEMA DE HANGAR 2.0" textAlignment="CENTER" textFill="WHITE" underline="true">
+      </ImageView>
+      <Label alignment="BOTTOM_CENTER" contentDisplay="CENTER" layoutX="13.0" layoutY="63.0" prefHeight="45.0" prefWidth="445.0" text="SISTEMA DE HANGAR 2.0" textAlignment="CENTER" textFill="WHITE" underline="true">
          <font>
             <Font name="Panzer Regular" size="34.0" />
          </font>
       </Label>
-      <Button fx:id="btnLogin" layoutX="203.0" layoutY="137.0" mnemonicParsing="false" onAction="#onClickBtnLogin" text="Iniciar sesión" />
-      <Button fx:id="btnRegister" layoutX="203.0" layoutY="175.0" mnemonicParsing="false" onAction="#onClickBtnRegister" prefHeight="25.0" prefWidth="85.0" text="Registrarse" />
+      <Button fx:id="btnLogin" layoutX="192.0" layoutY="120.0" mnemonicParsing="false" onAction="#onClickBtnLogin" text="Iniciar sesión" textAlignment="CENTER" />
+      <Button fx:id="btnRegister" layoutX="192.0" layoutY="159.0" mnemonicParsing="false" onAction="#onClickBtnRegister" prefHeight="25.0" prefWidth="85.0" text="Registrarse" />
    </children>
 </AnchorPane>
