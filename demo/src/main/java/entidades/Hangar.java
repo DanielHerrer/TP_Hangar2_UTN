@@ -1,32 +1,29 @@
 package entidades;
 
-import control.ControlAviones;
-import control.ControlPilotos;
-import control.ControlUsuarios;
-
-import java.util.ArrayList;
+import gestores.GestorAviones;
+import gestores.GestorPilotos;
 
 public class Hangar {
 
-    ControlPilotos controlPilotos;
-    ControlAviones controlAviones;
+    GestorPilotos gestorPilotos;
+    GestorAviones gestorAviones;
     private int numeroHangar;
 
     public Hangar(int numeroHangar) {
-        this.controlPilotos = new ControlPilotos();
-        this.controlAviones = new ControlAviones();
+        this.gestorPilotos = new GestorPilotos();
+        this.gestorAviones = new GestorAviones();
         this.numeroHangar = numeroHangar;
     }
 
 
     public String vincularPilotoConAvion (int idPiloto, int idAvion) {
-        Piloto piloto = controlPilotos.buscarPilotoPorID(idPiloto);
+        Piloto piloto = gestorPilotos.buscarPilotoPorID(idPiloto);
 
         if (piloto == null) {
             return "No existe piloto con el id: " + idPiloto + "\n";
         }
 
-        Avion avion = controlAviones.buscarAvionPorID(idAvion);
+        Avion avion = gestorAviones.buscarAvionPorID(idAvion);
 
         if (avion == null) {
             return "No existe avion con el id: " + idPiloto + "\n";

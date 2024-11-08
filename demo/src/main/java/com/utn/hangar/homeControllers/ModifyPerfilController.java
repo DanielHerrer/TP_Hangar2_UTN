@@ -1,8 +1,8 @@
 package com.utn.hangar.homeControllers;
 
 import com.utn.hangar.Ventanas;
-import constantes.Archivos;
-import control.ControlUsuarios;
+import constantes.Data;
+import gestores.GestorUsuarios;
 import entidades.Usuario;
 import enums.Genero;
 import javafx.event.ActionEvent;
@@ -41,9 +41,9 @@ public class ModifyPerfilController {
     public void initialize() {
         SelecGen.getItems().setAll(Genero.values());
         // TRAE EL USUARIO LOGEADO ACTUALMENTE
-        ControlUsuarios controlUsuarios = new ControlUsuarios();
-        controlUsuarios.cargarUsuarioDesdeArchivo();
-        Usuario userLog = Archivos.getUserLogueado();
+        GestorUsuarios gestorUsuarios = new GestorUsuarios();
+        gestorUsuarios.cargarUsuarioDesdeArchivo();
+        Usuario userLog = Data.getUserLogueado();
         // SETEA LA INFORMACION
         inputNomApe.setText(userLog.getNombreApellido());
         inputAnioNac.setText(Integer.toString(userLog.getAnioNacimiento()));
@@ -73,9 +73,9 @@ public class ModifyPerfilController {
             }
 
             // TRAE EL USUARIO SELECCIONADO
-            ControlUsuarios conUser = new ControlUsuarios();
+            GestorUsuarios conUser = new GestorUsuarios();
             conUser.cargarUsuarioDesdeArchivo();
-            Usuario userLog = conUser.obtenerUsuarioLogueado(Archivos.getUserLogueado());
+            Usuario userLog = conUser.obtenerUsuarioLogueado(Data.getUserLogueado());
 
             //SE COMPRUEBA QUE NO SE REPITA EL DNI
             if (!conUser.comprobarDniModificacion(dni, userLog)) {
@@ -122,7 +122,7 @@ public class ModifyPerfilController {
         try {
             Stage stage = (Stage) btnVolver.getScene().getWindow();
             // TRAE EL USUARIO LOGEADO ACTUALMENTE
-            Usuario userLog = Archivos.getUserLogueado();
+            Usuario userLog = Data.getUserLogueado();
             // COMPARA EL USUARIO LOGUEADO ACTUALMENTE PARA VOLVER A SU MENU CORRESPONDIENTE
             if (userLog.getRol() < 1) {
                 Ventanas.cambioEscena("Sistema Hangar 2.0 (Invitado)",stage, "/com/utn/hangar/invitadoViews/invitado-view.fxml");

@@ -1,8 +1,8 @@
 package constantes;
 
-import control.ControlAviones;
-import control.ControlPilotos;
-import control.ControlUsuarios;
+import gestores.GestorAviones;
+import gestores.GestorPilotos;
+import gestores.GestorUsuarios;
 import entidades.Avion;
 import entidades.Piloto;
 import entidades.Usuario;
@@ -16,7 +16,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class Archivos {
+public class Data {
 
     public static Usuario userLogueado = null;
     public static Integer idAux = null;
@@ -27,16 +27,16 @@ public class Archivos {
     public static final String archivoHangar = "src/main/java/Files/hangar.json";
     public static final String archivoRegistros = "src/main/java/Files/registros.json";
 
-    public static ControlUsuarios controlUsuarios = new ControlUsuarios();
-    public static ControlPilotos controlPilotos = new ControlPilotos();
-    public static ControlAviones controlAviones = new ControlAviones();
+    public static GestorUsuarios gestorUsuarios = new GestorUsuarios();
+    public static GestorPilotos gestorPilotos = new GestorPilotos();
+    public static GestorAviones gestorAviones = new GestorAviones();
 
     public static Usuario getUserLogueado() {
         return userLogueado;
     }
 
     public static void setUserLogueado(Usuario userLogueado) {
-        Archivos.userLogueado = userLogueado;
+        Data.userLogueado = userLogueado;
     }
 
     public static Integer getIdAux() {
@@ -44,43 +44,43 @@ public class Archivos {
     }
 
     public static void setIdAux(Integer idAux) {
-        Archivos.idAux = idAux;
+        Data.idAux = idAux;
     }
 
     // ============= METODOS PARA OBTENER EL ULTIMO ID DE UN REGISTRO ======================
 
     public static int obtenerUltimoIdUsuario () {
-        controlUsuarios.cargarUsuarioDesdeArchivo();
+        gestorUsuarios.cargarUsuarioDesdeArchivo();
 
-        if (controlUsuarios.listaUsuarios.isEmpty()) {
+        if (gestorUsuarios.listaUsuarios.isEmpty()) {
             return 1;
         }
 
-        Usuario u = controlUsuarios.listaUsuarios.get(controlUsuarios.listaUsuarios.size()-1);
+        Usuario u = gestorUsuarios.listaUsuarios.get(gestorUsuarios.listaUsuarios.size()-1);
 
         return  u.getId() + 1;
     }
 
     public static int obtenerUltimoIdPiloto () {
-        controlPilotos.cargarPilotoDesdeArchivo();
+        gestorPilotos.cargarPilotoDesdeArchivo();
 
-        if (controlPilotos.listaPilotos.isEmpty()) {
+        if (gestorPilotos.listaPilotos.isEmpty()) {
             return 1;
         }
 
-        Piloto p = controlPilotos.listaPilotos.get(controlPilotos.listaPilotos.size()-1);
+        Piloto p = gestorPilotos.listaPilotos.get(gestorPilotos.listaPilotos.size()-1);
 
         return  p.getId() + 1;
     }
 
     public static int obtenerUltimoIdAvion () {
-        controlAviones.cargarAvionDesdeArchivo();
+        gestorAviones.cargarAvionDesdeArchivo();
 
-        if (controlAviones.listaAviones.isEmpty()) {
+        if (gestorAviones.listaAviones.isEmpty()) {
             return 1;
         }
 
-        Avion a = controlAviones.listaAviones.get(controlAviones.listaAviones.size()-1);
+        Avion a = gestorAviones.listaAviones.get(gestorAviones.listaAviones.size()-1);
 
         return  a.getId() + 1;
     }

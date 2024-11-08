@@ -1,12 +1,9 @@
 package entidades;
 
-import constantes.Archivos;
+import constantes.Data;
 import enums.Genero;
-import enums.Rango;
-import org.json.JSONObject;
 
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 
 public class Usuario extends Persona {
@@ -20,7 +17,7 @@ public class Usuario extends Persona {
 
     public Usuario(String dni, String nombreApellido, Genero genero, int anioNacimiento, String nombreUsuario, String contrasenia) {
         super(dni, nombreApellido, genero, anioNacimiento);
-        this.id = Archivos.obtenerUltimoIdUsuario();
+        this.id = Data.obtenerUltimoIdUsuario();
         this.nombreUsuario = nombreUsuario;
         this.contrasenia = contrasenia;
         this.registro = LocalDateTime.now();

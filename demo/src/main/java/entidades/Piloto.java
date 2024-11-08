@@ -1,9 +1,8 @@
 package entidades;
 
-import constantes.Archivos;
+import constantes.Data;
 import enums.Genero;
 import enums.Rango;
-import org.json.JSONObject;
 
 import java.util.Objects;
 
@@ -25,7 +24,7 @@ public class Piloto extends Persona {
 
     public Piloto(String dni, String nombreApellido, Genero genero, int anioNacimiento, String numeroLicencia) {
         super(dni, nombreApellido, genero, anioNacimiento);
-        this.id = Archivos.obtenerUltimoIdPiloto();
+        this.id = Data.obtenerUltimoIdPiloto();
         this.numeroLicencia = numeroLicencia;
         this.horasVuelo = 0;
         this.rango = Rango.ALUMNO_PILOTO;

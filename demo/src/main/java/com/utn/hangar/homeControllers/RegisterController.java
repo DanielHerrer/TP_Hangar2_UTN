@@ -2,8 +2,7 @@ package com.utn.hangar.homeControllers;
 
 
 import com.utn.hangar.Ventanas;
-import constantes.Archivos;
-import control.ControlRegistros;
+import gestores.GestorRegistros;
 import entidades.Usuario;
 import enums.Genero;
 import javafx.event.ActionEvent;
@@ -17,7 +16,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.InputMismatchException;
-import control.ControlUsuarios;
+import gestores.GestorUsuarios;
 
 public class RegisterController {
 
@@ -65,7 +64,7 @@ public class RegisterController {
             String passConfirm = inputPassConfirm.getText();
 
             //SE TRAEN TODOS LOS USUARIOS DEL JSON Y SE GUARDAN EN LA LISTA DE LA CLASE GESTORA
-            ControlUsuarios conUsuarios = new ControlUsuarios();
+            GestorUsuarios conUsuarios = new GestorUsuarios();
             conUsuarios.cargarUsuarioDesdeArchivo();
 
             // VALIDACIONES
@@ -117,10 +116,10 @@ public class RegisterController {
             conUsuarios.guardarUsuarioToFile();
 
             //TAMBIEN SE GUARDA LA INFORMACION DEL REGISTRO EN EL JSON DE REGISTROS
-            ControlRegistros controlRegistros = new ControlRegistros();
-            controlRegistros.cargarRegistrosDesdeArchivo();
-            controlRegistros.guardarRegistro(usuario1);
-            controlRegistros.guardarRegistrosEnArchivo();
+            GestorRegistros gestorRegistros = new GestorRegistros();
+            gestorRegistros.cargarRegistrosDesdeArchivo();
+            gestorRegistros.guardarRegistro(usuario1);
+            gestorRegistros.guardarRegistrosEnArchivo();
 
 
             Stage stage = (Stage) btnRegister.getScene().getWindow();

@@ -1,9 +1,8 @@
 package com.utn.hangar.homeControllers;
 import com.utn.hangar.Ventanas;
-import constantes.Archivos;
-import control.ControlUsuarios;
+import constantes.Data;
 import entidades.Usuario;
-import enums.Genero;
+import gestores.GestorUsuarios;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -36,9 +35,9 @@ public class ModifyPassController {
     @FXML
     public void initialize() {
         // TRAE EL USUARIO LOGEADO ACTUALMENTE
-        ControlUsuarios controlUsuarios = new ControlUsuarios();
-        controlUsuarios.cargarUsuarioDesdeArchivo();
-        Usuario userLog = controlUsuarios.obtenerUsuarioLogueado(Archivos.userLogueado);
+        GestorUsuarios gestorUsuarios = new GestorUsuarios();
+        gestorUsuarios.cargarUsuarioDesdeArchivo();
+        Usuario userLog = gestorUsuarios.obtenerUsuarioLogueado(Data.userLogueado);
         // SETEA LA INFORMACION
         inputUser.setText(userLog.getNombreUsuario());
         inputPass.setText(userLog.getContrasenia());
@@ -70,12 +69,12 @@ public class ModifyPassController {
             }
 
             // TRAE EL USUARIO SELECCIONADO
-            ControlUsuarios conUser = new ControlUsuarios();
-            conUser.cargarUsuarioDesdeArchivo();
-            Usuario userLog = conUser.obtenerUsuarioLogueado(Archivos.getUserLogueado());
+            GestorUsuarios gesUser = new GestorUsuarios();
+            gesUser.cargarUsuarioDesdeArchivo();
+            Usuario userLog = gesUser.obtenerUsuarioLogueado(Data.getUserLogueado());
 
             //SE VALIDA QUE EL NOMBRE DE USUARIO NO ESTE REPETIDO
-            if (!conUser.compronbarUsernameModificacion(username, userLog)) {
+            if (!gesUser.comprobarUsernameModificacion(username, userLog)) {
                 throw new InputMismatchException("El nombre de usuario ya existe");
             }
 
@@ -84,7 +83,7 @@ public class ModifyPassController {
             userLog.setContrasenia(password);
 
             // Guarda los cambios en el archivo JSON
-            conUser.guardarUsuarioToFile();
+            gesUser.guardarUsuarioToFile();
 
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Modificacion exitosa");

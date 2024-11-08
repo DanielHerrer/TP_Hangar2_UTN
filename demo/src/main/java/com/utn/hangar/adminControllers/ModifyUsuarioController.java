@@ -1,8 +1,8 @@
 package com.utn.hangar.adminControllers;
 
 import com.utn.hangar.Ventanas;
-import constantes.Archivos;
-import control.ControlUsuarios;
+import constantes.Data;
+import gestores.GestorUsuarios;
 import entidades.Usuario;
 import enums.Genero;
 import javafx.event.ActionEvent;
@@ -44,9 +44,9 @@ public class ModifyUsuarioController {
     public void initialize() {
         SelecGen.getItems().setAll(Genero.values());
         // TRAE EL USUARIO SELECCIONADO
-        ControlUsuarios conUser = new ControlUsuarios();
+        GestorUsuarios conUser = new GestorUsuarios();
         conUser.cargarUsuarioDesdeArchivo();
-        Usuario user = conUser.getUsuarioById(Archivos.getIdAux()); // RETORNA EL USUARIO SEGUN EL ID AUX
+        Usuario user = conUser.getUsuarioById(Data.getIdAux()); // RETORNA EL USUARIO SEGUN EL ID AUX
         // SETEA LA INFORMACION
         inputNomApe.setText(user.getNombreApellido());
         inputAnioNac.setText(Integer.toString(user.getAnioNacimiento()));
@@ -88,12 +88,12 @@ public class ModifyUsuarioController {
             }
 
             // TRAE EL USUARIO SELECCIONADO
-            ControlUsuarios conUser = new ControlUsuarios();
+            GestorUsuarios conUser = new GestorUsuarios();
             conUser.cargarUsuarioDesdeArchivo();
-            Usuario user = conUser.getUsuarioById(Archivos.getIdAux());
+            Usuario user = conUser.getUsuarioById(Data.getIdAux());
 
             //SE VALIDA QUE EL NOMBRE DE USUARIO NO ESTE REPETIDO
-            if (!conUser.compronbarUsernameModificacion(username, user)) {
+            if (!conUser.comprobarUsernameModificacion(username, user)) {
                 throw new InputMismatchException("El nombre de usuario ya existe");
             }
             //TAMBIEN SE COMPRUEBA QUE NO SE REPITA EL DNI
