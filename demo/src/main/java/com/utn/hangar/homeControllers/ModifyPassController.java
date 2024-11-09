@@ -37,7 +37,7 @@ public class ModifyPassController {
         // TRAE EL USUARIO LOGEADO ACTUALMENTE
         GestorUsuarios gestorUsuarios = new GestorUsuarios();
         gestorUsuarios.cargarUsuarioDesdeArchivo();
-        Usuario userLog = gestorUsuarios.obtenerUsuarioLogueado(Data.userLogueado);
+        Usuario userLog = Data.getUserLogueado();
         // SETEA LA INFORMACION
         inputUser.setText(userLog.getNombreUsuario());
         inputPass.setText(userLog.getContrasenia());

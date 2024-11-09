@@ -23,12 +23,12 @@ public class Piloto extends Persona {
         this.alta = 0;
     }
 
-    public Piloto(String dni, String nombreApellido, Genero genero, int anioNacimiento, String numeroLicencia) {
+    public Piloto(String dni, String nombreApellido, Genero genero, int anioNacimiento, String numeroLicencia, int horasVuelo) {
         super(dni, nombreApellido, genero, anioNacimiento);
         this.id = Data.obtenerUltimoIdPiloto();
         this.numeroLicencia = numeroLicencia;
-        this.horasVuelo = 0;
-        this.rango = Rango.ALUMNO_PILOTO;
+        this.horasVuelo = horasVuelo;
+        actualizarRango();
         this.disponible = true;
         this.alta = 1;
     }
@@ -136,36 +136,6 @@ public class Piloto extends Persona {
         }
     }
 
-    /*
-    public JSONObject pilotoToJSONObject() {
-        JSONObject json = new JSONObject();
-        json.put("dni", super.getDni());
-        json.put("nombreApellido", super.getNombreApellido());
-        json.put("genero", super.getGenero());
-        json.put("anioNacimiento", super.getAnioNacimiento());
-        json.put("id", this.id);
-        json.put("numeroLicencia", this.numeroLicencia);
-        json.put("horasVuelo", this.horasVuelo);
-        json.put("rango", this.rango);
-        json.put("alta", this.alta);
-        return json;
-    }
-
-    public static Piloto JSONObjectToPiloto(JSONObject json) {
-        String dni = json.getString("dni");
-        String nombreApellido = json.getString("nombreApellido");
-        String generoStr = json.getString("genero");
-        Genero genero = Genero.valueOf(generoStr.toUpperCase());
-        int anioNacimiento = json.getInt("anioNacimiento");
-        int id = json.getInt("id");
-        String numeroLicencia = json.getString("numeroLicencia");
-        int horasVuelo = json.getInt("horasVuelo");
-        String rangoStr = json.getString("rango");
-        Rango rango = Rango.valueOf(rangoStr.toUpperCase());
-        int alta = json.getInt("alta");
-        return new Piloto(dni, nombreApellido, genero, anioNacimiento, id, numeroLicencia, horasVuelo, rango, alta);
-    }
-*/
     @Override
     public String toString() {
         return "Piloto{" +

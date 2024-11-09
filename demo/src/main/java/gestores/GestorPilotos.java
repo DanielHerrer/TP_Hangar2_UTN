@@ -2,6 +2,7 @@ package gestores;
 
 import constantes.Data;
 import entidades.Piloto;
+import entidades.Usuario;
 import enums.Genero;
 import enums.Rango;
 import excepciones.FormatoIncorrectoException;
@@ -82,6 +83,25 @@ public class GestorPilotos implements iABML<Piloto> {
             if (p.equals(pilotoHangar)) {
                 p.setDisponible(true);
                 guardarPilotoToFile();
+                return true;
+            }
+        }
+        return false;
+    }
+
+    // DEVUELVE TRUE SI EL DNI YA EXISTE
+    public boolean dniYaExiste(String dni) {
+        for (Piloto piloto : listaPilotos) {
+            if (piloto.getDni().equals(dni)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean verificarNumeroLicencia (String licencia) {
+        for (Piloto piloto : listaPilotos) {
+            if (piloto.getNumeroLicencia().equals(licencia)) {
                 return true;
             }
         }

@@ -22,5 +22,29 @@
         "dni": "78554",
         "numeroLicencia": "77",
         "disponible": true
+    },
+    {
+        "nombreApellido": "Oscar Piastri",
+        "rango": "TERCER_CAPITAN",
+        "alta": 1,
+        "genero": "MASCULINO",
+        "horasVuelo": 120,
+        "anioNacimiento": 2002,
+        "id": 10,
+        "dni": "534132",
+        "numeroLicencia": "90210",
+        "disponible": true
+    },
+    {
+        "nombreApellido": "Random",
+        "rango": "TERCER_CAPITAN",
+        "alta": 1,
+        "genero": "MASCULINO",
+        "horasVuelo": 100,
+        "anioNacimiento": 2000,
+        "id": 11,
+        "dni": "65321",
+        "numeroLicencia": "123",
+        "disponible": true
     }
 ]

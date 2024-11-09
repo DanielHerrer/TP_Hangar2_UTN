@@ -13,7 +13,7 @@ import java.util.Map;
 
 public class GestorRegistros {
 
-    public HashMap<String, LocalDateTime> listaRegistros;
+    public HashMap<Integer, LocalDateTime> listaRegistros;
 
 
     public GestorRegistros() {
@@ -22,15 +22,15 @@ public class GestorRegistros {
 
 
     public void guardarRegistro (Usuario u) {
-        this.listaRegistros.put(u.getNombreUsuario(), u.getRegistro());
+        this.listaRegistros.put(u.getId(), u.getRegistro());
     }
 
     public JSONArray crearJSONArrayRegistros () {
         JSONArray registrosArray = new JSONArray();
 
-        for (Map.Entry<String, LocalDateTime> entrada : listaRegistros.entrySet()) {
+        for (Map.Entry<Integer, LocalDateTime> entrada : listaRegistros.entrySet()) {
             JSONObject jsonRegistro = new JSONObject();
-            jsonRegistro.put("usuario", entrada.getKey());
+            jsonRegistro.put("id", entrada.getKey());
             jsonRegistro.put("registro", entrada.getValue().toString());
             registrosArray.put(jsonRegistro);
         }
@@ -66,10 +66,10 @@ public class GestorRegistros {
 
         for (int i = 0; i < registrosArray.length(); i++) {
            JSONObject registroJSON = registrosArray.getJSONObject(i);
-           String usuario = registroJSON.getString("usuario");
+           Integer id = registroJSON.getInt("id");
            LocalDateTime registro = LocalDateTime.parse(registroJSON.getString("registro"), formatter);
 
-           listaRegistros.put(usuario, registro);
+           listaRegistros.put(id, registro);
         }
     }
 

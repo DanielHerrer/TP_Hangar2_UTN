@@ -3,6 +3,9 @@ package gestores;
 import constantes.Data;
 import entidades.Avion;
 import entidades.Piloto;
+import entidades.Usuario;
+import excepciones.FormatoIncorrectoException;
+import excepciones.ObjetoRepetidoException;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -19,6 +22,19 @@ public class GestorAviones {
         this.listaAviones = new ArrayList<>();
     }
 
+
+    public boolean agregar(Avion a) throws FormatoIncorrectoException, ObjetoRepetidoException {
+        if (listaAviones.contains(a)) {
+            throw new ObjetoRepetidoException("El avion ya esta cargado en el sistema");
+        }
+        if (a.getId() != 0  && a.getNombre() != null && a.getNumeracion() != 0) {
+            listaAviones.add(a);
+            return true;
+        }
+        else {
+            throw new FormatoIncorrectoException("El formato introducido no es correcto");
+        }
+    }
 
     // SETEO A NULL EL PILOTO QUE ESTABA ASIGNADO EN EL AVION
     // Y GUARDO LOS CAMBIOS
@@ -42,6 +58,15 @@ public class GestorAviones {
             }
         }
         return avion;
+    }
+
+    public boolean verificarNumeracion (int numeracion) {
+        for (Avion avi : listaAviones) {
+            if (avi.getNumeracion() == numeracion) {
+                return true;
+            }
+        }
+        return false;
     }
 
     /**

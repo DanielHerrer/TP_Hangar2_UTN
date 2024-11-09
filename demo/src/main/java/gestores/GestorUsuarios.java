@@ -229,8 +229,6 @@ public class GestorUsuarios implements iABML<Usuario> {
         }
     }
 
-    //getDNI viene de persona, lo tengo que traer pero tengo pereza ahora, si se arregla, el metodo para
-    //no dejar cargar el mismo DNI ya ira funcionar!
     public boolean dniYaExiste(String dni) {
         for (Usuario usuario : listaUsuarios) {
             if (usuario.getDni().equals(dni)) {
