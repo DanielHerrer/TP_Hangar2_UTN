@@ -153,11 +153,11 @@ public class Piloto extends Persona {
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
         Piloto piloto = (Piloto) o;
-        return Objects.equals(numeroLicencia, piloto.numeroLicencia);
+        return id == piloto.id;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), numeroLicencia);
+        return Objects.hash(super.hashCode(), id);
     }
 }

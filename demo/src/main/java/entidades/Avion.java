@@ -147,42 +147,6 @@ public class Avion implements Comparable<Avion> {
         return "Combustible lleno.";
     }
 
-    /*
-    public JSONObject avionToJSONObject() {
-        JSONObject json = new JSONObject();
-        json.put("id", this.id);
-        if (this.piloto != null) {
-            json.put("piloto", this.piloto.pilotoToJSONObject());
-        } else {
-            json.put("piloto", JSONObject.NULL); //SI NO TIENE UN PILOTO CARGADO USO JSONObject.NULL
-        }
-        json.put("nombre", this.nombre);
-        json.put("numeracion", this.numeracion);
-        json.put("modelo", this.modelo);
-        json.put("aerolinea", this.aerolinea);
-        json.put("capacidadPasajeros", this.capacidadPasajeros);
-        json.put("vuelosRealizados", this.vuelosRealizados);
-        json.put("combustibleMaximo", this.combustibleMaximo);
-        json.put("combustibleActual", this.combustibleActual);
-        json.put("alta", this.alta);
-        return json;
-    }
-
-    public static Avion JSONObjectToAvion(JSONObject json) {
-        int id = json.getInt("id");
-        Piloto piloto = Piloto.JSONObjectToPiloto(json.getJSONObject("piloto"));
-        String nombre = json.getString("nombre");
-        int numeracion = json.getInt("numeracion");
-        String modelo = json.getString("modelo");
-        String aerolinea = json.getString("aerolinea");
-        int capacidadPasajeros = json.getInt("capacidadPasajeros");
-        int vuelosRealizados = json.getInt("vuelosRealizados");
-        int combustibleMaximo = json.getInt("combustibleMaximo");
-        int combustibleActual = json.getInt("combustibleActual");
-        int alta = json.getInt("alta");
-        return new Avion(id, piloto, nombre, numeracion, modelo, aerolinea, capacidadPasajeros, vuelosRealizados, combustibleMaximo, combustibleActual, alta);
-    }
-    */
 
     @Override
     public String toString() {
@@ -206,14 +170,13 @@ public class Avion implements Comparable<Avion> {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Avion avion = (Avion) o;
-        return id == avion.id && numeracion == avion.numeracion;
+        return id == avion.id;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, numeracion);
+        return Objects.hashCode(id);
     }
-
 
     @Override
     public int compareTo(Avion o) {

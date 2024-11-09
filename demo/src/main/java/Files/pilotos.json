@@ -1,26 +1,50 @@
 [
     {
         "nombreApellido": "Franco Colapinto",
-        "rango": "CAPITAN",
+        "rango": "SEGUNDO_OFICIAL",
         "alta": 1,
         "genero": "MASCULINO",
-        "horasVuelo": 200,
-        "anioNacimiento": 2000,
-        "id": 4,
-        "dni": "2233",
-        "numeroLicencia": "43",
+        "horasVuelo": 75,
+        "anioNacimiento": 2003,
+        "id": 1,
+        "dni": "222333",
+        "numeroLicencia": "00043",
         "disponible": true
     },
     {
         "nombreApellido": "Valtteri Bottas",
-        "rango": "COMANDANTE",
+        "rango": "TERCER_CAPITAN",
         "alta": 1,
         "genero": "MASCULINO",
-        "horasVuelo": 900,
-        "anioNacimiento": 1992,
+        "horasVuelo": 132,
+        "anioNacimiento": 1985,
+        "id": 2,
+        "dni": "456123",
+        "numeroLicencia": "00077",
+        "disponible": true
+    },
+    {
+        "nombreApellido": "Cole Palmer",
+        "rango": "SEGUNDO_OFICIAL",
+        "alta": 1,
+        "genero": "MASCULINO",
+        "horasVuelo": 69,
+        "anioNacimiento": 2002,
+        "id": 3,
+        "dni": "789456",
+        "numeroLicencia": "00020",
+        "disponible": true
+    },
+    {
+        "nombreApellido": "Facundo Colidio",
+        "rango": "SEGUNDO_OFICIAL",
+        "alta": 1,
+        "genero": "MASCULINO",
+        "horasVuelo": 79,
+        "anioNacimiento": 2001,
         "id": 4,
-        "dni": "78554",
-        "numeroLicencia": "77",
-        "disponible": false
+        "dni": "963852",
+        "numeroLicencia": "00011",
+        "disponible": true
     }
 ]

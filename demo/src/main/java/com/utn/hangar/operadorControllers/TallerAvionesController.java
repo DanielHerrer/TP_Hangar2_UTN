@@ -25,7 +25,7 @@ public class TallerAvionesController {
     void onClickBtnListaAviones(ActionEvent event) {
         try {
             Stage stage = (Stage) btnListarAviones.getScene().getWindow();
-            Ventanas.cambioEscena("Sistema Hangar 2.0",stage, "/com/utn/hangar/adminViews/lista-aviones-view.fxml");
+            Ventanas.cambioEscena("Sistema Hangar 2.0",stage, "/com/utn/hangar/operadorViews/lista-aviones-view.fxml");
         } catch (Exception e) {
             Ventanas.exceptionError(e);
             e.printStackTrace();

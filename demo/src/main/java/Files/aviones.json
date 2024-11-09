@@ -1,13 +1,28 @@
-[{
-    "combustibleMaximo": 100,
-    "aerolinea": "Latam",
-    "alta": 1,
-    "vuelosRealizados": 0,
-    "id": 1,
-    "numeracion": 89,
-    "combustibleActual": 100,
-    "nombre": "Albano",
-    "modelo": "x-e89",
-    "capacidadPasajeros": 500,
-    "piloto": null
-}]
+[
+    {
+        "combustibleMaximo": 100,
+        "aerolinea": "Panam",
+        "alta": 1,
+        "vuelosRealizados": 2,
+        "id": 1,
+        "numeracion": 3125641,
+        "combustibleActual": 100,
+        "nombre": "Boeing ",
+        "modelo": "747",
+        "capacidadPasajeros": 200,
+        "piloto": null
+    },
+    {
+        "combustibleMaximo": 100,
+        "aerolinea": "Panam",
+        "alta": 1,
+        "vuelosRealizados": 6,
+        "id": 2,
+        "numeracion": 90210,
+        "combustibleActual": 100,
+        "nombre": "Concorde ASOBIFASF",
+        "modelo": "Facha",
+        "capacidadPasajeros": 300,
+        "piloto": null
+    }
+]

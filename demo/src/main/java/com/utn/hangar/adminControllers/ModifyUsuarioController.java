@@ -54,7 +54,6 @@ public class ModifyUsuarioController {
         SelecGen.setValue(user.getGenero());
         inputUser.setText(user.getNombreUsuario());
         inputPass.setText(user.getContrasenia());
-
     }
 
     @FXML
