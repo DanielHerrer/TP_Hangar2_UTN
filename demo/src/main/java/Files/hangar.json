@@ -1,1 +1,24 @@
-[]
+[{
+    "combustibleMaximo": 100,
+    "aerolinea": "Latam",
+    "alta": 1,
+    "vuelosRealizados": 0,
+    "id": 1,
+    "numeracion": 89,
+    "combustibleActual": 100,
+    "nombre": "Albano",
+    "modelo": "x-e89",
+    "capacidadPasajeros": 500,
+    "piloto": {
+        "nombreApellido": "Franco Colapinto",
+        "rango": "ALUMNO_PILOTO",
+        "alta": 1,
+        "genero": "MASCULINO",
+        "horasVuelo": 0,
+        "anioNacimiento": 2000,
+        "id": 9,
+        "dni": "2233",
+        "numeroLicencia": "43",
+        "disponible": false
+    }
+}]

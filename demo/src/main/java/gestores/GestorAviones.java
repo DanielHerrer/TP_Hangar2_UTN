@@ -22,6 +22,13 @@ public class GestorAviones {
         this.listaAviones = new ArrayList<>();
     }
 
+    public ArrayList<Avion> getListaAviones() {
+        return listaAviones;
+    }
+
+    public void setListaAviones(ArrayList<Avion> listaAviones) {
+        this.listaAviones = listaAviones;
+    }
 
     public boolean agregar(Avion a) throws FormatoIncorrectoException, ObjetoRepetidoException {
         if (listaAviones.contains(a)) {

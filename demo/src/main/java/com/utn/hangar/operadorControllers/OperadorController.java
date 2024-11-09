@@ -12,6 +12,9 @@ public class OperadorController {
     private Button btnLogout;
 
     @FXML
+    private Button btnMenuHangar;
+
+    @FXML
     private Button btnTallerAviones;
 
     @FXML
@@ -21,10 +24,10 @@ public class OperadorController {
     private Button btnModificarPerfil;
 
     @FXML
-    void onBtnLogoutButtonClick(ActionEvent event) {
+    void onClickBtnMenuHangar(ActionEvent event) {
         try {
             Stage stage = (Stage) btnLogout.getScene().getWindow();
-            Ventanas.cambioEscena("Sistema Hangar 2.0",stage, "/com/utn/hangar/homeViews/login-view.fxml");
+            Ventanas.cambioEscena("Sistema Hangar 2.0",stage, "/com/utn/hangar/operadorViews/menu-hangar-view.fxml");
         } catch (Exception e) {
             Ventanas.exceptionError(e);
             e.printStackTrace();
@@ -58,6 +61,17 @@ public class OperadorController {
         try {
             Stage stage = (Stage) btnLogout.getScene().getWindow();
             Ventanas.cambioEscena("Sistema Hangar 2.0",stage, "/com/utn/hangar/homeViews/modificar-perfil-view.fxml");
+        } catch (Exception e) {
+            Ventanas.exceptionError(e);
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    void onBtnLogoutButtonClick(ActionEvent event) {
+        try {
+            Stage stage = (Stage) btnLogout.getScene().getWindow();
+            Ventanas.cambioEscena("Sistema Hangar 2.0",stage, "/com/utn/hangar/homeViews/login-view.fxml");
         } catch (Exception e) {
             Ventanas.exceptionError(e);
             e.printStackTrace();

@@ -22,6 +22,14 @@ public class GestorPilotos implements iABML<Piloto> {
         listaPilotos = new ArrayList<>();
     }
 
+    public ArrayList<Piloto> getListaPilotos() {
+        return listaPilotos;
+    }
+
+    public void setListaPilotos(ArrayList<Piloto> listaPilotos) {
+        this.listaPilotos = listaPilotos;
+    }
+
     // ======================= METODOS INTERFAZ =====================================
 
     @Override
