@@ -127,7 +127,7 @@ public class CrearPilotoController {
     void onClickBtnVolver(ActionEvent event) {
         try {
             Stage stage = (Stage) btnVolver.getScene().getWindow();
-            Ventanas.cambioEscena("Sistema Hangar 2.0", stage, "/com/utn/hangar/operadorControllers/cuartel-pilotos.fxml");
+            Ventanas.cambioEscena("Sistema Hangar 2.0", stage, "/com/utn/hangar/operadorViews/cuartel-pilotos.fxml");
 
         } catch (IOException e) {
             Ventanas.exceptionError(e);

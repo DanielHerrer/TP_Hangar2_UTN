@@ -15,6 +15,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.stage.Stage;
+import javafx.util.StringConverter;
 
 import java.io.IOException;
 
@@ -35,20 +36,59 @@ public class AsignarVueloController {
 
     @FXML
     public void initialize() {
+        // CARGO PILOTOS Y LOS AGREGO EN EL COMBOBOX
         GestorPilotos gestorPilotos = new GestorPilotos();
         gestorPilotos.cargarPilotoDesdeArchivo();
-        btnSelecPiloto.getItems().setAll(gestorPilotos.getListaPilotos()); // GUARDO A LOS PILOTOS EN EL COMBOBOX
+        btnSelecPiloto.getItems().setAll(gestorPilotos.getListaPilotos());
 
+        // APLICO EL STRINGCONVERTER EN PILOTO PARA DARLE UN MEJOR FORMATO
+        btnSelecPiloto.setConverter(new StringConverter<Piloto>() {
+            @Override
+            public String toString(Piloto piloto) {
+                return piloto.getNumeroLicencia() + " - " + piloto.getNombreApellido();
+            }
+
+            @Override
+            public Piloto fromString(String string) {
+                return null;
+            }
+
+        });
+
+        // CARGO AVIONES Y LOS AGREGO EN EL COMBOBOX
         GestorAviones gestorAviones = new GestorAviones();
         gestorAviones.cargarAvionDesdeArchivo();
-        btnSelecAvion.getItems().setAll(gestorAviones.getListaAviones()); // GUARDO LOS AVIONES EN EL COMBOBOX
+        btnSelecAvion.getItems().setAll(gestorAviones.getListaAviones());
+
+        // LO MISMO CON AVION, LE DOY FORMATO MAS FACHERO
+        btnSelecAvion.setConverter(new StringConverter<Avion>() {
+            @Override
+            public String toString(Avion avion) {
+                return avion.getNombre() + " - " + avion.getNumeracion();
+            }
+
+            @Override
+            public Avion fromString(String string) {
+                return null;
+            }
+        });
     }
 
     @FXML
     void onClickBtnAsignar(ActionEvent event) {
         try {
-            Piloto pilotoSeleccionado = btnSelecPiloto.getSelectionModel().getSelectedItem();
-            Avion avionSeleccionado = btnSelecAvion.getSelectionModel().getSelectedItem();
+            // LLAMO A LAS GESTORAS PARA LUEGO BUSCAR EL AVION/PILOTO SELECCIONADO
+            GestorPilotos gestorPilotos = new GestorPilotos();
+            gestorPilotos.cargarPilotoDesdeArchivo();
+            GestorAviones gestorAviones = new GestorAviones();
+            gestorAviones.cargarAvionDesdeArchivo();
+
+            // ESTO NO APUNTA A LA LISTA DE LA CLASE GESTORA
+            Piloto pilotoComboBox = btnSelecPiloto.getSelectionModel().getSelectedItem();
+            Avion avionComboBox = btnSelecAvion.getSelectionModel().getSelectedItem();
+            // ESTO SI
+            Piloto pilotoSeleccionado = gestorPilotos.buscarPilotoPorID(pilotoComboBox.getId());
+            Avion avionSeleccionado = gestorAviones.buscarAvionPorID(avionComboBox.getId());
 
             // METO VERIFICACIONES
             if (!pilotoSeleccionado.isDisponible()) {
@@ -73,12 +113,9 @@ public class AsignarVueloController {
             gestorHangar.guardarHangarToFile(); //GUARDO EL VUELO EN EL ARCHIVO JSON DE HANGAR
 
             //TAMBIEN GUARDO LA INFORMACION EN AVION Y EN PILOTO
-            GestorPilotos gestorPilotos = new GestorPilotos();
-            gestorPilotos.cargarPilotoDesdeArchivo();
             gestorPilotos.guardarPilotoToFile();
-            GestorAviones gestorAviones = new GestorAviones();
-            gestorPilotos.cargarPilotoDesdeArchivo();
             gestorAviones.guardarAvionToFile();
+
 
             Stage stage = (Stage) btnAsignar.getScene().getWindow();
             Ventanas.cambioEscena("Sistema Hangar 2.0",stage, "/com/utn/hangar/operadorViews/menu-hangar-view.fxml");

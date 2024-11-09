@@ -65,16 +65,16 @@ public class GestorHangar {
 
 
     public void guardarHangarToFile() {
-        JSONArray pilotoArray = crearJSONArray();
+        JSONArray hangarArray = crearJSONArray();
 
-        Data.grabar(Data.archivoHangar, pilotoArray);
+        Data.grabar(Data.archivoHangar, hangarArray);
     }
 
     public void cargarHangarDesdeArchivo () {
         try {
-            JSONArray avionesArray = new JSONArray(Data.leerArchivo(Data.archivoHangar));
+            JSONArray hangarArray = new JSONArray(Data.leerArchivo(Data.archivoHangar));
 
-            hangarJSONArrayToList(avionesArray);
+            hangarJSONArrayToList(hangarArray);
             System.out.println("Aviones cargados desde el archivo: " + Data.archivoHangar);
         } catch (Exception e) {
             e.printStackTrace();

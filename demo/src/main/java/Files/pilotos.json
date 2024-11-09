@@ -1,1 +1,38 @@
-[]
+[
+    {
+        "nombreApellido": "Valtteri Bottas",
+        "rango": "TERCER_CAPITAN",
+        "alta": 1,
+        "genero": "MASCULINO",
+        "horasVuelo": 120,
+        "anioNacimiento": 1988,
+        "id": 1,
+        "dni": "12452",
+        "numeroLicencia": "77",
+        "disponible": true
+    },
+    {
+        "nombreApellido": "Cole Palmer",
+        "rango": "PRIMER_OFICIAL",
+        "alta": 1,
+        "genero": "MASCULINO",
+        "horasVuelo": 80,
+        "anioNacimiento": 2003,
+        "id": 2,
+        "dni": "456789",
+        "numeroLicencia": "20",
+        "disponible": true
+    },
+    {
+        "nombreApellido": "Marc Marquez",
+        "rango": "CAPITAN",
+        "alta": 1,
+        "genero": "MASCULINO",
+        "horasVuelo": 220,
+        "anioNacimiento": 1985,
+        "id": 3,
+        "dni": "123654",
+        "numeroLicencia": "82",
+        "disponible": false
+    }
+]

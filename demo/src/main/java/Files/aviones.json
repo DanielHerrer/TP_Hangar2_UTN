@@ -1,1 +1,39 @@
-[]
+[
+    {
+        "combustibleMaximo": 100,
+        "aerolinea": "Panam",
+        "alta": 1,
+        "vuelosRealizados": 0,
+        "id": 1,
+        "numeracion": 90210,
+        "combustibleActual": 100,
+        "nombre": "Boeing",
+        "modelo": "747",
+        "capacidadPasajeros": 250,
+        "piloto": null
+    },
+    {
+        "combustibleMaximo": 100,
+        "aerolinea": "Panam",
+        "alta": 1,
+        "vuelosRealizados": 0,
+        "id": 2,
+        "numeracion": 91218,
+        "combustibleActual": 100,
+        "nombre": "Concorde",
+        "modelo": "Fachero",
+        "capacidadPasajeros": 280,
+        "piloto": {
+            "nombreApellido": "Marc Marquez",
+            "rango": "CAPITAN",
+            "alta": 1,
+            "genero": "MASCULINO",
+            "horasVuelo": 220,
+            "anioNacimiento": 1985,
+            "id": 3,
+            "dni": "123654",
+            "numeroLicencia": "82",
+            "disponible": false
+        }
+    }
+]

@@ -89,10 +89,10 @@ public class CrearAvionController {
             gestorAviones.agregar(avion);
             //Y SE GUARDA EL CONTENIDO DEL ARREGLO EN EL JSON
             gestorAviones.guardarAvionToFile();
-/*
+
             Stage stage = (Stage) btnRegister.getScene().getWindow();
-            Ventanas.cambioEscena("Sistema Hangar 2.0",stage, "/com/utn/hangar/homeViews/login-view.fxml");
-*/
+            Ventanas.cambioEscena("Sistema Hangar 2.0",stage, "/com/utn/hangar/operadorViews/taller-aviones-view.fxml");
+
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Creacion exitosa");
             alert.setHeaderText(null);
@@ -110,7 +110,7 @@ public class CrearAvionController {
     void onClickBtnVolver(ActionEvent event) {
         try {
             Stage stage = (Stage) btnVolver.getScene().getWindow();
-            Ventanas.cambioEscena("Sistema Hangar 2.0", stage, "/com/utn/hangar/operadorControllers/taller-aviones-view.fxml");
+            Ventanas.cambioEscena("Sistema Hangar 2.0", stage, "/com/utn/hangar/operadorViews/taller-aviones-view.fxml");
 
         } catch (IOException e) {
             Ventanas.exceptionError(e);
