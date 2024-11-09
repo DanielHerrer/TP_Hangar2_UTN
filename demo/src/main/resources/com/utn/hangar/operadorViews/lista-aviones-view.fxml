@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="421.0" prefWidth="754.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.utn.hangar.operadorControllers.ListaAvionesController">
+   <children>
+      <TableView fx:id="tablaAviones" layoutX="19.0" layoutY="97.0" prefHeight="288.0" prefWidth="716.0">
+         <columns>
+            <TableColumn fx:id="idAvion" prefWidth="37.0" text="id" />
+            <TableColumn fx:id="nombreAvion" prefWidth="100.0" text="Nombre" />
+            <TableColumn fx:id="numearcionAvion" prefWidth="88.0" text="Numeracion" />
+            <TableColumn fx:id="modeloAvion" prefWidth="100.0" text="Modelo" />
+            <TableColumn fx:id="aerolineaAvion" prefWidth="100.0" text="Aerolinea" />
+            <TableColumn fx:id="capacidadPasajeros" prefWidth="75.0" text="Capacidad" />
+            <TableColumn fx:id="numeroVuelos" prefWidth="139.0" text="Vuelos Realizados" />
+            <TableColumn fx:id="altaAvion" prefWidth="81.0" text="Estado" />
+            <TableColumn fx:id="modifyAvion" prefWidth="83.0" />
+         </columns>
+      </TableView>
+      <Label layoutX="276.0" layoutY="41.0" prefHeight="35.0" prefWidth="203.0" text="LISTA DE AVIONES">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Button fx:id="btnVolver" layoutX="19.0" layoutY="24.0" mnemonicParsing="false" onAction="#onClickBtnVolver" prefHeight="35.0" prefWidth="68.0" text="Volver">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

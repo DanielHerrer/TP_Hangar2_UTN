@@ -31,6 +31,13 @@ public class GestorHangar {
         System.out.println("se agrego el avion " + a.getNombre() + " con el piloto " + a.getPiloto().getNombreApellido());
     }
 
+    public void agregarModificado (Avion a) {
+        if (listaHangar.contains(a)) {
+            listaHangar.remove(a); // SE BORRA EL ORIGINAL
+        }
+        listaHangar.add(a); // SE AGREGA EL MODIFICADO
+    }
+
     public Avion getAvionByID (int numeroID) {
         Avion avi = null;
 

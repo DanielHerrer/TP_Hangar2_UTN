@@ -31,9 +31,6 @@ public class GestorAviones {
     }
 
     public boolean agregar(Avion a) throws FormatoIncorrectoException, ObjetoRepetidoException {
-        if (listaAviones.contains(a)) {
-            throw new ObjetoRepetidoException("El avion ya esta cargado en el sistema");
-        }
         if (a.getId() != 0  && a.getNombre() != null && a.getNumeracion() != 0) {
             listaAviones.add(a);
             return true;
@@ -67,7 +64,19 @@ public class GestorAviones {
         return avion;
     }
 
-    public boolean verificarNumeracion (int numeracion) {
+    public boolean verificarNumeracionModifiacion (int numeracionNueva, Avion avion) {
+        if (avion.getNumeracion() == numeracionNueva) {
+            return false; // SI LA NUMERACION SIGUE SIENDO LA MISMA RETORNO FALSE
+        }
+        for (Avion avi : listaAviones) {
+            if (avi.getNumeracion() == numeracionNueva) {
+                return true; // SI SE REPITE CON OTRO AVION RETORNO TRUE
+            }
+        }
+        return false;
+    }
+
+    public boolean numeracionYaExiste (int numeracion) {
         for (Avion avi : listaAviones) {
             if (avi.getNumeracion() == numeracion) {
                 return true;

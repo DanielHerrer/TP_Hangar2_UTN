@@ -79,7 +79,7 @@ public class CrearAvionController {
             // DESPUES AGREGAR VERIFICACIONES PARA LA CANTIDAD DE LETRAS
 
             //SE VALIDA QUE LA NUMERACION NO ESTE REPETIDA
-            if (gestorAviones.verificarNumeracion(numeracionInt)) {
+            if (gestorAviones.numeracionYaExiste(numeracionInt)) {
                 throw new InputMismatchException("La numeracion del avion ya existe.");
             }
 
