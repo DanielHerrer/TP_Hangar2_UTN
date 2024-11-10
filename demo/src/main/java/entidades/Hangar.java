@@ -17,13 +17,13 @@ public class Hangar {
 
 
     public String vincularPilotoConAvion (int idPiloto, int idAvion) {
-        Piloto piloto = gestorPilotos.buscarPilotoPorID(idPiloto);
+        Piloto piloto = gestorPilotos.getPilotoPorID(idPiloto);
 
         if (piloto == null) {
             return "No existe piloto con el id: " + idPiloto + "\n";
         }
 
-        Avion avion = gestorAviones.buscarAvionPorID(idAvion);
+        Avion avion = gestorAviones.getAvionPorID(idAvion);
 
         if (avion == null) {
             return "No existe avion con el id: " + idPiloto + "\n";

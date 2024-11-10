@@ -54,8 +54,8 @@ public class PruebaMain {
         gestorAviones.cargarAvionDesdeArchivo();
 
         //ELIJO UN AVION, ELIJO UN PILOTO
-        Avion avionSeleccionado = gestorAviones.buscarAvionPorID(avi1.getId());
-        Piloto pilotoSeleccionado = gestorPilotos.buscarPilotoPorID(pil2.getId());
+        Avion avionSeleccionado = gestorAviones.getAvionPorID(avi1.getId());
+        Piloto pilotoSeleccionado = gestorPilotos.getPilotoPorID(pil2.getId());
 
         // ACA TENDRIAN QUE IR VERIFIACIONES (DISPONIBLE == TRUE, PILOTO == NULL, COMBUSTIBLE > 80)
 

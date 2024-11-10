@@ -48,16 +48,6 @@ public class GestorVuelos {
         return registrosArray;
     }
 
-    public void eliminarVuelo (int idAvion) {
-        cargarVuelosDesdeArchivo(); //CARGO EL HASHMAP CON EL JSON
-        for (Map.Entry<Integer, Dupla> entry : listaVuelos.entrySet()) {
-            if (entry.getValue().getIdAvion() == idAvion) {
-                listaVuelos.remove(entry.getKey()); //SI COINCIDE EL ID DEL AVION, BORRO EL REGISTRO DEL VUELO
-                guardarVuelosEnArchivo(); //Y ACTUALIZO EL JSON
-            }
-        }
-    }
-
     public void guardarVuelosEnArchivo () {
         JSONArray vueloArray = crearJSONArrayVuelos();
 

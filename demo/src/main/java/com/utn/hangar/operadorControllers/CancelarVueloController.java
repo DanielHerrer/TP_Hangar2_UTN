@@ -87,15 +87,14 @@ public class CancelarVueloController {
                             gestorPilotos.actualizarEstadoPiloto(vueloCancelado.getPiloto());
                             gestorPilotos.guardarPilotoToFile();
 
-                            // TAMBIEN BORRAR EL VUELO DEL ARCHIVO VUELOS.JSON
-                            GestorVuelos gestorVuelos = new GestorVuelos();
-                            gestorVuelos.eliminarVuelo(vueloCancelado.getId());
 
                             Alert alert = new Alert(Alert.AlertType.INFORMATION);
                             alert.setTitle("Vuelo cancelado");
                             alert.setHeaderText(null);
                             alert.setContentText("Se ha cancelado el vuelo exitosamente.");
                             alert.showAndWait();
+
+                            listaObservableHangar.remove(vueloCancelado); //ELIMINO EN TIEMPO REAL EL VUELO CANCELADO DE LA TABLA
 
                         });
                     }

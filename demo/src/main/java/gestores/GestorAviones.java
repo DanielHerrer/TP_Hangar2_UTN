@@ -3,15 +3,12 @@ package gestores;
 import constantes.Data;
 import entidades.Avion;
 import entidades.Piloto;
-import entidades.Usuario;
 import excepciones.FormatoIncorrectoException;
 import excepciones.ObjetoRepetidoException;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashSet;
 
 
 public class GestorAviones {
@@ -61,7 +58,7 @@ public class GestorAviones {
         }
     }
 
-    public Avion buscarAvionPorID (int id) {
+    public Avion getAvionPorID(int id) {
         Avion avion = null;
 
         for (Avion a : listaAviones) {
@@ -93,79 +90,6 @@ public class GestorAviones {
         return false;
     }
 
-    /**
-     *
-     * @return Muestra a todos los aviones del sistema
-     */
-    public String mostrarAviones () {
-        StringBuilder sb = new StringBuilder("");
-
-        for (Avion avi : listaAviones) {
-           sb.append(avi.toString()).append("\n");
-        }
-        return sb.toString();
-    }
-
-    /**
-     *
-     * @return Muestra a los aviones pero destacando el nivel de combustible que tienen
-     */
-    public String mostrarNivelCombustible () {
-        StringBuilder sb = new StringBuilder("");
-
-        for (Avion avi : listaAviones) {
-            sb.append(avi.getId()).append(" ").append(avi.getCombustibleActual()).append(" ").append(avi.getNombre()).
-            append(" ").append(avi.getModelo()).append(" ").append(avi.getAerolinea()).append("\n");
-        }
-        return sb.toString();
-    }
-
-
-    /**
-     *
-     * @param nombre recibe el nombre o una subcadena del avion que se desea encontrar
-     * @return devuelve un String con los aviones cuyo nombre coincide
-     */
-    public String buscarAvionPorNombre (String nombre) {
-        StringBuilder sb = new StringBuilder("");
-        boolean encontrado = false;
-
-        for (Avion avi : listaAviones) {
-            if (avi.getNombre().toLowerCase().contains(nombre.toLowerCase())) {
-                sb.append(avi.toString()).append("\n");
-                encontrado = true;
-            }
-        }
-
-        if (!encontrado) {
-            return "No hay coincidencias con el nombre ingresado \n";
-        }
-        return sb.toString();
-    }
-
-
-    /**
-     * @see "Si el combustible de un avion es menor a 80 lo carga hasta el maximo"
-     * @return devuelve un mensaje de acuerdo a si se cargaron o no los aviones
-     */
-    public String cargarCombustible () {
-        boolean cargas = false;
-
-        for (Avion avi : listaAviones) {
-            if (avi.getCombustibleActual() < 80) {
-                avi.setCombustibleActual(100);
-                cargas = true;
-            }
-        }
-        if (cargas) {
-            return "Se lleno el tanque de todos los aviones \n";
-        }
-        else {
-            return "Los aviones ya tienen el tanque lleno \n";
-        }
-    }
-
-    //QUEDAN POR HACER LAS FUNCIONES DE MODIFICACION
 
     //================METODOS PARA TRABAJAR CON JSON========================
     public JSONArray crearJSONArray () {

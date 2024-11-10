@@ -101,7 +101,15 @@ public class CrearAvionController {
             alert.setContentText("Avion creado exitosamente.");
             alert.showAndWait();
 
-        } catch (Exception e) {
+        }
+        catch (NumberFormatException e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error de entrada");
+            alert.setHeaderText(null);
+            alert.setContentText("Por favor, ingrese solo números en los campos de numeración, pasajeros y vuelos realizados.");
+            alert.showAndWait();
+        }
+        catch (Exception e) {
             Ventanas.exceptionError(e);
             e.printStackTrace();
         }

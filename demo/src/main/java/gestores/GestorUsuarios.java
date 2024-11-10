@@ -91,14 +91,99 @@ public class GestorUsuarios implements iABML<Usuario> {
 
     // ==============================================================================================
 
-    public boolean verificarUsuario (Usuario u) {
-        cargarUsuarioDesdeArchivo();
-        return listaUsuarios.contains(u);
-    }
-
-    // ========================================== METODOS JSON ===================================================
 
     /**
+     * @see "Verifica mediante un boolean si el usuario ya existe"
+     * @param username
+     * @return
+     */
+    public boolean usuarioYaExiste(String username) {
+        for (Usuario usuario : listaUsuarios) {
+            if (usuario.getNombreUsuario().equals(username)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean comprobarUsernameModificacion(String username, Usuario u) {
+        if (u.getNombreUsuario().equals(username)) {
+            return true; // SI EL NOMBRE SIGUE SIENDO EL MISMO RETORNO TRUE
+        }
+        else {
+            for (Usuario user : listaUsuarios) {
+                if (user.getNombreUsuario().equals(username)) {
+                    return false; // SI EL USERNAME NUEVO COINCIDE CON ALGUN OTRO RETORNO FALSE
+                }
+            }
+            return true; // SI NO LO ENCONTRO ENTONCES ESTA DISPONIBLE Y RETORNO TRUE
+        }
+    }
+
+    //COMPRUEBA SI EL DNI YA EXISTE CUANDO UN USUARIO SE REGISTRA
+    public boolean dniYaExiste(String dni) {
+        for (Usuario usuario : listaUsuarios) {
+            if (usuario.getDni().equals(dni)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean comprobarDniModificacion (String dni, Usuario u) {
+        if (u.getDni().equals(dni)) {
+            return true; // SI EL dni SIGUE SIENDO EL MISMO RETORNO TRUE
+        }
+        else {
+            for (Usuario user : listaUsuarios) {
+                if (user.getDni().equals(dni)) {
+                    return false; // SI EL DNI NUEVO COINCIDE CON ALGUN OTRO RETORNO FALSE
+                }
+            }
+            return true; // SI NO LO ENCONTRO ENTONCES ESTA DISPONIBLE Y RETORNO TRUE
+        }
+    }
+
+    /**
+     * @see "Busca si el usuario esta en la lista, en base al username y la contrasenia"
+     * @param nombreUsuario
+     * @param password
+     * @return Si encontro al usuario en la lista lo devuelve
+     */
+    public Usuario verificarUsuarioLogin (String nombreUsuario, String password) {
+        Usuario u = null;
+        for (Usuario usu : listaUsuarios) {
+            if (usu.getNombreUsuario().equals(nombreUsuario) && usu.getContrasenia().equals(password)) {
+                u = usu;
+            }
+        }
+        return u;
+    }
+
+    public Usuario getUsuarioById(int id) {
+        Usuario user = null;
+        for (Usuario u : listaUsuarios) {
+            if (u.getId() == id) {
+                user = u;
+                return user;
+            }
+        }
+        return user;
+    }
+
+    public Usuario obtenerUsuarioLogueado (Usuario u) {
+        for (Usuario user : listaUsuarios) {
+            if (u.equals(user)) {
+                return user;
+            }
+        }
+        return null;
+    }
+
+
+     // ========================================== METODOS JSON ===================================================
+
+     /**
      * @see "Crea un JSONArray en base a la lista de usuarios, para que luego sea subido al archivo"
      * @return
      */
@@ -190,107 +275,6 @@ public class GestorUsuarios implements iABML<Usuario> {
         int alta = json.getInt("alta");
         return new Usuario(dni, nombreApellido, genero, anioNacimiento, id, nombreUsuario, contrasenia, registro, rol, alta);
     }
-
-    // ==================================================================================================
-
-    /**
-     * @see "Verifica mediante un boolean si el usuario ya existe"
-     * @param username
-     * @return
-     */
-    public boolean usuarioYaExiste(String username) {
-        for (Usuario usuario : listaUsuarios) {
-            if (usuario.getNombreUsuario().equals(username)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    public boolean comprobarUsernameModificacion(String username, Usuario u) {
-        if (u.getNombreUsuario().equals(username)) {
-            return true; // SI EL NOMBRE SIGUE SIENDO EL MISMO RETORNO TRUE
-        }
-        else {
-            for (Usuario user : listaUsuarios) {
-                if (user.getNombreUsuario().equals(username)) {
-                    return false; // SI EL USERNAME NUEVO COINCIDE CON ALGUN OTRO RETORNO FALSE
-                }
-            }
-            return true; // SI NO LO ENCONTRO ENTONCES ESTA DISPONIBLE Y RETORNO TRUE
-        }
-    }
-
-    public boolean dniYaExiste(String dni) {
-        for (Usuario usuario : listaUsuarios) {
-            if (usuario.getDni().equals(dni)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    public boolean comprobarDniModificacion (String dni, Usuario u) {
-        if (u.getDni().equals(dni)) {
-            return true; // SI EL dni SIGUE SIENDO EL MISMO RETORNO TRUE
-        }
-        else {
-            for (Usuario user : listaUsuarios) {
-                if (user.getDni().equals(dni)) {
-                    return false; // SI EL DNI NUEVO COINCIDE CON ALGUN OTRO RETORNO FALSE
-                }
-            }
-            return true; // SI NO LO ENCONTRO ENTONCES ESTA DISPONIBLE Y RETORNO TRUE
-        }
-    }
-
-    /**
-     * @see "Busca si el usuario esta en la lista, en base al username y la contrasenia"
-     * @param nombreUsuario
-     * @param password
-     * @return Si encontro al usuario en la lista lo devuelve
-     */
-    public Usuario verificarUsuarioLogin (String nombreUsuario, String password) {
-        Usuario u = null;
-        for (Usuario usu : listaUsuarios) {
-            if (usu.getNombreUsuario().equals(nombreUsuario) && usu.getContrasenia().equals(password)) {
-                u = usu;
-            }
-        }
-        return u;
-    }
-
-
-    public Usuario getUsuarioById(int id) {
-        Usuario user = null;
-        for (Usuario u : listaUsuarios) {
-            if (u.getId() == id) {
-                user = u;
-                return user;
-            }
-        }
-        return user;
-    }
-
-    public Usuario obtenerUsuarioLogueado (Usuario u) {
-        for (Usuario user : listaUsuarios) {
-            if (u.equals(user)) {
-                return user;
-            }
-        }
-        return null;
-    }
-
-    public void modificarAltaUsuario (Usuario u) {
-
-        if (u.getAlta() == 0) {
-            u.setAlta(1);
-        }
-        else {
-            u.setAlta(0);
-        }
-    }
-
 
 
 }

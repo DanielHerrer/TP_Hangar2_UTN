@@ -3,11 +3,8 @@ package com.utn.hangar.operadorControllers;
 import com.utn.hangar.Ventanas;
 import constantes.Data;
 import entidades.Avion;
-import entidades.Usuario;
-import enums.Genero;
 import gestores.GestorAviones;
 import gestores.GestorHangar;
-import gestores.GestorUsuarios;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -49,7 +46,7 @@ public class ModifyAvionController {
         // TRAE EL AVION SELECCIONADO
         GestorAviones gestorAviones = new GestorAviones();
         gestorAviones.cargarAvionDesdeArchivo();
-        Avion avion = gestorAviones.buscarAvionPorID(Data.getIdAux()); // RETORNA EL AVION SEGUN EL ID AUX
+        Avion avion = gestorAviones.getAvionPorID(Data.getIdAux()); // RETORNA EL AVION SEGUN EL ID AUX
         // SETEA LA INFORMACION
         btnNombre.setText(avion.getNombre());
         btnNumeracion.setText(Integer.toString(avion.getNumeracion()));
@@ -98,7 +95,7 @@ public class ModifyAvionController {
             GestorAviones gestorAviones = new GestorAviones();
             gestorAviones.cargarAvionDesdeArchivo();
             // TRAIGO AL AVION DESDE EL ARCHIVO JSON
-            Avion avionSeleccionado = gestorAviones.buscarAvionPorID(Data.getIdAux());
+            Avion avionSeleccionado = gestorAviones.getAvionPorID(Data.getIdAux());
 
             //SE VALIDA QUE LA NUMERACION NO ESTE REPETIDA
             if (gestorAviones.verificarNumeracionModifiacion(numeracion, avionSeleccionado)) {
@@ -132,10 +129,19 @@ public class ModifyAvionController {
             alert.setContentText("Avion modificado exitosamente.");
             alert.showAndWait();
 
-        } catch (Exception e) {
+        }
+        catch (NumberFormatException e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error de entrada");
+            alert.setHeaderText(null);
+            alert.setContentText("Por favor, ingrese solo números en los campos de numeración, pasajeros y vuelos realizados.");
+            alert.showAndWait();
+        }
+        catch (Exception e) {
             Ventanas.exceptionError(e);
             e.printStackTrace();
         }
+
     }
 
 

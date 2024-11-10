@@ -3,12 +3,10 @@ package com.utn.hangar.operadorControllers;
 import com.utn.hangar.Ventanas;
 import constantes.Data;
 import entidades.Piloto;
-import entidades.Usuario;
 import enums.Genero;
 import gestores.GestorAviones;
 import gestores.GestorHangar;
 import gestores.GestorPilotos;
-import gestores.GestorUsuarios;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -53,7 +51,7 @@ public class ModifyPilotoController {
         // TRAE EL PILOTO SELECCIONADO
         GestorPilotos gestorPilotos = new GestorPilotos();
         gestorPilotos.cargarPilotoDesdeArchivo();
-        Piloto piloto = gestorPilotos.buscarPilotoPorID(Data.getIdAux()); // RETORNA EL PILOTO SEGUN EL ID AUX
+        Piloto piloto = gestorPilotos.getPilotoPorID(Data.getIdAux()); // RETORNA EL PILOTO SEGUN EL ID AUX
         // SETEA LA INFORMACION
         inputNomApe.setText(piloto.getNombreApellido());
         inputAnioNac.setText(Integer.toString(piloto.getAnioNacimiento()));
@@ -98,7 +96,7 @@ public class ModifyPilotoController {
             // TRAE EL PILOTO SELECCIONADO
             GestorPilotos gestorPilotos = new GestorPilotos();
             gestorPilotos.cargarPilotoDesdeArchivo();
-            Piloto piloto = gestorPilotos.buscarPilotoPorID(Data.getIdAux());
+            Piloto piloto = gestorPilotos.getPilotoPorID(Data.getIdAux());
 
             //SE VALIDA QUE EL DNI NO ESTE REPETIDO
             if (gestorPilotos.comprobarDniModificacion(dni, piloto)) {
@@ -141,7 +139,11 @@ public class ModifyPilotoController {
             alert.showAndWait();
 
         } catch (NumberFormatException e) {
-            System.out.println("Año de nacimiento debe ser un número.");
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error de entrada");
+            alert.setHeaderText(null);
+            alert.setContentText("Por favor, ingrese solo números en los campos de año de nacimiento y horas de vuelo.");
+            alert.showAndWait();
         } catch (Exception e) {
             Ventanas.exceptionError(e);
             e.printStackTrace();
