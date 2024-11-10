@@ -10,14 +10,18 @@ import java.io.IOException;
 
 public class InvitadoController {
 
-    @FXML
-    private Button btnLogout;
 
     @FXML
     private Button btnVerAviones;
 
     @FXML
     private Button btnVerPiloto;
+
+    @FXML
+    private Button btnModifyPerfil;
+
+    @FXML
+    private Button btnLogout;
 
     @FXML
     void onClickBtnVerAviones(ActionEvent event) {
@@ -35,7 +39,19 @@ public class InvitadoController {
     void onClickBtnVerPiloto(ActionEvent event) {
         try {
             Stage stage = (Stage) btnVerPiloto.getScene().getWindow();
-            Ventanas.cambioEscena("Sistema Hangar 2.0",stage,"/com/utn/hangar/invitadoViews/invitado-view.fxml");
+            Ventanas.cambioEscena("Sistema Hangar 2.0",stage,"/com/utn/hangar/invitadoViews/ver-pilotos-view.fxml");
+
+        } catch(IOException e) {
+            Ventanas.exceptionError(e);
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    void onClickBtnModifyPerfil(ActionEvent event) {
+        try {
+            Stage stage = (Stage) btnVerPiloto.getScene().getWindow();
+            Ventanas.cambioEscena("Sistema Hangar 2.0",stage,"/com/utn/hangar/homeViews/modificar-perfil-view.fxml");
 
         } catch(IOException e) {
             Ventanas.exceptionError(e);
@@ -47,7 +63,7 @@ public class InvitadoController {
     void onBtnLogoutButtonClick(ActionEvent event) {
         try {
             Stage stage = (Stage) btnLogout.getScene().getWindow();
-            Ventanas.cambioEscena("Sistema Hangar 2.0",stage,"/com/utn/hangar/invitadoViews/invitado-view.fxml");
+            Ventanas.cambioEscena("Sistema Hangar 2.0",stage,"/com/utn/hangar/homeViews/login-view.fxml");
 
         } catch(IOException e) {
             Ventanas.exceptionError(e);

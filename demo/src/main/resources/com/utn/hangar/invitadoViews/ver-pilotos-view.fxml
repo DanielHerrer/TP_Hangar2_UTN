@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="512.0" prefWidth="869.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.utn.hangar.invitadoControllers.VerPilotosController">
+   <children>
+      <TableView fx:id="tablaPilotos" layoutX="28.0" layoutY="107.0" prefHeight="365.0" prefWidth="813.0">
+         <columns>
+            <TableColumn fx:id="idPiloto" prefWidth="44.0" text="ID" />
+            <TableColumn fx:id="nombrePiloto" prefWidth="111.0" text="Nombre Apellido" />
+            <TableColumn fx:id="licenciaPiloto" prefWidth="104.0" text="Licencia" />
+            <TableColumn fx:id="dniPiloto" prefWidth="93.0" text="DNI" />
+            <TableColumn fx:id="nacimientoPiloto" prefWidth="104.0" text="Año Nacimiento" />
+            <TableColumn fx:id="horasVueloPiloto" prefWidth="104.0" text="Horas de Vuelo" />
+            <TableColumn fx:id="rangoPiloto" prefWidth="141.0" text="Rango" />
+            <TableColumn fx:id="altaPiloto" prefWidth="111.0" text="Estado" />
+         </columns>
+      </TableView>
+      <Button fx:id="btnVolver" layoutX="28.0" layoutY="33.0" mnemonicParsing="false" onAction="#onClickBtnVolver" prefHeight="35.0" prefWidth="68.0" text="Volver">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Label layoutX="306.0" layoutY="45.0" prefHeight="46.0" prefWidth="258.0" text="LISTA DE PILOTOS">
+         <font>
+            <Font size="31.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

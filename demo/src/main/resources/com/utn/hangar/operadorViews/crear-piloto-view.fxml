@@ -15,7 +15,7 @@
                 <Font size="29.0" />
             </font></Label>
         <TextField fx:id="numeroLicencia" layoutX="146.0" layoutY="326.0" prefHeight="34.0" prefWidth="208.0" promptText="Ingrese numero de licencia.." />
-        <Button fx:id="btnRegister" layoutX="180.0" layoutY="450.0" mnemonicParsing="false" onAction="#onClickBtnRegister" style="-fx-background-color: lightblue;" text="Registrar">
+        <Button fx:id="btnRegister" layoutX="180.0" layoutY="450.0" mnemonicParsing="false" onAction="#onClickBtnRegister" style="-fx-background-color: lightblue;" text="Registrar piloto">
             <padding>
                 <Insets bottom="10.0" left="40.0" right="40.0" top="10.0" />
             </padding></Button>

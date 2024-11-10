@@ -2,6 +2,7 @@ package com.utn.hangar.operadorControllers;
 
 import com.utn.hangar.Ventanas;
 import entidades.Avion;
+import entidades.Dupla;
 import entidades.Piloto;
 import enums.Genero;
 import excepciones.CombustibleInsuficienteExcepcion;
@@ -9,6 +10,7 @@ import excepciones.NoDisponibleException;
 import gestores.GestorAviones;
 import gestores.GestorHangar;
 import gestores.GestorPilotos;
+import gestores.GestorVuelos;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -91,6 +93,12 @@ public class AsignarVueloController {
             Avion avionSeleccionado = gestorAviones.buscarAvionPorID(avionComboBox.getId());
 
             // METO VERIFICACIONES
+            if (pilotoSeleccionado.getAlta() == 0) {
+                throw new NoDisponibleException("El piloto esta dado de baja");
+            }
+            if (avionSeleccionado.getAlta() == 0) {
+                throw new NoDisponibleException("El avion esta dado de baja");
+            }
             if (!pilotoSeleccionado.isDisponible()) {
                 throw new NoDisponibleException("El piloto ya esta asignado a un avion");
             }
@@ -99,12 +107,6 @@ public class AsignarVueloController {
             }
             if (avionSeleccionado.getPiloto() != null) {
                 throw new NoDisponibleException("El avion ya posee un piloto asignado");
-            }
-            if (pilotoSeleccionado.getAlta() == 0) {
-                throw new NoDisponibleException("El piloto esta dado de baja");
-            }
-            if (avionSeleccionado.getAlta() == 0) {
-                throw new NoDisponibleException("El avion esta dado de baja");
             }
 
             pilotoSeleccionado.setDisponible(false);
@@ -122,6 +124,12 @@ public class AsignarVueloController {
             gestorPilotos.guardarPilotoToFile();
             gestorAviones.guardarAvionToFile();
 
+            //Y POR ULTIMO SE GUARDA LA INFORMACION DEL VUELO EN UN HASHMAP
+            GestorVuelos gestorVuelos = new GestorVuelos();
+            gestorVuelos.cargarVuelosDesdeArchivo();
+            Dupla duplaVuelo = new Dupla(avionSeleccionado.getId(), pilotoSeleccionado.getId()); //CREAMOS UNA DUPLA
+            gestorVuelos.getListaVuelos().put(gestorVuelos.generarCodigo(), duplaVuelo); //GUARDAMOS LA INFO EN GESTORVUELOS
+            gestorVuelos.guardarVuelosEnArchivo();
 
             Stage stage = (Stage) btnAsignar.getScene().getWindow();
             Ventanas.cambioEscena("Sistema Hangar 2.0",stage, "/com/utn/hangar/operadorViews/menu-hangar-view.fxml");

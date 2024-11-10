@@ -7,9 +7,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="435.0" prefWidth="805.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.utn.hangar.operadorControllers.">
+<AnchorPane prefHeight="447.0" prefWidth="808.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.utn.hangar.operadorControllers.ListaAvionesController">
    <children>
-      <TableView fx:id="tablaAviones" layoutX="19.0" layoutY="97.0" prefHeight="308.0" prefWidth="769.0">
+      <TableView fx:id="tablaAviones" layoutX="19.0" layoutY="97.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="308.0" prefWidth="769.0">
          <columns>
             <TableColumn fx:id="idAvion" prefWidth="44.0" text="ID" />
             <TableColumn fx:id="nombreAvion" prefWidth="96.0" text="Nombre" />

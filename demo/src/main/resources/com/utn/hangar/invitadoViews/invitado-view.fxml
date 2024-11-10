@@ -19,7 +19,7 @@
          <font>
             <Font size="16.0" />
          </font></Button>
-        <Button layoutX="98.0" layoutY="213.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="147.0" text="Modificar mi perfil">
+        <Button fx:id="btnModifyPerfil" layoutX="98.0" layoutY="213.0" mnemonicParsing="false" onAction="#onClickBtnModifyPerfil" prefHeight="45.0" prefWidth="147.0" text="Modificar mi perfil">
          <font>
             <Font size="15.0" />
          </font></Button>

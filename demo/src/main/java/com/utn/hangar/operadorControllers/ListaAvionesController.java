@@ -3,6 +3,7 @@ package com.utn.hangar.operadorControllers;
 import com.utn.hangar.Ventanas;
 import constantes.Data;
 import entidades.Avion;
+import entidades.Piloto;
 import entidades.Usuario;
 import gestores.GestorAviones;
 import gestores.GestorUsuarios;
@@ -78,7 +79,7 @@ public class ListaAvionesController {
         numeroVuelos.setCellValueFactory(cellData -> new SimpleObjectProperty<>(cellData.getValue().getVuelosRealizados()));
 
 
-        // Configuración de la columna para mostrar el estado de alta/baja
+        // Agrega el botón de "Estado" en cada fila de la columna Estado
         altaAvion.setCellFactory(new Callback<TableColumn<Avion, Void>, TableCell<Avion, Void>>() {
             @Override
             public TableCell<Avion, Void> call(final TableColumn<Avion, Void> param) {
@@ -88,7 +89,18 @@ public class ListaAvionesController {
                     {
                         btnEstado.setMaxWidth(Double.MAX_VALUE);
                         btnEstado.setAlignment(Pos.CENTER);
-                        btnEstado.setDisable(true);  // Deshabilita la interacción con el botón
+                        // Define la acción del botón para alternar entre Alta y Baja
+                        btnEstado.setOnAction((ActionEvent event) -> {
+                            Avion avion = getTableView().getItems().get(getIndex());
+
+                            // Alterna el estado entre 0 y 1
+                            int nuevoEstado = avion.getAlta() == 1 ? 0 : 1;
+                            avion.setAlta(nuevoEstado);
+                            //GUARDO LA MODIFICACION DEL ALTA EN EL ARCHIVO
+                            gestorAviones.guardarAvionToFile();
+                            // Actualiza el botón en la interfaz
+                            actualizarBotonEstado(btnEstado, nuevoEstado);
+                        });
                     }
 
                     @Override
@@ -100,7 +112,7 @@ public class ListaAvionesController {
                             Avion avion = getTableView().getItems().get(getIndex());
                             int estadoActual = avion.getAlta();
 
-                            // Actualiza el botón para reflejar el estado actual de alta/baja
+                            // Actualiza el botón según el estado actual del usuario
                             actualizarBotonEstado(btnEstado, estadoActual);
                             setGraphic(btnEstado);
                         }
