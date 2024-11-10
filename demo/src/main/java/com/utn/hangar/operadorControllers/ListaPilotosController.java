@@ -3,9 +3,10 @@ package com.utn.hangar.operadorControllers;
 import com.utn.hangar.Ventanas;
 import constantes.Data;
 import entidades.Avion;
-import entidades.Usuario;
+import entidades.Piloto;
+import enums.Rango;
 import gestores.GestorAviones;
-import gestores.GestorUsuarios;
+import gestores.GestorPilotos;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
@@ -22,73 +23,76 @@ import javafx.util.Callback;
 
 import java.io.IOException;
 
-public class ListaAvionesController {
+public class ListaPilotosController {
 
     @FXML
-    private TableColumn<Avion, Void> altaAvion;
+    private TableColumn<Piloto, Void> altaPiloto;
 
     @FXML
     private Button btnVolver;
 
     @FXML
-    private TableColumn<Avion, Integer> capacidadPasajeros;
+    private TableColumn<Piloto, String> dni;
 
     @FXML
-    private TableColumn<Avion, Integer> idAvion;
+    private TableColumn<Piloto, Integer> idPiloto;
 
     @FXML
-    private TableColumn<Avion, String> modeloAvion;
+    private TableColumn<Piloto, Integer> licencia;
 
     @FXML
-    private TableColumn<Avion, String> aerolineaAvion;
+    private TableColumn<Piloto, Void> modifyPiloto;
 
     @FXML
-    private TableColumn<Avion, String> nombreAvion;
+    private TableColumn<Piloto, String> nombreApellido;
 
     @FXML
-    private TableColumn<Avion, Integer> numearcionAvion;
+    private TableColumn<Piloto, Rango> rangoPiloto;
 
     @FXML
-    private TableColumn<Avion, Integer> numeroVuelos;
-
-    @FXML
-    private TableView<Avion> tablaAviones;
-
-    @FXML
-    private TableColumn<Avion, Void> modifyAvion;
+    private TableView<Piloto> tablaPilotos;
 
 
     // METODO QUE CARGA LA INFORMACION QUE SE VA A MOSTRAR EN LA VENTANA
     @FXML
     public void initialize() {
-        //LLAMA A CLASE GESTORA Y TRAE A LOS AVIONES DEL JSON
-        GestorAviones gestorAviones = new GestorAviones();
-        gestorAviones.cargarAvionDesdeArchivo();
+        //LLAMA A CLASE GESTORA Y TRAE A LOS PILOTOS DEL JSON
+        GestorPilotos gestorPilotos = new GestorPilotos();
+        gestorPilotos.cargarPilotoDesdeArchivo();
 
         // Convierte el ArrayList a ObservableList
-        ObservableList<Avion> listaObservableAviones = FXCollections.observableArrayList(gestorAviones.getListaAviones());
+        ObservableList<Piloto> listaObservablePilotos = FXCollections.observableArrayList(gestorPilotos.getListaPilotos());
 
         // Enlaza cada columna usando expresiones lambda
-        idAvion.setCellValueFactory(cellData -> new SimpleObjectProperty<>(cellData.getValue().getId()));
-        nombreAvion.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNombre()));
-        numearcionAvion.setCellValueFactory(cellData -> new SimpleObjectProperty<>(cellData.getValue().getNumeracion()));
-        modeloAvion.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getModelo()));
-        aerolineaAvion.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getAerolinea()));
-        capacidadPasajeros.setCellValueFactory(cellData -> new SimpleObjectProperty<>(cellData.getValue().getCapacidadPasajeros()));
-        numeroVuelos.setCellValueFactory(cellData -> new SimpleObjectProperty<>(cellData.getValue().getVuelosRealizados()));
+        idPiloto.setCellValueFactory(cellData -> new SimpleObjectProperty<>(cellData.getValue().getId()));
+        nombreApellido.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNombreApellido()));
+        dni.setCellValueFactory(cellData -> new SimpleObjectProperty<>(cellData.getValue().getDni()));
+        licencia.setCellValueFactory(cellData -> new SimpleObjectProperty(cellData.getValue().getNumeroLicencia()));
+        rangoPiloto.setCellValueFactory(cellData -> new SimpleObjectProperty<>(cellData.getValue().getRango()));
 
 
-        // Configuración de la columna para mostrar el estado de alta/baja
-        altaAvion.setCellFactory(new Callback<TableColumn<Avion, Void>, TableCell<Avion, Void>>() {
+        // Agrega el botón de "Estado" en cada fila de la columna Estado
+        altaPiloto.setCellFactory(new Callback<TableColumn<Piloto, Void>, TableCell<Piloto, Void>>() {
             @Override
-            public TableCell<Avion, Void> call(final TableColumn<Avion, Void> param) {
-                return new TableCell<Avion, Void>() {
+            public TableCell<Piloto, Void> call(final TableColumn<Piloto, Void> param) {
+                return new TableCell<Piloto, Void>() {
                     private final Button btnEstado = new Button();
 
                     {
                         btnEstado.setMaxWidth(Double.MAX_VALUE);
                         btnEstado.setAlignment(Pos.CENTER);
-                        btnEstado.setDisable(true);  // Deshabilita la interacción con el botón
+                        // Define la acción del botón para alternar entre Alta y Baja
+                        btnEstado.setOnAction((ActionEvent event) -> {
+                            Piloto piloto = getTableView().getItems().get(getIndex());
+
+                            // Alterna el estado entre 0 y 1
+                            int nuevoEstado = piloto.getAlta() == 1 ? 0 : 1;
+                            piloto.setAlta(nuevoEstado);
+                            //GUARDO LA MODIFICACION DEL ALTA EN EL ARCHIVO
+                            gestorPilotos.guardarPilotoToFile();
+                            // Actualiza el botón en la interfaz
+                            actualizarBotonEstado(btnEstado, nuevoEstado);
+                        });
                     }
 
                     @Override
@@ -97,10 +101,10 @@ public class ListaAvionesController {
                         if (empty) {
                             setGraphic(null);
                         } else {
-                            Avion avion = getTableView().getItems().get(getIndex());
-                            int estadoActual = avion.getAlta();
+                            Piloto piloto = getTableView().getItems().get(getIndex());
+                            int estadoActual = piloto.getAlta();
 
-                            // Actualiza el botón para reflejar el estado actual de alta/baja
+                            // Actualiza el botón según el estado actual del usuario
                             actualizarBotonEstado(btnEstado, estadoActual);
                             setGraphic(btnEstado);
                         }
@@ -121,22 +125,22 @@ public class ListaAvionesController {
         });
 
         // Agrega el botón "Modificar" en cada fila de la columna modifyUsuario
-        modifyAvion.setCellFactory(new Callback<TableColumn<Avion, Void>, TableCell<Avion, Void>>() {
+        modifyPiloto.setCellFactory(new Callback<TableColumn<Piloto, Void>, TableCell<Piloto, Void>>() {
             @Override
-            public TableCell<Avion, Void> call(final TableColumn<Avion, Void> param) {
-                return new TableCell<Avion, Void>() {
+            public TableCell<Piloto, Void> call(final TableColumn<Piloto, Void> param) {
+                return new TableCell<Piloto, Void>() {
                     private final Button btnModificar = new Button("Modificar");
                     {
                         btnModificar.setMaxWidth(Double.MAX_VALUE);
                         btnModificar.setAlignment(Pos.CENTER);
                         btnModificar.setOnAction((ActionEvent event) -> {
                             try {
-                                // OBTENER EL ID DEL AVION DE LA FILA
-                                Avion avion = getTableView().getItems().get(getIndex());
-                                Data.setIdAux(avion.getId()); // SETEA EL ID AUX DE DATA, PARA LUEGO TENER LA INFO DEL AVION ELEGIDO
+                                // OBTENER EL ID DEL PILOTO DE LA FILA
+                                Piloto piloto = getTableView().getItems().get(getIndex());
+                                Data.setIdAux(piloto.getId()); // SETEA EL ID AUX DE DATA, PARA LUEGO TENER LA INFO DEL PILOTO ELEGIDO
                                 // ABRIR VENTANA DE MODIFICACION
                                 Stage stage = (Stage) btnVolver.getScene().getWindow();
-                                Ventanas.cambioEscena("Sistema Hangar 2.0",stage,"/com/utn/hangar/operadorViews/modificar-avion-view.fxml");
+                                Ventanas.cambioEscena("Sistema Hangar 2.0",stage,"/com/utn/hangar/operadorViews/modificar-piloto-view.fxml");
                             } catch(IOException e) {
                                 Ventanas.exceptionError(e);
                                 e.printStackTrace();
@@ -158,14 +162,14 @@ public class ListaAvionesController {
         });
 
         // Establece la lista observable como el elemento de la tabla
-        tablaAviones.setItems(listaObservableAviones);
+        tablaPilotos.setItems(listaObservablePilotos);
     }
 
     @FXML
     void onClickBtnVolver(ActionEvent event) {
         try {
             Stage stage = (Stage) btnVolver.getScene().getWindow();
-            Ventanas.cambioEscena("Sistema Hangar 2.0",stage,"/com/utn/hangar/operadorViews/taller-aviones-view.fxml");
+            Ventanas.cambioEscena("Sistema Hangar 2.0",stage,"/com/utn/hangar/operadorViews/cuartel-pilotos-view.fxml");
 
         } catch(IOException e) {
             Ventanas.exceptionError(e);

@@ -3,13 +3,26 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane fx:controller="com.utn.hangar.invitadoControllers.InvitadoController" prefHeight="281.0" prefWidth="342.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="349.0" prefWidth="342.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.utn.hangar.invitadoControllers.InvitadoController">
     <children>
-        <Label layoutX="125.0" layoutY="40.0" text="MENU INVITADO" />
-        <Button layoutX="90.0" layoutY="77.0" mnemonicParsing="false" text="Ver Aeroplanos Disponibles" />
-        <Button layoutX="103.0" layoutY="115.0" mnemonicParsing="false" text="Ver Pilotos Disponibles" />
-        <Button layoutX="114.0" layoutY="181.0" mnemonicParsing="false" text="Modificar mi perfil" />
-        <Button fx:id="btnLogout" layoutX="129.0" layoutY="216.0" mnemonicParsing="false" onAction="#onBtnLogoutButtonClick" text="Cerrar sesión" />
+        <Label layoutX="78.0" layoutY="22.0" prefHeight="35.0" prefWidth="188.0" text="MENU INVITADO">
+         <font>
+            <Font size="24.0" />
+         </font></Label>
+        <Button fx:id="btnVerAviones" layoutX="71.0" layoutY="66.0" mnemonicParsing="false" onAction="#onClickBtnVerAviones" prefHeight="52.0" prefWidth="200.0" text="Ver Aeroplanos Disponibles">
+         <font>
+            <Font size="14.0" />
+         </font></Button>
+        <Button fx:id="btnVerPiloto" layoutX="71.0" layoutY="138.0" mnemonicParsing="false" onAction="#onClickBtnVerPiloto" prefHeight="52.0" prefWidth="200.0" text="Ver Pilotos Disponibles">
+         <font>
+            <Font size="16.0" />
+         </font></Button>
+        <Button layoutX="98.0" layoutY="213.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="147.0" text="Modificar mi perfil">
+         <font>
+            <Font size="15.0" />
+         </font></Button>
+        <Button fx:id="btnLogout" layoutX="115.0" layoutY="275.0" mnemonicParsing="false" onAction="#onBtnLogoutButtonClick" prefHeight="35.0" prefWidth="114.0" text="Cerrar sesión" />
     </children>
 </AnchorPane>

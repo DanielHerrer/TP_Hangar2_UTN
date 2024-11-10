@@ -100,6 +100,12 @@ public class AsignarVueloController {
             if (avionSeleccionado.getPiloto() != null) {
                 throw new NoDisponibleException("El avion ya posee un piloto asignado");
             }
+            if (pilotoSeleccionado.getAlta() == 0) {
+                throw new NoDisponibleException("El piloto esta dado de baja");
+            }
+            if (avionSeleccionado.getAlta() == 0) {
+                throw new NoDisponibleException("El avion esta dado de baja");
+            }
 
             pilotoSeleccionado.setDisponible(false);
 

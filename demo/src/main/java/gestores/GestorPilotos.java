@@ -1,6 +1,7 @@
 package gestores;
 
 import constantes.Data;
+import entidades.Avion;
 import entidades.Piloto;
 import entidades.Usuario;
 import enums.Genero;
@@ -107,10 +108,36 @@ public class GestorPilotos implements iABML<Piloto> {
         return false;
     }
 
-    public boolean verificarNumeroLicencia (String licencia) {
-        for (Piloto piloto : listaPilotos) {
-            if (piloto.getNumeroLicencia().equals(licencia)) {
-                return true;
+    public boolean verificarLicencia (String licencia) {
+        for (Piloto pil : listaPilotos) {
+            if (pil.getNumeroLicencia().equals(licencia)) {
+                return true; // SI ESTA REPETIDO RETORNO TRUE
+            }
+        }
+        return false;
+    }
+
+    public boolean verificarLicenciaModificacion (String licenciaNueva, Piloto piloto) {
+        if (piloto.getNumeroLicencia().equals(licenciaNueva)) {
+            return false; // SI LA LICENCIA SIGUE SIENDO LA MISMA RETORNO FALSE
+        }
+        for (Piloto pil : listaPilotos) {
+            if (pil.getNumeroLicencia().equals(licenciaNueva)) {
+                return true; // SI SE REPITE CON OTRO PILOTO RETORNO TRUE
+            }
+        }
+        return false;
+    }
+
+    public boolean comprobarDniModificacion (String dni, Piloto p) {
+        if (p.getDni().equals(dni)) {
+            return false; // SI EL dni SIGUE SIENDO EL MISMO RETORNO FALSE
+        }
+        else {
+            for (Piloto pil : listaPilotos) {
+                if (pil.getDni().equals(dni)) {
+                    return false; // SI EL DNI NUEVO COINCIDE CON ALGUN OTRO RETORNO TRUE
+                }
             }
         }
         return false;
