@@ -25,7 +25,7 @@ public class CuartelPilotosController {
     void onClickBtnListaPilotos(ActionEvent event) {
         try {
             Stage stage = (Stage) btnListarPilotos.getScene().getWindow();
-            Ventanas.cambioEscena("Sistema Hangar 2.0",stage, "/com/utn/hangar/adminViews/lista-pilotos-view.fxml");
+            Ventanas.cambioEscena("Sistema Hangar 2.0",stage, "/com/utn/hangar/operadorViews/lista-pilotos-view.fxml");
         } catch (Exception e) {
             Ventanas.exceptionError(e);
             e.printStackTrace();

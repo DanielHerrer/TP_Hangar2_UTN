@@ -70,25 +70,29 @@ public class ModifyAvionController {
             int vuelosRealizados = Integer.parseInt(btnVuelosRealizados.getText());
 
             // VALIDACIONES
-            if (btnNombre.getText().isBlank()) {
-                throw new InputMismatchException("Ingrese un nombre.");
+            // VALIDA QUE NO HAYA CAMPOS VACIOS
+            if (btnNombre.getText().isBlank() || btnNumeracion.getText().isBlank() || btnModelo.getText().isBlank() || btnAerolinea.getText().isBlank()
+                || btnPasajeros.getText().isBlank() || btnVuelosRealizados.getText().isBlank()) {
+                throw new InputMismatchException("Complete todos los campos");
             }
-            if (btnNumeracion.getText().isBlank()) {
-                throw new InputMismatchException("Ingrese una numeracion.");
-            }
-            if (btnModelo.getText().isBlank()) {
-                throw new InputMismatchException("Ingrese un modelo de avion.");
-            }
-            if (btnAerolinea.getText().isBlank()) {
-                throw new InputMismatchException("Ingrese una aerolinea.");
-            }
-            if (capPasajeros > 300 || capPasajeros < 30) {
+            if (capPasajeros > 320 || capPasajeros < 30) {
                 throw new InputMismatchException("Capacidad de pasajeros invalida.");
             }
             if (vuelosRealizados < 0) {
                 throw new InputMismatchException("Los vuelos realizados deben ser mayor o igual a cero");
             }
-            // DESPUES AGREGAR VERIFICACIONES PARA LA CANTIDAD DE LETRAS
+            if (btnNombre.getText().length() < 4) {
+                throw new InputMismatchException("El nombre no posee suficientes caracteres");
+            }
+            if (btnNumeracion.getText().length() < 3) {
+                throw new InputMismatchException("La numeracion no posee los suficientes caracteres");
+            }
+            if (btnAerolinea.getText().length() < 4) {
+                throw new InputMismatchException("La aerolinea no posee suficientes caracteres");
+            }
+            if (btnModelo.getText().length() < 3) {
+                throw new InputMismatchException("El modelo no posee los suficientes caracteres");
+            }
 
             //SE TRAEN TODOS LOS AVIONES DEL JSON Y SE GUARDAN EN LA LISTA DE LA CLASE GESTORA
             GestorAviones gestorAviones = new GestorAviones();

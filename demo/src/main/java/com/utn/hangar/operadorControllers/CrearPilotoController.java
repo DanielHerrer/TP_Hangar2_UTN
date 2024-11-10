@@ -66,35 +66,34 @@ public class CrearPilotoController {
             GestorPilotos gestorPilotos = new GestorPilotos();
             gestorPilotos.cargarPilotoDesdeArchivo();
 
-            // VALIDACIONES
-            if (inputNomApe.getText().isBlank()) {
-                throw new InputMismatchException("Ingrese un nombre y apellido.");
+            // VALIDA QUE NO HAYA CAMPOS VACIOS
+            if (dni.isEmpty() || nombre.isEmpty() || gen == null || inputAnioNac.getText().isBlank() || licencia.isEmpty() || horasDeVuelo < 0) {
+                throw new InputMismatchException("Complete todos los campos");
             }
-            if (inputDNI.getText().isBlank()) {
-                throw new InputMismatchException("Ingrese un DNI");
+            // VALIDA QUE LOS DATOS ESTEN BIEN INGRESADOS
+            if (nombre.length() < 3) {
+                throw new InputMismatchException("El nombre y apellido deben poseer al menos 3 caracteres.");
             }
-            if (inputAnioNac.getText().isBlank()) {
-                throw new InputMismatchException("Ingrese un año de nacimiento.");
+            if (dni.length() < 6) {
+                throw new InputMismatchException("El DNI no puede poseer menos de 6 caracteres.");
             }
-            if (gen == null){
-                throw new InputMismatchException("Ingrese un genero");
+            if(anioNasc < 1899){
+                throw new InputMismatchException("El año ingresado no es valido");
+            } else if(anioNasc > (LocalDateTime.now().getYear() - 18)) {
+                throw new InputMismatchException("El usuario debe poseer al menos 18 años.");
+            }
+            if (licencia.length() < 5 || licencia.length() > 10) {
+                throw new InputMismatchException("El numero de licencia debe tener entre 5 y 10 caracteres");
             }
 
             //SE VALIDA QUE EL NUMERO DE LICENCIA NO ESTE REPETIDO
-            if (gestorPilotos.verificarNumeroLicencia(licencia)) {
+            if (gestorPilotos.verificarLicencia(licencia)) {
                 throw new InputMismatchException("La licencia del piloto ya existe");
             }
             //TAMBIEN SE COMPRUEBA QUE NO SE REPITA EL DNI
             if (gestorPilotos.dniYaExiste(dni)) {
                 throw new InputMismatchException("El DNI ya está registrado.");
             }
-            //SE VALIDA EL AÑO DE NACIMIENTO DEL USUARIO
-            if(anioNasc < 1899){
-                throw new InputMismatchException("El año ingresado no es valido");
-            } else if(anioNasc > (LocalDateTime.now().getYear() - 18)) {
-                throw new InputMismatchException("El piloto debe poseer al menos 18 años.");
-            }
-            // (AGREGAR VALIDACIONES PRA LAS HORAS DE VUELO)
 
             //CON LOS DATOS PEDIDOS ANTERIORMENTE SE INSTANCIA UN PILOTO
             Piloto piloto = new Piloto(dni, nombre, gen, anioNasc, licencia, horasDeVuelo);

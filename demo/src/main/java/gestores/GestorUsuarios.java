@@ -119,14 +119,6 @@ public class GestorUsuarios implements iABML<Usuario> {
         JSONArray usuarioArray = crearJSONArray();
 
         Data.grabar(Data.archivoUsuarios, usuarioArray);
-        /*
-        try (FileWriter file = new FileWriter(Archivos.archivoUsuarios)) {
-            file.write(usuarioArray.toString(4));
-            System.out.println("Usuarios guardados en el archivo: " + Archivos.archivoUsuarios);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        */
     }
 
     /**

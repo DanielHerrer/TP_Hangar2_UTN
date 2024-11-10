@@ -61,22 +61,24 @@ public class CrearAvionController {
             gestorAviones.cargarAvionDesdeArchivo();
 
             // VALIDACIONES
-            if (nombre.getText().isBlank()) {
-                throw new InputMismatchException("Ingrese un nombre.");
-            }
-            if (numeracion.getText().isBlank()) {
-                throw new InputMismatchException("Ingrese una numeracion.");
-            }
-            if (modelo.getText().isBlank()) {
-                throw new InputMismatchException("Ingrese un modelo de avion.");
-            }
-            if (aerolinea.getText().isBlank()) {
-                throw new InputMismatchException("Ingrese una aerolinea.");
+            if (nombre.getText().isBlank() || numeracion.getText().isBlank() || modelo.getText().isBlank() || aerolinea.getText().isBlank() || capacidadPasajeros.getText().isBlank()) {
+                throw new InputMismatchException("Complete todos los campos");
             }
             if (capPasajeros > 300 || capPasajeros < 30) {
                 throw new InputMismatchException("Capacidad de pasajeros invalida.");
             }
-            // DESPUES AGREGAR VERIFICACIONES PARA LA CANTIDAD DE LETRAS
+            if (nombre.getText().length() < 4) {
+                throw new InputMismatchException("El nombre no posee suficientes caracteres");
+            }
+            if (numeracion.getText().length() < 3) {
+                throw new InputMismatchException("La numeracion no posee los suficientes caracteres");
+            }
+            if (aerolinea.getText().length() < 4) {
+                throw new InputMismatchException("La aerolinea no posee suficientes caracteres");
+            }
+            if (modelo.getText().length() < 3) {
+                throw new InputMismatchException("El modelo no posee los suficientes caracteres");
+            }
 
             //SE VALIDA QUE LA NUMERACION NO ESTE REPETIDA
             if (gestorAviones.numeracionYaExiste(numeracionInt)) {

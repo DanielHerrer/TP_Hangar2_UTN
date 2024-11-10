@@ -64,6 +64,7 @@ public class Piloto extends Persona {
 
     public void setHorasVuelo(int horasVuelo) {
         this.horasVuelo = horasVuelo;
+        actualizarRango();
     }
 
     public Rango getRango() {

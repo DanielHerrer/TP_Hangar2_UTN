@@ -2,6 +2,7 @@ package gestores;
 
 import constantes.Data;
 import entidades.Avion;
+import entidades.Piloto;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -36,6 +37,14 @@ public class GestorHangar {
             listaHangar.remove(a); // SE BORRA EL ORIGINAL
         }
         listaHangar.add(a); // SE AGREGA EL MODIFICADO
+    }
+
+    public void actualizarPilotoModificado (Piloto p) {
+        for (Avion avion : listaHangar) {
+            if (avion.getPiloto().equals(p)) {
+                avion.setPiloto(p);
+            }
+        }
     }
 
     public Avion getAvionByID (int numeroID) {

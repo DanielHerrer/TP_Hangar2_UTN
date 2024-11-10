@@ -53,6 +53,14 @@ public class GestorAviones {
         return false;
     }
 
+    public void actualizarPilotoModificado (Piloto p) {
+        for (Avion avion : listaAviones) {
+            if (avion.getPiloto().equals(p)) {
+                avion.setPiloto(p);
+            }
+        }
+    }
+
     public Avion buscarAvionPorID (int id) {
         Avion avion = null;
 

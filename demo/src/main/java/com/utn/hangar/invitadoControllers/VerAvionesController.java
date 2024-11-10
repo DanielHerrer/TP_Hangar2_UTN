@@ -1,11 +1,9 @@
-package com.utn.hangar.operadorControllers;
+package com.utn.hangar.invitadoControllers;
 
 import com.utn.hangar.Ventanas;
 import constantes.Data;
 import entidades.Avion;
-import entidades.Usuario;
 import gestores.GestorAviones;
-import gestores.GestorUsuarios;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
@@ -22,8 +20,7 @@ import javafx.util.Callback;
 
 import java.io.IOException;
 
-public class ListaAvionesController {
-
+public class VerAvionesController {
     @FXML
     private TableColumn<Avion, Void> altaAvion;
 
@@ -54,9 +51,6 @@ public class ListaAvionesController {
     @FXML
     private TableView<Avion> tablaAviones;
 
-    @FXML
-    private TableColumn<Avion, Void> modifyAvion;
-
 
     // METODO QUE CARGA LA INFORMACION QUE SE VA A MOSTRAR EN LA VENTANA
     @FXML
@@ -76,7 +70,6 @@ public class ListaAvionesController {
         aerolineaAvion.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getAerolinea()));
         capacidadPasajeros.setCellValueFactory(cellData -> new SimpleObjectProperty<>(cellData.getValue().getCapacidadPasajeros()));
         numeroVuelos.setCellValueFactory(cellData -> new SimpleObjectProperty<>(cellData.getValue().getVuelosRealizados()));
-
 
         // Configuración de la columna para mostrar el estado de alta/baja
         altaAvion.setCellFactory(new Callback<TableColumn<Avion, Void>, TableCell<Avion, Void>>() {
@@ -120,43 +113,6 @@ public class ListaAvionesController {
             }
         });
 
-        // Agrega el botón "Modificar" en cada fila de la columna modifyUsuario
-        modifyAvion.setCellFactory(new Callback<TableColumn<Avion, Void>, TableCell<Avion, Void>>() {
-            @Override
-            public TableCell<Avion, Void> call(final TableColumn<Avion, Void> param) {
-                return new TableCell<Avion, Void>() {
-                    private final Button btnModificar = new Button("Modificar");
-                    {
-                        btnModificar.setMaxWidth(Double.MAX_VALUE);
-                        btnModificar.setAlignment(Pos.CENTER);
-                        btnModificar.setOnAction((ActionEvent event) -> {
-                            try {
-                                // OBTENER EL ID DEL AVION DE LA FILA
-                                Avion avion = getTableView().getItems().get(getIndex());
-                                Data.setIdAux(avion.getId()); // SETEA EL ID AUX DE DATA, PARA LUEGO TENER LA INFO DEL AVION ELEGIDO
-                                // ABRIR VENTANA DE MODIFICACION
-                                Stage stage = (Stage) btnVolver.getScene().getWindow();
-                                Ventanas.cambioEscena("Sistema Hangar 2.0",stage,"/com/utn/hangar/operadorViews/modificar-avion-view.fxml");
-                            } catch(IOException e) {
-                                Ventanas.exceptionError(e);
-                                e.printStackTrace();
-                            }
-                        });
-                    }
-
-                    @Override
-                    public void updateItem(Void item, boolean empty) {
-                        super.updateItem(item, empty);
-                        if (empty) {
-                            setGraphic(null);
-                        } else {
-                            setGraphic(btnModificar);
-                        }
-                    }
-                };
-            }
-        });
-
         // Establece la lista observable como el elemento de la tabla
         tablaAviones.setItems(listaObservableAviones);
     }
@@ -165,13 +121,11 @@ public class ListaAvionesController {
     void onClickBtnVolver(ActionEvent event) {
         try {
             Stage stage = (Stage) btnVolver.getScene().getWindow();
-            Ventanas.cambioEscena("Sistema Hangar 2.0",stage,"/com/utn/hangar/operadorViews/taller-aviones-view.fxml");
+            Ventanas.cambioEscena("Sistema Hangar 2.0",stage,"/com/utn/hangar/invitadoViews/invitado-view.fxml");
 
         } catch(IOException e) {
             Ventanas.exceptionError(e);
             e.printStackTrace();
         }
     }
-
 }
-
