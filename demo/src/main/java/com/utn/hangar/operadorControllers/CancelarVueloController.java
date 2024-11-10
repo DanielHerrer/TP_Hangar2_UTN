@@ -4,10 +4,7 @@ import com.utn.hangar.Ventanas;
 import constantes.Data;
 import entidades.Avion;
 import entidades.Usuario;
-import gestores.GestorAviones;
-import gestores.GestorHangar;
-import gestores.GestorPilotos;
-import gestores.GestorUsuarios;
+import gestores.*;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
@@ -71,6 +68,7 @@ public class CancelarVueloController {
                     {
                         btnModificar.setMaxWidth(Double.MAX_VALUE);
                         btnModificar.setAlignment(Pos.CENTER);
+                        btnModificar.setStyle("-fx-background-color: red; -fx-text-fill: white;");
                         btnModificar.setOnAction((ActionEvent event) -> {
                             Avion vueloCancelado = getTableView().getItems().get(getIndex());
                             // BORRO EL AVION DEL ARCHIVO DE HANGAR.JSON
@@ -88,6 +86,10 @@ public class CancelarVueloController {
                             gestorPilotos.cargarPilotoDesdeArchivo();
                             gestorPilotos.actualizarEstadoPiloto(vueloCancelado.getPiloto());
                             gestorPilotos.guardarPilotoToFile();
+
+                            // TAMBIEN BORRAR EL VUELO DEL ARCHIVO VUELOS.JSON
+                            GestorVuelos gestorVuelos = new GestorVuelos();
+                            gestorVuelos.eliminarVuelo(vueloCancelado.getId());
 
                             Alert alert = new Alert(Alert.AlertType.INFORMATION);
                             alert.setTitle("Vuelo cancelado");

@@ -11,11 +11,9 @@ public class PruebaMain {
     public static void main (String[] args) {
 
         // COSAS QUE HICE:
-        // FUNCIONES PARA LA GESTION DEL HANGAR
-        // VENTANA PARA CREAR AVION
-        // MODIFICACION DE REGISTROS
-        // VENTANA PARA CREAR PILOTO
-        // VENTANA PARA MODIFICAR PERFIL MENU OPERADOR
+        // VENATANA PARA LISTAR USUARIOS MENU INVITADO
+        // CLASE PARA GUARDAR LOS VUELOS ASIGANDOS CON UN ID
+
 
         Piloto pil1 = new Piloto("2233", "Franco Colapinto", Genero.MASCULINO, 2000, "43", 200);
         Piloto pil2 = new Piloto("78554", "Valtteri Bottas", Genero.MASCULINO, 1992, "77", 900);

@@ -18,7 +18,7 @@
         <TextField fx:id="modelo" layoutX="145.0" layoutY="222.0" prefHeight="34.0" prefWidth="208.0" promptText="Modelo" />
         <TextField fx:id="aerolinea" layoutX="145.0" layoutY="276.0" prefHeight="34.0" prefWidth="208.0" promptText="Aerolinea" />
         <TextField fx:id="capacidadPasajeros" layoutX="145.0" layoutY="327.0" prefHeight="34.0" prefWidth="208.0" promptText="Capacidad de pasajeros" />
-        <Button fx:id="btnRegister" layoutX="179.0" layoutY="407.0" mnemonicParsing="false" onAction="#onClickBtnRegister" style="-fx-background-color: lightblue;" text="Crear avion">
+        <Button fx:id="btnRegister" layoutX="179.0" layoutY="407.0" mnemonicParsing="false" onAction="#onClickBtnRegister" style="-fx-background-color: lightblue;" text="Registrar avion">
             <padding>
                 <Insets bottom="10.0" left="40.0" right="40.0" top="10.0" />
             </padding></Button>

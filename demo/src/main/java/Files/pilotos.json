@@ -9,7 +9,7 @@
         "id": 1,
         "dni": "456123",
         "numeroLicencia": "00020",
-        "disponible": false
+        "disponible": true
     },
     {
         "nombreApellido": "Franco Colapinto",
@@ -33,7 +33,7 @@
         "id": 3,
         "dni": "159753",
         "numeroLicencia": "00077",
-        "disponible": false
+        "disponible": true
     },
     {
         "nombreApellido": "Facundo Colidio",
@@ -45,7 +45,7 @@
         "id": 4,
         "dni": "753951",
         "numeroLicencia": "00011",
-        "disponible": false
+        "disponible": true
     },
     {
         "nombreApellido": "Jordi Wild",
@@ -69,7 +69,7 @@
         "id": 6,
         "dni": "65642",
         "numeroLicencia": "00016",
-        "disponible": false
+        "disponible": true
     },
     {
         "nombreApellido": "Ricky Blanco",

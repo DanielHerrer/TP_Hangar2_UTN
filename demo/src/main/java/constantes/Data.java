@@ -26,6 +26,7 @@ public class Data {
     public static final String archivoAvion = "src/main/java/Files/aviones.json";
     public static final String archivoHangar = "src/main/java/Files/hangar.json";
     public static final String archivoRegistros = "src/main/java/Files/registros.json";
+    public static final String archivoVuelos = "src/main/java/Files/vuelos.json";
 
     public static GestorUsuarios gestorUsuarios = new GestorUsuarios();
     public static GestorPilotos gestorPilotos = new GestorPilotos();
