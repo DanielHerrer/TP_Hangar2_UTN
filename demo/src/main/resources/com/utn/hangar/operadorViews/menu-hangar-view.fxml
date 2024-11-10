@@ -7,9 +7,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="333.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.utn.hangar.operadorControllers.MenuHangarController">
+<AnchorPane prefHeight="388.0" prefWidth="428.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.utn.hangar.operadorControllers.MenuHangarController">
     <children>
-        <Button fx:id="btnAsignarVuelo" layoutX="141.0" layoutY="75.0" mnemonicParsing="false" onAction="#onClickBtnAsignarVuelo" prefHeight="42.0" prefWidth="169.0" text="Asignar Vuelo">
+        <Button fx:id="btnAsignarVuelo" layoutX="130.0" layoutY="74.0" mnemonicParsing="false" onAction="#onClickBtnAsignarVuelo" prefHeight="42.0" prefWidth="169.0" text="Asignar Vuelo">
             <font>
                 <Font size="16.0" />
             </font>
@@ -19,17 +19,22 @@
          <cursor>
             <Cursor fx:constant="DEFAULT" />
          </cursor></Button>
-        <Button fx:id="btnCancelarVuelo" layoutX="144.0" layoutY="146.0" mnemonicParsing="false" onAction="#onClickBtnCancelarVuelo" prefHeight="42.0" prefWidth="163.0" text="Cancelar Vuelo">
+        <Button fx:id="btnCancelarVuelo" layoutX="133.0" layoutY="145.0" mnemonicParsing="false" onAction="#onClickBtnCancelarVuelo" prefHeight="42.0" prefWidth="163.0" text="Cancelar Vuelo">
             <font>
                 <Font size="16.0" />
             </font></Button>
-        <Button fx:id="btnVolver" layoutX="178.0" layoutY="279.0" mnemonicParsing="false" onAction="#onClickBtnVolver" prefHeight="27.0" prefWidth="94.0" text="Volver atras" />
-        <Label layoutX="142.0" layoutY="22.0" prefHeight="42.0" prefWidth="201.0" text="MENU HANGAR ">
+        <Button fx:id="btnVolver" layoutX="168.0" layoutY="335.0" mnemonicParsing="false" onAction="#onClickBtnVolver" prefHeight="27.0" prefWidth="94.0" text="Volver atras" />
+        <Label layoutX="126.0" layoutY="21.0" prefHeight="42.0" prefWidth="201.0" text="MENU HANGAR ">
             <font>
                 <Font size="23.0" />
             </font>
         </Label>
-      <Button fx:id="btnDespegarAviones" layoutX="144.0" layoutY="213.0" mnemonicParsing="false" onAction="#onClickBtnDespegarAviones" prefHeight="42.0" prefWidth="163.0" text="Despegar Aviones">
+      <Button fx:id="btnDespegarAviones" layoutX="133.0" layoutY="274.0" mnemonicParsing="false" onAction="#onClickBtnDespegarAviones" prefHeight="42.0" prefWidth="163.0" text="Despegar Aviones">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnListarHangar" layoutX="133.0" layoutY="211.0" mnemonicParsing="false" onAction="#onClickBtnListarHangar" prefHeight="42.0" prefWidth="163.0" text="Listar Hangar">
          <font>
             <Font size="16.0" />
          </font>

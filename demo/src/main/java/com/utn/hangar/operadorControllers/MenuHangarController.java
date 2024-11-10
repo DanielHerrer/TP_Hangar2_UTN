@@ -15,6 +15,9 @@ public class MenuHangarController {
     private Button btnCancelarVuelo;
 
     @FXML
+    private Button btnListarHangar;
+
+    @FXML
     private Button btnDespegarAviones;
 
     @FXML
@@ -38,6 +41,17 @@ public class MenuHangarController {
         try {
             Stage stage = (Stage) btnCancelarVuelo.getScene().getWindow();
             Ventanas.cambioEscena("Sistema Hangar 2.0",stage, "/com/utn/hangar/operadorViews/cancelar-vuelo-view.fxml");
+        } catch (Exception e) {
+            Ventanas.exceptionError(e);
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    void onClickBtnListarHangar(ActionEvent event) {
+        try {
+            Stage stage = (Stage) btnListarHangar.getScene().getWindow();
+            Ventanas.cambioEscena("Sistema Hangar 2.0",stage, "/com/utn/hangar/operadorViews/listar-hangar-view.fxml");
         } catch (Exception e) {
             Ventanas.exceptionError(e);
             e.printStackTrace();

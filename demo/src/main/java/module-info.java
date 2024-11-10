@@ -3,6 +3,7 @@ module com.example.demo {
     requires javafx.fxml;
     requires org.json;
     requires java.desktop;
+    requires jdk.jdi;
 
     opens entidades to javafx.fxml;
     opens com.utn.hangar to javafx.fxml;

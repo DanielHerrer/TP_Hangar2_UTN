@@ -19,11 +19,22 @@
         "vuelosRealizados": 0,
         "id": 2,
         "numeracion": 56335,
-        "combustibleActual": 100,
+        "combustibleActual": 50,
         "nombre": "Airbus",
         "modelo": "A320",
         "capacidadPasajeros": 182,
-        "piloto": null
+        "piloto": {
+            "nombreApellido": "Valtteri Bottas",
+            "rango": "PRIMER_OFICIAL",
+            "alta": 1,
+            "genero": "MASCULINO",
+            "horasVuelo": 85,
+            "anioNacimiento": 1985,
+            "id": 3,
+            "dni": "159753",
+            "numeroLicencia": "00077",
+            "disponible": false
+        }
     },
     {
         "combustibleMaximo": 100,
@@ -32,7 +43,7 @@
         "vuelosRealizados": 0,
         "id": 3,
         "numeracion": 455,
-        "combustibleActual": 100,
+        "combustibleActual": 23,
         "nombre": "Embraer",
         "modelo": "E195",
         "capacidadPasajeros": 114,
@@ -49,7 +60,18 @@
         "nombre": "Boeing 787",
         "modelo": "Dreamliner",
         "capacidadPasajeros": 260,
-        "piloto": null
+        "piloto": {
+            "nombreApellido": "Facundo Colidio",
+            "rango": "PILOTO_INSTRUMENTAL",
+            "alta": 1,
+            "genero": "MASCULINO",
+            "horasVuelo": 33,
+            "anioNacimiento": 2001,
+            "id": 4,
+            "dni": "753951",
+            "numeroLicencia": "00011",
+            "disponible": false
+        }
     },
     {
         "combustibleMaximo": 100,
@@ -62,7 +84,18 @@
         "nombre": "Bombardier",
         "modelo": "CRJ800",
         "capacidadPasajeros": 81,
-        "piloto": null
+        "piloto": {
+            "nombreApellido": "Yamil Yamal",
+            "rango": "ALUMNO_PILOTO",
+            "alta": 1,
+            "genero": "MASCULINO",
+            "horasVuelo": 22,
+            "anioNacimiento": 2003,
+            "id": 6,
+            "dni": "65642",
+            "numeroLicencia": "00016",
+            "disponible": false
+        }
     },
     {
         "combustibleMaximo": 100,

@@ -7,22 +7,22 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #5d6d7e;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.utn.hangar.operadorControllers.CancelarVueloController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.utn.hangar.operadorControllers.CancelarVueloController">
    <children>
       <TableView fx:id="tablaVuelos" layoutX="42.0" layoutY="78.0" prefHeight="265.0" prefWidth="517.0">
          <columns>
-            <TableColumn fx:id="nroLicencia" prefWidth="83.0" text="N-Licencia" />
-            <TableColumn fx:id="nombrePiloto" prefWidth="123.0" text="Piloto" />
-            <TableColumn fx:id="nroMatricula" prefWidth="106.0" text="Matricula" />
-            <TableColumn fx:id="nombreAvion" prefWidth="120.0" text="Avion" />
-             <TableColumn fx:id="cancelarVuelo" prefWidth="83.0" />
+            <TableColumn fx:id="nombrePiloto" prefWidth="108.0" text="Piloto" />
+            <TableColumn fx:id="nroLicencia" prefWidth="91.0" text="N· Licencia" />
+            <TableColumn fx:id="nombreAvion" prefWidth="119.0" text="Avion" />
+            <TableColumn fx:id="nroMatricula" prefWidth="98.0" text="Numeracion" />
+             <TableColumn fx:id="cancelarVuelo" prefWidth="99.0" />
          </columns>
       </TableView>
-      <Label layoutX="172.0" layoutY="27.0" prefHeight="35.0" prefWidth="258.0" text="LISTADO DEL HANGAR" textFill="WHITE">
+      <Label layoutX="172.0" layoutY="27.0" prefHeight="35.0" prefWidth="258.0" text="LISTADO DEL HANGAR">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
-      <Button fx:id="btnVolver" layoutX="14.0" layoutY="19.0" mnemonicParsing="false" onAction="#onClickBtnVolver" style="-fx-background-color: #e74c3c;" text="Volver" />
+      <Button fx:id="btnVolver" layoutX="14.0" layoutY="19.0" mnemonicParsing="false" onAction="#onClickBtnVolver" text="Volver" />
    </children>
 </AnchorPane>

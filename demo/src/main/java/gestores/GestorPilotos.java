@@ -1,9 +1,7 @@
 package gestores;
 
 import constantes.Data;
-import entidades.Avion;
 import entidades.Piloto;
-import entidades.Usuario;
 import enums.Genero;
 import enums.Rango;
 import excepciones.FormatoIncorrectoException;
@@ -75,7 +73,7 @@ public class GestorPilotos implements iABML<Piloto> {
 
     // ================================================================================
 
-    public Piloto buscarPilotoPorID (int id) {
+    public Piloto getPilotoPorID(int id) {
         Piloto piloto = null;
 
         for (Piloto p : listaPilotos) {
@@ -170,16 +168,6 @@ public class GestorPilotos implements iABML<Piloto> {
         JSONArray pilotoArray = crearJSONArray();
 
         Data.grabar(Data.archivoPilotos, pilotoArray);
-
-        /*
-        try (FileWriter file = new FileWriter(Archivos.archivoPilotos)) {
-            file.write(pilotoArray.toString(4));
-            System.out.println("Pilotos guardadas en el archivo: " + Archivos.archivoPilotos);
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-         */
     }
 
     public void cargarPilotoDesdeArchivo () {

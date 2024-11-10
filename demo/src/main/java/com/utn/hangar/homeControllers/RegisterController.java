@@ -131,7 +131,10 @@ public class RegisterController {
             alert.setContentText("Usuario registrado exitosamente.");
             alert.showAndWait();
 
-        } catch (Exception e) {
+        } catch (NumberFormatException e) {
+            System.out.println("Año de nacimiento debe ser un número.");
+        }
+        catch (Exception e) {
             Ventanas.exceptionError(e);
             e.printStackTrace();
         }

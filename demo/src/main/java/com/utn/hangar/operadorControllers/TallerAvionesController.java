@@ -14,6 +14,9 @@ public class TallerAvionesController {
     private Button btnListarAviones;
 
     @FXML
+    private Button btnCargarCombustible;
+
+    @FXML
     private Button btnCrearAvion;
 
     @FXML
@@ -26,6 +29,18 @@ public class TallerAvionesController {
         try {
             Stage stage = (Stage) btnListarAviones.getScene().getWindow();
             Ventanas.cambioEscena("Sistema Hangar 2.0",stage, "/com/utn/hangar/operadorViews/lista-aviones-view.fxml");
+        } catch (Exception e) {
+            Ventanas.exceptionError(e);
+            e.printStackTrace();
+        }
+    }
+
+    // BOTON CARGAR EL COMBUSTIBLE
+    @FXML
+    void onClickBtnCargarCombustible(ActionEvent event) {
+        try {
+            Stage stage = (Stage) btnCargarCombustible.getScene().getWindow();
+            Ventanas.cambioEscena("Sistema Hangar 2.0",stage, "/com/utn/hangar/operadorViews/cargar-combustible-view.fxml");
         } catch (Exception e) {
             Ventanas.exceptionError(e);
             e.printStackTrace();

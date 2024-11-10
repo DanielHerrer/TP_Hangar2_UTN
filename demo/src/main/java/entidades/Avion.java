@@ -1,6 +1,7 @@
 package entidades;
 
 
+import com.sun.jdi.DoubleValue;
 import org.json.JSONObject;
 // que lindo avion
 import java.util.Objects;
@@ -145,6 +146,11 @@ public class Avion implements Comparable<Avion> {
     public String cargarCombustible () {
         setCombustibleActual(100);
         return "Combustible lleno.";
+    }
+
+    public Double combustibleDouble () {
+        Double resultado = (double) this.combustibleActual / 100;
+        return resultado;
     }
 
 
