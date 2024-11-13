@@ -46,5 +46,17 @@
         "dni": "22222",
         "rol": 2,
         "registro": "2024-11-01T22:02:47.929222400"
+    },
+    {
+        "nombreApellido": "Lucas Jimenez",
+        "alta": 1,
+        "genero": "MASCULINO",
+        "anioNacimiento": 2002,
+        "contrasenia": "654321",
+        "id": 5,
+        "nombreUsuario": "lucas",
+        "dni": "65423",
+        "rol": 0,
+        "registro": "2024-11-10T21:54:11.832693800"
     }
 ]
