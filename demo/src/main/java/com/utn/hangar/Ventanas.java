@@ -17,6 +17,7 @@ public class Ventanas {
         stage.setTitle(titulo);
         stage.setScene(scene);
         stage.setResizable(false);
+        stage.centerOnScreen();
         stage.show();
     }
 

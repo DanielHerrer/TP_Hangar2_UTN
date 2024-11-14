@@ -48,27 +48,15 @@
         "registro": "2024-11-01T22:02:47.929222400"
     },
     {
-        "nombreApellido": "leonel",
+        "nombreApellido": "Lucas Jimenez",
         "alta": 1,
         "genero": "MASCULINO",
-        "anioNacimiento": 2000,
-        "contrasenia": "123456",
+        "anioNacimiento": 2002,
+        "contrasenia": "654321",
         "id": 5,
-        "nombreUsuario": "leonel",
-        "dni": "459876",
-        "rol": 1,
-        "registro": "2024-11-13T19:40:41.298660200"
-    },
-    {
-        "nombreApellido": "leonel2",
-        "alta": 1,
-        "genero": "MASCULINO",
-        "anioNacimiento": 2001,
-        "contrasenia": "123456",
-        "id": 6,
-        "nombreUsuario": "leonel2",
-        "dni": "459863212",
+        "nombreUsuario": "lucas",
+        "dni": "65423",
         "rol": 0,
-        "registro": "2024-11-13T21:20:08.336549700"
+        "registro": "2024-11-10T21:54:11.832693800"
     }
 ]
