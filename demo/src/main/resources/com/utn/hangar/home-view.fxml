@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.effect.BoxBlur?>
@@ -8,9 +9,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="260.0" prefWidth="435.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.utn.hangar.homeControllers.HomeController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.utn.hangar.homeControllers.HomeController">
    <children>
-      <ImageView fitHeight="265.0" fitWidth="500.0" preserveRatio="true">
+      <ImageView fitHeight="653.0" fitWidth="1082.0" preserveRatio="true">
          <image>
             <Image url="@../../../images/image1.png" />
          </image>
@@ -18,12 +19,24 @@
             <BoxBlur iterations="2" />
          </effect>
       </ImageView>
-      <Label alignment="BOTTOM_CENTER" contentDisplay="CENTER" layoutX="13.0" layoutY="63.0" prefHeight="45.0" prefWidth="445.0" text="SISTEMA DE HANGAR 2.0" textAlignment="CENTER" textFill="WHITE" underline="true">
-         <font>
-            <Font name="Panzer Regular" size="34.0" />
-         </font>
-      </Label>
-      <Button fx:id="btnLogin" layoutX="192.0" layoutY="120.0" mnemonicParsing="false" onAction="#onClickBtnLogin" text="Iniciar sesión" textAlignment="CENTER" />
-      <Button fx:id="btnRegister" layoutX="192.0" layoutY="159.0" mnemonicParsing="false" onAction="#onClickBtnRegister" prefHeight="25.0" prefWidth="85.0" text="Registrarse" />
+      <AnchorPane layoutX="371.0" layoutY="200.0" prefHeight="200.0" prefWidth="258.0" style="-fx-background-color: white; -fx-background-radius: 8;">
+         <children>
+            <Button fx:id="btnLogin" layoutX="87.0" layoutY="110.0" mnemonicParsing="false" onAction="#onClickBtnLogin" text="Iniciar sesión" textAlignment="CENTER" />
+            <Button fx:id="btnRegister" layoutX="87.0" layoutY="142.0" mnemonicParsing="false" onAction="#onClickBtnRegister" prefHeight="25.0" prefWidth="85.0" text="Registrarse" />
+            <Label alignment="BOTTOM_CENTER" contentDisplay="CENTER" layoutX="31.0" layoutY="13.0" prefHeight="50.0" prefWidth="197.0" text="Sistema de" textAlignment="CENTER">
+               <font>
+                  <Font name="Poppins Regular" size="34.0" />
+               </font>
+            </Label>
+            <Label alignment="BOTTOM_CENTER" contentDisplay="CENTER" layoutX="37.0" layoutY="46.0" prefHeight="50.0" prefWidth="187.0" text="Hangar 2.0" textAlignment="CENTER">
+               <font>
+                  <Font name="Poppins Regular" size="34.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
    </children>
+   <padding>
+      <Insets bottom="-500.0" right="-500.0" />
+   </padding>
 </AnchorPane>

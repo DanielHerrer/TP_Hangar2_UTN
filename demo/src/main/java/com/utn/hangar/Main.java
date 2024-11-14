@@ -16,6 +16,7 @@ public class Main extends Application {
         stage.setTitle("Sistema Hangar 2.0 (Inicio)");
         stage.setScene(scene);
         stage.setResizable(false);
+        stage.centerOnScreen();
         stage.show();
     }
 
