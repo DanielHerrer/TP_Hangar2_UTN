@@ -22,13 +22,13 @@ public class Data {
     public static Integer idAux = null;
 
     public static final String archivoPilotos = "src/main/java/Files/pilotos.json";
-    public static final String archivoUsuarios = "src/main/java/Files/pilotos.json";
-    public static final String archivoAvion = "src/main/java/Files/pilotos.json";
-    public static final String archivoHangar = "src/main/java/Files/pilotos.json";
-    public static final String archivoRegistros = "src/main/java/Files/pilotos.json";
-    public static final String archivoVuelos = "src/main/java/Files/pilotos.json";
+    public static final String archivoUsuarios = "src/main/java/Files/usuarios.json";
+    public static final String archivoAvion = "src/main/java/Files/aviones.json";
+    public static final String archivoHangar = "src/main/java/Files/hangar.json";
+    public static final String archivoRegistros = "src/main/java/Files/registros.json";
+    public static final String archivoVuelos = "src/main/java/Files/vuelos.json";
     //C:/Users/matia/Desktop/hangar/TP_Hangar2_UTN/demo/src/main/java/Files/     pilotos.json  para leo, BORRAR ANTES DE ENTREGAR...
-    //src/main/java/Files/pilotos.json
+    //src/main/java/Files/    pilotos.json
     public static GestorUsuarios gestorUsuarios = new GestorUsuarios();
     public static GestorPilotos gestorPilotos = new GestorPilotos();
     public static GestorAviones gestorAviones = new GestorAviones();

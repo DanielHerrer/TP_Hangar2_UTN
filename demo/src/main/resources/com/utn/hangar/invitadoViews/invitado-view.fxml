@@ -2,27 +2,55 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.BoxBlur?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="349.0" prefWidth="342.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.utn.hangar.invitadoControllers.InvitadoController">
+<AnchorPane prefHeight="650.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.utn.hangar.invitadoControllers.InvitadoController">
     <children>
-        <Label layoutX="78.0" layoutY="22.0" prefHeight="35.0" prefWidth="188.0" text="MENU INVITADO">
-         <font>
-            <Font size="24.0" />
-         </font></Label>
-        <Button fx:id="btnVerAviones" layoutX="71.0" layoutY="66.0" mnemonicParsing="false" onAction="#onClickBtnVerAviones" prefHeight="52.0" prefWidth="200.0" text="Ver Aeroplanos Disponibles">
-         <font>
-            <Font size="14.0" />
-         </font></Button>
-        <Button fx:id="btnVerPiloto" layoutX="71.0" layoutY="138.0" mnemonicParsing="false" onAction="#onClickBtnVerPiloto" prefHeight="52.0" prefWidth="200.0" text="Ver Pilotos Disponibles">
-         <font>
-            <Font size="16.0" />
-         </font></Button>
-        <Button fx:id="btnModifyPerfil" layoutX="98.0" layoutY="213.0" mnemonicParsing="false" onAction="#onClickBtnModifyPerfil" prefHeight="45.0" prefWidth="147.0" text="Modificar mi perfil">
-         <font>
-            <Font size="15.0" />
-         </font></Button>
-        <Button fx:id="btnLogout" layoutX="115.0" layoutY="275.0" mnemonicParsing="false" onAction="#onBtnLogoutButtonClick" prefHeight="35.0" prefWidth="114.0" text="Cerrar sesión" />
+      <ImageView fitHeight="700.0" fitWidth="1200.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../images/image4.png" />
+         </image>
+         <effect>
+            <BoxBlur height="12.0" width="12.0" />
+         </effect>
+      </ImageView>
+      <AnchorPane layoutX="419.0" layoutY="163.0" prefHeight="349.0" prefWidth="342.0" style="-fx-background-color: white; -fx-background-radius: 8;">
+         <effect>
+            <DropShadow height="27.0" offsetX="10.0" offsetY="10.0" radius="13.0" width="27.0">
+               <color>
+                  <Color opacity="0.31679388880729675" />
+               </color>
+            </DropShadow>
+         </effect>
+         <children>
+              <Button fx:id="btnVerAviones" layoutX="81.0" layoutY="78.0" mnemonicParsing="false" onAction="#onClickBtnVerAviones" prefHeight="52.0" prefWidth="200.0" text="Ver Aeroplanos Disponibles">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+              <Button fx:id="btnVerPiloto" layoutX="81.0" layoutY="149.0" mnemonicParsing="false" onAction="#onClickBtnVerPiloto" prefHeight="52.0" prefWidth="200.0" text="Ver Pilotos Disponibles">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
+              <Button fx:id="btnModifyPerfil" layoutX="81.0" layoutY="211.0" mnemonicParsing="false" onAction="#onClickBtnModifyPerfil" prefHeight="52.0" prefWidth="200.0" text="Modificar mi perfil">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+              <Button fx:id="btnLogout" layoutX="124.0" layoutY="288.0" mnemonicParsing="false" onAction="#onBtnLogoutButtonClick" prefHeight="35.0" prefWidth="114.0" text="Cerrar sesión" />
+              <Label layoutX="87.0" layoutY="23.0" prefHeight="35.0" prefWidth="188.0" text="MENU INVITADO">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
     </children>
 </AnchorPane>
