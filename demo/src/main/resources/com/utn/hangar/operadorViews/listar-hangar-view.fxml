@@ -4,30 +4,54 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.BoxBlur?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="485.0" prefWidth="814.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.utn.hangar.operadorControllers.ListaHangarController">
+<AnchorPane prefHeight="670.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.utn.hangar.operadorControllers.ListaHangarController">
    <children>
-      <TableView fx:id="tablaHangar" layoutX="35.0" layoutY="117.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="308.0" prefWidth="744.0">
-         <columns>
-            <TableColumn fx:id="nombrePiloto" prefWidth="130.0" text="Nombre Piloto" />
-            <TableColumn fx:id="nroLicencia" prefWidth="106.0" text="Licencia" />
-            <TableColumn fx:id="rangoPiloto" prefWidth="132.0" text="Rango" />
-            <TableColumn fx:id="nombreAvion" prefWidth="115.0" text="Nombre Avion" />
-            <TableColumn fx:id="numeracionAvion" prefWidth="126.0" text="Numeracion" />
-            <TableColumn fx:id="pasajerosAvion" prefWidth="133.0" text="Capacidad Pasajeros" />
-         </columns>
-      </TableView>
-      <Button fx:id="btnVolver" layoutX="43.0" layoutY="24.0" mnemonicParsing="false" onAction="#onClickBtnVolver" prefHeight="35.0" prefWidth="68.0" text="Volver">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Button>
-      <Label layoutX="243.0" layoutY="31.0" prefHeight="57.0" prefWidth="328.0" text="AVIONES EN HANGAR">
-         <font>
-            <Font size="32.0" />
-         </font>
-      </Label>
+      <ImageView fitHeight="715.0" fitWidth="1200.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../images/image2.png" />
+         </image>
+         <effect>
+            <BoxBlur height="6.0" width="6.0" />
+         </effect>
+      </ImageView>
+      <AnchorPane layoutX="210.0" layoutY="130.0" prefHeight="413.0" prefWidth="780.0" style="-fx-background-color: white; -fx-background-radius: 8;">
+         <effect>
+            <DropShadow height="27.0" offsetX="10.0" offsetY="10.0" radius="13.0" width="27.0">
+               <color>
+                  <Color opacity="0.45038166642189026" />
+               </color>
+            </DropShadow>
+         </effect>
+         <children>
+            <TableView fx:id="tablaHangar" layoutX="18.0" layoutY="70.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="322.0" prefWidth="745.0">
+               <columns>
+                  <TableColumn fx:id="nombrePiloto" prefWidth="130.0" text="Nombre Piloto" />
+                  <TableColumn fx:id="nroLicencia" prefWidth="106.0" text="Licencia" />
+                  <TableColumn fx:id="rangoPiloto" prefWidth="132.0" text="Rango" />
+                  <TableColumn fx:id="nombreAvion" prefWidth="115.0" text="Nombre Avion" />
+                  <TableColumn fx:id="numeracionAvion" prefWidth="126.0" text="Numeracion" />
+                  <TableColumn fx:id="pasajerosAvion" prefWidth="133.0" text="Capacidad Pasajeros" />
+               </columns>
+            </TableView>
+            <Label layoutX="230.0" layoutY="14.0" prefHeight="47.0" prefWidth="321.0" text="AVIONES EN HANGAR">
+               <font>
+                  <Font size="32.0" />
+               </font>
+            </Label>
+            <Button fx:id="btnVolver" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#onClickBtnVolver" prefHeight="35.0" prefWidth="68.0" text="Volver">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

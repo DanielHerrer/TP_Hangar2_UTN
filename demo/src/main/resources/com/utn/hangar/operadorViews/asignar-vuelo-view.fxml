@@ -2,29 +2,49 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.BoxBlur?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.utn.hangar.operadorControllers.AsignarVueloController">
+<AnchorPane prefHeight="650.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.utn.hangar.operadorControllers.AsignarVueloController">
    <children>
-      <Label layoutX="57.0" layoutY="126.0" prefHeight="17.0" prefWidth="219.0" text="ELIJE UN PILOTO">
-         <font>
-            <Font size="27.0" />
-         </font>
-      </Label>
-      <Label layoutX="345.0" layoutY="126.0" prefHeight="17.0" prefWidth="219.0" text="ELIJE UN AVION">
-         <font>
-            <Font size="27.0" />
-         </font>
-      </Label>
-      <Button fx:id="btnAsignar" layoutX="211.0" layoutY="307.0" mnemonicParsing="false" onAction="#onClickBtnAsignar" prefHeight="51.0" prefWidth="178.0" style="-fx-background-color: #82e0aa;" text="ASIGNAR VUELO">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Button>
-      <ComboBox fx:id="btnSelecPiloto" layoutX="51.0" layoutY="171.0" prefHeight="38.0" prefWidth="209.0" promptText="Piloto" />
-      <ComboBox fx:id="btnSelecAvion" layoutX="339.0" layoutY="171.0" prefHeight="38.0" prefWidth="209.0" promptText="Avion" />
-      <Button fx:id="btnVolver" layoutX="31.0" layoutY="24.0" mnemonicParsing="false" onAction="#onClickBtnVolver" prefHeight="31.0" prefWidth="79.0" style="-fx-background-color: #f1948a;" text="Volver" />
+      <ImageView fitHeight="670.0" fitWidth="1200.0" layoutX="1.0" style="visibility: 0.5;">
+         <image>
+            <Image url="@../../../../images/image2.png" />
+         </image>
+         <effect>
+            <BoxBlur height="6.0" width="6.0" />
+         </effect>
+      </ImageView>
+      <AnchorPane layoutX="417.0" layoutY="176.0" prefHeight="318.0" prefWidth="367.0" style="-fx-background-radius: 8; -fx-background-color: white;">
+         <children>
+            <Button fx:id="btnAsignar" layoutX="91.0" layoutY="233.0" mnemonicParsing="false" onAction="#onClickBtnAsignar" prefHeight="44.0" prefWidth="181.0" style="-fx-background-color: #82e0aa;" text="ASIGNAR VUELO">
+               <font>
+                  <Font size="20.0" />
+               </font>
+               <effect>
+                  <DropShadow height="5.0" offsetX="3.0" offsetY="3.0" radius="2.0" width="5.0">
+                     <color>
+                        <Color opacity="0.15267175436019897" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </Button>
+            <ComboBox fx:id="btnSelecPiloto" layoutX="76.0" layoutY="150.0" prefHeight="38.0" prefWidth="209.0" promptText="Piloto" />
+            <ComboBox fx:id="btnSelecAvion" layoutX="76.0" layoutY="82.0" prefHeight="38.0" prefWidth="209.0" promptText="Avion" />
+            <Button fx:id="btnVolver" layoutX="23.0" layoutY="20.0" mnemonicParsing="false" onAction="#onClickBtnVolver" prefHeight="31.0" prefWidth="79.0" style="-fx-background-color: #f1948a;" text="Volver" />
+         </children>
+         <effect>
+            <DropShadow blurType="ONE_PASS_BOX" height="25.17" offsetX="5.0" offsetY="5.0" radius="12.4725" spread="0.11" width="26.72">
+               <color>
+                  <Color red="0.18000000715255737" green="0.18000000715255737" blue="0.18000000715255737" opacity="0.4377862513065338" />
+               </color>
+            </DropShadow>
+         </effect>
+      </AnchorPane>
    </children>
 </AnchorPane>
