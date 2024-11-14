@@ -4,27 +4,51 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.BoxBlur?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="456.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.utn.hangar.operadorControllers.ListaPilotosController">
+<AnchorPane prefHeight="650.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.utn.hangar.operadorControllers.ListaPilotosController">
    <children>
-      <TableView fx:id="tablaPilotos" layoutX="30.0" layoutY="85.0" prefHeight="323.0" prefWidth="691.0">
-         <columns>
-            <TableColumn fx:id="idPiloto" prefWidth="49.0" text="ID" />
-            <TableColumn fx:id="nombreApellido" prefWidth="106.0" text="Nombre Apellido" />
-            <TableColumn fx:id="dni" prefWidth="94.0" text="DNI" />
-            <TableColumn fx:id="licencia" prefWidth="88.0" text="Licencia" />
-            <TableColumn fx:id="rangoPiloto" prefWidth="137.0" text="Rango" />
-            <TableColumn fx:id="altaPiloto" prefWidth="91.0" text="Estado" />
-            <TableColumn fx:id="modifyPiloto" prefWidth="125.0" />
-         </columns>
-      </TableView>
-      <Button fx:id="btnVolver" layoutX="14.0" layoutY="20.0" mnemonicParsing="false" onAction="#onClickBtnVolver" text="Volver" />
-      <Label layoutX="245.0" layoutY="30.0" prefHeight="31.0" prefWidth="207.0" text="LISTADO DE PILOTOS">
-         <font>
-            <Font size="21.0" />
-         </font>
-      </Label>
+      <ImageView fitHeight="700.0" fitWidth="1200.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../images/image2.png" />
+         </image>
+         <effect>
+            <BoxBlur height="6.0" width="6.0" />
+         </effect>
+      </ImageView>
+      <AnchorPane layoutX="225.0" layoutY="128.0" prefHeight="417.0" prefWidth="750.0" style="-fx-background-color: white; -fx-background-radius: 8;">
+         <children>
+            <Label layoutX="272.0" layoutY="24.0" prefHeight="31.0" prefWidth="207.0" text="LISTADO DE PILOTOS">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Label>
+            <TableView fx:id="tablaPilotos" layoutX="30.0" layoutY="72.0" prefHeight="323.0" prefWidth="691.0">
+               <columns>
+                  <TableColumn fx:id="idPiloto" prefWidth="49.0" text="ID" />
+                  <TableColumn fx:id="nombreApellido" prefWidth="106.0" text="Nombre Apellido" />
+                  <TableColumn fx:id="dni" prefWidth="94.0" text="DNI" />
+                  <TableColumn fx:id="licencia" prefWidth="88.0" text="Licencia" />
+                  <TableColumn fx:id="rangoPiloto" prefWidth="137.0" text="Rango" />
+                  <TableColumn fx:id="altaPiloto" prefWidth="91.0" text="Estado" />
+                  <TableColumn fx:id="modifyPiloto" prefWidth="125.0" />
+               </columns>
+            </TableView>
+            <Button fx:id="btnVolver" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#onClickBtnVolver" text="Volver" />
+         </children>
+         <effect>
+            <DropShadow height="27.0" offsetX="10.0" offsetY="10.0" radius="13.0" width="27.0">
+               <color>
+                  <Color opacity="0.3778626024723053" />
+               </color>
+            </DropShadow>
+         </effect>
+      </AnchorPane>
    </children>
 </AnchorPane>

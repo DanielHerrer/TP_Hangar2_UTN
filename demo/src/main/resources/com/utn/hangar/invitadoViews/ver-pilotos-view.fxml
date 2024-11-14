@@ -4,32 +4,56 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.BoxBlur?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="512.0" prefWidth="869.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.utn.hangar.invitadoControllers.VerPilotosController">
+<AnchorPane prefHeight="650.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.utn.hangar.invitadoControllers.VerPilotosController">
    <children>
-      <TableView fx:id="tablaPilotos" layoutX="28.0" layoutY="107.0" prefHeight="365.0" prefWidth="813.0">
-         <columns>
-            <TableColumn fx:id="idPiloto" prefWidth="44.0" text="ID" />
-            <TableColumn fx:id="nombrePiloto" prefWidth="111.0" text="Nombre Apellido" />
-            <TableColumn fx:id="licenciaPiloto" prefWidth="104.0" text="Licencia" />
-            <TableColumn fx:id="dniPiloto" prefWidth="93.0" text="DNI" />
-            <TableColumn fx:id="nacimientoPiloto" prefWidth="104.0" text="Año Nacimiento" />
-            <TableColumn fx:id="horasVueloPiloto" prefWidth="104.0" text="Horas de Vuelo" />
-            <TableColumn fx:id="rangoPiloto" prefWidth="141.0" text="Rango" />
-            <TableColumn fx:id="altaPiloto" prefWidth="111.0" text="Estado" />
-         </columns>
-      </TableView>
-      <Button fx:id="btnVolver" layoutX="28.0" layoutY="33.0" mnemonicParsing="false" onAction="#onClickBtnVolver" prefHeight="35.0" prefWidth="68.0" text="Volver">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Button>
-      <Label layoutX="306.0" layoutY="45.0" prefHeight="46.0" prefWidth="258.0" text="LISTA DE PILOTOS">
-         <font>
-            <Font size="31.0" />
-         </font>
-      </Label>
+      <ImageView fitHeight="700.0" fitWidth="1200.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../images/image4.png" />
+         </image>
+         <effect>
+            <BoxBlur height="12.0" width="12.0" />
+         </effect>
+      </ImageView>
+      <AnchorPane layoutX="205.0" layoutY="112.0" prefHeight="451.0" prefWidth="790.0" style="-fx-background-color: white; -fx-background-radius: 8;">
+         <effect>
+            <DropShadow height="27.0" offsetX="10.0" offsetY="10.0" radius="13.0" width="27.0">
+               <color>
+                  <Color opacity="0.30534350872039795" />
+               </color>
+            </DropShadow>
+         </effect>
+         <children>
+            <TableView fx:id="tablaPilotos" layoutX="32.0" layoutY="60.0" prefHeight="365.0" prefWidth="727.0">
+               <columns>
+                  <TableColumn fx:id="idPiloto" prefWidth="44.0" text="ID" />
+                  <TableColumn fx:id="nombrePiloto" prefWidth="111.0" text="Nombre Apellido" />
+                  <TableColumn fx:id="licenciaPiloto" prefWidth="104.0" text="Licencia" />
+                  <TableColumn fx:id="dniPiloto" prefWidth="93.0" text="DNI" />
+                  <TableColumn fx:id="nacimientoPiloto" prefWidth="104.0" text="Año Nacimiento" />
+                  <TableColumn fx:id="horasVueloPiloto" prefWidth="104.0" text="Horas de Vuelo" />
+                  <TableColumn fx:id="rangoPiloto" prefWidth="141.0" text="Rango" />
+                  <TableColumn fx:id="altaPiloto" prefWidth="111.0" text="Estado" />
+               </columns>
+            </TableView>
+            <Label layoutX="266.0" layoutY="9.0" prefHeight="46.0" prefWidth="258.0" text="LISTA DE PILOTOS">
+               <font>
+                  <Font size="31.0" />
+               </font>
+            </Label>
+            <Button fx:id="btnVolver" layoutX="14.0" layoutY="15.0" mnemonicParsing="false" onAction="#onClickBtnVolver" prefHeight="35.0" prefWidth="68.0" text="Volver">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

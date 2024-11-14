@@ -27,7 +27,8 @@ public class Data {
     public static final String archivoHangar = "src/main/java/Files/hangar.json";
     public static final String archivoRegistros = "src/main/java/Files/registros.json";
     public static final String archivoVuelos = "src/main/java/Files/vuelos.json";
-
+    //C:/Users/matia/Desktop/hangar/TP_Hangar2_UTN/demo/src/main/java/Files/     pilotos.json  para leo, BORRAR ANTES DE ENTREGAR...
+    //src/main/java/Files/    pilotos.json
     public static GestorUsuarios gestorUsuarios = new GestorUsuarios();
     public static GestorPilotos gestorPilotos = new GestorPilotos();
     public static GestorAviones gestorAviones = new GestorAviones();

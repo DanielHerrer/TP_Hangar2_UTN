@@ -5,25 +5,51 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.BoxBlur?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="551.0" prefWidth="511.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.utn.hangar.operadorControllers.CrearPilotoController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="670.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.utn.hangar.operadorControllers.CrearPilotoController">
     <children>
-        <Label layoutX="88.0" layoutY="59.0" prefHeight="43.0" prefWidth="377.0" text="Ingrese los datos del piloto">
-            <font>
-                <Font size="29.0" />
-            </font></Label>
-        <TextField fx:id="numeroLicencia" layoutX="146.0" layoutY="326.0" prefHeight="34.0" prefWidth="208.0" promptText="Ingrese numero de licencia.." />
-        <Button fx:id="btnRegister" layoutX="180.0" layoutY="450.0" mnemonicParsing="false" onAction="#onClickBtnRegister" style="-fx-background-color: lightblue;" text="Registrar piloto">
-            <padding>
-                <Insets bottom="10.0" left="40.0" right="40.0" top="10.0" />
-            </padding></Button>
-        <Button fx:id="btnVolver" layoutX="26.0" layoutY="25.0" mnemonicParsing="false" onAction="#onClickBtnVolver" prefHeight="34.0" prefWidth="62.0" text="Volver" />
-        <TextField fx:id="inputNomApe" layoutX="145.0" layoutY="122.0" prefHeight="34.0" prefWidth="208.0" promptText="Nombre y apellido" />
-        <TextField fx:id="inputDNI" layoutX="146.0" layoutY="208.0" prefHeight="34.0" prefWidth="208.0" promptText="DNI" />
-        <TextField fx:id="inputAnioNac" layoutX="146.0" layoutY="165.0" prefHeight="34.0" prefWidth="208.0" promptText="Año de nacimiento" />
-        <ComboBox fx:id="SelecGen" layoutX="146.0" layoutY="251.0" prefHeight="34.0" prefWidth="208.0" promptText="Genero" visibleRowCount="3" />
-      <TextField fx:id="horasVuelo" layoutX="145.0" layoutY="381.0" prefHeight="34.0" prefWidth="208.0" promptText="Ingrese horas de vuelo..." />
+      <ImageView fitHeight="700.0" fitWidth="1200.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="-1.84344482421875" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-1.0">
+         <image>
+            <Image url="@../../../../images/image2.png" />
+         </image>
+         <effect>
+            <BoxBlur height="6.0" width="6.0" />
+         </effect>
+      </ImageView>
+      <AnchorPane layoutX="312.0" layoutY="77.0" prefHeight="497.0" prefWidth="496.0" style="-fx-background-color: white; -fx-background-radius: 8;">
+         <children>
+              <Label layoutX="67.0" layoutY="59.0" prefHeight="43.0" prefWidth="377.0" text="Ingrese los datos del piloto">
+                  <font>
+                      <Font size="29.0" />
+                  </font>
+            </Label>
+              <Button fx:id="btnVolver" layoutX="21.0" layoutY="16.0" mnemonicParsing="false" onAction="#onClickBtnVolver" prefHeight="34.0" prefWidth="62.0" text="Volver" />
+              <TextField fx:id="inputNomApe" layoutX="152.0" layoutY="117.0" prefHeight="34.0" prefWidth="208.0" promptText="Nombre y apellido" />
+              <TextField fx:id="inputAnioNac" layoutX="152.0" layoutY="167.0" prefHeight="34.0" prefWidth="208.0" promptText="Año de nacimiento" />
+              <TextField fx:id="inputDNI" layoutX="152.0" layoutY="220.0" prefHeight="34.0" prefWidth="208.0" promptText="DNI" />
+              <ComboBox fx:id="SelecGen" layoutX="152.0" layoutY="276.0" prefHeight="34.0" prefWidth="208.0" promptText="Genero" visibleRowCount="3" />
+              <TextField fx:id="numeroLicencia" layoutX="152.0" layoutY="329.0" prefHeight="34.0" prefWidth="208.0" promptText="Ingrese numero de licencia.." />
+            <TextField fx:id="horasVuelo" layoutX="152.0" layoutY="383.0" prefHeight="34.0" prefWidth="208.0" promptText="Ingrese horas de vuelo..." />
+              <Button fx:id="btnRegister" layoutX="175.0" layoutY="439.0" mnemonicParsing="false" onAction="#onClickBtnRegister" style="-fx-background-color: lightblue;" text="Registrar piloto">
+                  <padding>
+                      <Insets bottom="10.0" left="40.0" right="40.0" top="10.0" />
+                  </padding>
+            </Button>
+         </children>
+         <effect>
+            <DropShadow height="25.0" offsetX="10.0" offsetY="10.0" radius="12.5" width="27.0">
+               <color>
+                  <Color opacity="0.4312977194786072" />
+               </color>
+            </DropShadow>
+         </effect>
+      </AnchorPane>
     </children>
 </AnchorPane>

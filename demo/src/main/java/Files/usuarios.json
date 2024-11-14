@@ -58,5 +58,29 @@
         "dni": "65423",
         "rol": 0,
         "registro": "2024-11-10T21:54:11.832693800"
+    },
+    {
+        "nombreApellido": "leonel",
+        "alta": 1,
+        "genero": "MASCULINO",
+        "anioNacimiento": 2000,
+        "contrasenia": "123456",
+        "id": 6,
+        "nombreUsuario": "leonel",
+        "dni": "456789123",
+        "rol": 1,
+        "registro": "2024-11-14T18:16:04.483213400"
+    },
+    {
+        "nombreApellido": "marco",
+        "alta": 1,
+        "genero": "MASCULINO",
+        "anioNacimiento": 2000,
+        "contrasenia": "123456",
+        "id": 7,
+        "nombreUsuario": "marco",
+        "dni": "42598745",
+        "rol": 0,
+        "registro": "2024-11-14T19:29:20.764441500"
     }
 ]
