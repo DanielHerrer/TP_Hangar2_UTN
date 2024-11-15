@@ -84,7 +84,7 @@ public class ListaUsuariosController {
                             usuario.setRol(nuevoRol);
 
                             // Guarda la modificación del rol en el archivo
-                            gestorUsuarios.guardarUsuarioToFile();
+                            gestorUsuarios.guardarEnArchivo();
 
                             // Actualiza el botón en la interfaz
                             actualizarBotonRol(btnRol, nuevoRol);

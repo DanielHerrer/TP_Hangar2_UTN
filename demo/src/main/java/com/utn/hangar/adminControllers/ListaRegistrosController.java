@@ -47,12 +47,9 @@ public class ListaRegistrosController {
     @FXML
     public void initialize() {
 
-        GestorRegistros gestorRegistros = new GestorRegistros();
-        gestorRegistros.cargarRegistrosDesdeArchivo();
-
         //LLAMA A CLASE GESTORA Y TRAE A LOS USUARIOS DEL JSON
         GestorUsuarios gestorUsuarios = new GestorUsuarios();
-        gestorUsuarios.cargarUsuarioDesdeArchivo();
+        gestorUsuarios.cargarDesdeArchivo();
 
         // Convierte el ArrayList a ObservableList
         ObservableList<Usuario> listaObservableRegistros = FXCollections.observableArrayList(gestorUsuarios.getListaUsuarios());
