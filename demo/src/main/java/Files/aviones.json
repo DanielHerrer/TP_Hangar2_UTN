@@ -2,28 +2,50 @@
     {
         "combustibleMaximo": 100,
         "aerolinea": "Panam",
-        "alta": 0,
-        "vuelosRealizados": 0,
+        "alta": 1,
+        "vuelosRealizados": 1,
         "id": 1,
         "numeracion": 90210,
         "combustibleActual": 100,
         "nombre": "Boeing",
         "modelo": "737-800",
         "capacidadPasajeros": 162,
-        "piloto": null
+        "piloto": {
+            "nombreApellido": "Cole Palmer",
+            "rango": "PILOTO_INSTRUMENTAL",
+            "alta": 1,
+            "genero": "MASCULINO",
+            "horasVuelo": 44,
+            "anioNacimiento": 2002,
+            "id": 1,
+            "dni": "456123",
+            "numeroLicencia": "00020",
+            "disponible": false
+        }
     },
     {
         "combustibleMaximo": 100,
         "aerolinea": "Iberia",
         "alta": 1,
-        "vuelosRealizados": 1,
+        "vuelosRealizados": 2,
         "id": 2,
         "numeracion": 56335,
         "combustibleActual": 100,
         "nombre": "Airbus",
         "modelo": "A320",
         "capacidadPasajeros": 182,
-        "piloto": null
+        "piloto": {
+            "nombreApellido": "Franco Colapinto",
+            "rango": "SEGUNDO_OFICIAL",
+            "alta": 1,
+            "genero": "MASCULINO",
+            "horasVuelo": 65,
+            "anioNacimiento": 2001,
+            "id": 2,
+            "dni": "963852",
+            "numeroLicencia": "00043",
+            "disponible": false
+        }
     },
     {
         "combustibleMaximo": 100,
@@ -32,11 +54,22 @@
         "vuelosRealizados": 1,
         "id": 3,
         "numeracion": 455,
-        "combustibleActual": 40,
+        "combustibleActual": 100,
         "nombre": "Embraer",
         "modelo": "E195",
         "capacidadPasajeros": 114,
-        "piloto": null
+        "piloto": {
+            "nombreApellido": "Valtteri Bottas",
+            "rango": "PRIMER_OFICIAL",
+            "alta": 1,
+            "genero": "MASCULINO",
+            "horasVuelo": 97,
+            "anioNacimiento": 1985,
+            "id": 3,
+            "dni": "159753",
+            "numeroLicencia": "00077",
+            "disponible": false
+        }
     },
     {
         "combustibleMaximo": 100,
@@ -58,11 +91,22 @@
         "vuelosRealizados": 2,
         "id": 5,
         "numeracion": 56998,
-        "combustibleActual": 71,
+        "combustibleActual": 100,
         "nombre": "Bombardier",
         "modelo": "CRJ800",
         "capacidadPasajeros": 81,
-        "piloto": null
+        "piloto": {
+            "nombreApellido": "Facundo Colidio",
+            "rango": "SEGUNDO_OFICIAL",
+            "alta": 1,
+            "genero": "MASCULINO",
+            "horasVuelo": 52,
+            "anioNacimiento": 2001,
+            "id": 4,
+            "dni": "753951",
+            "numeroLicencia": "00011",
+            "disponible": false
+        }
     },
     {
         "combustibleMaximo": 100,
@@ -75,12 +119,23 @@
         "nombre": "Cessna",
         "modelo": "208 Caravan",
         "capacidadPasajeros": 140,
-        "piloto": null
+        "piloto": {
+            "nombreApellido": "Jordi Wild",
+            "rango": "SEGUNDO_OFICIAL",
+            "alta": 1,
+            "genero": "MASCULINO",
+            "horasVuelo": 74,
+            "anioNacimiento": 1991,
+            "id": 5,
+            "dni": "741963",
+            "numeroLicencia": "00899",
+            "disponible": false
+        }
     },
     {
         "combustibleMaximo": 100,
         "aerolinea": "Qatar Airways",
-        "alta": 0,
+        "alta": 1,
         "vuelosRealizados": 0,
         "id": 7,
         "numeracion": 12278,
@@ -88,7 +143,18 @@
         "nombre": "Mitsubishi",
         "modelo": "A321neo",
         "capacidadPasajeros": 221,
-        "piloto": null
+        "piloto": {
+            "nombreApellido": "Yamil Yamal",
+            "rango": "ALUMNO_PILOTO",
+            "alta": 1,
+            "genero": "MASCULINO",
+            "horasVuelo": 22,
+            "anioNacimiento": 2003,
+            "id": 6,
+            "dni": "65642",
+            "numeroLicencia": "00016",
+            "disponible": false
+        }
     },
     {
         "combustibleMaximo": 100,
@@ -114,7 +180,18 @@
         "nombre": "Saab",
         "modelo": "340",
         "capacidadPasajeros": 180,
-        "piloto": null
+        "piloto": {
+            "nombreApellido": "Ricky Blanco",
+            "rango": "SEGUNDO_OFICIAL",
+            "alta": 1,
+            "genero": "MASCULINO",
+            "horasVuelo": 69,
+            "anioNacimiento": 1980,
+            "id": 7,
+            "dni": "258357",
+            "numeroLicencia": "00255",
+            "disponible": false
+        }
     },
     {
         "combustibleMaximo": 100,
@@ -123,7 +200,7 @@
         "vuelosRealizados": 2,
         "id": 10,
         "numeracion": 25898,
-        "combustibleActual": 55,
+        "combustibleActual": 100,
         "nombre": "COMAC",
         "modelo": "C919",
         "capacidadPasajeros": 165,
@@ -136,7 +213,7 @@
         "vuelosRealizados": 1,
         "id": 11,
         "numeracion": 66515,
-        "combustibleActual": 46,
+        "combustibleActual": 100,
         "nombre": "Tupolev",
         "modelo": "Tu-204",
         "capacidadPasajeros": 122,
@@ -162,7 +239,7 @@
         "vuelosRealizados": 1,
         "id": 13,
         "numeracion": 63352,
-        "combustibleActual": 28,
+        "combustibleActual": 100,
         "nombre": "Sukhoi",
         "modelo": "Su-57",
         "capacidadPasajeros": 128,

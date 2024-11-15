@@ -4,24 +4,24 @@
         "rango": "PILOTO_INSTRUMENTAL",
         "alta": 1,
         "genero": "MASCULINO",
-        "horasVuelo": 35,
+        "horasVuelo": 44,
         "anioNacimiento": 2002,
         "id": 1,
         "dni": "456123",
         "numeroLicencia": "00020",
-        "disponible": true
+        "disponible": false
     },
     {
         "nombreApellido": "Franco Colapinto",
-        "rango": "ALUMNO_PILOTO",
+        "rango": "SEGUNDO_OFICIAL",
         "alta": 1,
         "genero": "MASCULINO",
-        "horasVuelo": 54,
+        "horasVuelo": 65,
         "anioNacimiento": 2001,
         "id": 2,
         "dni": "963852",
         "numeroLicencia": "00043",
-        "disponible": true
+        "disponible": false
     },
     {
         "nombreApellido": "Valtteri Bottas",
@@ -33,7 +33,7 @@
         "id": 3,
         "dni": "159753",
         "numeroLicencia": "00077",
-        "disponible": true
+        "disponible": false
     },
     {
         "nombreApellido": "Facundo Colidio",
@@ -45,7 +45,7 @@
         "id": 4,
         "dni": "753951",
         "numeroLicencia": "00011",
-        "disponible": true
+        "disponible": false
     },
     {
         "nombreApellido": "Jordi Wild",
@@ -57,7 +57,7 @@
         "id": 5,
         "dni": "741963",
         "numeroLicencia": "00899",
-        "disponible": true
+        "disponible": false
     },
     {
         "nombreApellido": "Yamil Yamal",
@@ -69,19 +69,19 @@
         "id": 6,
         "dni": "65642",
         "numeroLicencia": "00016",
-        "disponible": true
+        "disponible": false
     },
     {
         "nombreApellido": "Ricky Blanco",
         "rango": "SEGUNDO_OFICIAL",
-        "alta": 0,
+        "alta": 1,
         "genero": "MASCULINO",
         "horasVuelo": 69,
         "anioNacimiento": 1980,
         "id": 7,
         "dni": "258357",
         "numeroLicencia": "00255",
-        "disponible": true
+        "disponible": false
     },
     {
         "nombreApellido": "Ryan Gosling",
