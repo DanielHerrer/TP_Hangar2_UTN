@@ -2,16 +2,18 @@ package gestores;
 
 import constantes.Data;
 import entidades.Usuario;
+import interfaces.iMetodosJSON;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.Map;
 
-public class GestorRegistros {
+public class GestorRegistros implements iMetodosJSON {
 
     public HashMap<Integer, LocalDateTime> listaRegistros;
 
@@ -37,27 +39,23 @@ public class GestorRegistros {
         return registrosArray;
     }
 
-    public void guardarRegistrosEnArchivo () {
+    @Override
+    public void guardarEnArchivo() {
         JSONArray registroArray = crearJSONArrayRegistros();
 
         Data.grabar(Data.archivoRegistros, registroArray);
     }
 
-    public boolean cargarRegistrosDesdeArchivo () {
+    @Override
+    public void cargarDesdeArchivo() {
         try {
-            if (Data.leerArchivo(Data.archivoRegistros) == null) {
-                return false; // SI NO LEYO EL ARCHIVO DEVUELVE FALSE
-            }
             JSONArray registrosArray = new JSONArray(Data.leerArchivo(Data.archivoRegistros));
 
             cargarListaDesdeJSONArray(registrosArray);
-
-            return true; // RETORNA TRUE SI LO PUDO LEER
         }
         catch (JSONException e) {
             e.printStackTrace();
         }
-        return true;
     }
 
     public void cargarListaDesdeJSONArray (JSONArray registrosArray) {

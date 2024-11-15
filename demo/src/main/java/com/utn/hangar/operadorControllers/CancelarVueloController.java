@@ -1,9 +1,7 @@
 package com.utn.hangar.operadorControllers;
 
 import com.utn.hangar.Ventanas;
-import constantes.Data;
 import entidades.Avion;
-import entidades.Usuario;
 import gestores.*;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -46,7 +44,7 @@ public class CancelarVueloController {
     public void initialize() {
         //LLAMA A CLASE GESTORA Y TRAE A HANGARES DEL JSON
         GestorHangar gestorHangar = new GestorHangar();
-        gestorHangar.cargarHangarDesdeArchivo();
+        gestorHangar.cargarDesdeArchivo();
 
         // Convierte el HASHSET a ObservableList
         ObservableList<Avion> listaObservableHangar = FXCollections.observableArrayList(gestorHangar.getListaHangar());
@@ -73,19 +71,19 @@ public class CancelarVueloController {
                             Avion vueloCancelado = getTableView().getItems().get(getIndex());
                             // BORRO EL AVION DEL ARCHIVO DE HANGAR.JSON
                             gestorHangar.getListaHangar().remove(vueloCancelado);
-                            gestorHangar.guardarHangarToFile();
+                            gestorHangar.guardarEnArchivo();
 
                             // ACTUALIZO EL AVION Y PONGO SU PILOTO EN NULL
                             GestorAviones gestorAviones = new GestorAviones();
-                            gestorAviones.cargarAvionDesdeArchivo();
+                            gestorAviones.cargarDesdeArchivo();
                             gestorAviones.eliminarPilotoDeAvion(vueloCancelado);
-                            gestorAviones.guardarAvionToFile();
+                            gestorAviones.guardarEnArchivo();
 
                             // ACTUALIZO EL PILOTO Y SETEO SU ESTADO EN TRUE
                             GestorPilotos gestorPilotos = new GestorPilotos();
-                            gestorPilotos.cargarPilotoDesdeArchivo();
+                            gestorPilotos.cargarDesdeArchivo();
                             gestorPilotos.actualizarEstadoPiloto(vueloCancelado.getPiloto());
-                            gestorPilotos.guardarPilotoToFile();
+                            gestorPilotos.guardarEnArchivo();
 
 
                             Alert alert = new Alert(Alert.AlertType.INFORMATION);

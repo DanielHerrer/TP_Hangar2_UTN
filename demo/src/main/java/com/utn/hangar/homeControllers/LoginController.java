@@ -51,7 +51,7 @@ public class LoginController {
 
             //LLAMA A CLASE GESTORA Y TRAE A LOS USUARIOS DEL JSON
             GestorUsuarios conUsuario = new GestorUsuarios();
-            conUsuario.cargarUsuarioDesdeArchivo();
+            conUsuario.cargarDesdeArchivo();
             //VERIFICA SI EL USUARIO INGRESADO ESTA EN EL JSON
             Usuario usuarioLogeado = null;
             usuarioLogeado = conUsuario.verificarUsuarioLogin(user, pass);

@@ -51,7 +51,7 @@ public class ListaUsuariosController {
     public void initialize() {
         //LLAMA A CLASE GESTORA Y TRAE A LOS USUARIOS DEL JSON
         GestorUsuarios gestorUsuarios = new GestorUsuarios();
-        gestorUsuarios.cargarUsuarioDesdeArchivo();
+        gestorUsuarios.cargarDesdeArchivo();
 
         // Convierte el ArrayList a ObservableList
         ObservableList<Usuario> listaObservableUsuarios = FXCollections.observableArrayList(gestorUsuarios.getListaUsuarios());
@@ -98,7 +98,7 @@ public class ListaUsuariosController {
                             int nuevoEstado = usuario.getAlta() == 1 ? 0 : 1;
                             usuario.setAlta(nuevoEstado);
                             //GUARDO LA MODIFICACION DEL ALTA EN EL ARCHIVO
-                            gestorUsuarios.guardarUsuarioToFile();
+                            gestorUsuarios.guardarEnArchivo();
                             // Actualiza el botón en la interfaz
                             actualizarBotonEstado(btnEstado, nuevoEstado);
                         });

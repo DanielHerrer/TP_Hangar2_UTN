@@ -1,10 +1,8 @@
 package com.utn.hangar.invitadoControllers;
 
 import com.utn.hangar.Ventanas;
-import entidades.Avion;
 import entidades.Piloto;
 import enums.Rango;
-import gestores.GestorAviones;
 import gestores.GestorPilotos;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -59,7 +57,7 @@ public class VerPilotosController {
     public void initialize() {
         //LLAMA A CLASE GESTORA Y TRAE A LOS PILOTOS DEL JSON
         GestorPilotos gestorPilotos = new GestorPilotos();
-        gestorPilotos.cargarPilotoDesdeArchivo();
+        gestorPilotos.cargarDesdeArchivo();
 
         // Convierte el ArrayList a ObservableList
         ObservableList<Piloto> listaObservablePilotos = FXCollections.observableArrayList(gestorPilotos.getListaPilotos());

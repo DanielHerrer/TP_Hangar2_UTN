@@ -2,11 +2,8 @@ package com.utn.hangar.operadorControllers;
 
 import com.utn.hangar.Ventanas;
 import entidades.Piloto;
-import entidades.Usuario;
 import enums.Genero;
 import gestores.GestorPilotos;
-import gestores.GestorRegistros;
-import gestores.GestorUsuarios;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -64,7 +61,7 @@ public class CrearPilotoController {
 
             //SE TRAEN TODOS LOS PILOTOS DEL JSON Y SE GUARDAN EN LA LISTA DE LA CLASE GESTORA
             GestorPilotos gestorPilotos = new GestorPilotos();
-            gestorPilotos.cargarPilotoDesdeArchivo();
+            gestorPilotos.cargarDesdeArchivo();
 
             // VALIDA QUE NO HAYA CAMPOS VACIOS
             if (dni.isEmpty() || nombre.isEmpty() || gen == null || inputAnioNac.getText().isBlank() || licencia.isEmpty() || horasDeVuelo < 0) {
@@ -100,7 +97,7 @@ public class CrearPilotoController {
             //SE AGREGA EL PILOTO AL ARREGLO DE LA CLASE GESTORA
             gestorPilotos.agregar(piloto);
             //Y SE GUARDA EL CONTENIDO DEL ARREGLO EN EL JSON
-            gestorPilotos.guardarPilotoToFile();
+            gestorPilotos.guardarEnArchivo();
 
             Stage stage = (Stage) btnRegister.getScene().getWindow();
             Ventanas.cambioEscena("Sistema Hangar 2.0",stage, "/com/utn/hangar/operadorViews/cuartel-pilotos-view.fxml");

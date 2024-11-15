@@ -42,7 +42,7 @@ public class ModifyPerfilController {
         SelecGen.getItems().setAll(Genero.values());
         // TRAE EL USUARIO LOGEADO ACTUALMENTE
         GestorUsuarios gestorUsuarios = new GestorUsuarios();
-        gestorUsuarios.cargarUsuarioDesdeArchivo();
+        gestorUsuarios.cargarDesdeArchivo();
         Usuario userLog = Data.getUserLogueado();
         // SETEA LA INFORMACION
         inputNomApe.setText(userLog.getNombreApellido());
@@ -74,7 +74,7 @@ public class ModifyPerfilController {
 
             // TRAE EL USUARIO SELECCIONADO
             GestorUsuarios conUser = new GestorUsuarios();
-            conUser.cargarUsuarioDesdeArchivo();
+            conUser.cargarDesdeArchivo();
             Usuario userLog = conUser.obtenerUsuarioLogueado(Data.getUserLogueado());
 
             //SE COMPRUEBA QUE NO SE REPITA EL DNI
@@ -89,7 +89,7 @@ public class ModifyPerfilController {
             userLog.setAnioNacimiento(anioNacimiento);
 
             // Guarda los cambios en el archivo JSON
-            conUser.guardarUsuarioToFile();
+            conUser.guardarEnArchivo();
 
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Modificacion exitosa");

@@ -65,7 +65,7 @@ public class RegisterController {
 
             //SE TRAEN TODOS LOS USUARIOS DEL JSON Y SE GUARDAN EN LA LISTA DE LA CLASE GESTORA
             GestorUsuarios conUsuarios = new GestorUsuarios();
-            conUsuarios.cargarUsuarioDesdeArchivo();
+            conUsuarios.cargarDesdeArchivo();
 
             // VALIDACIONES
             if (inputNomApe.getText().isBlank()) {
@@ -113,13 +113,13 @@ public class RegisterController {
             //SE AGREGA EL USUARIO AL ARREGLO DE LA CLASE GESTORA
             conUsuarios.agregar(usuario1);
             //Y SE GUARDA EL CONTENIDO DEL ARREGLO EN EL JSON
-            conUsuarios.guardarUsuarioToFile();
+            conUsuarios.guardarEnArchivo();
 
             //TAMBIEN SE GUARDA LA INFORMACION DEL REGISTRO EN EL JSON DE REGISTROS
             GestorRegistros gestorRegistros = new GestorRegistros();
-            gestorRegistros.cargarRegistrosDesdeArchivo();
+            gestorRegistros.cargarDesdeArchivo();
             gestorRegistros.guardarRegistro(usuario1);
-            gestorRegistros.guardarRegistrosEnArchivo();
+            gestorRegistros.guardarEnArchivo();
 
 
             Stage stage = (Stage) btnRegister.getScene().getWindow();

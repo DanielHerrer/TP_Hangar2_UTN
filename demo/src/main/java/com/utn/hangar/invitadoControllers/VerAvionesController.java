@@ -1,7 +1,6 @@
 package com.utn.hangar.invitadoControllers;
 
 import com.utn.hangar.Ventanas;
-import constantes.Data;
 import entidades.Avion;
 import gestores.GestorAviones;
 import javafx.beans.property.SimpleObjectProperty;
@@ -57,7 +56,7 @@ public class VerAvionesController {
     public void initialize() {
         //LLAMA A CLASE GESTORA Y TRAE A LOS AVIONES DEL JSON
         GestorAviones gestorAviones = new GestorAviones();
-        gestorAviones.cargarAvionDesdeArchivo();
+        gestorAviones.cargarDesdeArchivo();
 
         // Convierte el ArrayList a ObservableList
         ObservableList<Avion> listaObservableAviones = FXCollections.observableArrayList(gestorAviones.getListaAviones());

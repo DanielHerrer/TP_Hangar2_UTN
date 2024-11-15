@@ -5,15 +5,14 @@ import entidades.Piloto;
 import enums.Genero;
 import enums.Rango;
 import excepciones.FormatoIncorrectoException;
-import excepciones.ObjetoInexistenteException;
 import excepciones.ObjetoRepetidoException;
-import interfaces.iABML;
+import interfaces.iMetodosJSON;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class GestorPilotos implements iABML<Piloto> {
+public class GestorPilotos implements iMetodosJSON {
 
     public ArrayList<Piloto> listaPilotos;
 
@@ -29,9 +28,7 @@ public class GestorPilotos implements iABML<Piloto> {
         this.listaPilotos = listaPilotos;
     }
 
-    // ======================= METODOS INTERFAZ =====================================
 
-    @Override
     public boolean agregar(Piloto p) throws FormatoIncorrectoException, ObjetoRepetidoException {
         if (listaPilotos.contains(p)) {
             throw new ObjetoRepetidoException("El piloto ya esta cargado en el sistema");
@@ -43,32 +40,6 @@ public class GestorPilotos implements iABML<Piloto> {
         else {
             throw new FormatoIncorrectoException("El formato introducido no es correcto");
         }
-    }
-
-    @Override
-    public boolean eliminar(Piloto p) throws FormatoIncorrectoException, ObjetoInexistenteException {
-        if (p.getId() != 0  && p.getNumeroLicencia() != null && p.getRango() != null) {
-            if (listaPilotos.contains(p)) {
-                p.setAlta(0);
-                return true;
-            }
-            else {
-                throw new ObjetoInexistenteException("El usuario no se encuentra en el sistema");
-            }
-        }
-        else {
-            throw new FormatoIncorrectoException("El usuario introducido no posee el formato correcto");
-        }
-    }
-
-    @Override
-    public boolean modificar(Piloto p) {
-        return false;
-    }
-
-    @Override
-    public boolean listar(Piloto p) {
-        return false;
     }
 
     // ================================================================================
@@ -89,7 +60,7 @@ public class GestorPilotos implements iABML<Piloto> {
         for (Piloto p : listaPilotos) {
             if (p.equals(pilotoHangar)) {
                 p.setDisponible(true);
-                guardarPilotoToFile();
+                guardarEnArchivo();
                 return true;
             }
         }
@@ -147,7 +118,7 @@ public class GestorPilotos implements iABML<Piloto> {
      * @return devuelve un boolean de acuerdo a si esta o no
      */
     public boolean verificarPiloto (Piloto p) {
-        cargarPilotoDesdeArchivo();
+        cargarDesdeArchivo();
 
         return listaPilotos.contains(p);
 
@@ -164,13 +135,15 @@ public class GestorPilotos implements iABML<Piloto> {
         return jsonArray;
     }
 
-    public void guardarPilotoToFile() {
+    @Override
+    public void guardarEnArchivo() {
         JSONArray pilotoArray = crearJSONArray();
 
         Data.grabar(Data.archivoPilotos, pilotoArray);
     }
 
-    public void cargarPilotoDesdeArchivo () {
+    @Override
+    public void cargarDesdeArchivo() {
         try {
 
             JSONArray tasksArray = new JSONArray(Data.leerArchivo(Data.archivoPilotos));
