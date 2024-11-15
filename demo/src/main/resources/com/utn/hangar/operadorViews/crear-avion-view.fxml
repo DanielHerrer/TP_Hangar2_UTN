@@ -12,34 +12,42 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="670.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.utn.hangar.operadorControllers.CrearAvionController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.utn.hangar.operadorControllers.CrearAvionController">
     <children>
-      <ImageView fitHeight="700.0" fitWidth="1200.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="700.0" fitWidth="1010.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="-500.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-500.0" AnchorPane.topAnchor="0.0">
          <image>
-            <Image url="@../../../../images/image2.png" />
+            <Image url="@../../../../images/image6.png" />
          </image>
          <effect>
             <BoxBlur height="6.0" width="6.0" />
          </effect>
       </ImageView>
-      <AnchorPane layoutX="373.0" layoutY="96.0" prefHeight="458.0" prefWidth="454.0" style="-fx-background-color: white;">
+      <AnchorPane layoutX="310.0" layoutY="107.0" prefHeight="458.0" prefWidth="380.0" style="-fx-background-color: white; -fx-background-radius: 8;">
          <children>
-              <Label layoutX="101.0" layoutY="28.0" prefHeight="36.0" prefWidth="282.0" text="Ingrese los datos">
+              <Label alignment="CENTER" layoutX="111.0" layoutY="59.0" prefHeight="43.0" prefWidth="159.0" text="Ingrese los">
                   <font>
-                      <Font size="34.0" />
+                      <Font size="29.0" />
                   </font>
             </Label>
-              <TextField fx:id="nombre" layoutX="124.0" layoutY="89.0" prefHeight="34.0" prefWidth="208.0" promptText="Nombre avion" />
-              <TextField fx:id="numeracion" layoutX="124.0" layoutY="150.0" prefHeight="34.0" prefWidth="208.0" promptText="Numeracion" />
-              <TextField fx:id="modelo" layoutX="124.0" layoutY="214.0" prefHeight="34.0" prefWidth="208.0" promptText="Modelo" />
-              <TextField fx:id="aerolinea" layoutX="124.0" layoutY="275.0" prefHeight="34.0" prefWidth="208.0" promptText="Aerolinea" />
-              <TextField fx:id="capacidadPasajeros" layoutX="124.0" layoutY="338.0" prefHeight="34.0" prefWidth="208.0" promptText="Capacidad de pasajeros" />
-              <Button fx:id="btnRegister" layoutX="149.0" layoutY="399.0" mnemonicParsing="false" onAction="#onClickBtnRegister" style="-fx-background-color: lightblue;" text="Registrar avion">
+              <TextField fx:id="nombre" layoutX="91.0" layoutY="146.0" prefHeight="34.0" prefWidth="208.0" promptText="Nombre avion" />
+              <TextField fx:id="numeracion" layoutX="91.0" layoutY="189.0" prefHeight="34.0" prefWidth="208.0" promptText="Numeracion" />
+              <TextField fx:id="modelo" layoutX="91.0" layoutY="232.0" prefHeight="34.0" prefWidth="208.0" promptText="Modelo" />
+              <TextField fx:id="aerolinea" layoutX="91.0" layoutY="275.0" prefHeight="34.0" prefWidth="208.0" promptText="Aerolinea" />
+              <TextField fx:id="capacidadPasajeros" layoutX="91.0" layoutY="318.0" prefHeight="34.0" prefWidth="208.0" promptText="Capacidad de pasajeros" />
+              <Button fx:id="btnRegister" layoutX="108.0" layoutY="377.0" mnemonicParsing="false" onAction="#onClickBtnRegister" style="-fx-background-color: lightblue;" text="Registrar Avion">
                   <padding>
                       <Insets bottom="10.0" left="40.0" right="40.0" top="10.0" />
                   </padding>
+               <font>
+                  <Font size="14.0" />
+               </font>
             </Button>
-              <Button fx:id="btnVolver" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#onClickBtnVolver" prefHeight="27.0" prefWidth="65.0" text="Volver" />
+              <Button fx:id="btnVolver" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#onClickBtnVolver" prefHeight="27.0" prefWidth="65.0" style="-fx-background-color: pink;" text="Volver" AnchorPane.leftAnchor="23.0" AnchorPane.topAnchor="23.0" />
+            <Label alignment="CENTER" layoutX="81.0" layoutY="89.0" prefHeight="43.0" prefWidth="218.0" text="datos del Avion">
+               <font>
+                  <Font size="29.0" />
+               </font>
+            </Label>
          </children>
          <effect>
             <DropShadow height="26.0" offsetX="10.0" offsetY="10.0" radius="12.75" width="27.0">

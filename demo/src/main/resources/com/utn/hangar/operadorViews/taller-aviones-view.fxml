@@ -10,42 +10,45 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="650.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.utn.hangar.operadorControllers.TallerAvionesController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.utn.hangar.operadorControllers.TallerAvionesController">
 <children>
-      <ImageView fitHeight="700.0" fitWidth="1200.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="700.0" fitWidth="1010.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="-500.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-500.0" AnchorPane.topAnchor="0.0">
          <image>
-            <Image url="@../../../../images/image2.png" />
+            <Image url="@../../../../images/image6.png" />
          </image>
          <effect>
             <BoxBlur height="6.0" width="6.0" />
          </effect>
       </ImageView>
-      <AnchorPane layoutX="429.0" layoutY="179.0" prefHeight="316.0" prefWidth="342.0" style="-fx-background-color: white; -fx-background-radius: 8;">
+      <AnchorPane layoutX="334.0" layoutY="142.0" prefHeight="316.0" prefWidth="342.0" style="-fx-background-color: white; -fx-background-radius: 8;">
          <effect>
-            <DropShadow height="27.0" offsetX="10.0" offsetY="10.0" radius="13.0" width="27.0">
+            <DropShadow height="27.0" radius="13.0" width="27.0">
                <color>
                   <Color opacity="0.21755725145339966" />
                </color>
             </DropShadow>
          </effect>
          <children>
-          <Button fx:id="btnListarAviones" layoutX="82.0" layoutY="106.0" mnemonicParsing="false" onAction="#onClickBtnListaAviones" prefHeight="52.0" prefWidth="178.0" text="Listar Aviones">
+          <Button fx:id="btnListarAviones" layoutX="82.0" layoutY="142.0" mnemonicParsing="false" onAction="#onClickBtnListaAviones" prefHeight="27.0" prefWidth="178.0" text="Listar Aviones">
                <font>
-                  <Font size="24.0" />
+                  <Font size="14.0" />
                </font>
             </Button>
-            <Button fx:id="btnCargarCombustible" layoutX="82.0" layoutY="244.0" mnemonicParsing="false" onAction="#onClickBtnCargarCombustible" prefHeight="52.0" prefWidth="178.0" text="Cargar combustible">
+            <Button fx:id="btnCargarCombustible" layoutX="82.0" layoutY="103.0" mnemonicParsing="false" onAction="#onClickBtnCargarCombustible" prefHeight="27.0" prefWidth="178.0" text="Cargar combustible">
                <font>
-                  <Font size="17.0" />
+                  <Font size="14.0" />
                </font>
             </Button>
-          <Button fx:id="btnCrearAvion" layoutX="82.0" layoutY="174.0" mnemonicParsing="false" onAction="#onClickBtnCrearAvion" prefHeight="52.0" prefWidth="178.0" text="Crear avion">
+          <Button fx:id="btnCrearAvion" layoutX="82.0" layoutY="181.0" mnemonicParsing="false" onAction="#onClickBtnCrearAvion" prefHeight="27.0" prefWidth="178.0" text="Nuevo Avion">
                <font>
-                  <Font size="25.0" />
+                  <Font size="14.0" />
                </font>
             </Button>
-          <Button fx:id="btnVolver" layoutX="14.0" layoutY="16.0" mnemonicParsing="false" onAction="#onClickBtnVolver" prefHeight="27.0" prefWidth="59.0" text="Volver" />
-            <Label layoutX="47.0" layoutY="43.0" prefHeight="52.0" prefWidth="248.0" text="TALLER DE AVIONES">
+          <Button fx:id="btnVolver" layoutX="124.0" layoutY="235.0" mnemonicParsing="false" onAction="#onClickBtnVolver" prefHeight="30.0" prefWidth="95.0" style="-fx-background-color: pink;" text="Volver">
+               <font>
+                  <Font size="14.0" />
+               </font></Button>
+            <Label alignment="CENTER" layoutX="47.0" layoutY="39.0" prefHeight="52.0" prefWidth="248.0" text="Taller de Aviones">
               <font>
                   <Font size="27.0" />
               </font>

@@ -6,32 +6,46 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="525.0" prefWidth="353.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.utn.hangar.adminControllers.ModifyUsuarioController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.utn.hangar.adminControllers.ModifyUsuarioController">
    <children>
-      <Button fx:id="btnVolver" layoutX="133.0" layoutY="457.0" mnemonicParsing="false" onAction="#onClickBtnVolver" prefHeight="23.0" prefWidth="77.0" text="Volver">
-         <padding>
-            <Insets bottom="7.0" top="7.0" />
-         </padding>
-      </Button>
-      <TextField fx:id="inputNomApe" layoutX="67.0" layoutY="98.0" prefHeight="34.0" prefWidth="208.0" promptText="Nombre y apellido" />
-      <TextField fx:id="inputDNI" layoutX="68.0" layoutY="184.0" prefHeight="34.0" prefWidth="208.0" promptText="DNI" />
-      <TextField fx:id="inputAnioNac" layoutX="68.0" layoutY="141.0" prefHeight="34.0" prefWidth="208.0" promptText="Año de nacimiento" />
-      <ComboBox fx:id="SelecGen" layoutX="68.0" layoutY="228.0" prefHeight="34.0" prefWidth="208.0" promptText="Genero" visibleRowCount="3" />
-      <Button fx:id="btnSavePerfil" layoutX="102.0" layoutY="409.0" mnemonicParsing="false" onAction="#onClickBtnSavePerfil" style="-fx-background-color: lightgreen;" text="Guardar cambios">
-         <padding>
-            <Insets bottom="10.0" left="25.0" right="25.0" top="10.0" />
-         </padding>
-      </Button>
-      <Label alignment="CENTER" layoutX="55.0" layoutY="47.0" prefHeight="36.0" prefWidth="234.0" text="Modificar Usuario">
-         <font>
-            <Font size="25.0" />
-         </font>
-      </Label>
-      <TextField fx:id="inputUser" layoutX="68.0" layoutY="299.0" prefHeight="34.0" prefWidth="208.0" promptText="Ingrese nuevo usuario.." />
-      <PasswordField fx:id="inputPass" layoutX="68.0" layoutY="342.0" prefHeight="34.0" prefWidth="208.0" promptText="Ingrese nueva contraseña.." />
+      <ImageView fitHeight="610.0" fitWidth="1250.0" preserveRatio="true" AnchorPane.bottomAnchor="-500.0" AnchorPane.leftAnchor="-150.0" AnchorPane.rightAnchor="-500.0" AnchorPane.topAnchor="0.0">
+         <image>
+            <Image url="@../../../../images/image3.png" />
+         </image>
+      </ImageView>
+      <AnchorPane layoutX="324.0" layoutY="38.0" prefHeight="525.0" prefWidth="353.0" style="-fx-background-color: white; -fx-background-radius: 8;">
+         <children>
+            <Button fx:id="btnVolver" layoutX="102.0" layoutY="455.0" mnemonicParsing="false" onAction="#onClickBtnVolver" prefHeight="31.0" prefWidth="140.0" style="-fx-background-color: pink;" text="Volver">
+               <padding>
+                  <Insets bottom="7.0" top="7.0" />
+               </padding>
+            </Button>
+            <TextField fx:id="inputNomApe" layoutX="67.0" layoutY="98.0" prefHeight="34.0" prefWidth="208.0" promptText="Nombre y apellido" />
+            <TextField fx:id="inputDNI" layoutX="68.0" layoutY="184.0" prefHeight="34.0" prefWidth="208.0" promptText="DNI" />
+            <TextField fx:id="inputAnioNac" layoutX="68.0" layoutY="141.0" prefHeight="34.0" prefWidth="208.0" promptText="Año de nacimiento" />
+            <ComboBox fx:id="SelecGen" layoutX="68.0" layoutY="228.0" prefHeight="34.0" prefWidth="208.0" promptText="Genero" visibleRowCount="3" />
+            <Button fx:id="btnSavePerfil" layoutX="102.0" layoutY="409.0" mnemonicParsing="false" onAction="#onClickBtnSavePerfil" style="-fx-background-color: lightgreen;" text="Guardar cambios">
+               <padding>
+                  <Insets bottom="10.0" left="25.0" right="25.0" top="10.0" />
+               </padding>
+            </Button>
+            <Label alignment="CENTER" layoutX="55.0" layoutY="49.0" prefHeight="36.0" prefWidth="234.0" text="Modificar Usuario">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+            <TextField fx:id="inputUser" layoutX="68.0" layoutY="294.0" prefHeight="34.0" prefWidth="208.0" promptText="Ingrese nuevo usuario.." />
+            <PasswordField fx:id="inputPass" layoutX="68.0" layoutY="337.0" prefHeight="34.0" prefWidth="208.0" promptText="Ingrese nueva contraseña.." />
+         </children>
+         <effect>
+            <DropShadow blurType="GAUSSIAN" height="27.0" radius="13.0" width="27.0" />
+         </effect>
+      </AnchorPane>
    </children>
 </AnchorPane>

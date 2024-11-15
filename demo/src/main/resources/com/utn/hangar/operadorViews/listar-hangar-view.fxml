@@ -12,43 +12,43 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="670.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.utn.hangar.operadorControllers.ListaHangarController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.utn.hangar.operadorControllers.ListaHangarController">
    <children>
-      <ImageView fitHeight="715.0" fitWidth="1200.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="715.0" fitWidth="1010.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="-500.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-500.0" AnchorPane.topAnchor="0.0">
          <image>
-            <Image url="@../../../../images/image2.png" />
+            <Image url="@../../../../images/image8.png" />
          </image>
          <effect>
             <BoxBlur height="6.0" width="6.0" />
          </effect>
       </ImageView>
-      <AnchorPane layoutX="210.0" layoutY="130.0" prefHeight="413.0" prefWidth="780.0" style="-fx-background-color: white; -fx-background-radius: 8;">
+      <AnchorPane layoutX="76.0" layoutY="62.0" prefHeight="477.0" prefWidth="849.0" style="-fx-background-color: white; -fx-background-radius: 8;">
          <effect>
-            <DropShadow height="27.0" offsetX="10.0" offsetY="10.0" radius="13.0" width="27.0">
+            <DropShadow height="27.0" radius="13.0" width="27.0">
                <color>
                   <Color opacity="0.45038166642189026" />
                </color>
             </DropShadow>
          </effect>
          <children>
-            <TableView fx:id="tablaHangar" layoutX="18.0" layoutY="70.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="322.0" prefWidth="745.0">
+            <TableView fx:id="tablaHangar" layoutX="52.0" layoutY="109.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="322.0" prefWidth="745.0">
                <columns>
-                  <TableColumn fx:id="nombrePiloto" prefWidth="130.0" text="Nombre Piloto" />
-                  <TableColumn fx:id="nroLicencia" prefWidth="106.0" text="Licencia" />
-                  <TableColumn fx:id="rangoPiloto" prefWidth="132.0" text="Rango" />
-                  <TableColumn fx:id="nombreAvion" prefWidth="115.0" text="Nombre Avion" />
-                  <TableColumn fx:id="numeracionAvion" prefWidth="126.0" text="Numeracion" />
-                  <TableColumn fx:id="pasajerosAvion" prefWidth="133.0" text="Capacidad Pasajeros" />
+                  <TableColumn fx:id="nombrePiloto" prefWidth="166.0" text="Piloto" />
+                  <TableColumn fx:id="nroLicencia" prefWidth="96.0" text="Licencia" />
+                  <TableColumn fx:id="rangoPiloto" prefWidth="157.0" text="Rango" />
+                  <TableColumn fx:id="nombreAvion" prefWidth="140.0" text="Avion" />
+                  <TableColumn fx:id="numeracionAvion" prefWidth="86.0" text="Numeración" />
+                  <TableColumn fx:id="pasajerosAvion" prefWidth="99.0" text="Pasajeros" />
                </columns>
             </TableView>
-            <Label layoutX="230.0" layoutY="14.0" prefHeight="47.0" prefWidth="321.0" text="AVIONES EN HANGAR">
+            <Label layoutX="173.0" layoutY="47.0" prefHeight="47.0" prefWidth="504.0" text="Listado Aviones dentro del Hangar">
                <font>
                   <Font size="32.0" />
                </font>
             </Label>
-            <Button fx:id="btnVolver" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#onClickBtnVolver" prefHeight="35.0" prefWidth="68.0" text="Volver">
+            <Button fx:id="btnVolver" layoutX="23.0" layoutY="23.0" mnemonicParsing="false" onAction="#onClickBtnVolver" prefHeight="26.0" prefWidth="95.0" style="-fx-background-color: pink;" text="Volver" AnchorPane.leftAnchor="23.0" AnchorPane.topAnchor="23.0">
                <font>
-                  <Font size="15.0" />
+                  <Font size="14.0" />
                </font>
             </Button>
          </children>

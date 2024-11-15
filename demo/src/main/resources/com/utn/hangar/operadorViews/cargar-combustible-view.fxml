@@ -5,43 +5,47 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.effect.BoxBlur?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane layoutX="-27.0" prefHeight="650.0" prefWidth="1210.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.utn.hangar.operadorControllers.CargarCombustibleController">
+<AnchorPane layoutX="-27.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.utn.hangar.operadorControllers.CargarCombustibleController">
    <children>
-      <ImageView fitHeight="700.0" fitWidth="1200.0" layoutX="26.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="700.0" fitWidth="1010.0" layoutX="26.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="-500.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-500.0" AnchorPane.topAnchor="0.0">
          <image>
-            <Image url="@../../../../images/image2.png" />
+            <Image url="@../../../../images/image6.png" />
          </image>
          <effect>
             <BoxBlur height="6.0" width="6.0" />
          </effect>
       </ImageView>
-      <AnchorPane layoutX="264.0" layoutY="100.0" prefHeight="473.0" prefWidth="724.0" style="-fx-background-color: white; -fx-background-radius: 8;">
+      <AnchorPane layoutX="143.0" layoutY="64.0" prefHeight="473.0" prefWidth="724.0" style="-fx-background-color: white; -fx-background-radius: 8;">
          <children>
-            <TableView fx:id="tablaCombustible" layoutX="66.0" layoutY="77.0" prefHeight="319.0" prefWidth="603.0">
+            <TableView fx:id="tablaCombustible" layoutX="62.0" layoutY="105.0" prefHeight="319.0" prefWidth="603.0">
                <columns>
                   <TableColumn fx:id="idAvion" prefWidth="37.0" text="ID" />
                   <TableColumn fx:id="nombreAvion" prefWidth="135.0" text="Nombre" />
                   <TableColumn fx:id="numeracionAvion" prefWidth="112.0" text="Numeracion" />
-                  <TableColumn fx:id="nivelCombustible" prefWidth="192.0" text="Nivel Combustible" />
-                  <TableColumn fx:id="llenarTanque" prefWidth="128.0" />
+                  <TableColumn fx:id="nivelCombustible" prefWidth="181.0" text="Nivel Combustible" />
+                  <TableColumn fx:id="llenarTanque" prefWidth="139.0" />
                </columns>
             </TableView>
-            <Label layoutX="220.0" layoutY="14.0" prefHeight="35.0" prefWidth="294.0" text="NIVELES DE COMBUSTIBLE">
+            <Label alignment="CENTER" layoutX="216.0" layoutY="53.0" prefHeight="35.0" prefWidth="294.0" text="Niveles de Combustible">
                <font>
-                  <Font size="24.0" />
+                  <Font size="26.0" />
                </font>
             </Label>
-            <Button fx:id="btnVolver" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#onClickBtnVolver" prefHeight="35.0" prefWidth="68.0" text="Volver">
+            <Button fx:id="btnVolver" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#onClickBtnVolver" prefHeight="22.0" prefWidth="82.0" style="-fx-background-color: pink;" text="Volver" AnchorPane.leftAnchor="23.0" AnchorPane.topAnchor="23.0">
                <font>
-                  <Font size="15.0" />
+                  <Font size="14.0" />
                </font>
             </Button>
          </children>
+         <effect>
+            <DropShadow />
+         </effect>
       </AnchorPane>
    </children>
 </AnchorPane>

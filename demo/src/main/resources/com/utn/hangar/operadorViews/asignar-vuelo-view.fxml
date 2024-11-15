@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.effect.BoxBlur?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
@@ -10,36 +11,39 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="650.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.utn.hangar.operadorControllers.AsignarVueloController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.utn.hangar.operadorControllers.AsignarVueloController">
    <children>
-      <ImageView fitHeight="670.0" fitWidth="1200.0" layoutX="1.0" style="visibility: 0.5;">
+      <ImageView fitHeight="700.0" fitWidth="1010.0" layoutX="1.0" preserveRatio="true" style="visibility: 0.5;" AnchorPane.bottomAnchor="-500.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-500.0" AnchorPane.topAnchor="0.0">
          <image>
-            <Image url="@../../../../images/image2.png" />
+            <Image url="@../../../../images/image8.png" />
          </image>
          <effect>
             <BoxBlur height="6.0" width="6.0" />
          </effect>
       </ImageView>
-      <AnchorPane layoutX="417.0" layoutY="176.0" prefHeight="318.0" prefWidth="367.0" style="-fx-background-radius: 8; -fx-background-color: white;">
+      <AnchorPane layoutX="322.0" layoutY="115.0" prefHeight="371.0" prefWidth="367.0" style="-fx-background-radius: 8; -fx-background-color: white;">
          <children>
-            <Button fx:id="btnAsignar" layoutX="91.0" layoutY="233.0" mnemonicParsing="false" onAction="#onClickBtnAsignar" prefHeight="44.0" prefWidth="181.0" style="-fx-background-color: #82e0aa;" text="ASIGNAR VUELO">
+            <Label layoutX="133.0" layoutY="73.0" text="Elegir un">
                <font>
-                  <Font size="20.0" />
+                  <Font size="26.0" />
                </font>
-               <effect>
-                  <DropShadow height="5.0" offsetX="3.0" offsetY="3.0" radius="2.0" width="5.0">
-                     <color>
-                        <Color opacity="0.15267175436019897" />
-                     </color>
-                  </DropShadow>
-               </effect>
+            </Label>
+            <Button fx:id="btnAsignar" layoutX="91.0" layoutY="269.0" mnemonicParsing="false" onAction="#onClickBtnAsignar" prefHeight="44.0" prefWidth="181.0" style="-fx-background-color: lightblue;" text="Asignar Vuelo">
+               <font>
+                  <Font size="14.0" />
+               </font>
             </Button>
-            <ComboBox fx:id="btnSelecPiloto" layoutX="76.0" layoutY="150.0" prefHeight="38.0" prefWidth="209.0" promptText="Piloto" />
-            <ComboBox fx:id="btnSelecAvion" layoutX="76.0" layoutY="82.0" prefHeight="38.0" prefWidth="209.0" promptText="Avion" />
-            <Button fx:id="btnVolver" layoutX="23.0" layoutY="20.0" mnemonicParsing="false" onAction="#onClickBtnVolver" prefHeight="31.0" prefWidth="79.0" style="-fx-background-color: #f1948a;" text="Volver" />
+            <ComboBox fx:id="btnSelecPiloto" layoutX="76.0" layoutY="199.0" prefHeight="38.0" prefWidth="209.0" promptText="Piloto" />
+            <ComboBox fx:id="btnSelecAvion" layoutX="76.0" layoutY="150.0" prefHeight="38.0" prefWidth="209.0" promptText="Avion" />
+            <Button fx:id="btnVolver" layoutX="23.0" layoutY="20.0" mnemonicParsing="false" onAction="#onClickBtnVolver" prefHeight="31.0" prefWidth="79.0" style="-fx-background-color: pink;" text="Volver" />
+            <Label layoutX="88.0" layoutY="100.0" text="Avion y su Piloto">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </Label>
          </children>
          <effect>
-            <DropShadow blurType="ONE_PASS_BOX" height="25.17" offsetX="5.0" offsetY="5.0" radius="12.4725" spread="0.11" width="26.72">
+            <DropShadow blurType="ONE_PASS_BOX" height="25.95" radius="12.6675" spread="0.11" width="26.72">
                <color>
                   <Color red="0.18000000715255737" green="0.18000000715255737" blue="0.18000000715255737" opacity="0.4377862513065338" />
                </color>

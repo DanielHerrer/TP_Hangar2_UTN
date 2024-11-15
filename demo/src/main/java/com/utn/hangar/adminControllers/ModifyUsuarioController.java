@@ -117,6 +117,8 @@ public class ModifyUsuarioController {
             alert.setContentText("El usuario ha sido modificado con exito.");
             alert.showAndWait();
 
+
+
         } catch (NumberFormatException e) {
             System.out.println("Año de nacimiento debe ser un número.");
         } catch (Exception e) {

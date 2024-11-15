@@ -34,14 +34,20 @@ public class AdminController {
 
     @FXML
     void onClickBtnListaRegistros(ActionEvent event) {
-
+        try {
+            Stage stage = (Stage) btnListaRegistros.getScene().getWindow();
+            Ventanas.cambioEscena("Sistema Hangar 2.0",stage, "/com/utn/hangar/adminViews/lista-registros-view.fxml");
+        } catch (Exception e) {
+            Ventanas.exceptionError(e);
+            e.printStackTrace();
+        }
     }
 
     // BOTON MODIFICAR PERFIL
     @FXML
     void onClickBtnModifyPerfil(ActionEvent event) {
         try {
-            Stage stage = (Stage) btnListaUsuarios.getScene().getWindow();
+            Stage stage = (Stage) btnModifyPerfil.getScene().getWindow();
             Ventanas.cambioEscena("Sistema Hangar 2.0",stage, "/com/utn/hangar/homeViews/modificar-perfil-view.fxml");
         } catch (Exception e) {
             Ventanas.exceptionError(e);

@@ -12,28 +12,28 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="650.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.utn.hangar.operadorControllers.MenuHangarController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.utn.hangar.operadorControllers.MenuHangarController">
     <children>
-      <ImageView fitHeight="700.0" fitWidth="1200.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="700.0" fitWidth="1010.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="-500.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-500.0" AnchorPane.topAnchor="0.0">
          <image>
-            <Image url="@../../../../images/image2.png" />
+            <Image url="@../../../../images/image8.png" />
          </image>
          <effect>
-            <BoxBlur height="6.0" width="6.0" />
+            <BoxBlur height="3.0" width="3.0" />
          </effect>
       </ImageView>
-      <AnchorPane layoutX="426.0" layoutY="175.0" prefHeight="323.0" prefWidth="348.0" style="-fx-background-color: white; -fx-background-radius: 8;">
+      <AnchorPane layoutX="326.0" layoutY="116.0" prefHeight="369.0" prefWidth="348.0" style="-fx-background-color: white; -fx-background-radius: 8;">
          <effect>
-            <DropShadow height="27.0" offsetX="10.0" offsetY="10.0" radius="13.0" width="27.0">
+            <DropShadow height="27.0" radius="13.0" width="27.0">
                <color>
                   <Color opacity="0.3358778655529022" />
                </color>
             </DropShadow>
          </effect>
          <children>
-              <Button fx:id="btnAsignarVuelo" layoutX="93.0" layoutY="85.0" mnemonicParsing="false" onAction="#onClickBtnAsignarVuelo" prefHeight="42.0" prefWidth="163.0" text="Asignar Vuelo">
+              <Button fx:id="btnAsignarVuelo" layoutX="93.0" layoutY="91.0" mnemonicParsing="false" onAction="#onClickBtnAsignarVuelo" prefHeight="27.0" prefWidth="163.0" text="Asignar Vuelo">
                   <font>
-                      <Font size="16.0" />
+                      <Font size="14.0" />
                   </font>
                <effect>
                   <Blend />
@@ -42,25 +42,28 @@
                   <Cursor fx:constant="DEFAULT" />
                </cursor>
             </Button>
-              <Button fx:id="btnCancelarVuelo" layoutX="93.0" layoutY="141.0" mnemonicParsing="false" onAction="#onClickBtnCancelarVuelo" prefHeight="42.0" prefWidth="163.0" text="Cancelar Vuelo">
+              <Button fx:id="btnCancelarVuelo" layoutX="93.0" layoutY="130.0" mnemonicParsing="false" onAction="#onClickBtnCancelarVuelo" prefHeight="30.0" prefWidth="163.0" text="Cancelar Vuelo">
                   <font>
-                      <Font size="16.0" />
+                      <Font size="14.0" />
                   </font>
             </Button>
-            <Button fx:id="btnListarHangar" layoutX="93.0" layoutY="199.0" mnemonicParsing="false" onAction="#onClickBtnListarHangar" prefHeight="42.0" prefWidth="163.0" text="Listar Hangar">
+            <Button fx:id="btnListarHangar" layoutX="93.0" layoutY="169.0" mnemonicParsing="false" onAction="#onClickBtnListarHangar" prefHeight="30.0" prefWidth="163.0" text="Listar Hangar">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnDespegarAviones" layoutX="93.0" layoutY="223.0" mnemonicParsing="false" onAction="#onClickBtnDespegarAviones" prefHeight="42.0" prefWidth="163.0" style="-fx-background-color: lightgreen;" text="Ejecutar Radar">
                <font>
                   <Font size="16.0" />
                </font>
             </Button>
-            <Button fx:id="btnDespegarAviones" layoutX="93.0" layoutY="256.0" mnemonicParsing="false" onAction="#onClickBtnDespegarAviones" prefHeight="42.0" prefWidth="163.0" text="Despegar Aviones">
+              <Button fx:id="btnVolver" layoutX="121.0" layoutY="289.0" mnemonicParsing="false" onAction="#onClickBtnVolver" prefHeight="30.0" prefWidth="107.0" style="-fx-background-color: pink;" text="Volver">
                <font>
-                  <Font size="16.0" />
-               </font>
-            </Button>
-              <Button fx:id="btnVolver" layoutX="14.0" layoutY="15.0" mnemonicParsing="false" onAction="#onClickBtnVolver" prefHeight="27.0" prefWidth="63.0" text="Volver" />
-              <Label layoutX="89.0" layoutY="29.0" prefHeight="42.0" prefWidth="171.0" text="MENU HANGAR ">
+                  <Font size="14.0" />
+               </font></Button>
+              <Label alignment="CENTER" layoutX="56.0" layoutY="36.0" prefHeight="42.0" prefWidth="236.0" text="Hangar de Despegue">
                   <font>
-                      <Font size="23.0" />
+                      <Font size="24.0" />
                   </font>
               </Label>
          </children>

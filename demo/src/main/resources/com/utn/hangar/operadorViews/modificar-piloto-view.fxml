@@ -13,47 +13,50 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="650.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.utn.hangar.operadorControllers.ModifyPilotoController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.utn.hangar.operadorControllers.ModifyPilotoController">
    <children>
-      <ImageView fitHeight="700.0" fitWidth="1200.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="700.0" fitWidth="1010.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="-500.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-500.0" AnchorPane.topAnchor="0.0">
          <image>
-            <Image url="@../../../../images/image2.png" />
+            <Image url="@../../../../images/image6.png" />
          </image>
          <effect>
             <BoxBlur height="6.0" width="6.0" />
          </effect>
       </ImageView>
-      <AnchorPane layoutX="389.0" layoutY="89.0" prefHeight="495.0" prefWidth="423.0" style="-fx-background-color: white; -fx-background-radius: 8;">
+      <AnchorPane layoutX="294.0" layoutY="53.0" prefHeight="495.0" prefWidth="423.0" style="-fx-background-color: white; -fx-background-radius: 8;">
          <effect>
-            <DropShadow height="27.0" offsetX="10.0" offsetY="10.0" radius="13.0" width="27.0">
+            <DropShadow height="27.0" radius="13.0" width="27.0">
                <color>
                   <Color opacity="0.30534350872039795" />
                </color>
             </DropShadow>
          </effect>
          <children>
-            <Label alignment="CENTER" layoutX="97.0" layoutY="26.0" prefHeight="43.0" prefWidth="240.0" text="Modificar Piloto">
+            <Label alignment="CENTER" layoutX="92.0" layoutY="79.0" prefHeight="43.0" prefWidth="240.0" text="Modificar Piloto">
                <font>
                   <Font size="33.0" />
                </font>
             </Label>
-            <Button fx:id="btnVolver" layoutX="14.0" layoutY="11.0" mnemonicParsing="false" onAction="#onClickBtnVolver" prefHeight="22.0" prefWidth="47.0" text="Volver">
+            <Button fx:id="btnVolver" layoutX="14.0" layoutY="11.0" mnemonicParsing="false" onAction="#onClickBtnVolver" prefHeight="23.0" prefWidth="71.0" text="Volver" AnchorPane.leftAnchor="23.0" AnchorPane.topAnchor="23.0">
                <padding>
                   <Insets bottom="7.0" top="7.0" />
                </padding>
+               <font>
+                  <Font size="14.0" />
+               </font>
             </Button>
-            <TextField fx:id="inputNomApe" layoutX="97.0" layoutY="75.0" prefHeight="43.0" prefWidth="230.0" promptText="Nombre y apellido" />
-            <TextField fx:id="inputAnioNac" layoutX="97.0" layoutY="131.0" prefHeight="43.0" prefWidth="230.0" promptText="Año de nacimiento" />
-            <TextField fx:id="inputDNI" layoutX="97.0" layoutY="186.0" prefHeight="43.0" prefWidth="230.0" promptText="DNI" />
-            <ComboBox fx:id="SelecGen" layoutX="97.0" layoutY="365.0" prefHeight="43.0" prefWidth="230.0" promptText="Genero" visibleRowCount="3" />
-            <TextField fx:id="inputLicencia" layoutX="97.0" layoutY="245.0" prefHeight="43.0" prefWidth="230.0" promptText="Numero de licencia" />
-            <TextField fx:id="inputHorasVuelo" layoutX="97.0" layoutY="305.0" prefHeight="43.0" prefWidth="230.0" promptText="Horas de vuelo" />
-            <Button fx:id="btnSavePerfil" layoutX="118.0" layoutY="429.0" mnemonicParsing="false" onAction="#onClickBtnSavePerfil" prefHeight="43.0" prefWidth="188.0" style="-fx-background-color: lightgreen;" text="Guardar cambios">
+            <TextField fx:id="inputNomApe" layoutX="97.0" layoutY="140.0" prefHeight="31.0" prefWidth="230.0" promptText="Nombre y apellido" />
+            <TextField fx:id="inputAnioNac" layoutX="97.0" layoutY="180.0" prefHeight="31.0" prefWidth="230.0" promptText="Año de nacimiento" />
+            <TextField fx:id="inputDNI" layoutX="97.0" layoutY="220.0" prefHeight="31.0" prefWidth="230.0" promptText="DNI" />
+            <ComboBox fx:id="SelecGen" layoutX="97.0" layoutY="340.0" prefHeight="31.0" prefWidth="230.0" promptText="Genero" visibleRowCount="3" />
+            <TextField fx:id="inputLicencia" layoutX="97.0" layoutY="260.0" prefHeight="31.0" prefWidth="230.0" promptText="Numero de licencia" />
+            <TextField fx:id="inputHorasVuelo" layoutX="97.0" layoutY="300.0" prefHeight="31.0" prefWidth="230.0" promptText="Horas de vuelo" />
+            <Button fx:id="btnSavePerfil" layoutX="118.0" layoutY="402.0" mnemonicParsing="false" onAction="#onClickBtnSavePerfil" prefHeight="43.0" prefWidth="188.0" style="-fx-background-color: lightblue;" text="Guardar cambios">
                <padding>
                   <Insets bottom="10.0" left="25.0" right="25.0" top="10.0" />
                </padding>
                <font>
-                  <Font size="18.0" />
+                  <Font size="16.0" />
                </font>
             </Button>
          </children>

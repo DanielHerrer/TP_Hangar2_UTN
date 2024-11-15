@@ -17,6 +17,9 @@ public class HomeController {
     private Button btnRegister;
 
     @FXML
+    private Button btnSalir;
+
+    @FXML
     void onClickBtnLogin(ActionEvent event) {
         try {
             Stage stage = (Stage) btnLogin.getScene().getWindow();
@@ -39,6 +42,12 @@ public class HomeController {
             Ventanas.exceptionError(e);
             e.printStackTrace();
         }
+    }
+
+    @FXML
+    void onClickBtnSalir(ActionEvent event) {
+        Stage stage = (Stage) btnRegister.getScene().getWindow();
+        stage.close();
     }
 
 }

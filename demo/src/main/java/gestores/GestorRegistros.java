@@ -22,6 +22,13 @@ public class GestorRegistros implements iMetodosJSON {
         this.listaRegistros = new HashMap<>();
     }
 
+    public HashMap<Integer, LocalDateTime> getListaRegistros() {
+        return listaRegistros;
+    }
+
+    public void setListaRegistros(HashMap<Integer, LocalDateTime> listaRegistros) {
+        this.listaRegistros = listaRegistros;
+    }
 
     public void guardarRegistro (Usuario u) {
         this.listaRegistros.put(u.getId(), u.getRegistro());

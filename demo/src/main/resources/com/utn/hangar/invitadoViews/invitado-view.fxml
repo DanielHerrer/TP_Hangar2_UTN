@@ -10,42 +10,45 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="650.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.utn.hangar.invitadoControllers.InvitadoController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.utn.hangar.invitadoControllers.InvitadoController">
     <children>
-      <ImageView fitHeight="700.0" fitWidth="1200.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="700.0" fitWidth="1100.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="-500.0" AnchorPane.leftAnchor="-80.0" AnchorPane.rightAnchor="-500.0" AnchorPane.topAnchor="0.0">
          <image>
             <Image url="@../../../../images/image4.png" />
          </image>
          <effect>
-            <BoxBlur height="12.0" width="12.0" />
+            <BoxBlur height="6.0" width="6.0" />
          </effect>
       </ImageView>
-      <AnchorPane layoutX="419.0" layoutY="163.0" prefHeight="349.0" prefWidth="342.0" style="-fx-background-color: white; -fx-background-radius: 8;">
+      <AnchorPane layoutX="329.0" layoutY="126.0" prefHeight="349.0" prefWidth="342.0" style="-fx-background-color: white; -fx-background-radius: 8;">
          <effect>
-            <DropShadow height="27.0" offsetX="10.0" offsetY="10.0" radius="13.0" width="27.0">
+            <DropShadow height="27.0" radius="13.0" width="27.0">
                <color>
                   <Color opacity="0.31679388880729675" />
                </color>
             </DropShadow>
          </effect>
          <children>
-              <Button fx:id="btnVerAviones" layoutX="81.0" layoutY="78.0" mnemonicParsing="false" onAction="#onClickBtnVerAviones" prefHeight="52.0" prefWidth="200.0" text="Ver Aeroplanos Disponibles">
+              <Button fx:id="btnVerAviones" layoutX="71.0" layoutY="100.0" mnemonicParsing="false" onAction="#onClickBtnVerAviones" prefHeight="35.0" prefWidth="200.0" text="Ver Aeroplanos Disponibles">
                <font>
                   <Font size="14.0" />
                </font>
             </Button>
-              <Button fx:id="btnVerPiloto" layoutX="81.0" layoutY="149.0" mnemonicParsing="false" onAction="#onClickBtnVerPiloto" prefHeight="52.0" prefWidth="200.0" text="Ver Pilotos Disponibles">
+              <Button fx:id="btnVerPiloto" layoutX="71.0" layoutY="147.0" mnemonicParsing="false" onAction="#onClickBtnVerPiloto" prefHeight="35.0" prefWidth="200.0" text="Ver Pilotos Disponibles">
                <font>
-                  <Font size="16.0" />
+                  <Font size="14.0" />
                </font>
             </Button>
-              <Button fx:id="btnModifyPerfil" layoutX="81.0" layoutY="211.0" mnemonicParsing="false" onAction="#onClickBtnModifyPerfil" prefHeight="52.0" prefWidth="200.0" text="Modificar mi perfil">
+              <Button fx:id="btnModifyPerfil" layoutX="95.0" layoutY="210.0" mnemonicParsing="false" onAction="#onClickBtnModifyPerfil" prefHeight="31.0" prefWidth="153.0" text="Modificar mi perfil">
                <font>
-                  <Font size="15.0" />
+                  <Font size="14.0" />
                </font>
             </Button>
-              <Button fx:id="btnLogout" layoutX="124.0" layoutY="288.0" mnemonicParsing="false" onAction="#onBtnLogoutButtonClick" prefHeight="35.0" prefWidth="114.0" text="Cerrar sesión" />
-              <Label layoutX="87.0" layoutY="23.0" prefHeight="35.0" prefWidth="188.0" text="MENU INVITADO">
+              <Button fx:id="btnLogout" layoutX="95.0" layoutY="251.0" mnemonicParsing="false" onAction="#onBtnLogoutButtonClick" prefHeight="31.0" prefWidth="153.0" text="Cerrar sesión">
+               <font>
+                  <Font size="14.0" />
+               </font></Button>
+              <Label alignment="CENTER" layoutX="77.0" layoutY="59.0" prefHeight="35.0" prefWidth="188.0" text="MENU INVITADO" textAlignment="CENTER">
                <font>
                   <Font size="24.0" />
                </font>

@@ -12,9 +12,9 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="635.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.utn.hangar.adminControllers.ListaUsuariosController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.utn.hangar.adminControllers.ListaUsuariosController">
    <children>
-      <ImageView fitHeight="650.0" fitWidth="1250.0" layoutX="-20.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="610.0" fitWidth="1250.0" layoutX="-20.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="-500.0" AnchorPane.leftAnchor="-150.0" AnchorPane.rightAnchor="-500.0" AnchorPane.topAnchor="0.0">
          <image>
             <Image url="@../../../../images/image3.png" />
          </image>
@@ -22,16 +22,16 @@
             <BoxBlur height="3.0" width="3.0" />
          </effect>
       </ImageView>
-      <AnchorPane layoutX="289.0" layoutY="139.0" prefHeight="357.0" prefWidth="622.0" style="-fx-background-color: white; -fx-background-radius: 8;">
+      <AnchorPane layoutX="189.0" layoutY="99.0" prefHeight="412.0" prefWidth="622.0" style="-fx-background-color: white; -fx-background-radius: 8;">
          <effect>
-            <DropShadow height="27.0" offsetX="10.0" offsetY="10.0" radius="13.0" width="27.0">
+            <DropShadow height="27.0" radius="13.0" width="27.0">
                <color>
                   <Color opacity="0.35114502906799316" />
                </color>
             </DropShadow>
          </effect>
          <children>
-            <TableView fx:id="tablaUsuarios" layoutX="41.0" layoutY="66.0" prefHeight="265.0" prefWidth="540.0">
+            <TableView fx:id="tablaUsuarios" layoutX="32.0" layoutY="109.0" prefHeight="265.0" prefWidth="559.0">
               <columns>
                 <TableColumn fx:id="idUsuario" prefWidth="49.0" text="ID" />
                 <TableColumn fx:id="userUsuario" prefWidth="106.0" text="Usuario" />
@@ -41,12 +41,15 @@
                   <TableColumn fx:id="modifyUsuario" prefWidth="83.0" />
               </columns>
             </TableView>
-            <Label layoutX="202.0" layoutY="25.0" text="LISTADO DE USUARIOS">
+            <Label layoutX="199.0" layoutY="53.0" text="Listado de Usuarios">
                <font>
-                  <Font size="21.0" />
+                  <Font size="26.0" />
                </font>
             </Label>
-             <Button fx:id="btnVolver" layoutX="14.0" layoutY="13.0" mnemonicParsing="false" onAction="#onClickBtnVolver" text="Volver" />
+             <Button fx:id="btnVolver" layoutX="27.0" layoutY="14.0" mnemonicParsing="false" onAction="#onClickBtnVolver" style="-fx-background-color: pink;" text="Volver" AnchorPane.leftAnchor="23.0" AnchorPane.topAnchor="23.0">
+               <font>
+                  <Font size="14.0" />
+               </font></Button>
          </children>
       </AnchorPane>
    </children>
