@@ -4,9 +4,8 @@ import constantes.Data;
 import entidades.Usuario;
 import enums.Genero;
 import excepciones.FormatoIncorrectoException;
-import excepciones.ObjetoInexistenteException;
 import excepciones.ObjetoRepetidoException;
-import interfaces.iABML;
+import interfaces.iMetodosJSON;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -14,7 +13,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
-public class GestorUsuarios implements iABML<Usuario> {
+public class GestorUsuarios implements iMetodosJSON {
 
     public static Usuario usuarioLogueado = null;
 
@@ -36,13 +35,7 @@ public class GestorUsuarios implements iABML<Usuario> {
         return listaUsuarios;
     }
 
-    public void setListaUsuarios(ArrayList<Usuario> listaUsuarios) {
-        this.listaUsuarios = listaUsuarios;
-    }
 
-    // ===================== METODOS DE LA INTERFAZ =====================================
-
-    @Override
     public boolean agregar(Usuario u) throws FormatoIncorrectoException, ObjetoRepetidoException {
         if (listaUsuarios.contains(u)) {
             throw new ObjetoRepetidoException("El usuario ya esta cargado en el sistema");
@@ -55,41 +48,6 @@ public class GestorUsuarios implements iABML<Usuario> {
             throw new FormatoIncorrectoException("El formato introducido no es correcto");
         }
     }
-
-    /**
-     * @see "Da a un usuario de baja"
-     * @param u
-     * @return
-     * @throws FormatoIncorrectoException
-     * @throws ObjetoInexistenteException
-     */
-    @Override
-    public boolean eliminar(Usuario u) throws FormatoIncorrectoException, ObjetoInexistenteException {
-        if (u.getId() != 0  && u.getNombreUsuario() != null && u.getContrasenia() != null) {
-            if (listaUsuarios.contains(u)) {
-                u.setAlta(0);
-                return true;
-            }
-            else {
-                throw new ObjetoInexistenteException("El usuario no se encuentra en el sistema");
-            }
-        }
-        else {
-            throw new FormatoIncorrectoException("El usuario introducido no posee el formato correcto");
-        }
-    }
-
-    @Override
-    public boolean modificar(Usuario u) {
-        return false;
-    }
-
-    @Override
-    public boolean listar(Usuario u) {
-        return false;
-    }
-
-    // ==============================================================================================
 
 
     /**
@@ -200,7 +158,8 @@ public class GestorUsuarios implements iABML<Usuario> {
      * @see "El JSONArray devuelto por la funcion anterior, es subido a un archivo.
      *      LLama a la funcion estatica de la clase Archivos para guardarlo"
      */
-    public void guardarUsuarioToFile() {
+    @Override
+    public void guardarEnArchivo() {
         JSONArray usuarioArray = crearJSONArray();
 
         Data.grabar(Data.archivoUsuarios, usuarioArray);
@@ -210,7 +169,8 @@ public class GestorUsuarios implements iABML<Usuario> {
      * @see "Lee el archivo para guardar la informacion en un JSONArray. Luego llama a otra funcion
      *      que guarda el JSONArray en la lista de usuarios"
      */
-    public void cargarUsuarioDesdeArchivo() {
+    @Override
+    public void cargarDesdeArchivo() {
         try {
             JSONArray usuarioArray = new JSONArray(Data.leerArchivo(Data.archivoUsuarios));
 
@@ -234,6 +194,7 @@ public class GestorUsuarios implements iABML<Usuario> {
             listaUsuarios.add(usuario);
         }
     }
+
 
     /**
      * @see "Convierte un Usuario en un JSONObject"

@@ -3,7 +3,6 @@ package com.utn.hangar.operadorControllers;
 import com.utn.hangar.Ventanas;
 import entidades.Avion;
 import enums.Rango;
-import gestores.GestorAviones;
 import gestores.GestorHangar;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -11,13 +10,10 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.geometry.Pos;
 import javafx.scene.control.Button;
-import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.stage.Stage;
-import javafx.util.Callback;
 
 import java.io.IOException;
 
@@ -52,7 +48,7 @@ public class ListaHangarController {
     public void initialize() {
         //LLAMA A CLASE GESTORA Y TRAE A LOS AVIONES DEL JSON
         GestorHangar gestorHangar = new GestorHangar();
-        gestorHangar.cargarHangarDesdeArchivo();
+        gestorHangar.cargarDesdeArchivo();
 
         // Convierte el ArrayList a ObservableList
         ObservableList<Avion> listaObservableAviones = FXCollections.observableArrayList(gestorHangar.getListaHangar());

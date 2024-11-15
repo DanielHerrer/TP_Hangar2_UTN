@@ -1,7 +1,6 @@
 package com.utn.hangar.operadorControllers;
 
 import com.utn.hangar.Ventanas;
-import constantes.Data;
 import entidades.Avion;
 import gestores.GestorAviones;
 import javafx.beans.property.SimpleObjectProperty;
@@ -10,7 +9,6 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.geometry.Pos;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 import javafx.util.Callback;
@@ -45,7 +43,7 @@ public class CargarCombustibleController {
     public void initialize() {
         // Llama a clase gestora y trae a los aviones del JSON
         GestorAviones gestorAviones = new GestorAviones();
-        gestorAviones.cargarAvionDesdeArchivo();
+        gestorAviones.cargarDesdeArchivo();
 
         // Convierte el ArrayList a ObservableList
         ObservableList<Avion> listaObservableAviones = FXCollections.observableArrayList(gestorAviones.getListaAviones());
@@ -92,7 +90,7 @@ public class CargarCombustibleController {
                             // Aquí puedes implementar la lógica para cargar combustible
                             // Por ejemplo, actualizar el nivel de combustible al máximo (100%)
                             avion.setCombustibleActual(100);
-                            gestorAviones.guardarAvionToFile();
+                            gestorAviones.guardarEnArchivo();
 
                             // Refrescar la tabla para mostrar el nuevo nivel de combustible
                             tablaCombustible.refresh();

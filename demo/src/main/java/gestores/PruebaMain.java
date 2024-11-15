@@ -35,7 +35,7 @@ public class PruebaMain {
             System.out.println(e.getMessage());
         }
 
-        gestorPilotos.guardarPilotoToFile();
+        gestorPilotos.guardarEnArchivo();
 
         Avion avi1 = new Avion("Albano", 89, "x-e89", "Latam", 500);
 
@@ -43,15 +43,15 @@ public class PruebaMain {
 
         gestorAviones.listaAviones.add(avi1);
 
-        gestorAviones.guardarAvionToFile();
+        gestorAviones.guardarEnArchivo();
 
         // SIMULACION DEL MENU DE HANGAR ASIGNAR VUELO
         GestorHangar gestorHangar = new GestorHangar();
 
         // CARGO TODAS LAS LISTAS
-        gestorHangar.cargarHangarDesdeArchivo();
-        gestorPilotos.cargarPilotoDesdeArchivo();
-        gestorAviones.cargarAvionDesdeArchivo();
+        gestorHangar.cargarDesdeArchivo();
+        gestorPilotos.cargarDesdeArchivo();
+        gestorAviones.cargarDesdeArchivo();
 
         //ELIJO UN AVION, ELIJO UN PILOTO
         Avion avionSeleccionado = gestorAviones.getAvionPorID(avi1.getId());
@@ -65,11 +65,11 @@ public class PruebaMain {
 
         // Y LO GUARDO EN EL HANGAR
         gestorHangar.agregar(avionSeleccionado);
-        gestorHangar.guardarHangarToFile();
-        gestorAviones.guardarAvionToFile();
+        gestorHangar.guardarEnArchivo();
+        gestorAviones.guardarEnArchivo();
 
         // TAMBIEN ACTUALIZO EL ARCHIVO DE PILOTOS
-        gestorPilotos.guardarPilotoToFile();
+        gestorPilotos.guardarEnArchivo();
 
         // SIMULACION MENU HANGAR CANCELAR VUELO
         // se repiten los mismo pasos de cargar las listas

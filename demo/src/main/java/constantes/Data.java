@@ -52,7 +52,7 @@ public class Data {
     // ============= METODOS PARA OBTENER EL ULTIMO ID DE UN REGISTRO ======================
 
     public static int obtenerUltimoIdUsuario () {
-        gestorUsuarios.cargarUsuarioDesdeArchivo();
+        gestorUsuarios.cargarDesdeArchivo();
 
         if (gestorUsuarios.listaUsuarios.isEmpty()) {
             return 1;
@@ -64,7 +64,7 @@ public class Data {
     }
 
     public static int obtenerUltimoIdPiloto () {
-        gestorPilotos.cargarPilotoDesdeArchivo();
+        gestorPilotos.cargarDesdeArchivo();
 
         if (gestorPilotos.listaPilotos.isEmpty()) {
             return 1;
@@ -76,7 +76,7 @@ public class Data {
     }
 
     public static int obtenerUltimoIdAvion () {
-        gestorAviones.cargarAvionDesdeArchivo();
+        gestorAviones.cargarDesdeArchivo();
 
         if (gestorAviones.listaAviones.isEmpty()) {
             return 1;

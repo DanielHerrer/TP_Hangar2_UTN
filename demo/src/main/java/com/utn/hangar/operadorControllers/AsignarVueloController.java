@@ -37,7 +37,7 @@ public class AsignarVueloController {
     public void initialize() {
         // CARGO PILOTOS Y LOS AGREGO EN EL COMBOBOX
         GestorPilotos gestorPilotos = new GestorPilotos();
-        gestorPilotos.cargarPilotoDesdeArchivo();
+        gestorPilotos.cargarDesdeArchivo();
         btnSelecPiloto.getItems().setAll(gestorPilotos.getListaPilotos());
 
         // APLICO EL STRINGCONVERTER EN PILOTO PARA DARLE UN MEJOR FORMATO
@@ -56,7 +56,7 @@ public class AsignarVueloController {
 
         // CARGO AVIONES Y LOS AGREGO EN EL COMBOBOX
         GestorAviones gestorAviones = new GestorAviones();
-        gestorAviones.cargarAvionDesdeArchivo();
+        gestorAviones.cargarDesdeArchivo();
         btnSelecAvion.getItems().setAll(gestorAviones.getListaAviones());
 
         // LO MISMO CON AVION, LE DOY FORMATO MAS FACHERO
@@ -78,9 +78,9 @@ public class AsignarVueloController {
         try {
             // LLAMO A LAS GESTORAS PARA LUEGO BUSCAR EL AVION/PILOTO SELECCIONADO
             GestorPilotos gestorPilotos = new GestorPilotos();
-            gestorPilotos.cargarPilotoDesdeArchivo();
+            gestorPilotos.cargarDesdeArchivo();
             GestorAviones gestorAviones = new GestorAviones();
-            gestorAviones.cargarAvionDesdeArchivo();
+            gestorAviones.cargarDesdeArchivo();
 
             // ESTO NO APUNTA A LA LISTA DE LA CLASE GESTORA
             Piloto pilotoComboBox = btnSelecPiloto.getSelectionModel().getSelectedItem();
@@ -113,13 +113,13 @@ public class AsignarVueloController {
 
             //LLAMO A LA GESTORA DE HANGAR Y GUARDO EL VUELO SELECCIONADO
             GestorHangar gestorHangar = new GestorHangar();
-            gestorHangar.cargarHangarDesdeArchivo();
+            gestorHangar.cargarDesdeArchivo();
             gestorHangar.agregar(avionSeleccionado);
-            gestorHangar.guardarHangarToFile(); //GUARDO EL VUELO EN EL ARCHIVO JSON DE HANGAR
+            gestorHangar.guardarEnArchivo(); //GUARDO EL VUELO EN EL ARCHIVO JSON DE HANGAR
 
             //TAMBIEN GUARDO LA INFORMACION EN AVION Y EN PILOTO
-            gestorPilotos.guardarPilotoToFile();
-            gestorAviones.guardarAvionToFile();
+            gestorPilotos.guardarEnArchivo();
+            gestorAviones.guardarEnArchivo();
 
 
             Stage stage = (Stage) btnAsignar.getScene().getWindow();

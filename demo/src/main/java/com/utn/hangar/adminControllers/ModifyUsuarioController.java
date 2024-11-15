@@ -45,7 +45,7 @@ public class ModifyUsuarioController {
         SelecGen.getItems().setAll(Genero.values());
         // TRAE EL USUARIO SELECCIONADO
         GestorUsuarios conUser = new GestorUsuarios();
-        conUser.cargarUsuarioDesdeArchivo();
+        conUser.cargarDesdeArchivo();
         Usuario user = conUser.getUsuarioById(Data.getIdAux()); // RETORNA EL USUARIO SEGUN EL ID AUX
         // SETEA LA INFORMACION
         inputNomApe.setText(user.getNombreApellido());
@@ -88,7 +88,7 @@ public class ModifyUsuarioController {
 
             // TRAE EL USUARIO SELECCIONADO
             GestorUsuarios conUser = new GestorUsuarios();
-            conUser.cargarUsuarioDesdeArchivo();
+            conUser.cargarDesdeArchivo();
             Usuario user = conUser.getUsuarioById(Data.getIdAux());
 
             //SE VALIDA QUE EL NOMBRE DE USUARIO NO ESTE REPETIDO
@@ -109,7 +109,7 @@ public class ModifyUsuarioController {
             user.setContrasenia(password);
 
             // Guarda los cambios en el archivo JSON
-            conUser.guardarUsuarioToFile();
+            conUser.guardarEnArchivo();
 
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Modificacion exitosa");

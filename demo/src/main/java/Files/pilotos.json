@@ -9,7 +9,7 @@
         "id": 1,
         "dni": "456123",
         "numeroLicencia": "00020",
-        "disponible": true
+        "disponible": false
     },
     {
         "nombreApellido": "Franco Colapinto",
@@ -57,7 +57,7 @@
         "id": 5,
         "dni": "741963",
         "numeroLicencia": "00899",
-        "disponible": true
+        "disponible": false
     },
     {
         "nombreApellido": "Yamil Yamal",
@@ -69,7 +69,7 @@
         "id": 6,
         "dni": "65642",
         "numeroLicencia": "00016",
-        "disponible": false
+        "disponible": true
     },
     {
         "nombreApellido": "Ricky Blanco",

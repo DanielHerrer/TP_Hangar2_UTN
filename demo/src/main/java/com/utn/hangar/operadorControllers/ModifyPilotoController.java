@@ -50,7 +50,7 @@ public class ModifyPilotoController {
         SelecGen.getItems().setAll(Genero.values());
         // TRAE EL PILOTO SELECCIONADO
         GestorPilotos gestorPilotos = new GestorPilotos();
-        gestorPilotos.cargarPilotoDesdeArchivo();
+        gestorPilotos.cargarDesdeArchivo();
         Piloto piloto = gestorPilotos.getPilotoPorID(Data.getIdAux()); // RETORNA EL PILOTO SEGUN EL ID AUX
         // SETEA LA INFORMACION
         inputNomApe.setText(piloto.getNombreApellido());
@@ -95,7 +95,7 @@ public class ModifyPilotoController {
 
             // TRAE EL PILOTO SELECCIONADO
             GestorPilotos gestorPilotos = new GestorPilotos();
-            gestorPilotos.cargarPilotoDesdeArchivo();
+            gestorPilotos.cargarDesdeArchivo();
             Piloto piloto = gestorPilotos.getPilotoPorID(Data.getIdAux());
 
             //SE VALIDA QUE EL DNI NO ESTE REPETIDO
@@ -116,18 +116,18 @@ public class ModifyPilotoController {
             piloto.setHorasVuelo(horasVuelo); //EL RANGO SE ACTUALIZA AUTOMATICAMENTE
 
             // Guarda los cambios en el archivo JSON
-            gestorPilotos.guardarPilotoToFile();
+            gestorPilotos.guardarEnArchivo();
 
             // TAMBIEN DEBO GUARDARLO EN EL ARCHIVO DE AVIONES Y EN EL HANGAR
             GestorHangar gestorHangar = new GestorHangar();
-            gestorHangar.cargarHangarDesdeArchivo();
+            gestorHangar.cargarDesdeArchivo();
             gestorHangar.actualizarPilotoModificado(piloto);
-            gestorHangar.guardarHangarToFile();
+            gestorHangar.guardarEnArchivo();
 
             GestorAviones gestorAviones = new GestorAviones();
-            gestorAviones.cargarAvionDesdeArchivo();
+            gestorAviones.cargarDesdeArchivo();
             gestorHangar.actualizarPilotoModificado(piloto);
-            gestorHangar.guardarHangarToFile();
+            gestorHangar.guardarEnArchivo();
 
             Stage stage = (Stage) btnSavePerfil.getScene().getWindow();
             Ventanas.cambioEscena("Sistema Hangar 2.0",stage, "/com/utn/hangar/operadorViews/cuartel-pilotos-view.fxml");

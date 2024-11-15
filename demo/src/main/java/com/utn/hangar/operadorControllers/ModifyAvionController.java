@@ -45,7 +45,7 @@ public class ModifyAvionController {
     public void initialize() {
         // TRAE EL AVION SELECCIONADO
         GestorAviones gestorAviones = new GestorAviones();
-        gestorAviones.cargarAvionDesdeArchivo();
+        gestorAviones.cargarDesdeArchivo();
         Avion avion = gestorAviones.getAvionPorID(Data.getIdAux()); // RETORNA EL AVION SEGUN EL ID AUX
         // SETEA LA INFORMACION
         btnNombre.setText(avion.getNombre());
@@ -93,7 +93,7 @@ public class ModifyAvionController {
 
             //SE TRAEN TODOS LOS AVIONES DEL JSON Y SE GUARDAN EN LA LISTA DE LA CLASE GESTORA
             GestorAviones gestorAviones = new GestorAviones();
-            gestorAviones.cargarAvionDesdeArchivo();
+            gestorAviones.cargarDesdeArchivo();
             // TRAIGO AL AVION DESDE EL ARCHIVO JSON
             Avion avionSeleccionado = gestorAviones.getAvionPorID(Data.getIdAux());
 
@@ -112,13 +112,13 @@ public class ModifyAvionController {
 
 
             //Y SE GUARDAN LOS CAMBIOS EN EL JSON
-            gestorAviones.guardarAvionToFile();
+            gestorAviones.guardarEnArchivo();
 
             //TAMBIEN SE ACTUALIZAN LAS MODIFICACIONES CON LOS AVIONES DEL HANGAR
             GestorHangar gestorHangar = new GestorHangar();
-            gestorHangar.cargarHangarDesdeArchivo();
+            gestorHangar.cargarDesdeArchivo();
             gestorHangar.agregarModificado(avionSeleccionado);
-            gestorHangar.guardarHangarToFile();
+            gestorHangar.guardarEnArchivo();
 
             Stage stage = (Stage) btnModify.getScene().getWindow();
             Ventanas.cambioEscena("Sistema Hangar 2.0",stage, "/com/utn/hangar/operadorViews/taller-aviones-view.fxml");

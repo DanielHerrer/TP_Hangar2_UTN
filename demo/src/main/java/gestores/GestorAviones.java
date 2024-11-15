@@ -5,13 +5,14 @@ import entidades.Avion;
 import entidades.Piloto;
 import excepciones.FormatoIncorrectoException;
 import excepciones.ObjetoRepetidoException;
+import interfaces.iMetodosJSON;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
 
 
-public class GestorAviones {
+public class GestorAviones implements iMetodosJSON {
 
     public ArrayList<Avion> listaAviones;
 
@@ -23,10 +24,7 @@ public class GestorAviones {
         return listaAviones;
     }
 
-    public void setListaAviones(ArrayList<Avion> listaAviones) {
-        this.listaAviones = listaAviones;
-    }
-
+    // METODO PARA AGREGAR UN AVION A LA LISTA
     public boolean agregar(Avion a) throws FormatoIncorrectoException, ObjetoRepetidoException {
         if (a.getId() != 0  && a.getNombre() != null && a.getNumeracion() != 0) {
             listaAviones.add(a);
@@ -43,7 +41,7 @@ public class GestorAviones {
         for (Avion avi : listaAviones) {
             if (avi.equals(avionH)) {
                 avi.setPiloto(null);
-                guardarAvionToFile();
+                guardarEnArchivo();
                 return true;
             }
         }
@@ -101,14 +99,15 @@ public class GestorAviones {
         return jsonArray;
     }
 
-
-    public void guardarAvionToFile() {
+    @Override
+    public void guardarEnArchivo() {
         JSONArray pilotoArray = crearJSONArray();
 
         Data.grabar(Data.archivoAvion, pilotoArray);
     }
 
-    public void cargarAvionDesdeArchivo () {
+    @Override
+    public void cargarDesdeArchivo() {
         try {
             JSONArray avionesArray = new JSONArray(Data.leerArchivo(Data.archivoAvion));
 

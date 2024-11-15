@@ -12,7 +12,6 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.time.LocalDateTime;
 import java.util.InputMismatchException;
 
 public class ModifyPassController {
@@ -36,7 +35,7 @@ public class ModifyPassController {
     public void initialize() {
         // TRAE EL USUARIO LOGEADO ACTUALMENTE
         GestorUsuarios gestorUsuarios = new GestorUsuarios();
-        gestorUsuarios.cargarUsuarioDesdeArchivo();
+        gestorUsuarios.cargarDesdeArchivo();
         Usuario userLog = Data.getUserLogueado();
         // SETEA LA INFORMACION
         inputUser.setText(userLog.getNombreUsuario());
@@ -70,7 +69,7 @@ public class ModifyPassController {
 
             // TRAE EL USUARIO SELECCIONADO
             GestorUsuarios gesUser = new GestorUsuarios();
-            gesUser.cargarUsuarioDesdeArchivo();
+            gesUser.cargarDesdeArchivo();
             Usuario userLog = gesUser.obtenerUsuarioLogueado(Data.getUserLogueado());
 
             //SE VALIDA QUE EL NOMBRE DE USUARIO NO ESTE REPETIDO
@@ -83,7 +82,7 @@ public class ModifyPassController {
             userLog.setContrasenia(password);
 
             // Guarda los cambios en el archivo JSON
-            gesUser.guardarUsuarioToFile();
+            gesUser.guardarEnArchivo();
 
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Modificacion exitosa");

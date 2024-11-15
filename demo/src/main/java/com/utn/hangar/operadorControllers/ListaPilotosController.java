@@ -2,10 +2,8 @@ package com.utn.hangar.operadorControllers;
 
 import com.utn.hangar.Ventanas;
 import constantes.Data;
-import entidades.Avion;
 import entidades.Piloto;
 import enums.Rango;
-import gestores.GestorAviones;
 import gestores.GestorPilotos;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -58,7 +56,7 @@ public class ListaPilotosController {
     public void initialize() {
         //LLAMA A CLASE GESTORA Y TRAE A LOS PILOTOS DEL JSON
         GestorPilotos gestorPilotos = new GestorPilotos();
-        gestorPilotos.cargarPilotoDesdeArchivo();
+        gestorPilotos.cargarDesdeArchivo();
 
         // Convierte el ArrayList a ObservableList
         ObservableList<Piloto> listaObservablePilotos = FXCollections.observableArrayList(gestorPilotos.getListaPilotos());
@@ -89,7 +87,7 @@ public class ListaPilotosController {
                             int nuevoEstado = piloto.getAlta() == 1 ? 0 : 1;
                             piloto.setAlta(nuevoEstado);
                             //GUARDO LA MODIFICACION DEL ALTA EN EL ARCHIVO
-                            gestorPilotos.guardarPilotoToFile();
+                            gestorPilotos.guardarEnArchivo();
                             // Actualiza el botón en la interfaz
                             actualizarBotonEstado(btnEstado, nuevoEstado);
                         });

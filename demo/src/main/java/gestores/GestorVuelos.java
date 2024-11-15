@@ -2,17 +2,17 @@ package gestores;
 
 import constantes.Data;
 import entidades.Dupla;
+import interfaces.iMetodosJSON;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
 
-public class GestorVuelos {
+public class GestorVuelos implements iMetodosJSON {
 
     public HashMap<Integer, Dupla> listaVuelos;
     // INTEGER = CODIGO DEL VUELO, DUPLA = ID DEL PILOTO Y EL AVION
@@ -48,27 +48,23 @@ public class GestorVuelos {
         return registrosArray;
     }
 
-    public void guardarVuelosEnArchivo () {
+    @Override
+    public void guardarEnArchivo() {
         JSONArray vueloArray = crearJSONArrayVuelos();
 
         Data.grabar(Data.archivoVuelos, vueloArray);
     }
 
-    public boolean cargarVuelosDesdeArchivo () {
+    @Override
+    public void cargarDesdeArchivo() {
         try {
-            if (Data.leerArchivo(Data.archivoVuelos) == null) {
-                return false; // SI NO LEYO EL ARCHIVO DEVUELVE FALSE
-            }
             JSONArray vueloArray = new JSONArray(Data.leerArchivo(Data.archivoVuelos));
 
             cargarListaDesdeJSONArray(vueloArray);
-
-            return true; // RETORNA TRUE SI LO PUDO LEER
         }
         catch (JSONException e) {
             e.printStackTrace();
         }
-        return true;
     }
 
     public void cargarListaDesdeJSONArray (JSONArray vuelosJSONArray) {

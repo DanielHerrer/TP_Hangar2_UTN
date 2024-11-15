@@ -3,6 +3,7 @@ package gestores;
 import constantes.Data;
 import entidades.Avion;
 import entidades.Piloto;
+import interfaces.iMetodosJSON;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -11,7 +12,7 @@ import java.util.HashSet;
 import static gestores.GestorAviones.JSONObjectToAvion;
 import static gestores.GestorAviones.avionToJSONObject;
 
-public class GestorHangar {
+public class GestorHangar implements iMetodosJSON {
 
     public HashSet<Avion> listaHangar;
 
@@ -36,7 +37,7 @@ public class GestorHangar {
         if (listaHangar.contains(a)) {
             listaHangar.remove(a); // SE BORRA EL ORIGINAL
         }
-        listaHangar.add(a); // SE AGREGA EL MODIFICADO
+        listaHangar.add(a);// SE AGREGA EL MODIFICADO
     }
 
     public void actualizarPilotoModificado (Piloto p) {
@@ -61,7 +62,7 @@ public class GestorHangar {
     // BORRO EL AVION SELECCIONADO DEL ARCHIVO HANGAR Y LO ACTUALIZO
     public boolean eliminarAvionFromHangar (Avion avionCancelado) {
         if (listaHangar.remove(avionCancelado)) {
-            guardarHangarToFile();
+            guardarEnArchivo();
             return true;
         }
         return false;
@@ -79,14 +80,15 @@ public class GestorHangar {
         return jsonArray;
     }
 
-
-    public void guardarHangarToFile() {
+    @Override
+    public void guardarEnArchivo() {
         JSONArray hangarArray = crearJSONArray();
 
         Data.grabar(Data.archivoHangar, hangarArray);
     }
 
-    public void cargarHangarDesdeArchivo () {
+    @Override
+    public void cargarDesdeArchivo() {
         try {
             JSONArray hangarArray = new JSONArray(Data.leerArchivo(Data.archivoHangar));
 

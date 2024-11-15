@@ -2,21 +2,15 @@ package com.utn.hangar.operadorControllers;
 
 import com.utn.hangar.Ventanas;
 import entidades.Avion;
-import entidades.Usuario;
-import enums.Genero;
 import gestores.GestorAviones;
-import gestores.GestorRegistros;
-import gestores.GestorUsuarios;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.time.LocalDateTime;
 import java.util.InputMismatchException;
 
 public class CrearAvionController {
@@ -58,7 +52,7 @@ public class CrearAvionController {
 
             //SE TRAEN TODOS LOS AVIONES DEL JSON Y SE GUARDAN EN LA LISTA DE LA CLASE GESTORA
             GestorAviones gestorAviones = new GestorAviones();
-            gestorAviones.cargarAvionDesdeArchivo();
+            gestorAviones.cargarDesdeArchivo();
 
             // VALIDACIONES
             if (nombre.getText().isBlank() || numeracion.getText().isBlank() || modelo.getText().isBlank() || aerolinea.getText().isBlank() || capacidadPasajeros.getText().isBlank()) {
@@ -90,7 +84,7 @@ public class CrearAvionController {
             //SE AGREGA EL AVION AL ARREGLO DE LA CLASE GESTORA
             gestorAviones.agregar(avion);
             //Y SE GUARDA EL CONTENIDO DEL ARREGLO EN EL JSON
-            gestorAviones.guardarAvionToFile();
+            gestorAviones.guardarEnArchivo();
 
             Stage stage = (Stage) btnRegister.getScene().getWindow();
             Ventanas.cambioEscena("Sistema Hangar 2.0",stage, "/com/utn/hangar/operadorViews/taller-aviones-view.fxml");
