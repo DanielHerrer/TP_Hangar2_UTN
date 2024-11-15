@@ -4,30 +4,54 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.BoxBlur?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="617.0" prefWidth="531.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.utn.hangar.operadorControllers.ModifyAvionController">
+<AnchorPane prefHeight="650.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.utn.hangar.operadorControllers.ModifyAvionController">
    <children>
-      <Button fx:id="btnVolver" layoutX="25.0" layoutY="27.0" mnemonicParsing="false" onAction="#onClickBtnVolver" prefHeight="27.0" prefWidth="64.0" text="VOLVER" />
-      <Label layoutX="133.0" layoutY="29.0" prefHeight="36.0" prefWidth="282.0" text="Ingrese los datos:">
-         <font>
-            <Font size="34.0" />
-         </font>
-      </Label>
-      <TextField fx:id="btnNombre" layoutX="153.0" layoutY="93.0" prefHeight="50.0" prefWidth="243.0" promptText="Nombre avion" />
-      <TextField fx:id="btnNumeracion" layoutX="153.0" layoutY="162.0" prefHeight="50.0" prefWidth="243.0" promptText="Numeracion" />
-      <TextField fx:id="btnModelo" layoutX="153.0" layoutY="232.0" prefHeight="50.0" prefWidth="243.0" promptText="Modelo" />
-      <TextField fx:id="btnAerolinea" layoutX="153.0" layoutY="300.0" prefHeight="50.0" prefWidth="243.0" promptText="Aerolinea" />
-      <TextField fx:id="btnPasajeros" layoutX="153.0" layoutY="370.0" prefHeight="50.0" prefWidth="243.0" promptText="Capacidad de pasajeros" />
-      <Button fx:id="btnModify" layoutX="154.0" layoutY="541.0" mnemonicParsing="false" onAction="#onClickBtnModify" style="-fx-background-color: lightblue;" text="MODIFICAR AVION">
-         <padding>
-            <Insets bottom="10.0" left="40.0" right="40.0" top="10.0" />
-         </padding>
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Button>
-      <TextField fx:id="btnVuelosRealizados" layoutX="153.0" layoutY="445.0" prefHeight="50.0" prefWidth="243.0" promptText="Vuelos Realizados" />
+      <ImageView fitHeight="700.0" fitWidth="1200.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../images/image2.png" />
+         </image>
+         <effect>
+            <BoxBlur height="6.0" width="6.0" />
+         </effect>
+      </ImageView>
+      <AnchorPane layoutX="391.0" layoutY="70.0" prefHeight="534.0" prefWidth="418.0" style="-fx-background-color: white; -fx-background-radius: 8;">
+         <effect>
+            <DropShadow height="27.0" offsetX="10.0" offsetY="10.0" radius="13.0" width="27.0">
+               <color>
+                  <Color opacity="0.33969464898109436" />
+               </color>
+            </DropShadow>
+         </effect>
+         <children>
+            <Label layoutX="82.0" layoutY="14.0" prefHeight="50.0" prefWidth="255.0" text="Ingrese los datos">
+               <font>
+                  <Font size="34.0" />
+               </font>
+            </Label>
+            <TextField fx:id="btnNombre" layoutX="88.0" layoutY="79.0" prefHeight="50.0" prefWidth="243.0" promptText="Nombre avion" />
+            <TextField fx:id="btnNumeracion" layoutX="88.0" layoutY="137.0" prefHeight="50.0" prefWidth="243.0" promptText="Numeracion" />
+            <TextField fx:id="btnModelo" layoutX="88.0" layoutY="193.0" prefHeight="50.0" prefWidth="243.0" promptText="Modelo" />
+            <TextField fx:id="btnAerolinea" layoutX="88.0" layoutY="253.0" prefHeight="50.0" prefWidth="243.0" promptText="Aerolinea" />
+            <TextField fx:id="btnPasajeros" layoutX="88.0" layoutY="311.0" prefHeight="50.0" prefWidth="243.0" promptText="Capacidad de pasajeros" />
+            <TextField fx:id="btnVuelosRealizados" layoutX="88.0" layoutY="370.0" prefHeight="50.0" prefWidth="243.0" promptText="Vuelos Realizados" />
+            <Button fx:id="btnModify" layoutX="101.0" layoutY="436.0" mnemonicParsing="false" onAction="#onClickBtnModify" style="-fx-background-color: lightblue;" text="MODIFICAR AVION">
+               <padding>
+                  <Insets bottom="10.0" left="40.0" right="40.0" top="10.0" />
+               </padding>
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnVolver" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#onClickBtnVolver" prefHeight="22.0" prefWidth="61.0" text="Volver" />
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

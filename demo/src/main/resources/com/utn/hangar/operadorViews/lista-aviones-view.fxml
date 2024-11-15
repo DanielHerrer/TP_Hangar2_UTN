@@ -4,33 +4,57 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.BoxBlur?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="421.0" prefWidth="847.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.utn.hangar.operadorControllers.ListaAvionesController">
+<AnchorPane prefHeight="650.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.utn.hangar.operadorControllers.ListaAvionesController">
    <children>
-      <TableView fx:id="tablaAviones" layoutX="19.0" layoutY="97.0" prefHeight="288.0" prefWidth="805.0">
-         <columns>
-            <TableColumn fx:id="idAvion" prefWidth="37.0" text="ID" />
-            <TableColumn fx:id="nombreAvion" prefWidth="100.0" text="Nombre" />
-            <TableColumn fx:id="numearcionAvion" prefWidth="88.0" text="Numeracion" />
-            <TableColumn fx:id="modeloAvion" prefWidth="100.0" text="Modelo" />
-            <TableColumn fx:id="aerolineaAvion" prefWidth="100.0" text="Aerolinea" />
-            <TableColumn fx:id="capacidadPasajeros" prefWidth="75.0" text="Capacidad" />
-            <TableColumn fx:id="numeroVuelos" prefWidth="92.0" text="N· Vuelos" />
-            <TableColumn fx:id="altaAvion" prefWidth="97.0" text="Estado" />
-            <TableColumn fx:id="modifyAvion" prefWidth="114.0" />
-         </columns>
-      </TableView>
-      <Label layoutX="322.0" layoutY="42.0" prefHeight="35.0" prefWidth="203.0" text="LISTA DE AVIONES">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-      <Button fx:id="btnVolver" layoutX="19.0" layoutY="24.0" mnemonicParsing="false" onAction="#onClickBtnVolver" prefHeight="35.0" prefWidth="68.0" text="Volver">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Button>
+      <ImageView fitHeight="700.0" fitWidth="1200.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../images/image2.png" />
+         </image>
+         <effect>
+            <BoxBlur height="6.0" width="6.0" />
+         </effect>
+      </ImageView>
+      <AnchorPane layoutX="177.0" layoutY="126.0" prefHeight="421.0" prefWidth="847.0" style="-fx-background-color: white; -fx-background-radius: 8;">
+         <children>
+            <TableView fx:id="tablaAviones" layoutX="21.0" layoutY="108.0" prefHeight="288.0" prefWidth="805.0">
+               <columns>
+                  <TableColumn fx:id="idAvion" prefWidth="37.0" text="ID" />
+                  <TableColumn fx:id="nombreAvion" prefWidth="100.0" text="Nombre" />
+                  <TableColumn fx:id="numearcionAvion" prefWidth="88.0" text="Numeracion" />
+                  <TableColumn fx:id="modeloAvion" prefWidth="100.0" text="Modelo" />
+                  <TableColumn fx:id="aerolineaAvion" prefWidth="100.0" text="Aerolinea" />
+                  <TableColumn fx:id="capacidadPasajeros" prefWidth="75.0" text="Capacidad" />
+                  <TableColumn fx:id="numeroVuelos" prefWidth="92.0" text="N· Vuelos" />
+                  <TableColumn fx:id="altaAvion" prefWidth="97.0" text="Estado" />
+                  <TableColumn fx:id="modifyAvion" prefWidth="114.0" />
+               </columns>
+            </TableView>
+            <Label layoutX="322.0" layoutY="50.0" prefHeight="35.0" prefWidth="203.0" text="LISTA DE AVIONES">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Button fx:id="btnVolver" layoutX="14.0" layoutY="15.0" mnemonicParsing="false" onAction="#onClickBtnVolver" prefHeight="35.0" prefWidth="68.0" text="Volver">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+         </children>
+         <effect>
+            <DropShadow height="27.0" offsetX="10.0" offsetY="10.0" radius="13.0" width="27.0">
+               <color>
+                  <Color opacity="0.347328245639801" />
+               </color>
+            </DropShadow>
+         </effect>
+      </AnchorPane>
    </children>
 </AnchorPane>

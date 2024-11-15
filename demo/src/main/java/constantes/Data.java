@@ -20,6 +20,7 @@ public class Data {
 
     public static Usuario userLogueado = null;
     public static Integer idAux = null;
+    public static boolean radarTerminado = false;
 
     public static final String archivoPilotos = "src/main/java/Files/pilotos.json";
     public static final String archivoUsuarios = "src/main/java/Files/usuarios.json";
@@ -27,6 +28,7 @@ public class Data {
     public static final String archivoHangar = "src/main/java/Files/hangar.json";
     public static final String archivoRegistros = "src/main/java/Files/registros.json";
     public static final String archivoVuelos = "src/main/java/Files/vuelos.json";
+
 
     public static GestorUsuarios gestorUsuarios = new GestorUsuarios();
     public static GestorPilotos gestorPilotos = new GestorPilotos();
@@ -46,6 +48,14 @@ public class Data {
 
     public static void setIdAux(Integer idAux) {
         Data.idAux = idAux;
+    }
+
+    public static boolean getRadarTerminado() {
+        return radarTerminado;
+    }
+
+    public static void setRadarTerminado(boolean radarTerminado) {
+        Data.radarTerminado = radarTerminado;
     }
 
     // ============= METODOS PARA OBTENER EL ULTIMO ID DE UN REGISTRO ======================

@@ -4,25 +4,50 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.BoxBlur?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:controller="com.utn.hangar.adminControllers.ListaUsuariosController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="656.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="635.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.utn.hangar.adminControllers.ListaUsuariosController">
    <children>
-      <TableView fx:id="tablaUsuarios" layoutX="59.0" layoutY="85.0" prefHeight="265.0" prefWidth="540.0">
-        <columns>
-          <TableColumn fx:id="idUsuario" prefWidth="49.0" text="ID" />
-          <TableColumn fx:id="userUsuario" prefWidth="106.0" text="Usuario" />
-            <TableColumn fx:id="apellidoUsuario" prefWidth="148.0" text="Nombre Apellido" />
-            <TableColumn fx:id="rolUsuario" prefWidth="93.0" text="Rol" />
-            <TableColumn fx:id="altaUsuario" prefWidth="59.0" text="Estado" />
-            <TableColumn fx:id="modifyUsuario" prefWidth="83.0" />
-        </columns>
-      </TableView>
-      <Label layoutX="220.0" layoutY="39.0" text="LISTADO DE USUARIOS">
-         <font>
-            <Font size="21.0" />
-         </font></Label>
-       <Button fx:id="btnVolver" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#onClickBtnVolver" text="Volver" />
+      <ImageView fitHeight="650.0" fitWidth="1250.0" layoutX="-20.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../images/image3.png" />
+         </image>
+         <effect>
+            <BoxBlur height="3.0" width="3.0" />
+         </effect>
+      </ImageView>
+      <AnchorPane layoutX="289.0" layoutY="139.0" prefHeight="357.0" prefWidth="622.0" style="-fx-background-color: white; -fx-background-radius: 8;">
+         <effect>
+            <DropShadow height="27.0" offsetX="10.0" offsetY="10.0" radius="13.0" width="27.0">
+               <color>
+                  <Color opacity="0.35114502906799316" />
+               </color>
+            </DropShadow>
+         </effect>
+         <children>
+            <TableView fx:id="tablaUsuarios" layoutX="41.0" layoutY="66.0" prefHeight="265.0" prefWidth="540.0">
+              <columns>
+                <TableColumn fx:id="idUsuario" prefWidth="49.0" text="ID" />
+                <TableColumn fx:id="userUsuario" prefWidth="106.0" text="Usuario" />
+                  <TableColumn fx:id="apellidoUsuario" prefWidth="148.0" text="Nombre Apellido" />
+                  <TableColumn fx:id="rolUsuario" prefWidth="93.0" text="Rol" />
+                  <TableColumn fx:id="altaUsuario" prefWidth="59.0" text="Estado" />
+                  <TableColumn fx:id="modifyUsuario" prefWidth="83.0" />
+              </columns>
+            </TableView>
+            <Label layoutX="202.0" layoutY="25.0" text="LISTADO DE USUARIOS">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Label>
+             <Button fx:id="btnVolver" layoutX="14.0" layoutY="13.0" mnemonicParsing="false" onAction="#onClickBtnVolver" text="Volver" />
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

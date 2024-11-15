@@ -4,7 +4,7 @@
         "rango": "ALUMNO_PILOTO",
         "alta": 1,
         "genero": "MASCULINO",
-        "horasVuelo": 24,
+        "horasVuelo": 26,
         "anioNacimiento": 2002,
         "id": 1,
         "dni": "456123",
@@ -13,7 +13,7 @@
     },
     {
         "nombreApellido": "Franco Colapinto",
-        "rango": "SEGUNDO_OFICIAL",
+        "rango": "ALUMNO_PILOTO",
         "alta": 1,
         "genero": "MASCULINO",
         "horasVuelo": 54,

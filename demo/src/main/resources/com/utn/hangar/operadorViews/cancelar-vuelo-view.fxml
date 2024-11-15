@@ -4,25 +4,49 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.BoxBlur?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.utn.hangar.operadorControllers.CancelarVueloController">
+<AnchorPane prefHeight="650.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.utn.hangar.operadorControllers.CancelarVueloController">
    <children>
-      <TableView fx:id="tablaVuelos" layoutX="42.0" layoutY="78.0" prefHeight="265.0" prefWidth="517.0">
-         <columns>
-            <TableColumn fx:id="nombrePiloto" prefWidth="108.0" text="Piloto" />
-            <TableColumn fx:id="nroLicencia" prefWidth="91.0" text="N· Licencia" />
-            <TableColumn fx:id="nombreAvion" prefWidth="119.0" text="Avion" />
-            <TableColumn fx:id="nroMatricula" prefWidth="98.0" text="Numeracion" />
-             <TableColumn fx:id="cancelarVuelo" prefWidth="99.0" />
-         </columns>
-      </TableView>
-      <Label layoutX="172.0" layoutY="27.0" prefHeight="35.0" prefWidth="258.0" text="LISTADO DEL HANGAR">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-      <Button fx:id="btnVolver" layoutX="14.0" layoutY="19.0" mnemonicParsing="false" onAction="#onClickBtnVolver" text="Volver" />
+      <ImageView fitHeight="670.0" fitWidth="1200.0">
+         <image>
+            <Image url="@../../../../images/image2.png" />
+         </image>
+         <effect>
+            <BoxBlur height="6.0" width="6.0" />
+         </effect>
+      </ImageView>
+      <AnchorPane layoutX="263.0" layoutY="129.0" prefHeight="442.0" prefWidth="674.0" style="-fx-background-color: white; -fx-background-radius: 8;">
+         <children>
+            <TableView fx:id="tablaVuelos" layoutX="97.0" layoutY="89.0" prefHeight="265.0" prefWidth="517.0">
+               <columns>
+                  <TableColumn fx:id="nombrePiloto" prefWidth="108.0" text="Piloto" />
+                  <TableColumn fx:id="nroLicencia" prefWidth="91.0" text="N· Licencia" />
+                  <TableColumn fx:id="nombreAvion" prefWidth="119.0" text="Avion" />
+                  <TableColumn fx:id="nroMatricula" prefWidth="98.0" text="Numeracion" />
+                   <TableColumn fx:id="cancelarVuelo" prefWidth="99.0" />
+               </columns>
+            </TableView>
+            <Label layoutX="208.0" layoutY="20.0" prefHeight="35.0" prefWidth="258.0" text="LISTADO DEL HANGAR" textFill="#212121d1">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Button fx:id="btnVolver" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#onClickBtnVolver" text="Volver" />
+         </children>
+         <effect>
+            <DropShadow height="25.0" offsetX="10.0" offsetY="10.0" radius="12.43" width="26.72">
+               <color>
+                  <Color opacity="0.4135877788066864" />
+               </color>
+            </DropShadow>
+         </effect>
+      </AnchorPane>
    </children>
 </AnchorPane>
