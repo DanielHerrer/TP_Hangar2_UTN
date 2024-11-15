@@ -6,29 +6,45 @@
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.BoxBlur?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="447.0" prefWidth="383.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.utn.hangar.homeControllers.ModifyPerfilController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.utn.hangar.homeControllers.ModifyPerfilController">
    <children>
-      <Button fx:id="btnVolver" layoutX="153.0" layoutY="371.0" mnemonicParsing="false" onAction="#onClickBtnVolver" prefHeight="23.0" prefWidth="77.0" text="Volver">
-         <padding>
-            <Insets bottom="7.0" top="7.0" />
-         </padding></Button>
-      <TextField fx:id="inputNomApe" layoutX="87.0" layoutY="96.0" prefHeight="34.0" prefWidth="208.0" promptText="Nombre y apellido" />
-      <TextField fx:id="inputDNI" layoutX="88.0" layoutY="182.0" prefHeight="34.0" prefWidth="208.0" promptText="DNI" />
-      <TextField fx:id="inputAnioNac" layoutX="88.0" layoutY="139.0" prefHeight="34.0" prefWidth="208.0" promptText="Año de nacimiento" />
-      <ComboBox fx:id="SelecGen" layoutX="88.0" layoutY="226.0" prefHeight="34.0" prefWidth="208.0" promptText="Genero" visibleRowCount="3" />
-      <Button fx:id="btnSavePerfil" layoutX="122.0" layoutY="323.0" mnemonicParsing="false" onAction="#onClickBtnSavePerfil" style="-fx-background-color: lightgreen;" text="Guardar cambios">
-         <padding>
-            <Insets bottom="10.0" left="25.0" right="25.0" top="10.0" />
-         </padding>
-      </Button>
-      <Label alignment="CENTER" layoutX="75.0" layoutY="45.0" prefHeight="36.0" prefWidth="234.0" text="Modificar Perfil">
-         <font>
-            <Font size="25.0" />
-         </font>
-      </Label>
-      <Hyperlink fx:id="linkCambiarUserPass" layoutX="109.0" layoutY="274.0" onAction="#onClickLinkCambiarUserPass" text="Cambiar usuario y contraseña" />
+      <ImageView fitHeight="747.0" fitWidth="1000.0" preserveRatio="true" AnchorPane.bottomAnchor="-500.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-500.0" AnchorPane.topAnchor="-100.0">
+         <image>
+            <Image url="@../../../../images/image7.png" />
+         </image>
+         <effect>
+            <BoxBlur height="3.0" width="3.0" />
+         </effect>
+      </ImageView>
+      <AnchorPane layoutX="309.0" layoutY="77.0" prefHeight="447.0" prefWidth="383.0" style="-fx-background-color: white; -fx-background-radius: 8;">
+         <children>
+            <Button fx:id="btnVolver" layoutX="153.0" layoutY="371.0" mnemonicParsing="false" onAction="#onClickBtnVolver" prefHeight="23.0" prefWidth="77.0" text="Volver">
+               <padding>
+                  <Insets bottom="7.0" top="7.0" />
+               </padding>
+            </Button>
+            <TextField fx:id="inputNomApe" layoutX="87.0" layoutY="96.0" prefHeight="34.0" prefWidth="208.0" promptText="Nombre y apellido" />
+            <TextField fx:id="inputDNI" layoutX="88.0" layoutY="182.0" prefHeight="34.0" prefWidth="208.0" promptText="DNI" />
+            <TextField fx:id="inputAnioNac" layoutX="88.0" layoutY="139.0" prefHeight="34.0" prefWidth="208.0" promptText="Año de nacimiento" />
+            <ComboBox fx:id="SelecGen" layoutX="88.0" layoutY="226.0" prefHeight="34.0" prefWidth="208.0" promptText="Genero" visibleRowCount="3" />
+            <Button fx:id="btnSavePerfil" layoutX="122.0" layoutY="323.0" mnemonicParsing="false" onAction="#onClickBtnSavePerfil" style="-fx-background-color: lightgreen;" text="Guardar cambios">
+               <padding>
+                  <Insets bottom="10.0" left="25.0" right="25.0" top="10.0" />
+               </padding>
+            </Button>
+            <Label alignment="CENTER" layoutX="75.0" layoutY="45.0" prefHeight="36.0" prefWidth="234.0" text="Modificar Perfil">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+            <Hyperlink fx:id="linkCambiarUserPass" layoutX="109.0" layoutY="274.0" onAction="#onClickLinkCambiarUserPass" text="Cambiar usuario y contraseña" />
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

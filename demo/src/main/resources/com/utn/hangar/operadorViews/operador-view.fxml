@@ -10,47 +10,50 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="650.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.utn.hangar.operadorControllers.OperadorController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.utn.hangar.operadorControllers.OperadorController">
     <children>
-      <ImageView fitHeight="700.0" fitWidth="1200.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="700.0" fitWidth="1010.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="-500.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-500.0" AnchorPane.topAnchor="0.0">
          <image>
-            <Image url="@../../../../images/image2.png" />
+            <Image url="@../../../../images/image6.png" />
          </image>
          <effect>
             <BoxBlur height="6.0" width="6.0" />
          </effect>
       </ImageView>
-      <AnchorPane layoutX="408.0" layoutY="173.0" prefHeight="327.0" prefWidth="385.0" style="-fx-background-color: white; -fx-background-radius: 8;">
+      <AnchorPane layoutX="313.0" layoutY="104.0" prefHeight="393.0" prefWidth="385.0" style="-fx-background-color: white; -fx-background-radius: 8;">
          <effect>
-            <DropShadow height="27.0" offsetX="10.0" offsetY="10.0" radius="13.0" width="27.0">
+            <DropShadow height="27.0" radius="13.0" width="27.0">
                <color>
                   <Color opacity="0.3206106722354889" />
                </color>
             </DropShadow>
          </effect>
          <children>
-              <Button fx:id="btnMenuHangar" layoutX="86.0" layoutY="52.0" mnemonicParsing="false" onAction="#onClickBtnMenuHangar" prefHeight="38.0" prefWidth="214.0" text="Menu Hangar de Despegue">
+              <Button fx:id="btnMenuHangar" layoutX="86.0" layoutY="103.0" mnemonicParsing="false" onAction="#onClickBtnMenuHangar" prefHeight="38.0" prefWidth="214.0" text="Hangar de Despegue">
                <font>
-                  <Font size="15.0" />
+                  <Font size="14.0" />
                </font>
             </Button>
-              <Button fx:id="btnTallerAviones" layoutX="86.0" layoutY="104.0" mnemonicParsing="false" onAction="#onBtnTallerAvionesButtonClick" prefHeight="38.0" prefWidth="214.0" text="Menu Taller de Aviones">
+              <Button fx:id="btnTallerAviones" layoutX="86.0" layoutY="148.0" mnemonicParsing="false" onAction="#onBtnTallerAvionesButtonClick" prefHeight="38.0" prefWidth="214.0" text="Taller de Aviones">
                <font>
-                  <Font size="17.0" />
+                  <Font size="14.0" />
                </font>
             </Button>
-              <Button fx:id="btnCuartelPilotos" layoutX="86.0" layoutY="156.0" mnemonicParsing="false" onAction="#onBtnCuartelPilotosButtonClick" prefHeight="38.0" prefWidth="214.0" text="Menu Cuartel de Pilotos">
+              <Button fx:id="btnCuartelPilotos" layoutX="86.0" layoutY="193.0" mnemonicParsing="false" onAction="#onBtnCuartelPilotosButtonClick" prefHeight="38.0" prefWidth="214.0" text="Cuartel de Pilotos">
                <font>
-                  <Font size="17.0" />
+                  <Font size="14.0" />
                </font>
             </Button>
-              <Button fx:id="btnModificarPerfil" layoutX="86.0" layoutY="213.0" mnemonicParsing="false" onAction="#onBtnModificarPerfilButtonClick" prefHeight="38.0" prefWidth="214.0" text="Modificar mi perfil">
+              <Button fx:id="btnModificarPerfil" layoutX="121.0" layoutY="271.0" mnemonicParsing="false" onAction="#onBtnModificarPerfilButtonClick" prefHeight="30.0" prefWidth="143.0" text="Modificar mi Perfil">
                <font>
-                  <Font size="15.0" />
+                  <Font size="14.0" />
                </font>
             </Button>
-              <Button fx:id="btnLogout" layoutX="140.0" layoutY="274.0" mnemonicParsing="false" onAction="#onBtnLogoutButtonClick" prefHeight="27.0" prefWidth="106.0" text="Cerrar sesión" />
-              <Label layoutX="86.0" layoutY="14.0" text="MENU OPERADOR">
+              <Button fx:id="btnLogout" layoutX="121.0" layoutY="311.0" mnemonicParsing="false" onAction="#onBtnLogoutButtonClick" prefHeight="30.0" prefWidth="143.0" style="-fx-background-color: pink;" text="Cerrar sesión">
+               <font>
+                  <Font size="14.0" />
+               </font></Button>
+              <Label layoutX="101.0" layoutY="40.0" text="Menú Operador">
                   <font>
                       <Font size="26.0" />
                   </font>

@@ -5,33 +5,52 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.BoxBlur?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="384.0" prefWidth="383.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.utn.hangar.homeControllers.ModifyPassController">
-    <children>
-        <Button fx:id="btnSavePass" layoutX="122.0" layoutY="258.0" mnemonicParsing="false" onAction="#onClickBtnSavePass" style="-fx-background-color: lightgreen;" text="Guardar cambios">
-            <padding>
-                <Insets bottom="10.0" left="25.0" right="25.0" top="10.0" />
-            </padding>
-        </Button>
-        <Label alignment="CENTER" layoutX="74.0" layoutY="56.0" prefHeight="36.0" prefWidth="234.0" text="Usuario / Contraseña">
-            <font>
-                <Font size="25.0" />
-            </font>
-        </Label>
-        <Button fx:id="btnCancel" layoutX="143.0" layoutY="312.0" mnemonicParsing="false" onAction="#onClickBtnCancel" style="-fx-background-color: pink;" text="Cancelar">
-            <padding>
-                <Insets bottom="5.0" left="25.0" right="25.0" top="5.0" />
-            </padding>
-        </Button>
-      <TextField fx:id="inputUser" layoutX="88.0" layoutY="109.0" prefHeight="34.0" prefWidth="208.0" promptText="Ingrese nuevo usuario.." />
-      <PasswordField fx:id="inputPass" layoutX="88.0" layoutY="152.0" prefHeight="34.0" prefWidth="208.0" promptText="Ingrese nueva contraseña.." />
-      <PasswordField fx:id="inputPassConfirm" layoutX="88.0" layoutY="195.0" prefHeight="34.0" prefWidth="208.0" promptText="Confirmar nueva contraseña.." />
-      <Label alignment="CENTER" layoutX="75.0" layoutY="27.0" prefHeight="036.0" prefWidth="234.0" text="Cambiar">
-         <font>
-            <Font size="25.0" />
-         </font>
-      </Label>
-    </children>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.utn.hangar.homeControllers.ModifyPassController">
+   <children>
+      <ImageView fitHeight="670.0" fitWidth="1066.0" preserveRatio="true" AnchorPane.bottomAnchor="-500.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-500.0" AnchorPane.topAnchor="0.0">
+         <image>
+            <Image url="@../../../../images/image9.png" />
+         </image>
+         <effect>
+            <BoxBlur height="2.0" width="2.0" />
+         </effect>
+      </ImageView>
+      <AnchorPane layoutX="311.0" layoutY="108.0" prefHeight="384.0" prefWidth="383.0" style="-fx-background-color: white; -fx-background-radius: 8;">
+         <children>
+            <Button fx:id="btnSavePass" layoutX="122.0" layoutY="264.0" mnemonicParsing="false" onAction="#onClickBtnSavePass" style="-fx-background-color: lightgreen;" text="Guardar cambios">
+               <padding>
+                  <Insets bottom="10.0" left="25.0" right="25.0" top="10.0" />
+               </padding>
+            </Button>
+            <Label alignment="CENTER" layoutX="74.0" layoutY="56.0" prefHeight="36.0" prefWidth="234.0" text="Usuario / Contraseña">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+            <Button fx:id="btnCancel" layoutX="122.0" layoutY="312.0" mnemonicParsing="false" onAction="#onClickBtnCancel" prefHeight="27.0" prefWidth="140.0" style="-fx-background-color: pink;" text="Cancelar">
+               <padding>
+                  <Insets bottom="5.0" left="25.0" right="25.0" top="5.0" />
+               </padding>
+            </Button>
+            <TextField fx:id="inputUser" layoutX="88.0" layoutY="113.0" prefHeight="34.0" prefWidth="208.0" promptText="Ingrese nuevo usuario.." />
+            <PasswordField fx:id="inputPass" layoutX="88.0" layoutY="156.0" prefHeight="34.0" prefWidth="208.0" promptText="Ingrese nueva contraseña.." />
+            <PasswordField fx:id="inputPassConfirm" layoutX="88.0" layoutY="199.0" prefHeight="34.0" prefWidth="208.0" promptText="Confirmar nueva contraseña.." />
+            <Label alignment="CENTER" layoutX="75.0" layoutY="30.0" prefHeight="036.0" prefWidth="234.0" text="Modificar">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+         </children>
+         <effect>
+            <DropShadow />
+         </effect>
+      </AnchorPane>
+   </children>
 </AnchorPane>

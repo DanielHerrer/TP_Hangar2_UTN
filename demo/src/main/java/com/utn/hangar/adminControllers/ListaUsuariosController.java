@@ -38,7 +38,7 @@ public class ListaUsuariosController {
     private TableColumn<Usuario, String> apellidoUsuario;
 
     @FXML
-    private TableColumn<Usuario, String> rolUsuario;
+    private TableColumn<Usuario, Void> rolUsuario;
 
     @FXML
     private TableColumn<Usuario, Void> altaUsuario;
@@ -64,18 +64,73 @@ public class ListaUsuariosController {
         // Esta linea te muestra el rol como 0 , 1 , 2
         //rolUsuario.setCellValueFactory(cellData -> new SimpleObjectProperty<>(cellData.getValue().getRol()));
 
-        // Configura la columna rolUsuario para mostrar el texto correspondiente
-        rolUsuario.setCellValueFactory(cellData -> {
-            int rol = cellData.getValue().getRol();
-            String rolTexto;
-            switch (rol) {
-                case 0: rolTexto = "INVITADO"; break;
-                case 1: rolTexto = "OPERADOR"; break;
-                case 2: rolTexto = "ADMIN"; break;
-                default: rolTexto = "DESCONOCIDO"; break; // Para valores no esperados
+        // Agrega el botón de "Rol" en cada fila de la columna rolUsuario
+        rolUsuario.setCellFactory(new Callback<TableColumn<Usuario, Void>, TableCell<Usuario, Void>>() {
+            @Override
+            public TableCell<Usuario, Void> call(final TableColumn<Usuario, Void> param) {
+                return new TableCell<Usuario, Void>() {
+                    private final Button btnRol = new Button();
+
+                    {
+                        btnRol.setMaxWidth(Double.MAX_VALUE);
+                        btnRol.setAlignment(Pos.CENTER);
+
+                        // Define la acción del botón para alternar entre los roles
+                        btnRol.setOnAction((ActionEvent event) -> {
+                            Usuario usuario = getTableView().getItems().get(getIndex());
+
+                            // Alterna el rol entre 0, 1, y 2
+                            int nuevoRol = (usuario.getRol() + 1) % 3; // Va a cambiar entre 0, 1 y 2
+                            usuario.setRol(nuevoRol);
+
+                            // Guarda la modificación del rol en el archivo
+                            gestorUsuarios.guardarUsuarioToFile();
+
+                            // Actualiza el botón en la interfaz
+                            actualizarBotonRol(btnRol, nuevoRol);
+                        });
+                    }
+
+                    @Override
+                    public void updateItem(Void item, boolean empty) {
+                        super.updateItem(item, empty);
+                        if (empty) {
+                            setGraphic(null);
+                        } else {
+                            Usuario usuario = getTableView().getItems().get(getIndex());
+                            int rolActual = usuario.getRol();
+
+                            // Actualiza el botón según el rol actual del usuario
+                            actualizarBotonRol(btnRol, rolActual);
+                            setGraphic(btnRol);
+                        }
+                    }
+
+                    // Método para configurar el botón de rol según el valor
+                    private void actualizarBotonRol(Button btn, int rol) {
+                        switch (rol) {
+                            case 0:
+                                btn.setText("INVITADO");
+                                btn.setStyle("-fx-background-color: #76878f; -fx-text-fill: white;");
+                                break;
+                            case 1:
+                                btn.setText("OPERADOR");
+                                btn.setStyle("-fx-background-color: #1994ca; -fx-text-fill: white;");
+                                break;
+                            case 2:
+                                btn.setText("ADMIN");
+                                btn.setStyle("-fx-background-color: #e8c10f; -fx-text-fill: white;");
+                                break;
+                            default:
+                                btn.setText("DESCONOCIDO");
+                                btn.setStyle("-fx-background-color: gray; -fx-text-fill: black;");
+                                break;
+                        }
+                    }
+                };
             }
-            return new SimpleStringProperty(rolTexto);
         });
+
 
         // Esta linea te muestra el alta como 0 , 1
         //altaUsuario.setCellValueFactory(cellData -> new SimpleObjectProperty<>(cellData.getValue().getAlta()));

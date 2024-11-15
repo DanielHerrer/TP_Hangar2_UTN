@@ -5,21 +5,40 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.BoxBlur?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="298.0" prefWidth="350.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.utn.hangar.homeControllers.LoginController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.utn.hangar.homeControllers.LoginController">
    <children>
-      <Label layoutX="82.0" layoutY="49.0" text="Utilice sus credenciales:">
-         <font>
-            <Font size="18.0" />
-         </font></Label>
-      <Button id="btnLogin" fx:id="btnLogin" layoutX="125.0" layoutY="202.0" mnemonicParsing="false" onAction="#onClickBtnLogin" prefHeight="27.0" prefWidth="101.0" style="-fx-background-color: lightblue;" text="Iniciar sesión" />
-      <TextField fx:id="inputUser" layoutX="84.0" layoutY="88.0" prefHeight="25.0" prefWidth="182.0" promptText="Ingrese su usuario.." />
-      <PasswordField fx:id="inputPass" layoutX="84.0" layoutY="121.0" onAction="#onClickBtnLogin" prefHeight="25.0" prefWidth="182.0" promptText="Ingrese su contraseña.." />
-
-      <Button fx:id="btnVolver" layoutX="125.0" layoutY="238.0" mnemonicParsing="false" onAction="#onClickBtnVolver" prefHeight="25.0" prefWidth="101.0" text="Volver" />
-      <Hyperlink fx:id="linkRegister" layoutX="182.0" layoutY="160.0" onAction="#onClickLinkRegister" text="Registrate aquí" />
-      <Label layoutX="81.0" layoutY="163.0" text="¿No tienes cuenta?" />
+      <ImageView fitHeight="653.0" fitWidth="1082.0" preserveRatio="true" AnchorPane.bottomAnchor="-500.0" AnchorPane.leftAnchor="-75.0" AnchorPane.rightAnchor="-500.0" AnchorPane.topAnchor="0.0">
+         <image>
+            <Image url="@../../../../images/image1.png" />
+         </image>
+         <effect>
+            <BoxBlur height="6.0" width="6.0" />
+         </effect>
+      </ImageView>
+      <AnchorPane layoutX="325.0" layoutY="127.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="332.0" prefWidth="350.0" style="-fx-background-color: white; -fx-background-radius: 8;">
+         <children>
+            <Label layoutX="52.0" layoutY="51.0" text="Utilice sus credenciales:">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Button id="btnLogin" fx:id="btnLogin" layoutX="111.0" layoutY="218.0" mnemonicParsing="false" onAction="#onClickBtnLogin" prefHeight="27.0" prefWidth="130.0" style="-fx-background-color: lightblue;" text="Iniciar sesión" />
+            <TextField fx:id="inputUser" layoutX="84.0" layoutY="97.0" prefHeight="25.0" prefWidth="182.0" promptText="Ingrese su usuario.." />
+            <PasswordField fx:id="inputPass" layoutX="84.0" layoutY="132.0" onAction="#onClickBtnLogin" prefHeight="25.0" prefWidth="182.0" promptText="Ingrese su contraseña.." />
+            <Button fx:id="btnVolver" layoutX="111.0" layoutY="253.0" mnemonicParsing="false" onAction="#onClickBtnVolver" prefHeight="25.0" prefWidth="130.0" text="Volver" />
+            <Hyperlink fx:id="linkRegister" layoutX="182.0" layoutY="175.0" onAction="#onClickLinkRegister" text="Registrate aquí" />
+            <Label layoutX="81.0" layoutY="178.0" text="¿No tienes cuenta?" />
+         </children>
+         <effect>
+            <DropShadow />
+         </effect>
+      </AnchorPane>
    </children>
 </AnchorPane>

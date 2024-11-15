@@ -10,9 +10,9 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="625.0" prefWidth="1180.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.utn.hangar.adminControllers.AdminController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.utn.hangar.adminControllers.AdminController">
    <children>
-      <ImageView fitHeight="640.0" fitWidth="1200.0" layoutX="-3.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="610.0" fitWidth="1250.0" layoutX="1.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="-500.0" AnchorPane.leftAnchor="-150.0" AnchorPane.rightAnchor="-500.0" AnchorPane.topAnchor="0.0">
          <image>
             <Image url="@../../../../images/image3.png" />
          </image>
@@ -20,22 +20,34 @@
             <BoxBlur height="3.0" width="3.0" />
          </effect>
       </ImageView>
-      <AnchorPane layoutX="410.0" layoutY="178.0" prefHeight="277.0" prefWidth="381.0" style="-fx-background-color: white; -fx-background-radius: 8;">
+      <AnchorPane layoutX="310.0" layoutY="137.0" prefHeight="327.0" prefWidth="381.0" style="-fx-background-color: white; -fx-background-radius: 8;">
          <effect>
-            <DropShadow height="27.0" offsetX="10.0" offsetY="10.0" radius="13.0" width="27.0">
+            <DropShadow height="27.0" radius="13.0" width="27.0">
                <color>
                   <Color opacity="0.3778626024723053" />
                </color>
             </DropShadow>
          </effect>
          <children>
-            <Button fx:id="btnListaUsuarios" layoutX="126.0" layoutY="68.0" mnemonicParsing="false" onAction="#onClickBtnListaUsuarios" prefHeight="27.0" prefWidth="129.0" text="Listar Usuarios" />
-            <Button fx:id="btnListaRegistros" layoutX="127.0" layoutY="112.0" mnemonicParsing="false" onAction="#onClickBtnListaRegistros" prefHeight="27.0" prefWidth="129.0" text="Ver ultimos Registros" />
-            <Button fx:id="btnModifyPerfil" layoutX="127.0" layoutY="163.0" mnemonicParsing="false" onAction="#onClickBtnModifyPerfil" prefHeight="27.0" prefWidth="129.0" text="Modificar mi perfil" />
-            <Button fx:id="btnLogout" layoutX="149.0" layoutY="215.0" mnemonicParsing="false" onAction="#onClickBtnLogout" style="-fx-background-color: lightblue;" text="Cerrar sesión" />
-            <Label layoutX="92.0" layoutY="14.0" text="MENU ADMINISTRADOR">
+            <Button fx:id="btnListaUsuarios" layoutX="115.0" layoutY="93.0" mnemonicParsing="false" onAction="#onClickBtnListaUsuarios" prefHeight="30.0" prefWidth="152.0" text="Listar Usuarios">
                <font>
-                  <Font size="18.0" />
+                  <Font size="14.0" />
+               </font></Button>
+            <Button fx:id="btnListaRegistros" layoutX="115.0" layoutY="135.0" mnemonicParsing="false" onAction="#onClickBtnListaRegistros" prefHeight="30.0" prefWidth="152.0" text="Ver ultimos Registros">
+               <font>
+                  <Font size="14.0" />
+               </font></Button>
+            <Button fx:id="btnModifyPerfil" layoutX="120.0" layoutY="200.0" mnemonicParsing="false" onAction="#onClickBtnModifyPerfil" prefHeight="30.0" prefWidth="141.0" text="Modificar mi perfil">
+               <font>
+                  <Font size="14.0" />
+               </font></Button>
+            <Button fx:id="btnLogout" layoutX="138.0" layoutY="241.0" mnemonicParsing="false" onAction="#onClickBtnLogout" prefHeight="25.0" prefWidth="105.0" style="-fx-background-color: pink;" text="Cerrar sesión">
+               <font>
+                  <Font size="14.0" />
+               </font></Button>
+            <Label layoutX="81.0" layoutY="32.0" text="Menú Administrador">
+               <font>
+                  <Font size="24.0" />
                </font>
             </Label>
          </children>

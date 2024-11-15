@@ -6,26 +6,57 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.BoxBlur?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="551.0" prefWidth="511.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.utn.hangar.homeControllers.RegisterController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.utn.hangar.homeControllers.RegisterController">
    <children>
-      <Label layoutX="109.0" layoutY="63.0" prefHeight="36.0" prefWidth="282.0" text="Complete con sus datos:">
-         <font>
-            <Font size="25.0" />
-         </font></Label>
-      <TextField fx:id="inputUser" layoutX="146.0" layoutY="326.0" prefHeight="34.0" prefWidth="208.0" promptText="Ingrese usuario.." />
-      <PasswordField fx:id="inputPass" layoutX="146.0" layoutY="369.0" prefHeight="34.0" prefWidth="208.0" promptText="Ingrese contraseña.." />
-      <PasswordField fx:id="inputPassConfirm" layoutX="146.0" layoutY="412.0" onAction="#onClickBtnRegister" prefHeight="34.0" prefWidth="208.0" promptText="Confirmar contraseña.." />
-      <Button fx:id="btnRegister" layoutX="180.0" layoutY="478.0" mnemonicParsing="false" onAction="#onClickBtnRegister" style="-fx-background-color: lightblue;" text="Registrarse">
-         <padding>
-            <Insets bottom="10.0" left="40.0" right="40.0" top="10.0" />
-         </padding></Button>
-      <Button fx:id="btnVolver" layoutX="26.0" layoutY="25.0" mnemonicParsing="false" onAction="#onClickBtnVolver" text="Volver" />
-      <TextField fx:id="inputNomApe" layoutX="145.0" layoutY="122.0" prefHeight="34.0" prefWidth="208.0" promptText="Nombre y apellido" />
-      <TextField fx:id="inputDNI" layoutX="146.0" layoutY="208.0" prefHeight="34.0" prefWidth="208.0" promptText="DNI" />
-      <TextField fx:id="inputAnioNac" layoutX="146.0" layoutY="165.0" prefHeight="34.0" prefWidth="208.0" promptText="Año de nacimiento" />
-      <ComboBox fx:id="SelecGen" layoutX="146.0" layoutY="251.0" prefHeight="34.0" prefWidth="208.0" promptText="Genero" visibleRowCount="3" />
+      <ImageView fitHeight="653.0" fitWidth="1082.0" preserveRatio="true" AnchorPane.bottomAnchor="-500.0" AnchorPane.leftAnchor="-75.0" AnchorPane.rightAnchor="-500.0" AnchorPane.topAnchor="0.0">
+         <image>
+            <Image url="@../../../../images/image1.png" />
+         </image>
+         <effect>
+            <BoxBlur />
+         </effect>
+      </ImageView>
+      <AnchorPane layoutX="291.0" layoutY="25.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="551.0" prefWidth="419.0" style="-fx-background-color: white; -fx-background-radius: 8;" AnchorPane.topAnchor="25.0">
+         <children>
+            <Label alignment="CENTER" layoutX="70.0" layoutY="69.0" prefHeight="36.0" prefWidth="282.0" text="Complete con sus datos:">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </Label>
+            <Button fx:id="btnVolver" layoutX="26.0" layoutY="25.0" mnemonicParsing="false" onAction="#onClickBtnVolver" prefHeight="25.0" prefWidth="67.0" style="-fx-background-color: pink;" text="Volver" AnchorPane.leftAnchor="23.0" AnchorPane.topAnchor="23.0">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+
+            <TextField fx:id="inputNomApe" layoutX="106.0" layoutY="127.0" prefHeight="34.0" prefWidth="208.0" promptText="Nombre y apellido" />
+            <TextField fx:id="inputAnioNac" layoutX="107.0" layoutY="170.0" prefHeight="34.0" prefWidth="208.0" promptText="Año de nacimiento" />
+            <TextField fx:id="inputDNI" layoutX="107.0" layoutY="213.0" prefHeight="34.0" prefWidth="208.0" promptText="DNI" />
+            <ComboBox fx:id="SelecGen" layoutX="107.0" layoutY="256.0" prefHeight="34.0" prefWidth="208.0" promptText="Genero" visibleRowCount="3" />
+
+            <TextField fx:id="inputUser" layoutX="107.0" layoutY="321.0" prefHeight="34.0" prefWidth="208.0" promptText="Ingrese usuario.." />
+            <PasswordField fx:id="inputPass" layoutX="107.0" layoutY="364.0" prefHeight="34.0" prefWidth="208.0" promptText="Ingrese contraseña.." />
+            <PasswordField fx:id="inputPassConfirm" layoutX="107.0" layoutY="407.0" onAction="#onClickBtnRegister" prefHeight="34.0" prefWidth="208.0" promptText="Confirmar contraseña.." />
+
+            <Button fx:id="btnRegister" layoutX="107.0" layoutY="466.0" mnemonicParsing="false" onAction="#onClickBtnRegister" prefHeight="40.0" prefWidth="208.0" style="-fx-background-color: lightblue;" text="Registrarse">
+               <padding>
+                  <Insets bottom="10.0" left="40.0" right="40.0" top="10.0" />
+               </padding>
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+         </children>
+         <effect>
+            <DropShadow />
+         </effect>
+      </AnchorPane>
    </children>
 </AnchorPane>
