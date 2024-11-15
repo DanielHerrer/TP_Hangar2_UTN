@@ -1,6 +1,12 @@
 package com.utn.hangar.operadorControllers;
 
 import com.utn.hangar.Ventanas;
+import com.utn.hangar.radar.RadarAviones;
+import entidades.Avion;
+import entidades.Piloto;
+import gestores.GestorAviones;
+import gestores.GestorHangar;
+import gestores.GestorPilotos;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -62,8 +68,37 @@ public class MenuHangarController {
     @FXML
     void onClickBtnDespegarAviones(ActionEvent event) {
         try {
-            Stage stage = (Stage) btnDespegarAviones.getScene().getWindow();
-            Ventanas.cambioEscena("Sistema Hangar 2.0",stage, "/com/utn/hangar/operadorViews/despegar-view.fxml");
+            RadarAviones radarAviones = new RadarAviones();
+            radarAviones.mostrarRadar();
+
+            GestorHangar gestorHangar = new GestorHangar();
+            gestorHangar.cargarHangarDesdeArchivo();
+
+            GestorAviones gestorAviones = new GestorAviones();
+            gestorAviones.cargarAvionDesdeArchivo();
+
+            GestorPilotos gestorPilotos = new GestorPilotos();
+            gestorPilotos.cargarPilotoDesdeArchivo();
+
+            for (Avion avi : gestorHangar.getListaHangar()) {
+                //PRIMERO BORRO EL AVION DE LA LISTA DEL HANGAR
+                gestorHangar.getListaHangar().remove(avi);
+                gestorHangar.guardarHangarToFile();
+
+                // ACTUALIZO EL ESTADO Y LOS ATRIBUTOS DEL AVION
+                gestorAviones.eliminarPilotoDeAvion(avi);
+                Avion avionActualizado = gestorAviones.getAvionPorID(avi.getId());
+                avionActualizado.consumirCombustible();
+                avionActualizado.setVuelosRealizados(avionActualizado.getVuelosRealizados() + 1);
+                gestorAviones.guardarAvionToFile();
+
+                // ACTUALIZO EL ESTADO Y LOS ATRIBUTOS DEL PILOTO
+                gestorPilotos.actualizarEstadoPiloto(avi.getPiloto());
+                Piloto pilotoActualizado = gestorPilotos.getPilotoPorID(avi.getPiloto().getId());
+                pilotoActualizado.aumentarHorasVuelo();
+                gestorPilotos.guardarPilotoToFile();
+            }
+
         } catch (Exception e) {
             Ventanas.exceptionError(e);
             e.printStackTrace();

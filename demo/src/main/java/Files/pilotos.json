@@ -4,7 +4,7 @@
         "rango": "ALUMNO_PILOTO",
         "alta": 1,
         "genero": "MASCULINO",
-        "horasVuelo": 24,
+        "horasVuelo": 26,
         "anioNacimiento": 2002,
         "id": 1,
         "dni": "456123",
@@ -13,22 +13,22 @@
     },
     {
         "nombreApellido": "Franco Colapinto",
-        "rango": "SEGUNDO_OFICIAL",
+        "rango": "ALUMNO_PILOTO",
         "alta": 1,
         "genero": "MASCULINO",
-        "horasVuelo": 54,
+        "horasVuelo": 10,
         "anioNacimiento": 2001,
         "id": 2,
         "dni": "963852",
         "numeroLicencia": "00043",
-        "disponible": true
+        "disponible": false
     },
     {
         "nombreApellido": "Valtteri Bottas",
-        "rango": "PRIMER_OFICIAL",
+        "rango": "ALUMNO_PILOTO",
         "alta": 1,
         "genero": "MASCULINO",
-        "horasVuelo": 85,
+        "horasVuelo": 8,
         "anioNacimiento": 1985,
         "id": 3,
         "dni": "159753",
@@ -37,10 +37,10 @@
     },
     {
         "nombreApellido": "Facundo Colidio",
-        "rango": "PILOTO_INSTRUMENTAL",
+        "rango": "ALUMNO_PILOTO",
         "alta": 1,
         "genero": "MASCULINO",
-        "horasVuelo": 33,
+        "horasVuelo": 12,
         "anioNacimiento": 2001,
         "id": 4,
         "dni": "753951",
@@ -49,10 +49,10 @@
     },
     {
         "nombreApellido": "Jordi Wild",
-        "rango": "SEGUNDO_OFICIAL",
+        "rango": "ALUMNO_PILOTO",
         "alta": 1,
         "genero": "MASCULINO",
-        "horasVuelo": 67,
+        "horasVuelo": 1,
         "anioNacimiento": 1991,
         "id": 5,
         "dni": "741963",
@@ -64,7 +64,7 @@
         "rango": "ALUMNO_PILOTO",
         "alta": 1,
         "genero": "MASCULINO",
-        "horasVuelo": 22,
+        "horasVuelo": 4,
         "anioNacimiento": 2003,
         "id": 6,
         "dni": "65642",
@@ -74,13 +74,13 @@
     {
         "nombreApellido": "Ricky Blanco",
         "rango": "SEGUNDO_OFICIAL",
-        "alta": 0,
+        "alta": 1,
         "genero": "MASCULINO",
         "horasVuelo": 69,
         "anioNacimiento": 1980,
         "id": 7,
         "dni": "258357",
         "numeroLicencia": "00255",
-        "disponible": true
+        "disponible": false
     }
 ]
