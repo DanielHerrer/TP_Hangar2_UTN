@@ -31,7 +31,7 @@ public class RadarAviones {
     public RadarAviones() {
         // Cargar la cantidad de aviones al inicio
         GestorHangar gestorHangar = new GestorHangar();
-        gestorHangar.cargarHangarDesdeArchivo();
+        gestorHangar.cargarDesdeArchivo();
         NUM_AVIONES = gestorHangar.getListaHangar().size();
 
         // Inicializar el arreglo de aviones con el número de aviones obtenido
@@ -70,7 +70,7 @@ public class RadarAviones {
     private void iniciarAviones() {
         int radioMayor = TAMANIO_RADAR / 2 / TAMANIO_CELDA;
         GestorHangar gestorHangar = new GestorHangar();
-        gestorHangar.cargarHangarDesdeArchivo();
+        gestorHangar.cargarDesdeArchivo();
 
         ArrayList<String> nombreAvion = new ArrayList<>();
         for (Avion av : gestorHangar.getListaHangar()) {

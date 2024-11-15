@@ -57,14 +57,12 @@ public class GestorAviones implements iMetodosJSON {
     }
 
     public Avion getAvionPorID(int id) {
-        Avion avion = null;
-
         for (Avion a : listaAviones) {
             if (a.getId() == id) {
-                avion = a;
+                return a;
             }
         }
-        return avion;
+        return null;
     }
 
     public boolean verificarNumeracionModifiacion (int numeracionNueva, Avion avion) {

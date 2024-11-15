@@ -1,15 +1,15 @@
 [
     {
         "nombreApellido": "Cole Palmer",
-        "rango": "ALUMNO_PILOTO",
+        "rango": "PILOTO_INSTRUMENTAL",
         "alta": 1,
         "genero": "MASCULINO",
-        "horasVuelo": 26,
+        "horasVuelo": 35,
         "anioNacimiento": 2002,
         "id": 1,
         "dni": "456123",
         "numeroLicencia": "00020",
-        "disponible": false
+        "disponible": true
     },
     {
         "nombreApellido": "Franco Colapinto",
@@ -28,36 +28,36 @@
         "rango": "PRIMER_OFICIAL",
         "alta": 1,
         "genero": "MASCULINO",
-        "horasVuelo": 85,
+        "horasVuelo": 97,
         "anioNacimiento": 1985,
         "id": 3,
         "dni": "159753",
         "numeroLicencia": "00077",
-        "disponible": false
+        "disponible": true
     },
     {
         "nombreApellido": "Facundo Colidio",
         "rango": "PILOTO_INSTRUMENTAL",
         "alta": 1,
         "genero": "MASCULINO",
-        "horasVuelo": 33,
+        "horasVuelo": 45,
         "anioNacimiento": 2001,
         "id": 4,
         "dni": "753951",
         "numeroLicencia": "00011",
-        "disponible": false
+        "disponible": true
     },
     {
         "nombreApellido": "Jordi Wild",
         "rango": "SEGUNDO_OFICIAL",
         "alta": 1,
         "genero": "MASCULINO",
-        "horasVuelo": 67,
+        "horasVuelo": 73,
         "anioNacimiento": 1991,
         "id": 5,
         "dni": "741963",
         "numeroLicencia": "00899",
-        "disponible": false
+        "disponible": true
     },
     {
         "nombreApellido": "Yamil Yamal",
@@ -124,7 +124,7 @@
         "rango": "ALUMNO_PILOTO",
         "alta": 1,
         "genero": "MASCULINO",
-        "horasVuelo": 1,
+        "horasVuelo": 11,
         "anioNacimiento": 1965,
         "id": 11,
         "dni": "226533",
@@ -148,7 +148,7 @@
         "rango": "TERCER_CAPITAN",
         "alta": 1,
         "genero": "MASCULINO",
-        "horasVuelo": 104,
+        "horasVuelo": 114,
         "anioNacimiento": 1982,
         "id": 13,
         "dni": "653214",
