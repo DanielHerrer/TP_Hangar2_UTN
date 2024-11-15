@@ -2,6 +2,7 @@ package entidades;
 
 
 import com.sun.jdi.DoubleValue;
+import constantes.Data;
 import org.json.JSONObject;
 // que lindo avion
 import java.util.Objects;
@@ -23,7 +24,7 @@ public class Avion implements Comparable<Avion> {
     private int alta;
 
     public Avion(String nombre, int numeracion, String modelo, String aerolinea, int capacidadPasajeros) {
-        this.id = ++contadorID;
+        this.id = Data.obtenerUltimoIdAvion();
         this.piloto = null;
         this.nombre = nombre;
         this.numeracion = numeracion;

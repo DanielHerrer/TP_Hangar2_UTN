@@ -82,5 +82,89 @@
         "dni": "258357",
         "numeroLicencia": "00255",
         "disponible": true
+    },
+    {
+        "nombreApellido": "Ryan Gosling",
+        "rango": "ALUMNO_PILOTO",
+        "alta": 1,
+        "genero": "MASCULINO",
+        "horasVuelo": 23,
+        "anioNacimiento": 1980,
+        "id": 8,
+        "dni": "255631",
+        "numeroLicencia": "00089",
+        "disponible": true
+    },
+    {
+        "nombreApellido": "Gabriel Barbosa",
+        "rango": "PILOTO_INSTRUMENTAL",
+        "alta": 1,
+        "genero": "MASCULINO",
+        "horasVuelo": 35,
+        "anioNacimiento": 1985,
+        "id": 9,
+        "dni": "245699",
+        "numeroLicencia": "00099",
+        "disponible": true
+    },
+    {
+        "nombreApellido": "Mateo Pujol",
+        "rango": "PILOTO_INSTRUMENTAL",
+        "alta": 1,
+        "genero": "OTROS",
+        "horasVuelo": 43,
+        "anioNacimiento": 2001,
+        "id": 10,
+        "dni": "122655",
+        "numeroLicencia": "00025",
+        "disponible": true
+    },
+    {
+        "nombreApellido": "Tiziano Sanchez",
+        "rango": "ALUMNO_PILOTO",
+        "alta": 1,
+        "genero": "MASCULINO",
+        "horasVuelo": 1,
+        "anioNacimiento": 1965,
+        "id": 11,
+        "dni": "226533",
+        "numeroLicencia": "00078",
+        "disponible": true
+    },
+    {
+        "nombreApellido": "Juan Fernando Quintero Paniagua",
+        "rango": "PILOTO_INSTRUMENTAL",
+        "alta": 1,
+        "genero": "MASCULINO",
+        "horasVuelo": 31,
+        "anioNacimiento": 1994,
+        "id": 12,
+        "dni": "912180",
+        "numeroLicencia": "00080",
+        "disponible": true
+    },
+    {
+        "nombreApellido": "Fernando Alonso",
+        "rango": "TERCER_CAPITAN",
+        "alta": 1,
+        "genero": "MASCULINO",
+        "horasVuelo": 104,
+        "anioNacimiento": 1982,
+        "id": 13,
+        "dni": "653214",
+        "numeroLicencia": "00014",
+        "disponible": true
+    },
+    {
+        "nombreApellido": "Pedro Pascal",
+        "rango": "SEGUNDO_OFICIAL",
+        "alta": 1,
+        "genero": "MASCULINO",
+        "horasVuelo": 64,
+        "anioNacimiento": 1980,
+        "id": 14,
+        "dni": "329844",
+        "numeroLicencia": "00044",
+        "disponible": true
     }
 ]
