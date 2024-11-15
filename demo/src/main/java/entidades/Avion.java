@@ -2,13 +2,15 @@ package entidades;
 
 
 import com.sun.jdi.DoubleValue;
+import constantes.Data;
 import org.json.JSONObject;
 // que lindo avion
 import java.util.Objects;
+import java.util.Random;
 
 public class Avion implements Comparable<Avion> {
 
-    private static int contadorID = 0;
+    private static Random random = new Random();
 
     private int id;
     private Piloto piloto;
@@ -23,7 +25,7 @@ public class Avion implements Comparable<Avion> {
     private int alta;
 
     public Avion(String nombre, int numeracion, String modelo, String aerolinea, int capacidadPasajeros) {
-        this.id = ++contadorID;
+        this.id = Data.obtenerUltimoIdPiloto();
         this.piloto = null;
         this.nombre = nombre;
         this.numeracion = numeracion;
@@ -151,6 +153,12 @@ public class Avion implements Comparable<Avion> {
     public Double combustibleDouble () {
         Double resultado = (double) this.combustibleActual / 100;
         return resultado;
+    }
+
+    public void consumirCombustible () {
+        Random random = new Random();
+        int numero = random.nextInt(70) + 20;
+        this.setCombustibleActual(this.getCombustibleActual() - numero);
     }
 
 

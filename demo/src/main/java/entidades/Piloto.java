@@ -5,8 +5,11 @@ import enums.Genero;
 import enums.Rango;
 
 import java.util.Objects;
+import java.util.Random;
 
 public class Piloto extends Persona {
+
+    private static Random random = new Random();
 
     private int id;
     private String numeroLicencia;
@@ -135,6 +138,13 @@ public class Piloto extends Persona {
         {
             setRango(Rango.ALUMNO_PILOTO);
         }
+    }
+
+    public void aumentarHorasVuelo () {
+        Random random = new Random();
+        int numero = random.nextInt(12) + 1;
+        this.setHorasVuelo(this.getHorasVuelo() + numero);
+        this.actualizarRango();
     }
 
     @Override
