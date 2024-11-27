@@ -62,7 +62,7 @@ aeroplanos que hayan finalizado con éxito sus viajes y los que colisionaron.
 
 ## :open_file_folder: Diagrama UML
 
-<h5 align="center"><img src="https://github.com/DanielHerrer/TP_Hangar_UTN/assets/100254429/93134b74-e8b0-48f5-88ed-a05fa07eabd6" width=800></h5>
+<h5 align="center"><img src="https://github.com/user-attachments/assets/5cd5d601-a297-4eb6-aed7-1f9a9169c5cf"></h5>
 
 ## Integrantes Com 6 T.U.P Programacion II
 
